@@ -1,82 +1,16 @@
+# 2020-3-12 Juho Roponen
+Systiksen kandipohja on muokattu Aaltothesis paketista. Alta löytyy kyseisen paketin readme. 
+
+# 2023-14-12 Olli Herrala
+Huomaa että systiksen kandipohjassa käytetään vain tiedostoa opinnaytepohja.tex, jossa rivillä 
+\documentclass[<parametrit>]{aaltothesis} yhtenä parametrina annetaan kieli finnish/swedish/english,
+jonka perusteella kandipohja muuttaa kielen etusivulle, tiivistelmään yms.
+
 ********************************************************************************
 ** Aaltothesis package
 ** This file contains the list of changes made in the package followed by the
 ** list of contents and brief instructions on how to use this package.
 ********************************************************************************
-
-** Comments for aaltothesis package version 4.20
-# Changes from previous release
-# 2025-10-01 Luis Costa
-- The terms used in the fields of the the abstract pages for the licentiate's
-  thesis and the bachelor's thesis have been updated to correspond to the
-  current terminology.
-- The bibliography in the English (both long and short) and Finnish versions
-  are now in alphabetical order. The Swedish version, having only two entries,
-  is in order of citation.
-- The file name of the Swedish template file and some of the cover and abstract
-  content has been changed.
-- Minor clean-up done to the code in aaltothesis.cls.
-
-** Comments for aaltothesis package version 4.10
-# Changes from previous release
-# 2025-07-01 Luis Costa
-- The use of the aaltologo package to generate the logo is discontinued because
-  1. the aaltologo package isn't maintained by anyone and required changes have
-     hence not been made, and
-  2. the Aalto logo has changed to monochromatic black and white.
-  The logos have now been generated as pdf files using the official Aalto logo
-  generator (https://aaltologo.fi/) and stored in the folder logos, from where
-  they are embedded into the thesis tex file.
-- A new tex template thesistemplate_short.tex has been made containing a highly
-  abridged version of the text in thesistemplate.tex. Also, the file contains
-  the commands to use BibLaTeX. The reference database is in the file
-  thesisreference.bib. Changing the language setting in \documentclass from
-  English (as set) to Finnish or Swedish will change the language in the
-  bibliography too.
-- The order of loading the hyperref and hyperxmp packages has been corrected
-  when no PDF/A option is given as also the typo associated with the package
-  doclicense.
-- When using the option a-1b, the doclicense features to typeset the copyright
-  text must not be used. The CC logo produced contains transparency in the
-  image causing the resulting pdf to be incompatible with the PDF/A-1 standard.
-
-** Comments for aaltothesis package version 4.01
-# Changes from previous release
-# 2023-12-22 Luis Costa
-- Minor changes to the typeset name of the degree programme in English and
-  Finnish.
-- Minor additions to the comments and content of the abstract page in English
-  and Finnish.
-- An addition to the text in the TeX file in Collaborative partner 
-  field of the abstract pages.
-
-** Comments for aaltothesis package version 4.00
-# Changes from previous release
-# 2023-02-09 Luis Costa
-- The visual appearance of the ready thesis has undergone a major change. The
-  fonts used are a Times clone and a Helvetica clone from the newtxtext and 
-  newtxmath packages. The Helvetica clone is used for all titles and the main
-  text uses the Times clone.
-  - The cover page looks different: the Aalto logo is black-and-white only as
-    per the new visual guidelines and it has a dedicated place for a subtitle.
-  - The abstract page has also undergone a few changes: the professorship and
-    code fields have been removed and a new optional field for a 'Collaborative
-    partner' for theses done in collaboration with a company or other
-    institution has been added.
-
-- The possibility to use Creative Commons licenses via the doclicenses package
-  has been added.
-
-- The possibility to include eps files has been removed, since this is
-  discouraged also by the LaTeX community.
-
-- The instructions in the tex files thesistemplate.tex and opinnaytepohja.tex
-  have been completely rewritten. In particular, they contain fairly elaborate
-  instructions on citing and creating a reference list in various styles.
-
-- The code in aaltothsis.cls has undergone many changes. The preambles of the
-  tex files thesistemplate.tex, opinnaytepohja.tex and kandidatarbetsbotten.tex
-  have been changed to accomodate the various changes made in this release.
 
 ** Comments for aaltothesis package version 3.20
 # Changes from previous release
@@ -268,8 +202,7 @@ In MikTeX (and/or the various GUIs):
 All changes are made to the file opinnaytepohja.tex or thesistemplate.tex.
 There is no need to edit the file aaltothesis.cls. 
 
-1. The default language in opinnaytepohja.tex is Finnish (and in 
-   thesistemplate.tex it is English).
+1. The default language in opinnaytepohja.tex is Finnish.
 
    To change this in opinnaytepohja.tex, uncomment 
     %\documentclass[english,12pt,...]{aaltothesis}
