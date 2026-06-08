@@ -1,4 +1,6 @@
 # Siltä varalta, että työläppäri bugaa ja laittaa kotikansion /u/ projektiin
 # Näin kävi eräässä toisessa projektissa :D
-/u/
-/build/
+u/
+build/
+Kandimatskut/
+kandimatskut/
