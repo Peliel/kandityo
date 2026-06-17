@@ -1,49 +1,4 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                                                                            %%
-%% opintnaytepohja.tex versio 3.21 (2023/12/19)                               %%
-%% Opinnäytepohja käytettäväksi aaltothesis.sty (versio 3.20) -tyylitiedoston %%
-%% kanssa.                                                                    %%
-%% Toimiakseen paketti tarvitsee pdfx.sty v. 1.5.84 (2017/05/18) tai uudempi. %% 
-%% The LaTeX template file to be used with the aaltothesis.sty (version 3.20) %%
-%% style file.                                                                %%
-%% This package requires pdfx.sty v. 1.5.84 (2017/05/18) or newer.            %% 
-%%                                                                            %%
-%% This is licensed under the terms of the MIT license below.                 %%
-%%                                                                            %%
-%% Latest version by Olli Herrala.                                            %%
-%%                                                                            %%
-%% Copyright 2023 Improvements to switching between languages by Olli Herrala %% 
-%% olli.herrala@aalto.fi                                                      %%
-%% Copyright 2018-2022 Natbib support and tools for mathematical notation     %%
-%% as well as style changes to match the Department of Mathematics and        %%
-%% Systems Analysis guidelines in the template opinnaytepohja.tex             %%
-%% by Juho Roponen juho.roponen@aalto.fi                                      %%
-%% Copyright 2017-2018, by Luis R.J. Costa, luis.costa@aalto.fi,              %%
-%% Copyright 2017-2018 Swedish translations in aaltothesis.cls by Elisabeth   %%
-%% Nyberg, elisabeth.nyberg@aalto.fi and Henrik Wallén,                       %%
-%% henrik.wallen@aalto.fi.                                                    %%
-%% Copyright 2017-2018 Finnish documentation in the template opinnatepohja.tex%%
-%% by Perttu Puska, perttu.puska@aalto.fi, and Luis R.J. Costa.               %%
-%%                                                                            %%
-%% Permission is hereby granted, free of charge, to any person obtaining a    %%
-%% copy of this software and associated documentation files (the "Software"), %%
-%% to deal in the Software without restriction, including without limitation  %%
-%% the rights to use, copy, modify, merge, publish, distribute, sublicense,   %%
-%% and/or sell copies of the Software, and to permit persons to whom the      %%
-%% Software is furnished to do so, subject to the following conditions:       %%
-%% The above copyright notice and this permission notice shall be included in %%
-%% all copies or substantial portions of the Software.                        %%
-%% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR %%
-%% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,   %%
-%% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL    %%
-%% THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER %%
-%% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING    %%
-%% FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER        %%
-%% DEALINGS IN THE SOFTWARE.                                                  %%
-%%                                                                            %%
-%%                                                                            %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                            %%
 %%                                                                            %%
 %% Esimerkki opinnäytteen tekemisestä LaTeX:lla                               %%
@@ -178,9 +133,6 @@
 \documentclass[finnish, 12pt, a4paper, sci, utf8, a-1b, online]{aaltothesis}
 %\documentclass[finnish, 12pt, a4paper, sci, utf8, a-1b]{aaltothesis}
 
-
-
-
 \usepackage{graphicx}
 \usepackage{ifthen}
 
@@ -205,6 +157,12 @@
 \newtheorem{huomautus}[definition]{Huomautus}
 \newtheorem{anmarkning}[definition]{Anmärkning}
 
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\F}{\mathbb{F}}
 
 %% Lähdeluettelon luomiseen
 %% MainLang-muuttuja tulee aaltothesis.cls -tiedostosta ja sisältää 
@@ -220,9 +178,9 @@
 \bibliographystyle{seplainnat}
 }}{}}
 
-\setcitestyle{authoryear,open={(},close={)}}
+%\setcitestyle{authoryear,open={(},close={)}}
 % use the below citestyle instead of the previous line if you want to use number citations as is common in mathematics: 
-%\setcitestyle{numbers,open={[},close={]},comma}
+\setcitestyle{numbers,open={[},close={]},comma}
 
 
 %% Korjaa vastaamaan korkeakouluasi, jos automaattisesti asetettu nimi on
