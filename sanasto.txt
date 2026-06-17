@@ -1,0 +1,7 @@
+link            sidos
+knot            solmu
+root            juuri
+splice          pujos
+fibre           kuitu
+fibration       kuidutus
+cable           kaapeli
