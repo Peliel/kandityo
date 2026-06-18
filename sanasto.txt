@@ -1,4 +1,4 @@
-link            sidos
+link            linkki
 knot            solmu
 root            juuri
 splice          pujos

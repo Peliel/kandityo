@@ -142,6 +142,10 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section] 
 \newtheorem{maaritelma}[definition]{Määritelmä}
+\newtheorem{example}[definition]{Example}
+\newtheorem{esimerkki}[definition]{Esimerkki}
+\newtheorem{asetus}[definition]{Asetus}
+
 \theoremstyle{plain}
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{lause}[definition]{Lause}
@@ -151,6 +155,7 @@
 \newtheorem{seuraus}[definition]{Seurauslause}
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{propositio}[definition]{Propositio}
+
 \theoremstyle{remark}
 \newtheorem{remark}[definition]{Remark}
 \newtheorem{huomautus}[definition]{Huomautus}
@@ -161,6 +166,8 @@
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\pallo}{\mathbb{S}}
 
 %% Lähdeluettelon luomiseen
 %% MainLang-muuttuja tulee aaltothesis.cls -tiedostosta ja sisältää 
@@ -226,14 +233,14 @@
 %% Näin kerrotaan LaTeXille, että kyseessä ei ole lauseen loppu, jonka jälkeen
 %% tulee hieman pidempi väli vaan halutaan tavallinen väli.
 %%
-\supervisor{Prof.\ {\color{red}Oscar Kivinen}}
+\supervisor{Prof.\ Oscar Kivinen}
 %%
 
 %% Kandidaatintyön ohjaaja(t) tai diplomityön ohjaaja(t). Ohjaajia saa olla
 %% korkeintaan kaksi. Todennäköisimmät tittelit suomeksi ja englanniksi:
 %% Tekniikan tohtori: TkT / D.Sc. (Tech.) 
 %% Diplomi-insinööri: DI / M.Sc. (Tech.)
-\advisor{TkT {\color{red}OHJAAJAN NIMI}}
+\advisor{Prof.\ Oscar Kivinen}
 %\advisor{DI Tina Tutkija}
 %%
 
@@ -378,8 +385,8 @@ metedata-kelpoista tiivistelmää (katso kommentti alla).
 %%
 %% Päivitetään metatieto uudelle kielelle.
 \thesistitle{Thesis template}
-\supervisor{Prof.\ {\color{red}Oscar Kivinen}}
-\advisor{DSc\ (Tech.) {\color{red}OHJAAJAN NIMI}}
+\supervisor{Prof.\ Oscar Kivinen}
+\advisor{Prof.\ Oscar Kivinen}
 %\advisor{MSc\ Tiina Tutkija}
 \degreeprogram{Teknistieteellinen kandidaattiohjelma}
 \major{Matematiikka ja systeemitieteet}
@@ -467,7 +474,7 @@ research topic, the methods you have used, and the results you obtained.
 
 \input{sections/1-johdanto}
 \input{sections/2-taustaa}
-\input{sections/3-menetelmat}
+\input{sections/3-solmut}
 \input{sections/4-tulokset}
 \input{sections/5-yhteenveto}
 

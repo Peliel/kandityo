@@ -1,13 +1,33 @@
-!TEX root = ../main.tex
 \section{Taustaa}
 % \section{Background}
 
-Tässä osassa selvitetään, mitä tutkimuksen kohteena olevasta aiheesta tiedetään
-entuudestaan. Selvityksen tulee kattaa tasapainoisesti koko tutkimuskenttä. 
+\subsection{Topologiset määritelmät}
+Tarvitsenko tätä osiota? Avoin joukko, tubulaarinen naapurusto, homeomorfismit...
+\subsection{Sileät monistot}
+Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teoriaa. Monistot ovat geometrisia rakenteita, jotka muistuttavat paikallisesti euklidista avaruutta. Ne mahdollistavat \textit{avaruuden rakenteen} käsitteen. Algebrallisten solmujen kannalta tämä on olennaista, sillä solmujen tutkimista helpottaa niiden upottaminen monistoon. Tässä työssä noudatetaan Leen \citep{Lee2012} merkintätapoja.
+\begin{maaritelma}
+    Olkoon $M$ topologinen avaruus. $M$ on \textit{$n$-ulotteinen topologinen monisto}, jos
+    \begin{itemize}
+        \item $M$ on Hausdorff-avaruus
+        \item $M$ on $N_2$-avaruus
+        \item $M$ on paikallisesti euklidisesti $n$-ulotteinen: kaikilla $p\in M$ on avoin ympäristö $U\subset M$, joka on homeomorfinen johonkin $\R^n$:n avoimeen osajoukkoon $V\subset\R^n$.
+    \end{itemize}
+\end{maaritelma}
+\begin{huomautus}
+    Yleisesti kirjoitetaan ``olkoon $M^n$ monisto'', jolla tarkoitetaan, että $M$ on $n$-ulotteinen monisto.
+\end{huomautus}
+\begin{esimerkki}
+    Esimerkiksi Maapallo on 2-ulotteinen monisto, koska paikallisesti Maapallon pinta muistuttaa tasoa. Maapallo on erityistapaus algebrallisesta pinnasta, koska sen polynomiyhtälö $x^2+y^2+z^2=R^2$.
+\end{esimerkki}
+\begin{maaritelma}
+    Olkoon $M^n$ monisto. $M$:n \textit{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset R^n$. Koordinaattikartan \textit{koordinaattikuvaus} on $\varphi$.
+\end{maaritelma}
+\begin{esimerkki}
+    Yleisesti algebrallinen hyperpinta $f(x_1,x_2,\dots,x_{n+1})=0$ määrittää $n$-ulotteisen moniston $\R^{n+1}$:ssä.
+\end{esimerkki}
 
-Taustaa-osio on tärkeä, koska se auttaa lukijaa ymmärtämään, miksi tutkimus on
-tarpeellista ja mihin se liittyy. Se myös osoittaa, että tekijä on perehtynyt
-aiheeseen ja osaa asettaa oman tutkimuksensa oikeaan kontekstiin. Tässä päätulos:
+
+Tässä päätulos:
 \begin{lause}
     Pelkistetty algebrallinen käyrä $V\subset\C^2$ valitulla upotuksella $\C^2\subset\mathbb{P}^2$ määrittää RPI-pujoskaavion $\Omega$ käyrän $V$ sidokselle äärettömyydessä. Pisteiden lukumäärä äärettömyydessä $n_\infty(V)$ on $\Omega$:n juurisolmun valenssi $n$ ja $deg(V)$ on juurisolmun ja sen sidoksen virtuaalisen komponentin sidosluku $s_\text{juuri}$.
 \end{lause}
@@ -19,7 +39,7 @@ aiheeseen ja osaa asettaa oman tutkimuksensa oikeaan kontekstiin. Tässä päät
 Viitataan vaikka: \citep{Neumann1989}. Moikka. Mennään nyt määritelmiin. Eli esitellään kaikki tarpeelliset käsitteet, kuten RPI-pujoskaavio, juurisolmu, sidosluku, ja niin edelleen.
 \subsection{Topologiset ja algebralliset määritelmät}
 \begin{maaritelma}
-    Sidos äärettömyydessä
+    Linkki äärettömyydessä
 \end{maaritelma}
 \begin{maaritelma}
     Kuitu, säännöllinen kuitu
