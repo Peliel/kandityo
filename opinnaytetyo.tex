@@ -145,6 +145,8 @@
 \newtheorem{example}[definition]{Example}
 \newtheorem{esimerkki}[definition]{Esimerkki}
 \newtheorem{asetus}[definition]{Asetus}
+\newtheorem*{ajatus}{Ajatus}
+\newtheorem*{paatelma}{Päätelmä}
 
 \theoremstyle{plain}
 \newtheorem{theorem}[definition]{Theorem}
@@ -174,6 +176,9 @@
 %% sen kielen joka yllä on annettu documentclass-rivin parametrina
 \usepackage[\MainLang]{babel}
 \usepackage{natbib}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usetikzlibrary{babel}
 
 \ifthenelse{\equal{\MainLang}{finnish}}{
 \bibliographystyle{fiplainnat}
@@ -183,9 +188,9 @@
 \bibliographystyle{seplainnat}
 }}{}}
 
-%\setcitestyle{authoryear,open={(},close={)}}
+\setcitestyle{authoryear,open={[},close={]}}
 % use the below citestyle instead of the previous line if you want to use number citations as is common in mathematics: 
-\setcitestyle{numbers,open={[},close={]},comma}
+%\setcitestyle{numbers,open={[},close={]},comma}
 
 
 %% Korjaa vastaamaan korkeakouluasi, jos automaattisesti asetettu nimi on
@@ -473,10 +478,13 @@ research topic, the methods you have used, and the results you obtained.
 %% kirjoitusohjeita mukaillen
 
 \input{sections/1-johdanto}
-\input{sections/2-taustaa}
-\input{sections/3-solmut}
-\input{sections/4-tulokset}
-\input{sections/5-yhteenveto}
+\input{sections/2-monistot.tex}
+\input{sections/2a-topologia.tex}
+\input{sections/3-solmuteoriaa.tex}
+\input{sections/4-pujoskaaviot.tex}
+\input{sections/5-dehn-kirurgia.tex}
+\input{sections/6-rpi-kaaviot.tex}
+\input{sections/7-yhteenveto.tex}
 
 
 %% LÄHDELUETTELO

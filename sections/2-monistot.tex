@@ -1,12 +1,9 @@
-\section{Taustaa}
-% \section{Background}
+\section{Monistot}
+Viite \citep{Neumann1989}
 
-\subsection{Topologiset määritelmät}
-Tarvitsenko tätä osiota? Avoin joukko, tubulaarinen naapurusto, homeomorfismit...
-\subsection{Sileät monistot}
-Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teoriaa. Monistot ovat geometrisia rakenteita, jotka muistuttavat paikallisesti euklidista avaruutta. Ne mahdollistavat \textit{avaruuden rakenteen} käsitteen. Algebrallisten solmujen kannalta tämä on olennaista, sillä solmujen tutkimista helpottaa niiden upottaminen monistoon. Tässä työssä noudatetaan Leen \citep{Lee2012} merkintätapoja.
+Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teoriaa. Monistot ovat geometrisia rakenteita, jotka muistuttavat paikallisesti euklidista avaruutta. Ne mahdollistavat \emph{avaruuden rakenteen} käsitteen. Algebrallisten solmujen kannalta tämä on olennaista, sillä solmujen tutkimista helpottaa niiden upottaminen monistoon. Tässä työssä noudatetaan lähteen \citep{Lee2012} merkintätapoja.
 \begin{maaritelma}
-    Olkoon $M$ topologinen avaruus. $M$ on \textit{$n$-ulotteinen topologinen monisto}, jos
+    Olkoon $M$ topologinen avaruus. $M$ on \emph{$n$-ulotteinen topologinen monisto}, jos
     \begin{itemize}
         \item $M$ on Hausdorff-avaruus
         \item $M$ on $N_2$-avaruus
@@ -20,11 +17,27 @@ Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teori
     Esimerkiksi Maapallo on 2-ulotteinen monisto, koska paikallisesti Maapallon pinta muistuttaa tasoa. Maapallo on erityistapaus algebrallisesta pinnasta, koska sen polynomiyhtälö $x^2+y^2+z^2=R^2$.
 \end{esimerkki}
 \begin{maaritelma}
-    Olkoon $M^n$ monisto. $M$:n \textit{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset R^n$. Koordinaattikartan \textit{koordinaattikuvaus} on $\varphi$.
+    Olkoon $M^n$ monisto. $M$:n \emph{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset R^n$. Koordinaattikartan \emph{koordinaattikuvaus} on $\varphi$.
 \end{maaritelma}
 \begin{esimerkki}
     Yleisesti algebrallinen hyperpinta $f(x_1,x_2,\dots,x_{n+1})=0$ määrittää $n$-ulotteisen moniston $\R^{n+1}$:ssä.
 \end{esimerkki}
+\begin{maaritelma}
+    Jos $U\subset\R^n,V\subset\R^m$, funktio $f:U\to V$ on \emph{sileä}, jos sen jokaisella komponenttifunktiolla on jatkuvat asteen $n$ osittaisderivaatat kaikilla $n\in\N$.
+\end{maaritelma}
+\begin{maaritelma}
+    Kuvaus $f:A\to B$ on \emph{diffeomorfismi}, jos $f$ on bijektio ja $f$ ja $f^{-1}$ ovat sileitä.
+\end{maaritelma}
+\begin{maaritelma}
+    Moniston $M$ \emph{atlas} $\mathcal{A}$ on kokoelma karttoja $\{(U_i,\varphi_i)\}_{i\in I}$ siten, että karttojen lähtöjoukot peittävät moniston $M$: kaikille $p\in M$ on olemassa $i\in I$, jolle $p\in U_i$. Jos koordinaattikartat ovat pareittain sileästi yhteensopivia, eli
+    \begin{equation}
+        \varphi_j\circ\varphi_i^{-1}:\varphi_i(U_i\cap U_j)\to\varphi_j(U_i\cap U_j)
+    \end{equation}
+    tai $U_i\cap U_j=\emptyset$, niin $\mathcal{A}$ on \emph{sileä atlas}.
+\end{maaritelma}
+\begin{maaritelma}
+    Monisto $M$ on \emph{sileä monisto}, jos sillä on sileä atlas.
+\end{maaritelma}
 
 
 Tässä päätulos:
@@ -36,7 +49,6 @@ Tässä päätulos:
 \end{lause}
 
 
-Viitataan vaikka: \citep{Neumann1989}. Moikka. Mennään nyt määritelmiin. Eli esitellään kaikki tarpeelliset käsitteet, kuten RPI-pujoskaavio, juurisolmu, sidosluku, ja niin edelleen.
 \subsection{Topologiset ja algebralliset määritelmät}
 \begin{maaritelma}
     Linkki äärettömyydessä
@@ -48,7 +60,7 @@ Viitataan vaikka: \citep{Neumann1989}. Moikka. Mennään nyt määritelmiin. Eli
     Säännöllisyys äärettömyydessä
 \end{maaritelma}
 \begin{maaritelma}
-    Milnorin kuidutus
+    Milnorin kidutus
 \end{maaritelma}
 \begin{maaritelma}
     Säännöllinen algebrallinen käyrä

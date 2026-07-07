@@ -1,0 +1,78 @@
+\section{Algebrotopologiset määritelmät}
+
+Tässä työssä solmujen ominaisuuksien tutkimiseen tarvitaan topologisia työkaluja. Tämän osion päätarkoituksena on määritellä harvinaisia, solmuteorialle tyypillisiä konstruktioita ja peruskäsitteistö oletetaan lukijan hallitsemaksi.\footnote{Topologian peruskäsitteistöä tuntematonta lukijaa suositetaan perehtymään esimerkiksi tiiviiseen luentomuistiinpanoon \citep{koski2024topology} tai syvällisempään johdantoon \citep{Munkres2000}.} Algebrallisen topologian käsitteistössä seuraillaan Hatcherin \citep{Hatcher2002} kirjaa.
+
+Tämä osio palvelee kahta tarkoitusta: putkiympäristön käsitteen kehittämistä sekä teknisempää todistusta siitä, että kahden homologisen $n$-pallon yhteen pujominen\footnote{Pujominen määritellään solmuja koskevassa kappaleessa ???} tuottaa homologisen $n$-pallon. Käyrän putkiympäristöä voi ajatella pienenä käyrää seurailevana täytettynä putkena. Homologisia palloja koskeva lause varmistaa, että kun kaksi eri avaruuksissa elävää solmua pujotaan yhteen, elää tulossolmu myös ``hyvänlaatuisessa'' avaruudessa.
+
+Formaaleista muotoiluista kiinnostunut lukija voi tutustua osakappaleisiin tarkemmin, mutta niiden sivuuttaminen ei estä lainkaan myöhempiin kappaleisiin perehtymistä.
+\subsection{Kimput}
+Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyksenä sikäli, että se sallii ``vääntyneen'' tulon. Vektorikimppu on kuitukimpun erityistapaus.
+\begin{maaritelma}[Kuitukimppu]
+    \emph{Kuitukimppu} on nelikko $(E,B,\pi,F)$, missä $E,B$ ja $F$ ovat topologisia avaruuksia ja $\pi:E\to B$ jatkuva surjektio, joka tyydyttää paikallisen triviaaliuden ehdon (alla). Sivu 386 alg. top. kirjasta.
+\end{maaritelma}
+\begin{maaritelma}[Vektorikimppu]
+    Olkoon $M$ topologinen avaruus. Asteen $k$ $\K$-\emph{vektorikimppu} $M$:n yli on jatkuvalla surjektiolla $\pi:E\to M$ varustettu topologinen avaruus $E$ siten, että 
+    \begin{enumerate}
+        \item kaikille $p\in M$ kuitu $E_p=\pi^{-1}(p)$ yli $p$:n voidaan varustaa $k$-ulotteisen $\K$-vektoriavaruuden rakenteella ja
+        \item kaikille $p\in M$ on olemassa $p$:n ympäristö $U\subset M$ ja homeomorfismi $\Phi:\pi^{-1}(U)\to U\times\K^k$ siten, että
+        \begin{itemize}
+            \item $\pi_U\circ\Phi=\pi$ (jossa $\pi_U:U\times\K^k\to U$ on projektio) ja
+            \item kaikille $q\in U$ $\Phi|_{E_q}$ on vektoriavaruusisomorfia $E_q\cong\{q\}\times\K^k\cong\K^k$.
+        \end{itemize}
+    \end{enumerate}
+\end{maaritelma}
+
+
+\subsection{Kuidut}
+% Tässä voisi olla vaikka g_\bullet
+\begin{maaritelma}[Homotopinen nosto-ominaisuus]
+    Kuvaus $\pi:E\to B$ tyydyttää \emph{homotopisen nosto-ominaisuuden} avaruudelle $X$, jos
+    \begin{itemize}
+        \item kaikille homotopioille $g:X\times[0,1]\to B$ ja
+        \item kaikille kuvauksille $\tilde g_0:X\to E$ nostaen $g_0=g(\cdot,0)$:n, eli $p\circ\tilde g_0=g_0$,
+    \end{itemize}
+    on olemassa homotopia $\tilde g:X\times[0,1]\to E$ nostaen $g$:n (eli $g=p\circ\tilde g$) niin, että $\tilde g_0=\tilde g|_{X\times\{0\}}$. Kommutoiva kaavio havainnollistaa tilanteen:
+    \begin{equation}
+        \begin{tikzcd}
+            X\times\{0\} \arrow[r, "\tilde g_0"] \arrow[d, hook] & E \arrow[d, "\pi"] \\
+            X\times[0,1] \arrow[ur, dashrightarrow, "\tilde g"] \arrow[r, "g"] & B
+        \end{tikzcd}
+    \end{equation}
+\end{maaritelma}
+\begin{maaritelma}
+    \emph{Kuidutus} on kuvaus $\pi:E\to B$, jolla on homotopinen nosto-ominaisuus kaikkien avaruuksien $X$ suhteen.
+\end{maaritelma}
+\begin{maaritelma}
+    Jos $E$ on pohja-avaruuden $B$ kuitukimppu $\pi:E\to B$, niin \emph{kuitukimpun sektio} on jatkuva kuvaus $\sigma:B\to E$ siten, että $\pi\circ\sigma=\text{id}_B$.
+\end{maaritelma}
+
+\subsection{Putket}
+\begin{maaritelma}
+    Olkoot $S,M$: $S\subset M$ sileitä monistoja. $S$:n \emph{putkiympäristö} $M$:ssä on pari $(\pi, J)$, jossa $\pi: E\to S$ on vektorikimppu ja $J:E\to M$ on sileä kuvaus, siten että
+    \begin{itemize}
+        \item $J\circ0_E=i$, $i$ on upotus $S\hookrightarrow M$ ja $0_E$ nollasektio
+        \item on olemassa avoimet joukot $U\subset E$, $V\subset M$ siten, että $0_E[S]\subset U$ ja $S\subset V$ niin, että rajoitus $J|_U$ on diffeomorfismi.
+    \end{itemize}
+\end{maaritelma}
+\begin{lause}[Putkiympäristölause]
+    Jokaisella sileän moniston upotetulla sileällä alimonistolla on putkiympäristö.
+\end{lause}
+\begin{proof}
+    Todistus on vaikea ja löytyy lähteestä ???.
+\end{proof}
+\begin{ajatus}
+    Ajattele esimerkiksi algebrallista käyrää $\R^3$:ssa. Sen putkiympäristö on käyrää seuraileva kolmiulotteinen mato, jonka poikkileikkaukset ovat levyjä, joiden lävistäjä voi vaihdella.
+\end{ajatus}
+\begin{maaritelma}
+    Olkoon $f:\C^2\to\C$ polynomikuvaus. Sen kuitua $f^{-1}(c),c\in\C$ kutsutaan \emph{säännölliseksi}, mikäli jollekin $c$:n ympärisölle $D$ kuvaus $f|_{f^{-1}(D)}:f^{-1}(D)\to D$ on paikallisesti triviaali $C^\infty$-kuidutus.
+
+    Kuitu $f^{-1}(c)$ on \emph{säännöllinen äärettömyydessä}, jos jollekin $c$:n ympäristölle $E$ ja kompaktille osajoukolle $K\subset\C^2$ kuvaus $f|_{f^{-1}(D)-K}$ on paikallisesti triviaali kuidutus. 
+
+    Jos kaikki $f$:n kuidut ovat säännöllisiä äärettömyydessä niin $f$ on \emph{hyvä}.
+\end{maaritelma}
+\begin{huomautus}
+    ``Säännöllinen'' ja ``säännöllinen äärettömyydessä ja epäsingulaarinen'' ovat yhtäpitäviä.
+\end{huomautus}
+\begin{ajatus}
+    Säännöllisyys on matemaattinen muotoilu idealle, että läheiset kuidut ``näyttävät samalta'' kuin $f^{-1}(c)$. Säännöllisyys äärettömyydessä muotoilee tämän samalta näyttämisen äärettömyyden ``lähellä''.
+\end{ajatus}
