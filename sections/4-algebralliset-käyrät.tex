@@ -1,0 +1,86 @@
+\section{Algebralliset käyrät ja projektiiviset avaruudet}
+Tämän osion tarkoituksena on esitellä tiiviisti algebrallisten käyrien, projektiivisten avaruuksien ja projektiivisten käyrien määritelmän sanaston kiinnittämiseksi. Kiinnostunut lukija löytää huolellisemman tarkastelun esimerkiksi Gathmannin algebrallisen geometrian luentomuistiinpanoista \citep{gathmann-ag}.
+
+\subsection{Affiinit algebralliset käyrät kompleksitasossa}
+Affiini algebrallinen käyrä kompleksitasossa on määritelty polynomin nollakohtien joukkona. Tarkemmin sanottuna, jos $f \in \mathbb{C}[x,y]$ on ei-vakio polynomi, niin affiini algebrallinen käyrä $C$ joka liittyy polynomiin $f$ on joukko
+\begin{equation}
+    C = \{ (x,y) \in \mathbb{C}^2 \mid f(x,y) = 0 \}.
+\end{equation}
+Koska $\C$ on algebrallisesti suljettu, niin jokainen polynomi $f \in \mathbb{C}[x,y]$ voidaan tekijöidä lineaarisiin tekijöihin. Tämän vuoksi jokainen affiini algebrallinen käyrä kompleksitasossa voidaan esittää lineaaristen käyrien yhdistelmänä.
+
+\subsection{Singulariteetit ja säännöllisyys}
+Käyrän $C$ paikallisen muodon pisteessä $p=(a,b)\in C$ määrittyy $f$:n osittaisderivaattojen avulla. Piste $p$ on \emph{singulaarinen} (tai kriittinen), jos $f$:n osittaisderivaatat häviävät pisteessä $p$:
+\begin{equation}
+    \frac{\partial f}{\partial x}(a,b) = 0 \quad \text{ja} \quad \frac{\partial f}{\partial y}(a,b) = 0
+\end{equation}
+Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}. Säännöllisessä pisteessä implisiittisten funktioiden lause takaa, että käyrä näyttää paikallisesti kompleksisen 1-ulotteiselta varistolta, ja on mahdollista määritellä yksikäsitteinen tangenttisuora.
+
+\subsection{Projektiivinen taso ja suora}
+Affiinilla avaruudella $\C$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Yhtenäistääksemme näitä geometrisia käsitteitä, otamme käyttöön projektiivisen avaruuden.
+
+Kompleksinen $n$-ulotteinen projektiivinen avaruus $\P^n(\C)$ määritelläänjoukoksi, joka koostuu avaruuden $\C^{n+1}$ vektorisäteistä (tai niiden ekvivalenssiluokista), jotka kulkevat origon kautta. Toisin sanoen, $\P^n(\C)$ on määritelty seuraavasti:
+\begin{maaritelma}
+    Olkoon $(Z_0,\dots,Z_n) \in \C^{n+1} \setminus \{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
+    \begin{equation*}
+        (Z_0,\dots,Z_n) \sim (\lambda Z_0, \dots, \lambda Z_n) \quad \text{kaikille } \lambda \in \C^*.
+    \end{equation*}
+    Tällöin
+    \begin{equation*}
+        \P^n(\C):=\frac{\C^{n+1}\setminus\{0\}}{\sim}.
+    \end{equation*}
+    Ekvivalenssiluokan edustaja merkitään homogeenisilla koordinaateilla $[Z_0:\dots:Z_n]$.
+\end{maaritelma}
+\begin{asetus}
+    Jatkossa merkitään $\P^n$ pidemmän $\P^n(\C)$ sijasta, koska tässä työssä keskitytään yksinomaan kompleksisten käyrien tarkasteluun.
+\end{asetus}
+\begin{esimerkki}
+    \label{esim:proj-taso-ja-suora}
+    Tapauksissa $n=1$ ja $n=2$
+    \begin{itemize}
+        \item $\P^1\cong\C\cup\{\infty\}$ (Riemann-pallo)
+        \item $\P^2\cong\C^2\cup\P^1$. $\P^2$:n koordinaatit ovat $[X:Y:Z]$, ja $\P^1$ on joukko pisteitä, joilla $Z=0$.
+    \end{itemize}
+    Jos tarkastellaan projektiivisten avaruuksien ulottuvuuksia reaalimielessä ($\dim_\R(\C)=2$), niin $\dim_\R(\P^1)=2$ ja $\dim_\R(\P^2)=6$ (vai 4?).
+\end{esimerkki}
+
+\subsection{Upotus \texorpdfstring{$\C^2\hookrightarrow\P^2$}{Upotus C²→P²}}
+\begin{lemma}
+    \label{lemma:projektiivisen-avaruuden-jako}
+    Projektiivinen avaruus on erillinen yhdiste $\P^{n}=\C^n\sqcup\P^{n-1}$.
+\end{lemma}
+\begin{proof}
+    Tarkastellaan $\P^{n}$:n pistettä $[Z_0:\dots:Z_{n}]$, jolla on $n$ koordinaattia. Jos $Z_{n+1}\neq 0$, niin piste voidaan esittää muodossa
+    \begin{equation*}
+        [Z_0:\dots:Z_n] \sim [Z_0:\dots:Z_{n-1}:1] \in \C^n,
+    \end{equation*}
+    koska on olemassa $\lambda\in\C\setminus\{0\}$, jolla $\lambda Z_n=1$. Jos taas $Z_n=0$, niin piste kuuluu $\P^{n-1}$-joukkoon. Tällöin saadaan jako $\P^{n}=\C^n\sqcup\P^{n-1}$.
+\end{proof}
+Lemma yleistää esimerkin \ref{esim:proj-taso-ja-suora}: yleisen projektiivisen avaruuden $\P^n$ ``sisus'' on $\C^n$ ja ``kuori äärettömyydessä'' $\P^{n-1}$, joka induktiivisesti kuortaan lukuunottamatta muistuttaa $\C^{n-1}$:tä. Tämä antaa mielekkään upotuksen $\C^n\hookrightarrow\P^n$.
+
+Työlle relevantissa 2-ulotteisessa tapauksessa avaruus $\C^2$ voidaan nähdä paikallisena karttana (tai tiheänä avoimena joukkona) projektiivisessa tasossa $\P^2(\C)$. Tyypillinen upotus määritellään seuraavasti:
+\begin{equation}
+    \begin{aligned}
+        \iota : \C^2 &\hookrightarrow \P^2(\C) \\
+        (x,y) &\mapsto [x : y : 1]
+    \end{aligned}
+\end{equation}
+Pisteet $\P^2$:ssa, jotka eivät kuulu tämän upotuksen kuvaan, ovat muotoa $[X:Y:0]$. Näiden pisteiden joukko muodostaa projektiivisen suoran $\P^1$, jota kutsutaan \emph{suoraksi äärettömyydessä} tai \emph{äärettömyyssuoraksi}. Lemman \ref{lemma:projektiivisen-avaruuden-jako} hengessä $\P^2=\C^2\sqcup\P^1$.
+
+\subsection{Projektiiviset käyrät}
+Projektiivisessa tasossa $\P^2$ klassinen polynomi $f(x,y)$ ei ole hyvin määritelty, koska homogeeniset koordinaatit ovat ekvivalentteja skalaarikertoimen suhteen. Tämän vuoksi on käytettävä \emph{homogeenistä} polynomia $F(X,Y,Z)$, eli polynomia, jossa kaikilla monomeilla on sama aste $d$. Yhtälö $F(\lambda X, \lambda Y, \lambda Z) = \lambda^d F(X,Y,Z) = 0$ on tällöin riippumaton valitusta edustajasta.
+\begin{maaritelma}[Homogenisointi]
+    Polynomi $f(x,y) \in \C[x,y]$ voidaan \emph{homogenisoida} määrittelemällä
+    \begin{equation}
+        F(X,Y,Z) = Z^d f\left(\frac{X}{Z}, \frac{Y}{Z}\right),
+    \end{equation}
+    missä $d$ on polynomin $f$ aste.
+\end{maaritelma}
+\begin{maaritelma}
+    Projektiivinen algebrallinen käyrä $\mathcal{C}$ määritellään homogeenisen polynomin $F(X,Y,Z)$ nollakohtien joukkona:
+    \begin{equation}
+        \mathcal{C} = \{ [X:Y:Z] \in \P^2 \mid F(X,Y,Z) = 0 \}.
+    \end{equation}
+\end{maaritelma}
+\begin{huomautus}
+    Polynomin homogenisointi sallii luonnollisesti käyrän tarkastelun myös äärettömyyssuoralla. Projektiivinen käyrä $\mathcal{C}$ on aina suljettu ja kompakti, koska se on suljettu alijoukko projektivisessa avaruudessa $\P^2$, joka on itsessään kompakti.
+\end{huomautus}

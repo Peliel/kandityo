@@ -144,7 +144,7 @@
 \newtheorem{maaritelma}[definition]{Määritelmä}
 \newtheorem{example}[definition]{Example}
 \newtheorem{esimerkki}[definition]{Esimerkki}
-\newtheorem{asetus}[definition]{Asetus}
+\newtheorem*{asetus}{Asetus}
 \newtheorem*{ajatus}{Ajatus}
 \newtheorem*{paatelma}{Päätelmä}
 
@@ -170,6 +170,11 @@
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\K}{\mathbb{K}}
 \newcommand{\pallo}{\mathbb{S}}
+\newcommand{\linkki}{\mathbf{L}}
+\newcommand{\solmu}{\mathbf{K}}
+\newcommand{\interior}{\text{int }}
+
+\renewcommand{\P}{\mathbb{P}}
 
 %% Lähdeluettelon luomiseen
 %% MainLang-muuttuja tulee aaltothesis.cls -tiedostosta ja sisältää 
@@ -478,13 +483,14 @@ research topic, the methods you have used, and the results you obtained.
 %% kirjoitusohjeita mukaillen
 
 \input{sections/1-johdanto}
-\input{sections/2-monistot.tex}
-\input{sections/2a-topologia.tex}
-\input{sections/3-solmuteoriaa.tex}
-\input{sections/4-pujoskaaviot.tex}
-\input{sections/5-dehn-kirurgia.tex}
-\input{sections/6-rpi-kaaviot.tex}
-\input{sections/7-yhteenveto.tex}
+\input{sections/2-differentiaaligeometria.tex}
+\input{sections/3-topologia.tex}
+\input{sections/4-algebralliset-käyrät.tex}
+\input{sections/5-solmuteoriaa.tex}
+\input{sections/6-pujoskaaviot.tex}
+\input{sections/7-dehn-kirurgia.tex}
+\input{sections/8-rpi-kaaviot.tex}
+\input{sections/n-yhteenveto.tex}
 
 
 %% LÄHDELUETTELO

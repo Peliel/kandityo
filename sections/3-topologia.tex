@@ -43,6 +43,12 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
     \emph{Kuidutus} on kuvaus $\pi:E\to B$, jolla on homotopinen nosto-ominaisuus kaikkien avaruuksien $X$ suhteen.
 \end{maaritelma}
 \begin{maaritelma}
+    Olkoon $\pi:E\to B$ kuidutus. Kuidutus on \emph{paikallisesti triviaali}, jos kaikille $x\in B$ on olemassa avoin ympäristö $U\subset B$ siten, että 
+    \begin{equation*}
+        \pi^{-1}(U)\approx U\times F.
+    \end{equation*}
+\end{maaritelma}
+\begin{maaritelma}
     Jos $E$ on pohja-avaruuden $B$ kuitukimppu $\pi:E\to B$, niin \emph{kuitukimpun sektio} on jatkuva kuvaus $\sigma:B\to E$ siten, että $\pi\circ\sigma=\text{id}_B$.
 \end{maaritelma}
 
@@ -76,3 +82,25 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
 \begin{ajatus}
     Säännöllisyys on matemaattinen muotoilu idealle, että läheiset kuidut ``näyttävät samalta'' kuin $f^{-1}(c)$. Säännöllisyys äärettömyydessä muotoilee tämän samalta näyttämisen äärettömyyden ``lähellä''.
 \end{ajatus}
+
+\subsection{Homologia}
+Tämän aliosion tarkoitus on kiinnittää työssä käytettävä homologian sanasto. Työn tiivis esitys ei tee oikeutta homologialle ja homologiaa tuntematonta lukijaa suositellaankin sivuuttamaan osio, tai tutustumaan homologiaan Hatcherin kirjan avulla \citep{Hatcher2002}. Aliosio on pikemminkin suunnattu homologiaa tuntevalle lukijalle, joka haluaa varmistaa termistön, tai palata työn myöhemmistä osioista tarkistamaan määritelmiä. Sanastossa noudatetaan kuitenkin yleisiä tapoja, joten myös homologiaa tunteva lukija voi sivuuttaa aliosion.
+\begin{maaritelma}
+    \emph{CW-kompleksi} on topologinen avaruus $X$, joka muodostetaan algoritmisesti:
+    \begin{enumerate}
+        \item Valitaan diskreetti joukko $X^0$, jonka alkioita kutsutaan $X$:n \emph{$0$-soluiksi}.
+        \item Muodostetaan induktiivisesti \emph{$n$-luuranko $X^n$} $X^{n-1}$:stä liittämällä $n$-soluja $e_\alpha^n$ kuvauksilla $\varphi_\alpha:\pallo^{n-1}\to X^{n-1}$. $X^n$ on tekijä-avaruus
+        \begin{equation}
+            X^n=\frac{X^{n-1}\sqcup_\alpha D_\alpha^n}{\sim},
+        \end{equation}
+        missä $\sim$ on relaatio $x\sim\varphi_\alpha(x)$, kun $x\in\partial D_\alpha^n$. Joukon $D_\alpha^n-\partial D_\alpha^n$ kuva tekijäkuvauksen suhteen ja solu $e_\alpha^n$ ja ovat homeomorfisia.
+        \item Jatkamalla prosessia saadaan $X=\cup_n X^n$ ja se voidaan varustaa heikolla topologialla: $A\subset X$ on avoin (suljettu) jos ja vain jos $A\cap X^n$ on avoin (suljettu) $X^n$:ssä kaikille $n\in\N$. 
+    \end{enumerate}
+\end{maaritelma}
+
+
+\subsection{Kohomologia}
+Kohomologia
+
+\subsection{Mayer-Vietoris-jonot}
+Mayer-Vietoris-jono

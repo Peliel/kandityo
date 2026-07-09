@@ -1,0 +1,46 @@
+\section{Solmut}
+
+Matematiikassa solmuja tarkastellaan ympyrännäköisinä topologisina olioina, jotka saavat sotkeutua itseensä. Epämuodollisesti määriteltynä matemaattinen solmu on kuin tavallinen solmu, jonka päät on liimattu yhteen. Linkillä tarkoitetaan kappaletta, joka koostuu erillisistä solmuista, jotka voivat olla kietoutuneina toisiinsa. Työssä noudatetaan D. Eisenbudin ja W. D. Neumannin \citep{EN1985} merkintätapoja ja joitakin peruskäsitteitä lainataan Rolfsenin kirjasta \citep{Rolfsen1976}.
+\begin{maaritelma}
+    Topologisen avaruuden $X$ osajoukko $\solmu\subset X$ on \emph{solmu}, jos $\solmu$ on homeomorfinen palloon $\pallo^p$, jollekin $p\in\N$.
+\end{maaritelma}
+\begin{maaritelma}
+    \emph{Linkki} $\linkki=(\Sigma,S_1\cup\cdots\cup S_n)$ on pari, jossa $\Sigma$ on suunnattu homologinen $n$-pallo ja $S_i$ on kokoelma sileitä, erillisiä, suunnattuja ja yksinkertaisia\footnote{Yksinkertainen käyrä ei leikkaa itseään.} käyriä $\Sigma$:ssa.
+\end{maaritelma}
+\begin{maaritelma}
+    Linkkien $\linkki=(\Sigma,S_1\cup\cdots\cup S_n)$ ja $\linkki'=(\Sigma',S_1'\cup\cdots\cup S_m')$ \emph{erillinen summa} on
+    \begin{equation*}
+        \linkki+\linkki'=(\Sigma\#\Sigma',S_1\cup\cdots\cup S_n\cup S_1'\cup\cdots\cup S_m'),
+    \end{equation*}
+    jossa $\Sigma\#\Sigma'$ on $\Sigma$ ja $\Sigma'$:n yhtenäinen summa $S_i$:tä leikkaamattomien levyjen kautta. 
+    
+    Linkkien \emph{yhtenäinen summa} on
+    \begin{equation*}
+        \linkki\#\linkki'=(\Sigma\#\Sigma',(S_1\#S_1')\cup S_2\cup\cdots\cup S_n\cup S_2'\cup\cdots\cup S_m'),
+    \end{equation*}
+    jossa $\Sigma$:n ja $\Sigma'$:n yhtenäinen summa otetaan kautta levyjen, jotka leikkaavat linkkejä väleissä $I\subset S_1$ ja $I'\subset S_1'$.
+\end{maaritelma}
+\begin{maaritelma}
+    Solmun $\solmu$ putkiympäristöä merkitään $N(\solmu)$ ja linkin $\linkki=(\Sigma,S_1\cup\cdots\cup S_n)$ putkiympäristö määritellään $N(\linkki):=N(S_1)\cup\cdots\cup N(S_n)$.
+\end{maaritelma}
+\begin{maaritelma}
+    Linkin osasen $S_i$ pituuspiiri $M_i$ ja leveyspiiri $L_i$ ???
+\end{maaritelma}
+\begin{maaritelma}[Linkkien pujos]
+    Olkoot $\linkki=(\Sigma,S_1\cup\cdots\cup S_n)$ ja $\linkki'=(\Sigma',S_1'\cup\cdots\cup S_m')$ linkkejä. Määritellään
+    \begin{equation*}
+        \Sigma''=(\Sigma-\interior N(S))\cup(\Sigma'-\interior N(S'))
+    \end{equation*}
+    liimaamalla avaruuksien reunat toisiinsa siten, että samansuuntaisesti päällekkäin liitetään $M$ ja $L'$ sekä $L$ ja $M'$. $\Sigma''$ on suunnattu homologinen 3-pallo [???]. Linkki
+    \begin{equation*}
+        \linkki''=(\Sigma'',(K-S)\cup(K'-S'))
+    \end{equation*}
+    on $\linkki$:n ja $\linkki'$:n \emph{pujos} ja sitä merkitään
+    \begin{equation*}
+        ??? kaavio ???:\ L-_S-_{S'}-L'
+    \end{equation*}
+\end{maaritelma}
+
+\begin{maaritelma}
+    \emph{Seifert-linkki} on linkki $\mathbf L=(\Sigma,K)=(\Sigma',\cup_{i=1}^n K_i)$, jonka ulkoreunalla $\Sigma_0=\Sigma'-\text{int } N(K)$ on Seifert-kuidutus.
+\end{maaritelma}
