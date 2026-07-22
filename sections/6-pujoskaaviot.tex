@@ -1,9 +1,66 @@
 \section{Pujoskaavio}
+Solmuja voi pujoa peräkkäin useita ja monimutkaisilla tavoilla, jolloin solmujen piirtäminen käy nopeasti hyvin vaikeaksi. Monimutkaisten linkkien kuvaamiseen hyödyllinen työkalu ovat pujoskaaviot, jotka ovat tietynlaisia verkkoja. Verkko on matemaattinen olio, joka koostuu silmuista ja niitä yhdistävistä kaarista. Pujoskaavioissa kaariin liitetään kokonaislukukertoimet, jotka kertovat tietoa solmusta.
 
-...eli \emph{splice diagram}.
+Pujoskaavioihin liittyy monta hankalaa ideaa, koska monimutkaisten linkkien esittäminen yksinkertaisesti, mutta yksiselitteisesti, on hyvin vaikeaa. Sen takia tässä kappaleessa pujoskaavioiden rakentamisessa joustetaan matemaattisesta formalismista ja lukijaa kuljetetaan eteenpäin intuitivistisesti.
+
+Tämän kappaleen perimmäinen tarkoitus on palvella lukijaa vakuutuksena siitä, että monimutkaisten linkkien kohdalla on parempi unohtaa linkki, ja tyytyä pujoskaavioon, ja luottaa siihen, että olennaista tietoa ei menetetä.
+
+\subsection{Pujoskaavion synty}
+Kuten edellisessä solmuja ja linkkejä käsittelevässä kappaleessa esiteltiin, linkkien yhteen pujominen ei operaationa manipuloi linkkejä, vaan itse asiassa ympäröivää avaruutta. Solmut, joiden kautta kaksi linkkiä pujotaan yhteen, poistetaan avaruuksistaan, ja jäljelle jää kaksi tyhjää silmukkaa. Lopuksi avaruudet liimataan intuitionvastaisella tavalla yhteen tyhjiä silmukoita pitkin. Monesti pujomisen visuaalinen hahmottaminen on äärimmäisen hankalaa. Tärkeää on huomata, että operaatiota pitää ajatella abstraktina \emph{pujomisena}, eikä missään nimessä konkreettisena \emph{pujottamisena}.
+
+\begin{oivallus}
+    Ensimmäinen ja kenties keskeisin pujoskaavioihin liittyvä oivallus onkin, että kaavion ei pitäisi esittää ainoastaan solmua, vaan myös sitä ympäröivää avaruutta: miten avaruutta on edellisissä pujoksissa venytetty ja runnottu.
+
+    Tätä varten kaavioon tarvitaan kahdenlaisia kaaviokomponentteja: avaruutta kuvaavia ja linkin osasia kuvaavia.
+    \textbf{KUVA:} $\circ\rightarrow$, $\bullet\rightarrow$ ja $\rightarrow$ nuolet.
+\end{oivallus}
+
+\begin{oivallus}
+    Toinen oivallus ammentaa avaruuden rakenteesta. Käyrä, joka hajaantuisi $\R^3$:ssa positiiviseen ja negatiiviseen äärettömyyteen, ei voi käyttäytyä samoin $\pallo^3$:ssa, koska $\pallo^3$ on kompakti; käyrä tulee ennen pitkää takaisin lähtöpisteeseensä muodostaen $\pallo^3$:n globaalissa geometriassa ``silmukan''. Toisaalta ``silmukan'' voi muodostaa helpomminkin menemällä lokaalisti ympäri. Globaali ja lokaali silmukka ovat perustavalla tavalla erilaisia, samoin kuin lineaarisesti riippumattomat vektorit; sanotaan että $\pallo^3$:lla on kaksi \emph{torusakselia}.
+
+    On olemassa myös avaruuksia, joilla on useampi torusakseli. Työn kannalta tärkein tällainen luokka ovat \emph{homologiset $n$-pallot}:
+    \begin{quote}
+        \textbf{Määritelmä.} \emph{Homologinen $n$-pallo} on topologinen avaruus, jonka homologiaryhmät ovat samat kuin $\S^n$:llä. 
+
+        \noindent
+        \textbf{Ajatus.} Ympyrä $\S^1$ ja kahdeksikko eivät ole homologisia keskenään. Ensimmäisellä on yksi reikä, kun jälkimmäisellä taas kaksi. Homologisella $n$-pallolla on samantyyppisiä reikiä kuin $\S^n$:llä, ja samankaltainen globaali rakenne.
+    \end{quote}
+    \begin{huomautus}
+        Homologia on sisällöltään rikas ja tekninen matematiikan osa-alue, jonka tarkoituksena on tutkia topologisten avaruuksien rakennetta ja reikiä. Homologian ehtisi tässä työssä esitellä vain lyhyesti, mikä ei tee aihepiirille oikeutta syvyytensä vuoksi; siispä aiheen esittely ohitetaan tässä työssä, mutta kiinnostunutta lukijaa ohjataan tutustumaan erinomaiseen Hatcherin materiaaliin \citep{Hatcher2002}.
+    \end{huomautus}
+    \begin{huomautus}
+        Toista oivallusta tukee se, että kahta solmua pujotessa syntyvä avaruus on homologinen $n$-pallo, mikäli alkuperäiset avaruudet olivat. Toisin sanoen kaikki toivomamme hyvät ominaisuudet säilyvät pujonnassa.
+    \end{huomautus}
+\end{oivallus}
+
+\begin{oivallus}
+    Kolmas oivallus on, että voidaan käyttää avaruuden sisäisiä torusakseli-rakenteita hyväksi torussolmujen esittämisessä. Esimerkiksi tyypin $(p,q)$ torussolmun voi ajatella käyränä, joka kiertää $\S^3$:n yhden torusakselin $p$ kertaa ja toisen torusakselin $q$ kertaa ennen palaamistaan lähtöpisteeseen.
+\end{oivallus}
+
+Kun nämä oivallukset kootaan yhteen, voidaan yksinkertaisin epätriviaali torussolmu $(2,3)$ esittää kuten kuvassa ??.
+
+\subsection{Pujoskaavioiden ominaisuuksia}
+Tässä kappaleessa käsitellään muodollisesti pujoskaavioiden ominaisuuksia ja todistetaan joitakin hyödyllisiä tuloksia.
+\begin{propositio}
+    Linkki $\linkki=(\pallo^3,L)$ on kompleksitason käyrän singulariteetin linkki jos ja vain jos sillä on yhtenäinen pujoskaavio, jonka kaikki painot ja kaarideterminantit ovat positiivisia. Tällöin sillä on minimaalinen pujoskaavio näillä ominaisuuksilla.
+\end{propositio}
+\begin{proof}
+    En tiedä.
+\end{proof}
+\begin{lemma}
+    Kahden linkin osasen (virtuaalisen tai todellisen) linkkiluku $\Sigma$:ssa saadaan laskemalla pujoskaaviossa osasten välillä olevan polun viereisten painojen tulo.
+\end{lemma}
+\begin{proof}
+    En tiedä.
+\end{proof}
+
 \begin{propositio}
     Polynomisolmun pujoskaavion sidoskertoimet saadaan kaavoista $\alpha_1=q_1$ ja $\alpha_{i+1}=q_{i+1}+q_i p_i p_{i+1}$, missä $p_i,q_i$ ovat polynomin Puiseux-dataa.
 \end{propositio}
 \begin{proof}
     \citep{EN1985}[Prop 1A.1]
 \end{proof}
+
+
+\subsection{Monimutkainen esimerkki}
+Tässä kappaleessa tutustutaan monimutkaiseen solmuun ja sen pujoskaavion rakentamiseen sekä mielellään myös toisin päin.

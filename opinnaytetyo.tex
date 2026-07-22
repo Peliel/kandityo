@@ -138,12 +138,16 @@
 
 %% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein
 \usepackage{amsfonts, amssymb, amsbsy, amsmath, mathrsfs, amsthm}
+\usepackage{bbm}
+\usepackage{changepage}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section] 
+\newtheorem{aksiooma}[definition]{Aksiooma} 
 \newtheorem{maaritelma}[definition]{Määritelmä}
 \newtheorem{example}[definition]{Example}
 \newtheorem{esimerkki}[definition]{Esimerkki}
+\newtheorem{oivallus}{Oivallus}[section]
 \newtheorem*{asetus}{Asetus}
 \newtheorem*{ajatus}{Ajatus}
 \newtheorem*{paatelma}{Päätelmä}
@@ -169,12 +173,16 @@
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\K}{\mathbb{K}}
+\newcommand{\T}{\mathbb{T}}
+
 \newcommand{\pallo}{\mathbb{S}}
 \newcommand{\linkki}{\mathbf{L}}
-\newcommand{\solmu}{\mathbf{K}}
+\newcommand{\solmu}{\text{K}}
 \newcommand{\interior}{\text{int }}
+\newcommand{\syt}{\text{syt}}
 
 \renewcommand{\P}{\mathbb{P}}
+\renewcommand{\S}{\mathbb{S}}
 
 %% Lähdeluettelon luomiseen
 %% MainLang-muuttuja tulee aaltothesis.cls -tiedostosta ja sisältää 

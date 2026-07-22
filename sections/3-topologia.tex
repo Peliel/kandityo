@@ -83,7 +83,9 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
     Säännöllisyys on matemaattinen muotoilu idealle, että läheiset kuidut ``näyttävät samalta'' kuin $f^{-1}(c)$. Säännöllisyys äärettömyydessä muotoilee tämän samalta näyttämisen äärettömyyden ``lähellä''.
 \end{ajatus}
 
-\subsection{Homologia}
+\subsection{Homologia (aksiomaattinen yritys)}
+Tämä on vähän epätoivoinen yritys sisällyttää homologia työhön. Taidan poistaa koko osion.
+
 Tämän aliosion tarkoitus on kiinnittää työssä käytettävä homologian sanasto. Työn tiivis esitys ei tee oikeutta homologialle ja homologiaa tuntematonta lukijaa suositellaankin sivuuttamaan osio, tai tutustumaan homologiaan Hatcherin kirjan avulla \citep{Hatcher2002}. Aliosio on pikemminkin suunnattu homologiaa tuntevalle lukijalle, joka haluaa varmistaa termistön, tai palata työn myöhemmistä osioista tarkistamaan määritelmiä. Sanastossa noudatetaan kuitenkin yleisiä tapoja, joten myös homologiaa tunteva lukija voi sivuuttaa aliosion.
 \begin{maaritelma}
     \emph{CW-kompleksi} on topologinen avaruus $X$, joka muodostetaan algoritmisesti:
@@ -97,10 +99,25 @@ Tämän aliosion tarkoitus on kiinnittää työssä käytettävä homologian san
         \item Jatkamalla prosessia saadaan $X=\cup_n X^n$ ja se voidaan varustaa heikolla topologialla: $A\subset X$ on avoin (suljettu) jos ja vain jos $A\cap X^n$ on avoin (suljettu) $X^n$:ssä kaikille $n\in\N$. 
     \end{enumerate}
 \end{maaritelma}
-
-
-\subsection{Kohomologia}
-Kohomologia
-
-\subsection{Mayer-Vietoris-jonot}
-Mayer-Vietoris-jono
+\begin{aksiooma}[Homologia-aksioomat]
+    \begin{enumerate}
+        \item Jos $f\cong g:X\to Y$ niin $f_\bullet=g_\bullet:\tilde h_n(X)\to\tilde h_n(Y)$.
+        \item On olemassa reunahomomorfismit $\partial:\tilde h_n(X/A)\to\tilde h_{n-1}(A)$ määritelty kaikille CW-pareille $(X,A)$, siten että jono
+        \begin{equation}
+            \cdots\xrightarrow{\partial}\tilde h_n(A)\xrightarrow{i_\bullet}\xrightarrow{q_\bullet}\tilde h_n(X/A)\xrightarrow{\partial}\tilde h_n(A)\xrightarrow{i_\bullet}\cdots
+        \end{equation}
+        on tarkka. Jonossa $i$ on inkluusio ja $q$ tekijäkuvaus.
+    \end{enumerate}
+\end{aksiooma}
+\begin{maaritelma}
+    Pelkistetty homologiateoria antaa epätyhjille CW-komplekseille $X$ jonon
+    \begin{itemize}
+        \item abelisia ryhmiä $\tilde h_n(X)$ ja
+        \item homomorfismeja $f_\bullet:\tilde h_n(X)\to\tilde h_n(Y)$ jokaista CW-kompleksien välistä kuvausta $f:X\to Y$ kohden, siten että
+        \begin{itemize}
+            \item $(fg)_\bullet=f_\bullet g_\bullet$
+            \item $\mathbbm{1}_\bullet=\mathbbm{1}$,
+        \end{itemize}
+    \end{itemize}
+    siten, että homologia-aksioomat pitävät.
+\end{maaritelma}
