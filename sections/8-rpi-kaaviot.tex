@@ -1,3 +1,66 @@
 \section{RPI-kaaviot äärettömyydessä}
+Tässä osiossa rakennetaan edellisten avulla ensin RPI-kaaviot ja sitten päätulos.
 
-Moi
+\subsection{Algebrallisen käyrän pujoskaavio}
+Määritellään ensin juurretut kaaviot. Usein hyödyttää käsitellä juurrettuja pujoskaavioita, joilla on jokin juurisilmu. Tässä työssä käsitellyn teorian kontekstissa ei ole matemaattisesti oikeaa tapaa määrittää, minkä silmuista pitäisi olla kaavion juuri. Juuren valinta on siis epämatemaattinen ja perustuu johonkin intuitivistiseen syyhyn (joka yleensä on kontekstista selvä). Juurretun kaavion etu on se, että juuri antaa kaaviolle ``relativistisen koordinaatiston''.
+\begin{maaritelma}
+    Olkoon $\Omega$ pujoskaavio. $\Omega$ on \emph{juurrettu}, jos jokin sen silmuista, joka ei ole lehti, valitaan kaavion juureksi.
+\end{maaritelma}
+Millä tavalla juurretty kaavio sitten antaa relativistisen koordinaatiston? Määritellään jokaiselle pujoskaavion kaarelle lähi- ja kaukopää.
+\begin{maaritelma}
+    Olkoon $\Omega$ juurrettu pujoskaavio. Olkoon $v$ jokin kaari ja $l,k$ kaaren silmut. Kuljettakoon kummastakin silmusta lyhyin reitti (matkalla olevien silmujen määrässä mitattuna) kaavion juuren luo, ja olkoon $\gamma(\cdot)\in\N$ matkalla olevien silmujen määrä alkupiste $l$ tai $k$ poislukien. Jos
+    \begin{equation*}
+        \gamma(l)<\gamma(k),
+    \end{equation*}
+    niin $l$ on $v$:n \emph{lähipää} ja $k$ sen \emph{kaukopää}. Päitä vastaavia painoja kutsutaan samaten \emph{lähi-} ja \emph{kaukopainoiksi}.
+\end{maaritelma}
+\begin{huomautus}
+    Lukijan on syytä huomata, että $\gamma(l)\ne\gamma(k)$ aina, sillä muutoin kaaviossa olisi silmukka.
+\end{huomautus}
+Rajoittamalla tutkimus sopivan hyvin käyttäytyviin kaavioihin löytyy yksinkertainen vastaavuus algebrallisten painojen ja pujoskaavioiden välillä. Tällainen kaavio on RPI-pujoskaavio.
+\begin{maaritelma}
+    Olkoon $\Omega$ juurrettu pujoskaavio. $\Omega$ on \emph{RPI-pujoskaavio} (englannista \emph{Reverse Puiseux Inequalities}, käänteiset Puiseux-epäyhtälöt), jos
+    \begin{enumerate}
+        \item jokaisella silmulla on korkeintaan yksi lähipaino, joka ei ole 1,
+        \item kaikki lähipainot ovat positiivisia ja
+        \item kaikki kaarideterminantit ovat negatiivisia, mukaanlukien juurisilmun kaaret tapauksessa $n=1$ ja muutoin.
+    \end{enumerate}
+\end{maaritelma}
+
+Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käyttäytyy äärettömyydessä. On mahdollista määritellä mielekkäällä tavalla käyrän linkki äärettömyydessä, käyttäen samoja ideoita kuin määritellessä käyrän linkkiä sen singulariteetissa.
+
+\par\vspace{\topsep}
+\noindent
+\textbf{Lause \ref{lause:päätulos}.} \emph{(i) Pelkistetty algebrallinen käyrä $V\subset\C^2$ jollakin upotuksella $\C^2\subset\P^2$ määrittää RPI-pujoskaavion $\Omega$ $V$:n äärettömyyslinkille. Äärettömyyspisteiden lukumäärälle pätee $n_\infty(V)=n$, missä $n$ on kaavion juurisilmun valenssi. Lisäksi $\deg(V)=\ell_\text{root}$, jossa $\ell_\text{root}$ on juuren (virtuaalisen) komponentin linkkiluku äärettömyyslinkin kanssa. Jos $V$ on säännöllinen käyrä, $\Omega$ on säännöllinen (määritelmä???) pujoskaavio.}
+
+\emph{(ii) Linkki on jonkin äärettömyyslinkin (joka voidaan valita säännölliseksi (määritelmä???), jopa hyväksi (määritelmä???)) osalinkki jos ja vain jos sillä on RPI-pujoskaavio.}
+\begin{ajatus}
+    Lause on sangen tiukasti muotoiltu, mutta sen ydinajatus on seuraava.
+    \begin{enumerate}[i]
+        \item Minkälainen solmu tai pujoskaavio algebrallisella käyrällä on?
+        \item Millä ehdoilla algebralliset käyrät vastaavat linkkejä ja pujoskaavioita yksi yhteen?
+    \end{enumerate}
+\end{ajatus}
+\begin{proof}[Lausen \ref{lause:päätulos}(i) todistus]
+    Tarkastelun kohteena ovat käyrät $V$, joilla on upotus $V\hookrightarrow\C^2$, missä kompleksiavaruudella on jokin sopiva upotus projektiiviseen tasoon $\C^2\hookrightarrow\P^2$. $V$:llä on olemassa jokin projektiivinen laajennus $C$, joka myös saattaa saada erisuuria arvoja äärettömyydessä riippuen $V$:n haarojen asymptotiikasta.
+
+    Tarkemmin sanottuna $V=C-(C\cap\P^1)\subset\P^2-\P^1=\C^2$, missä $C$ on jokin pelkistetty\footnote{Ei toistuvia pelkistymättömiä komponentteja} projektiivinen käyrä. Jos oletetaan, että $\P^1$ ei ole käyrän $C$ komponentti, niin
+    \begin{equation*}
+        C\cap\P^1=\{P_1,\dots,P_n\},\quad n<\infty,
+    \end{equation*}
+    sillä myös $\P^1$ voidaan nähdä algebrallisena käyränä $\P^2$:ssa. Olkoon $D'\hookrightarrow\P^1$ siten, että $C\cap\P^1\subset D'$ leikkauspisteet sisältävä levy. Olkoon $D$ $\P^2$:ssa säännöllinen (määritelmä???) 4-levy-ympäristö $D'$:lle, siten että reuna $R=\partial D$ leikkaa $C$:n ja $\P^1$:n transversaalisesti (määritelmä???).
+
+    Tällöin $\linkki_0=(R,(\P^1\cup C)\cap R)$ on linkki, jota voidaan esittää pujoskaaviolla
+    \begin{equation*}
+        \Gamma=K_0\xleftarrow{0}
+        \begin{cases}
+            1,\quad\Gamma_1 \\
+            \dots \\
+            1,\quad\Gamma_n
+        \end{cases}
+    \end{equation*}
+    selitystä\dots
+
+    
+\end{proof}
+

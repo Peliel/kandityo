@@ -4,7 +4,7 @@ Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teori
     Tässä osiossa, kuten kirjallisuudessa yleisesti, käsitellään $\R$-monistoja, vaikka työ muuten käsittelee $\C$-käyriä. Monistojen teoria sellaisenaan ei kuitenkaan välitä skalaareiden reaalisuudesta, ja isomorfia $\C\cong\R^2$ sallii teorian siirtämisen kompleksiluvuille.
 \end{huomautus}
 
-\subsection{Sileät monistot}
+\subsection{Sileät monistot ja Seifert-monisto}
 Sileiden monistojen määrittely on jotakuinkin teknistä niiden ymmärrettävyyteen verrattuna. Kärsimätön lukija voi ohittaa osion, ja ajatella monistoja $n$-ulotteisina pintoina, jotka $n+1$-ulotteiseen avaruuteen upotettuna näyttävät paikallisesti $n$-ulotteisilta tasoilta, mutta saattavat globaalisti olla vääntyneitä.
 
 Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnalla voi integroida ja derivoida käyriä. Esimerkiksi maapallo on sileä 2-ulotteinen monisto.
@@ -44,6 +44,15 @@ Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnal
 \begin{maaritelma}
     Monisto $M$ on \emph{sileä monisto}, jos sillä on sileä atlas.
 \end{maaritelma}
+Osion loppuhuipennuksena määritellään Seifert-monisto. 3-monistojen modernia teoriaa tuntemattomalle lukijalle määritelmä on käsittämätön, mutta käytännössä määritelmällä eritellään tutkimuksen kohteeksi mahdollisimman laaja monistojen joukko, joka käyttäytyisi mahdollisimman hyvin.
+\begin{maaritelma}[Seifert-monisto ja Seifert-kuidutettu avaruus]
+    \emph{Seifert-monisto} on 3-monisto, jonka voi pujontaoperaatiolla (määritelmä~\ref{maar:pujos}) rakentaa \emph{Seifert-kuidutetuista avaruuksista}, ts. avaruuksista, jotka voidaan esittää erillisten ympyröiden $\S^1$ yhdisteenä.
+\end{maaritelma}
+\begin{esimerkki}
+    Sekä ontto että täytetty torus $\S^1\times\S^1$, $\S^1\times D^2$ ovat Seifert-kuidutettuja avaruuksia.
+
+    $\S^3$ on Seifert-monisto, koska $\S^3=\T^2\sqcup\T^2$. Tarkalleen ottaen $\S^3$ saadaan pujomalla yhteen kaksi triviaalia solmua $(\S^3,\S^1)$. Siis $\S^3$ voidaan hajottaa kahteen joukkoon $\S^3-\S^1$, joille pätee $\S^3-\S^1\approx\interior\T^2$.
+\end{esimerkki}
 
 \subsection{Tangenttiavaruus}
 Keskeinen osa sileiden monistojen motivaatiota on derivoimisen mahdollistaminen avaruuksissa, jotka ovat globaalisti kaarevia. Alunperin derivointi määriteltiin käyrille $\R^2$:ssa tangenttien avulla. Tässä tilanteessa käyrää voidaan ajatella sileänä $1$-monistona. Mitä jos käyrä ei olekaan upotettu $R^2$:een? Käyrälle ajatus voi tuntua naurettavalta, mutta moniulotteisemmissa monistoissa tilanne ei ole enää selvä. Esimerkiksi maailmankaikkeus on jonkinlainen monisto, mutta mihin avaruuteen se on upotettu?
