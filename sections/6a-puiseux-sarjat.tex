@@ -1,9 +1,42 @@
 \section{Puiseux-sarjat}
+Keskeinen osa algebrallista geometriaa on aina ollut polynomiyhtälöiden ratkaiseminen. 1800-luvun alussa nuori matemaatikko Évariste Galois kuitenkin tunnetusti todisti, että polynomilla $f\in\K[x]$, jolla $\partial f\geq5$ ei ole yleistä ratkaisukaavaa. Polynomien nollakohtia ei voi siis esittää rationaalilukujen ja juurifunktioiden avulla, mikä houkuttelee tarkan esitysmuodon asemesta approksimoimaan oikeaa ratkaisua.
 
-Puiseux-sarja on mahdollisesti ääretön summa, jonka voi laskea mille tahansa polynomille $f\in\K[x,y]$ ja joka yleistää Newtonin sarjan. Puiseux-sarja esittää polynomin juuret ratkaistuna muuttujan $y$ suhteen. Yleisesti sarjat ovat muotoa
+Kahden muuttujan tapauksessa tilanne on monimutkaisempi: ratkaisujoukko muodostaa tyypillisesti tasokäyrän eli on kooltaan ääretön. Olkoon $f\in\K[x,y]$ jokin polynomi. Voidaan aina olettaa, että $f(0,0)=0$.
+\begin{propositio}
+    Jos $f\in\K[x,y]$ on polynomi, voidaan analyyttisellä koordinaattimuunnoksella tuottaa polynomi $g\in\K[x,y]$ siten, että $g(0,0)=0$.
+\end{propositio}
+\begin{proof}
+    Olkoot $x_0,y_0\in\C$ jokin $f$:n nollakohta. Tällöin $g(x,y):=f(x+x_0,y+y_0)$ on haluttu polynomi.
+\end{proof}
+Polynomin $f$ nollakohtajoukko on kokonainen käyrä, joka kulkee origon kautta. Samaan tapaan kuin Taylor- ja Laurent-sarjoilla voi approksimoida funktioiden käyttäytymistä tietyn pisteen läheisyydessä tai koko avaruudessa, onko olemassa sarjakehitelmä, joka kuvaisi $f$:n nollakohtajoukkoa origon ympäristössä tai koko avaruudessa? 
+
+Ensimmäisenä polynomien approksimoimista tutki Newton, jonka kehittämä menetelmä, jota nykyisin kutsutaan Puiseux-sarjaksi, on yhä käytössä. Puiseux-sarja on mahdollisesti ääretön summa, jonka voi laskea mille tahansa polynomille $f\in\K[x,y]$. Se esittää polynomin juuret ratkaistuna muuttujan $y$ suhteen. Jos $\phi$ on polynomin Puiseux-sarja, $y=\phi(x)$, niin $f(x,y)=0\Leftrightarrow y=\phi(x)$. Yleisesti Puiseux-sarjat ovat muotoa
 \begin{equation*}
-    y(x)=\sum_{k=k_0}^{\infty}c_kx^{k/n},
+    y=\phi(x)=\sum_{k=k_0}^{\infty}c_kx^{k/n},
 \end{equation*}
-jossa $k_0\in\Z$, $n\in\N$ ja $c_k\in\C$.
-Ensin esitellään tarpeelliset määritelmät sarjojen muodolliseen käsittelyyn.
+jossa $k_0\in\Z$, $n\in\N$ ja $c_k\in\C$. 
 
+\subsection{Newtonin todistus}
+Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjasta.
+\begin{lause}[\citep{Kollar2007}]
+    Olkoon $f\in\C[x,y]$ tai $f\in\C[[x,y]]$. Oletetaan, että $f(0,0)=0$ ja, että $y^n$ esiintyy $f$:ssä jollekin $n\in\N$. Tällöin yhtälöllä $f(x,y)=0$ on Puiseux-sarja
+    \begin{equation*}
+        y(x)=\sum_{k=1}^{\infty}c_kx^{k/N},\quad N\in\N,
+    \end{equation*}
+    jolle $f(x,y(x))=0$ kaikilla $x\in\C$.
+\end{lause}
+\begin{maaritelma}
+    Newtonin monikulmio
+\end{maaritelma}
+\begin{proof}
+    \textbf{Osa I.} Olkoon $M$ polynomin $f$ Newtonin monikulmio. Jos pääkaari on horisontaalinen tai kasvava, pienin $y$:n eksponentti on $n$, joten $y=0$ on triviaali alimman asteen approksimaatio. Jos\dots
+
+    Ok tämä on käytännössä hallussa kiitos Kollárin. Pitää vain kirjoittaa loppuun.
+\end{proof}
+Tämä Puiseux-sarja on vain muodollinen, eikä ole tietoa sen suppenemisesta. Tosin koska se approksimoi polynomia tai suppenevaa potenssisarjaa, niin on jokin pieni ympäristö, jossa Puiseux-sarja suppenee. Sitten vielä Kollárin kpl 1.2 jotta suppeneminen olisi hallittua (jos ehtii).
+\begin{lause}
+    Olkoon $f\in\C[x,y]$ pelkistymätön ja $C:=\{f(x,y)=0\}\subset\C^2$ vastaava algebrallinen käyrä. On olemassa kompleksinen 1-monisto $\bar C$ ja $\sigma:\bar C\to C$ \emph{kelpo}\footnote{Jos $K\subset C$ on kompakti niin myös $\sigma^{-1}(K)\subset\bar C$.} kuvaus, joka on holomorfinen molempiin suuntiin (eli $\sigma^{-1}$ myös) kaikilla $(x,y)\subset\C^2-S$, missä $S$ on äärellinen pistejoukko.
+\end{lause}
+\begin{proof}
+    \dots tarvitaan implisiittisten funktioiden lause.
+\end{proof}

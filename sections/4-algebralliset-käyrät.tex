@@ -9,7 +9,22 @@ Affiini algebrallinen käyrä kompleksitasossa on määritelty polynomin nollako
         C = \{ (x,y) \in \mathbb{C}^2 \mid f(x,y) = 0 \}.
     \end{equation*}
 \end{maaritelma}
-Koska $\C$ on algebrallisesti suljettu, niin algebran peruslauseen nojalla jokainen polynomi $f \in \mathbb{C}[x,y]$ voidaan jakaa lineaarisiin tekijöihin. Tämän vuoksi jokainen affiini algebrallinen käyrä kompleksitasossa voidaan käsittää lineaaristen käyrien yhdistelmänä.
+Yleisesti $n$-ulotteinen algebrallinen hyperpinta on $n+1$-ulotteisen polynomin nollakohtajoukko. Kuvassa~\ref{kuva:algebrallinen-käyrä} havainnollistetaan tätä 2-pinnalla ja sen $xy$-tasoon jättämällä ellipsillä.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/algebrallinen-käyrä.pdf}
+    \caption{Parabolinen pinta $f(x,y)-z=0$ ja algebrallinen käyrä $f(x,y)=0$.}
+    \label{kuva:algebrallinen-käyrä}
+\end{figure}
+Koska $\C$ on algebrallisesti suljettu, niin algebran peruslauseen nojalla jokainen polynomi $f \in \mathbb{C}[x,y]$ voidaan jakaa lineaarisiin tekijöihin. Tämän vuoksi jokainen affiini algebrallinen käyrä kompleksitasossa voidaan käsittää lineaaristen käyrien yhdistelmänä. Määritellään vielä käyrän aste.
+\begin{maaritelma}
+    Olkoon $C$ algebrallinen käyrä, jonka määrittää polynomi $f\in\C[x,y]$. Kirjoitetaan
+    \begin{equation*}
+        f(x,y)=\sum_{i,j=0}^{N}a_{ij}x^iy^j,\quad N\in\N,a_{ij}\in\C.
+    \end{equation*}
+    Tällöin $C$:n tai $f$:n aste on $\deg(C)=\deg(f)=\partial f=\max\{i+j\}$.
+\end{maaritelma}
+
 
 \subsection{Singulariteetit ja säännöllisyys}
 Käyrän $C$ paikallinen muoto pisteessä $p=(a,b)\in C$ määrittyy $f$:n osittaisderivaattojen avulla. 
@@ -18,31 +33,47 @@ Käyrän $C$ paikallinen muoto pisteessä $p=(a,b)\in C$ määrittyy $f$:n ositt
     \begin{equation*}
         \frac{\partial f}{\partial x}(a,b) = 0 \quad \text{ja} \quad \frac{\partial f}{\partial y}(a,b) = 0.
     \end{equation*}
+    Tämä lienee liian yksinkertainen määritelmä, olenko oikeassa?
 \end{maaritelma}
 \begin{maaritelma}
     Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}.
 \end{maaritelma}
-Säännöllisessä pisteessä implisiittisten funktioiden lause takaa, että käyrä näyttää paikallisesti kompleksisen 1-ulotteiselta varistolta, ja on mahdollista määritellä yksikäsitteinen tangenttisuora.
+Säännöllisessä pisteessä implisiittisten funktioiden lause takaa, että käyrä näyttää paikallisesti kompleksisen 1-ulotteiselta varistolta, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatta singulariteetissa nolla.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/käyriä-ja-singulariteetteja.pdf}
+    \caption{Yksi epäsingulaarinen käyrä ja kaksi singulaarista. Vasemmalta oikealle käyriä määrittävät yhtälöt ovat $y^2-x^3-x^2-1=0$, $y^2-x^3-x^2=0$ ja $y^2-x^3=0$.}
+    \label{kuva:käyriä-ja-singulariteetteja}
+\end{figure}
 
 \subsection{Projektiivinen avaruus}
-Affiinilla avaruudella $\C$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus.
+Affiinilla avaruudella $\C$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus, joka lisää tavalliseen vektoriavaruuteen $\K^n$ matemaattisesti hyvin määritellyn ``horisontin''.
 
-Kompleksinen $n$-ulotteinen projektiivinen avaruus $\P^n(\C)$ määritellään joukoksi, joka koostuu avaruuden $\C^{n+1}$ vektorisäteistä (tai niiden ekvivalenssiluokista), jotka kulkevat origon kautta. Toisin sanoen, $\P^n(\C)$ on määritelty seuraavasti:
+$\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ määritellään joukoksi, joka koostuu avaruuden $\K^{n+1}$ vektorisäteistä (eli niiden ekvivalenssiluokista), jotka kulkevat origon kautta. Toisin sanoen, $\P^n(\K)$ on määritelty seuraavasti:
 \begin{maaritelma}
-    Olkoon $(Z_0,\dots,Z_n) \in \C^{n+1} - \{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
+    Olkoon $(Z_0,\dots,Z_n) \in \K^{n+1}-\{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
     \begin{equation*}
-        (Z_0,\dots,Z_n) \sim (\lambda Z_0, \dots, \lambda Z_n) \quad \text{kaikille } \lambda \in \C^*.
+        (Z_0,\dots,Z_n) \sim (\lambda Z_0, \dots, \lambda Z_n) \quad \text{kaikille } \lambda \in \K^*.
     \end{equation*}
     Tällöin
     \begin{equation*}
-        \P^n(\C):=\frac{\C^{n+1}-\{0\}}{\sim}.
+        \P^n(\K):=\frac{\K^{n+1}-\{0\}}{\sim}.
     \end{equation*}
     Ekvivalenssiluokan edustaja merkitään homogeenisilla koordinaateilla $[Z_0:\dots:Z_n]$.
 \end{maaritelma}
 \begin{asetus}
-    Jatkossa merkitään $\P^n$ pidemmän $\P^n(\C)$ sijasta, koska tässä työssä keskitytään yksinomaan kompleksisten käyrien tarkasteluun.
+    Jatkossa tarkastellaan yksinomaan kompleksista projektiivista avaruutta $\P^n(\C)$. Lisäksi merkitään $\P^n$ pidemmän $\P^n(\C)$ sijasta.
+
+    Poikkeus tehdään havainnollistavien kuvien kohdalla, jotka piirretään reaaliseen tasoon. Kompleksitasossa on liikaa ulottuvuuksia.
 \end{asetus}
-Projektiivisen avaruuden idea on tuoda tavalliseen avaruuteen $\K^n$ myös ``horisontti'', joka ajaa äärettömyyden virkaa. Seuraava esimerkki havainnollistaa asiaa.
+Projektiivisen avaruuden idea on tuoda tavalliseen avaruuteen $\K^n$ myös ``horisontti'', joka ajaa äärettömyyden virkaa. Kuvassa~\ref{kuva:projektiivinen-suora} on piirretty kaksi yhdensuuntaista suoraa tavalliseen $\R$-tasoon sekä projektiiviseen tasoon $\P^2(\R)$. Äärettömyys ei ole yksi piste, vaan kokonainen ``horisonttiviiva'' ja suorat leikkaavat suoraan katsojan edessä.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/projektiivinen-suora.pdf}
+    \caption{Projektiivisessa tasossa kaksi yhdensuuntaista suoraa leikkaavat äärettömyydessä.}
+    \label{kuva:projektiivinen-suora}
+\end{figure}
+Havaintoa siitä, että projektiivisessa tasossa äärettömyys on tasoa ympäröivä horisontti, tarkastellaan täsmällisemmin seuraavassa esimerkissä ja lemmassa.
 \begin{esimerkki}
     \label{esim:proj-taso-ja-suora}
     Tapauksissa $n=1$ ja $n=2$
@@ -93,3 +124,30 @@ Projektiivisessa tasossa $\P^2$ klassinen polynomi $f(x,y)$ ei ole hyvin määri
 \begin{huomautus}
     Polynomin homogenisointi sallii luonnollisesti käyrän tarkastelun myös äärettömyyssuoralla. Projektiivinen käyrä $\mathcal{C}$ on aina suljettu ja kompakti, koska se on suljettu alijoukko projektivisessa avaruudessa $\P^2$, joka on itsessään kompakti.
 \end{huomautus}
+Algebrallisen käyrän homogenisointi sallii varsin mielenkiintoisia näkökulmia tuttujen käyrien tarkasteluun. Jos tasoon piirtää paraabelin $y=x^2$, käyrä hajaantuu kohti äärettömyyttä $y$-akselin molemmin puolin. Hajaantuminen on kuitenkin symmetristä $y$-akselin molemmin puolin (koska $x^2=(-x)^2$!). Toisin sanoen käyrä hajaantuu molemmissa haaroissaan \emph{asymptoottisesti samankaltaisesti} eli molemmissa haaroissaan paraabeli lähestyy käytökseltään kahta yhdensuuntaista suoraa. 
+
+Koska projektiivisessa avaruudessa pisteet ovat suorien ekvivalenssiluokkia, tarkoittaa asymptoottinen samankaltaisuus hajaantumisessa sitä, että haarat yhtyvät horisontissa. Tämä on piirretty kuvaan~\ref{kuva:projektiivinen-paraabeli}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/projektiivinen-paraabeli.pdf}
+    \caption{Paraabeli $\R^2$:ssa ja $\P^2(\R)$:ssa, jossa se muistuttaa ellipsiä.}
+    \label{kuva:projektiivinen-paraabeli}
+\end{figure}
+Sulkeutuuko algebrallinen käyrä aina äärettömyydessä? Ei välttämättä. Kartioleikkauksista hyperboli antaa vastaesimerkin.
+
+Annetuista esimerkeistä hyperboli on itse asiassa kiinnostavin, sillä se paljastaa jotakin oleellista projektiivisen avaruuden rakenteesta, nimittäin sen, että avaruutta ympäröivä horisontti ei ole yksinkertaisesti vain ympyrä. Tilannetta havainnollistetaan jokseenkin monimutkaisessa kuvassa~\ref{kuva:projektiivinen-hyperboli}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/projektiivinen-hyperboli.pdf}
+    \caption{Hyperboli $\R^2$:ssa ja $\P^2(\R)$:ssa.}
+    \label{kuva:projektiivinen-hyperboli}
+\end{figure}
+Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäksi merkitty kaksi asymptoottisuoraa $h_1$ ja $h_2$, joita kohti hyperboli suppenee neljässä eri suunnassa.
+
+Oikealla on päällekkäin kaksi projektiivista tasoa. Keskittykäämme ensiksi alempaan tikku-ukkoon. Kuten edellisissä kuvissa, tikku-ukko seisoo origossa ja katsoo horisonttiin. Tämä vastaa vasemmanpuoleisen kuvan ylempää puolitasoa $y>0$. Hyperboli on piirretty tasaisella viivalla ja se törmää horisonttiin kahdessa pisteessä muodostaen ellipsin. Tikku-ukon avaruuden oikealla puolella on ympyrä, joka esittää positiivisen kiertosuunnan.
+
+Mitä tapahtuu horistontin takana, johon on piirretty katkoviivaa? Siirrytään takaisin vasemmanpuoleiseen kuvaan $\R^2$:een. Oletetaan, että tikku-ukko lähtee kävelemään paraabelia pitkin luoteeseen ja että hän saapuu äärettömyyteen. Äärettömyydessä hänen pistettään vastaa asymptoottinen suora $h_1$, mutta hän olisi voinut kulkea myös kaakkoon päästäkseen tähän pisteeseen! Toisin sanoen kävelemällä eteenpäin äärettömyyteen ja sen yli, tikku-ukko päätyykin alapuoliseen tasoon ($y<0$). Jos hän jatkaa matkaa, hän saapuu ennen pitkää takaisin origoon.
+
+Tikku-ukon matkalla avaruus on kuitenkin kääntynyt 180 astetta. Tätä havainnollistavat kuvan oikealla laidalla olevat kiertoympyrät, jotka kääntyvät 180 astetta avaruuden yli mentäessä. Jos origon tienoilta lähtisi armeija tikku-ukkoja ympyrämuodostelmassa kävelemään kohti äärettömyyttä, he päätyisivät ennen pitkää takaisin origoon, mutta heidän ympyränsä olisi nyt kääntynyt 180 astetta alkuperäisestä. Tämä johtuu siitä, että projektiivisessa avaruudessa luode vastaa kaakkoa ja koillinen lounasta. Tilanteen voi onneksi korjata kävelemällä uudestaan äärettömyyden yli.
+
+Projektiivista tasoa ei siis ympäröikään ympyrä, vaan ympyrä jossa kaksi vastakkaista pistettä ovatkin sama piste. Kyseessä on siis puoliympyrä, mutta miten puoliympyrä voi ympyröidä avaruutta, jossa on kuitenkin ympyrän verran liikkumasuuntia? Jätämme tämän lukijan pohdittavaksi.

@@ -10,6 +10,13 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
 \begin{maaritelma}[Kuitukimppu]
     \emph{Kuitukimppu} on nelikko $(E,B,\pi,F)$, missä $E,B$ ja $F$ ovat topologisia avaruuksia ja $\pi:E\to B$ jatkuva surjektio, joka tyydyttää paikallisen triviaaliuden ehdon (alla). Sivu 386 alg. top. kirjasta.
 \end{maaritelma}
+Kuitukimpun pitää olla paikallisesti triviaali eli muistuttaa tavallista tuloa, mutta globaalisti sen geometria voi olla vääntynyt. Kuva~\ref{kuva:epätriviaali-torus-kuitukimppu} esittää epätriviaalisti vääntynyttä torusta. Siinä jokainen kuitu kierii toruksen pienemmän akselin ympäri viisi kertaa ennen lähtöpisteeseen palaamista ja kuvaan on piirretty kolme kuitua.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/epätriviaali-torus-kuitukimppu.pdf}
+    \caption{Epätriviaali torus, jossa kuidut ovat vääntyneitä.}
+    \label{kuva:epätriviaali-torus-kuitukimppu}
+\end{figure}
 \begin{maaritelma}[Vektorikimppu]
     Olkoon $M$ topologinen avaruus. Asteen $k$ $\K$-\emph{vektorikimppu} $M$:n yli on jatkuvalla surjektiolla $\pi:E\to M$ varustettu topologinen avaruus $E$ siten, että 
     \begin{enumerate}
@@ -21,10 +28,20 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
         \end{itemize}
     \end{enumerate}
 \end{maaritelma}
+\begin{esimerkki}
+    Esimerkiksi pallo ja sen tangenttikimppu muodostavat vektorikimpun $\pi:T\S^2\to\S^2$, jossa projektio määritetään $T_p\S^2\mapsto p$ eli pisteeseen, jossa tangenttiavaruus kiinnittyy palloon. Tässä jokainen kuitu voidaan varustaa 2-ulotteisella $\R$-rakenteella.
+\end{esimerkki}
+Pallo ja tangenttikimppu ovat esimerkkeji globaalisti triviaalista vektorikimpusta, jossa ei ole vääntöä. Möbius-nauha kuvassa~\ref{kuva:mobius-nauha} muistuttaa paikallisesti tuloa $\S^1\times I$, missä $I\subset\R$, mutta globaalisti se on vääntynyt.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/mobius-nauha.pdf}
+    \caption{Möbius-nauha.}
+    \label{kuva:mobius-nauha}
+\end{figure}
 
 
 \subsection{Kuidut}
-% Tässä voisi olla vaikka g_\bullet
+Siinä missä kuitukimppu yleistää topologisen tulon, kuidutus yleistää kuitukimpun. Kuidutuskonstruktio on hankala käsittää ja se esitetään tässä pääosin vain myöhempää konstruktiota, putkiympäristöä, varten.
 \begin{maaritelma}[Homotopinen nosto-ominaisuus]
     Kuvaus $\pi:E\to B$ tyydyttää \emph{homotopisen nosto-ominaisuuden} avaruudelle $X$, jos
     \begin{itemize}
@@ -60,15 +77,19 @@ Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyk
         \item on olemassa avoimet joukot $U\subset E$, $V\subset M$ siten, että $0_E[S]\subset U$ ja $S\subset V$ niin, että rajoitus $J|_U$ on diffeomorfismi.
     \end{itemize}
 \end{maaritelma}
+Yksinkertainen esimerkki saadaan käyrästä $\R^3$:ssa. Sen putkiympäristö on käyrää seuraileva kolmiulotteinen mato, jonka poikkileikkaukset ovat tasojoukkoja, joiden muoto vaihtelee, mutta käyrän suuntaisesti aina sileästi. Putkiympäristön läpileikkaus ei välttämättä ole ympyrälevyn mallinen. Esimerkki kuvassa~\ref{kuva:putkiympäristö}.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/putkiympäristö.pdf}
+    \caption{3-monistoon upotettu suljettu käyrä, jolle piirretty pätkä mielivaltaista putkiympäristöä.}
+    \label{kuva:putkiympäristö}
+\end{figure}
 \begin{lause}[Putkiympäristölause]
     Jokaisella sileän moniston upotetulla sileällä alimonistolla on putkiympäristö.
 \end{lause}
 \begin{proof}
     Todistus on vaikea ja löytyy lähteestä ???.
 \end{proof}
-\begin{ajatus}
-    Ajattele esimerkiksi algebrallista käyrää $\R^3$:ssa. Sen putkiympäristö on käyrää seuraileva kolmiulotteinen mato, jonka poikkileikkaukset ovat levyjä, joiden lävistäjä voi vaihdella.
-\end{ajatus}
 \begin{maaritelma}
     Olkoon $f:\C^2\to\C$ polynomikuvaus. Sen kuitua $f^{-1}(c),c\in\C$ kutsutaan \emph{säännölliseksi}, mikäli jollekin $c$:n ympärisölle $D$ kuvaus $f|_{f^{-1}(D)}:f^{-1}(D)\to D$ on paikallisesti triviaali $C^\infty$-kuidutus.
 
@@ -124,8 +145,14 @@ Käytännössä homologiassa lasketaan homologiaryhmiä $H_n(X)$, missä $X$ on 
             0, & i>2
         \end{cases}
     \end{equation*}
-    Ryhmä $H_1$ selittyy sillä, että toruksen pinnalle voi piirtää kaksi silmukkaa, joita ei voida muuntaa toisikseen: toruksen ison akselin ympäri, sekä toruksen paksuutta pitkin.
+    Ryhmä $H_1$ selittyy sillä, että toruksen pinnalle voi piirtää kaksi silmukkaa, joita ei voida muuntaa toisikseen: toruksen ison akselin ympäri, sekä toruksen paksuutta pitkin. Tämä on havainnollistettu kuvassa~\ref{kuva:toruksen-homologia-akselit}
 \end{esimerkki}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/toruksen-homologia-akselit.pdf}
+    \caption{Toruksen kaksi homologia-akselia.}
+    \label{kuva:toruksen-homologia-akselit}
+\end{figure}
 Mitä ympyröiden homologiaryhmiin tulee, lukija saattoi huomata jo kaavaan, joka todistetaan lemmassa~\ref{lemma:ympyröiden-homologia}.
 \begin{lemma}
     \label{lemma:ympyröiden-homologia}
@@ -148,6 +175,8 @@ Homologia ei ole kuitenkaan täydellinen keino topologisten avaruuksien erottele
     \end{align*}
 \end{maaritelma}
 
+\subsection{Kuidutetut torukset}
+Ok ilmeisesti kuidutetut torukset on aika tärkee juttu ja kuidutetut Seifert-monistot (avaruudet?) myös. Tähän tulis selitystä niistä.
 
 \subsection{Homologia (aksiomaattinen yritys)}
 Tämä on vähän epätoivoinen yritys sisällyttää homologia työhön. Taidan poistaa koko osion.

@@ -19,12 +19,15 @@ Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnal
 \begin{huomautus}
     Yleisesti kirjoitetaan ``olkoon $M^n$ monisto'', jolla tarkoitetaan, että $M$ on $n$-ulotteinen monisto.
 \end{huomautus}
-\begin{esimerkki}
-    Esimerkiksi Maapallo on 2-ulotteinen monisto, koska paikallisesti Maapallon pinta muistuttaa tasoa. Maapallo on erityistapaus algebrallisesta pinnasta, koska sen polynomiyhtälö $x^2+y^2+z^2=R^2$.
-\end{esimerkki}
 \begin{maaritelma}
     Olkoon $M^n$ monisto. $M$:n \emph{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset R^n$. Koordinaattikartan \emph{koordinaattikuvaus} on $\varphi$.
 \end{maaritelma}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/maapallo.pdf}
+    \caption{Yhtälön $x_1^2+x_2^2+x_3^2=6\ 371^2$ määrittämä monisto.}
+    \label{kuva:maapallo-monistona}
+\end{figure}
 \begin{esimerkki}
     Yleisesti algebrallinen hyperpinta $f(x_1,x_2,\dots,x_{n+1})=0$ määrittää $n$-ulotteisen moniston $\R^{n+1}$:ssä.
 \end{esimerkki}
@@ -41,6 +44,12 @@ Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnal
     \end{equation}
     tai $U_i\cap U_j=\emptyset$, niin $\mathcal{A}$ on \emph{sileä atlas}.
 \end{maaritelma}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/monisto-ja-koordkartat.pdf}
+    \caption{Abstrakti 2-monisto ja kaksi sileästi yhteensopivaa karttaa.}
+    \label{kuva:monisto-ja-kaksi-karttaa}
+\end{figure}
 \begin{maaritelma}
     Monisto $M$ on \emph{sileä monisto}, jos sillä on sileä atlas.
 \end{maaritelma}
@@ -53,6 +62,13 @@ Osion loppuhuipennuksena määritellään Seifert-monisto. 3-monistojen modernia
 
     $\S^3$ on Seifert-monisto, koska $\S^3=\T^2\sqcup\T^2$. Tarkalleen ottaen $\S^3$ saadaan pujomalla yhteen kaksi triviaalia solmua $(\S^3,\S^1)$. Siis $\S^3$ voidaan hajottaa kahteen joukkoon $\S^3-\S^1$, joille pätee $\S^3-\S^1\approx\interior\T^2$.
 \end{esimerkki}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/torus-kuitukimppu.pdf}
+    \caption{Torus koostuu erillisistä ympyröistä: $\T^2=\bigsqcup_{p\in\S^1}\{p\}\times\S^1$.}
+    \label{kuva:torus-kuitukimppu}
+\end{figure}
+
 
 \subsection{Tangenttiavaruus}
 Keskeinen osa sileiden monistojen motivaatiota on derivoimisen mahdollistaminen avaruuksissa, jotka ovat globaalisti kaarevia. Alunperin derivointi määriteltiin käyrille $\R^2$:ssa tangenttien avulla. Tässä tilanteessa käyrää voidaan ajatella sileänä $1$-monistona. Mitä jos käyrä ei olekaan upotettu $R^2$:een? Käyrälle ajatus voi tuntua naurettavalta, mutta moniulotteisemmissa monistoissa tilanne ei ole enää selvä. Esimerkiksi maailmankaikkeus on jonkinlainen monisto, mutta mihin avaruuteen se on upotettu?
@@ -68,6 +84,12 @@ On selvää, että tangentti ei sellaisenaan yleisty monistoille ja tarvitaan ta
 \begin{maaritelma}
     Kaikkien derivaatioiden joukko $p$:ssä, merkitään $T_pM$, on $M$:n \emph{tangenttiavaruus} $p$:ssä. Jos $v\in T_pM$, niin $v$ on \emph{tangenttivektori} $p$:ssä.
 \end{maaritelma}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/tangenttiavaruus.pdf}
+    \caption{Maapallon (kuva~\ref{kuva:maapallo-monistona}) tangenttiavaruus noin Helsingin kohdalla.}
+    \label{kuva:tangenttiavaruus}
+\end{figure}
 Joissakin tapauksissa hyödyllinen on myös konsepti, joka niputtaa kaikki tangenttiavaruudet yhteen.
 \begin{maaritelma}
     Moniston $M$ \emph{tangenttikimppu} on erillinen yhdiste
