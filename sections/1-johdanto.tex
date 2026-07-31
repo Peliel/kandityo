@@ -6,33 +6,34 @@ Merkintätapoja.
     \item $\linkki,\solmu$ linkki ja solmu
     \item $N(\linkki),N(\solmu)$ linkin ja solmun putkiympäristö
     \item $M_i,L_i$ linkin osasen pituus- ja leveyspiiri
-    \item $\#$ topologisten monistojen yhtenäinen summa
-    \item 
+    \item $\hash$ topologisten monistojen yhtenäinen summa
+    \item muuta?
 \end{itemize}
+Tämä ei ole työn oikea johdanto vaan pikemminkin kooste prof. Kiviselle työn osioista.
 
-Tämän tekstin lähteenä oleva tiedosto on opinnäytteen pohja, jota voi käyttää
-kandidaatintyössä, diplomityössä ja lisensiaatintyössä. Tekstin lähteenä oleva
-tiedosto on kirjoitettu \LaTeX-tiedoston rakenteen opiskelemista ajatellen.
-Tiedoston kommentit sisältävät tietoa, joka on hyödyllistä opinnäytettä
-kirjoitettaessa. 
+Osiot 2-5 taustoittavat aihepiirin. 6 ja 7 esittelevät tärkeimmät konstruktiot, pujoskaaviot ja Puiseux-parit. Kappale 8 Dehn-kirurgiasta muuttunee turhaksi työn edetessä, mutta ajattelin että pujosten asettaminen laajempaan 3-monistojen kirurgian kontekstiin olisi kiva. 9 palvelee päälauseen todistamista.
 
-%% Esimerkki luettelosta. Lyhyt ajatusviiva on käytössä luettelossa, ja se on
-%% pituudeltaan en dash. Merkitään latex-koodissa --. 
-Johdanto selvittää samat asiat kuin tiivistelmä, mutta laveammin. Johdannossa
-kerrotaan yleensä seuraavat asiat
+Kirjoitin kappaleen 3 ensimmäisenä ja se on ehkä naiivein. Paljon aikaa käytetään putkiympäristön rakentamiseen, mikä on vähän turhaa; olisin voinut vain määritellä näin:
+\begin{maaritelma}
+    Linkin $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ putkiympäristö on kokoelma $\{U_i\}_{i=1}^n$, siten että $U_i$ ovat keskenään erillisiä ja jokainen on $\solmu_i$:n ympäristö.
+\end{maaritelma}
+Homologia esitetään epämuodollisesti, mutta rönsyävästi. Luulin aluksi, että homologisilla $n$-palloilla on keskeinen rooli teoriassa, mutta ne ovat vain yleistyksen asemassa (kun on $n>2$ muuttujaa). Polynomien tutkimisessahan piirretään vain $\S^3$-palloja. Tajusin aika myöhään, että vääntyneet torukset ja niiden singulaariset ja säännölliset kuidut ovat keskeisessä asemassa. Lisään nämä kappaleeseen 3, mikä pelastaa sen turhuudelta.
 
-\begin{itemize}
-\item[--]Tutkimuksen taustaa ja tutkimusaiheen yleisluonteinen esittely
-\item[--]Tutkimuksen tavoitteet
-\item[--]Pääkysymys ja osaongelmat
-\item[--]Tutkimuksen rajaus ja keskeiset käsitteet.
-\end{itemize}
+Kappale 2 on peruskauraa ja melkein valmis, pl. käsite \textit{local frame}. Onko jotain yksinkertaista tapaa määritellä tämä? Luin Leen kirjaa ja en nopeasti hoksannut asiaa, joten jätin myöhemmälle.
 
-Lyhyiden opinnäytteiden johdannot ovat yleensä liian pitkiä, joten johdannon
-paisuttamista on vältettävä. Diplomityöhön sopii johdanto, joka on 2--4 sivua.
-%% tässä on myös lyhyt ajatusviiva l. en dash.
-Kandidaatintyön johdannon on oltava diplomityön johdantoa lyhyempi. Sopivasti
-tiivistetty johdanto ei kaipaa alaotsikoita.
+Kappale 4 on mielestäni hyvä, mutta siellä on lopussa virhe kuvassa~\ref{kuva:projektiivinen-hyperboli}. Virhe koskee sitä, että äärettömyyden yli mentäessä tapahtuisi kiertoa (ei tapahdu). Luulen, että se tarvitsee vielä pari lisäsivua siitä, miten käytännössä lasketaan käyriä äärettömyydessä.
+
+Solmuteoria-kappaleen 5 on minimimäärä on ehkä valmis, mutta tuntuu kuin paljon puuttuisi. Pääosin siksi etten osaa vielä solmuteoriaa kunnolla.
+
+Pujoskaavio-kappale 6 on pahasti kesken, koska en vieläkään ymmärrä pujoskaavioita kunnolla. Olen varmaan puolet edistymisestäni saanut tällä viikolla (27.7.-2.8.), mutten ehdi kirjoittaa kunnolla mitään.
+
+Puiseux-sarja-kappale 7 on vasta alussa, mutta teoriassa valmis, sillä Kollárin todistus on niin hyvä. Minun pitää vielä sisäistää se kunnolla ja kirjoittaa omin sanoin. Vaikeimmaksi osuudeksi jäänee ymmärtää selittää, miksi Puiseux-sarja antaa iteroidun torussolmun.
+
+Kappale 9 RPI-kaavioista on hädin tuskin alussa. En ole oikein päässyt alkuun Neumannin todistuksen lukemisessa, koska olen käyttänyt paljon aikaa pujoskaavioiden ymmärtämiseen. 
+
+Jälkiviisaana sanon, että jonkin verran aikaa on tullut tuhlattua homologian parissa purnaamiseen ja yleisesti pään hakkaamiseen seinään pujoskaavioiden kanssa. Olen tähän mennessä ymmärtänyt pujoskaaviot jo varmaan viidellä tavalla väärin, ja väärinymmärryksen selättäminen on aina vaikeaa ja hidasta.
+
+Lisähuomautus: laittamiesi viimeisten paperien ansiosta minulla alkaa olla sellainen kutina, että palapeli valmistuu, tajuan pujoskaaviot. Kuudes kerta toden sanoo!
 
 \begin{lause}
     \label{lause:päätulos}
