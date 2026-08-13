@@ -1,26 +1,26 @@
 \section{Differentiaaligeometriaa}
-Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teoriaa. Monistot ovat geometrisia rakenteita, jotka muistuttavat paikallisesti euklidista avaruutta. Ne mahdollistavat \emph{avaruuden rakenteen} käsitteen. Algebrallisten solmujen kannalta tämä on olennaista, sillä solmujen tutkimista helpottaa niiden upottaminen monistoon. Tässä työssä noudatetaan lähteen \citep{Lee2012} merkintätapoja.
+Käyrien muodostamien linkkien tutkimiseen tarvitaan (sileiden) monistojen teoriaa. Monistot ovat geometrisia rakenteita, jotka muistuttavat paikallisesti euklidista avaruutta, mutta yleistyvät avaruuksiin, jotka ovat \emph{globaalisti vääntyneitä}, mikä ilmenee paremmin pian. Algebrallisten solmujen kannalta tämä on olennaista, sillä solmujen tutkimista helpottaa niiden upottaminen monistoon. Tässä työssä noudatetaan lähteen \citep{Lee2012} merkintätapoja.
 \begin{huomautus}
-    Tässä osiossa, kuten kirjallisuudessa yleisesti, käsitellään $\R$-monistoja, vaikka työ muuten käsittelee $\C$-käyriä. Monistojen teoria sellaisenaan ei kuitenkaan välitä skalaareiden reaalisuudesta, ja isomorfia $\C\cong\R^2$ sallii teorian siirtämisen kompleksiluvuille.
+    Tässä osiossa, kuten kirjallisuudessa yleisesti, käsitellään $\R$-monistoja, vaikka työ muuten käsittelee $\C$-käyriä. Monistojen teoria sellaisenaan ei kuitenkaan välitä skalaareiden reaalisuudesta ja isomorfia $\C\cong\R^2$ sallii teorian siirtämisen kompleksiluvuille.
 \end{huomautus}
 
 \subsection{Sileät monistot ja Seifert-monisto}
-Sileiden monistojen määrittely on jotakuinkin teknistä niiden ymmärrettävyyteen verrattuna. Kärsimätön lukija voi ohittaa osion, ja ajatella monistoja $n$-ulotteisina pintoina, jotka $n+1$-ulotteiseen avaruuteen upotettuna näyttävät paikallisesti $n$-ulotteisilta tasoilta, mutta saattavat globaalisti olla vääntyneitä.
+Sileiden monistojen määrittely on jotakuinkin teknistä niiden ymmärrettävyyteen verrattuna. Monistoja voi ajatella $n$-ulotteisina pintoina, jotka $d$-ulotteiseen, $d>n$, avaruuteen upotettuna näyttävät paikallisesti $n$-ulotteisilta tasoilta, mutta saattavat globaalisti olla vääntyneitä.
 
-Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnalla voi integroida ja derivoida käyriä. Esimerkiksi maapallo on sileä 2-ulotteinen monisto.
+Sileä monisto on sellainen monisto, joka ei ole missään kohdin ``rutussa'', jolloin sen pinnalla voi integroida ja derivoida käyriä. Esimerkiksi maapalloa voi mallintaa sileänä 2-ulotteisena monistona.
 \begin{maaritelma}
     Olkoon $M$ topologinen avaruus. $M$ on \emph{$n$-ulotteinen topologinen monisto}, jos
     \begin{itemize}
-        \item $M$ on Hausdorff-avaruus
-        \item $M$ on $N_2$-avaruus
+        \item $M$ on Hausdorff-avaruus,
+        \item $M$ on $N_2$-numeroituva avaruus eli sen topologialla on numeroituva kanta $\mathcal{D}=\{U_i\}_{i\in\N}$, jossa $U_i\subset M$ on avoin ja
         \item $M$ on paikallisesti euklidisesti $n$-ulotteinen: kaikilla $p\in M$ on avoin ympäristö $U\subset M$, joka on homeomorfinen johonkin $\R^n$:n avoimeen osajoukkoon $V\subset\R^n$.
     \end{itemize}
 \end{maaritelma}
 \begin{huomautus}
-    Yleisesti kirjoitetaan ``olkoon $M^n$ monisto'', jolla tarkoitetaan, että $M$ on $n$-ulotteinen monisto.
+    Usein kirjoitetaan ``olkoon $M^n$ monisto'' tai ``olkoon $M$ $n$-monisto'', joilla tarkoitetaan, että $M$ on $n$-ulotteinen monisto.
 \end{huomautus}
 \begin{maaritelma}
-    Olkoon $M^n$ monisto. $M$:n \emph{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset R^n$. Koordinaattikartan \emph{koordinaattikuvaus} on $\varphi$.
+    Olkoon $M^n$ monisto. $M$:n \emph{koordinaattikartta} on pari $(U,\varphi)$, jossa $U\subset M$ on avoin ja $\varphi:U\to\hat U$ on homeomorfismi avoimeen joukkoon $\hat U\subset\R^n$. Koordinaattikartan \emph{koordinaattikuvaus} on $\varphi$.
 \end{maaritelma}
 \begin{figure}
     \centering
@@ -29,7 +29,7 @@ Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnal
     \label{kuva:maapallo-monistona}
 \end{figure}
 \begin{esimerkki}
-    Yleisesti algebrallinen hyperpinta $f(x_1,x_2,\dots,x_{n+1})=0$ määrittää $n$-ulotteisen moniston $\R^{n+1}$:ssä.
+    Yleisesti algebrallinen hyperpinta $f(x_1,x_2,\dots,x_{n+1})=0$, $\nabla f\ne0$, määrittää $n$-ulotteisen moniston $\R^{n+1}$:ssä.
 \end{esimerkki}
 \begin{maaritelma}
     Jos $U\subset\R^n,V\subset\R^m$, funktio $f:U\to V$ on \emph{sileä}, jos sen jokaisella komponenttifunktiolla on jatkuvat asteen $n$ osittaisderivaatat kaikilla $n\in\N$.
@@ -39,9 +39,9 @@ Sileä monisto on sellainen monisto, joka ei ole ``rutussa'', jolloin sen pinnal
 \end{maaritelma}
 \begin{maaritelma}
     Moniston $M$ \emph{atlas} $\mathcal{A}$ on kokoelma karttoja $\{(U_i,\varphi_i)\}_{i\in I}$ siten, että karttojen lähtöjoukot peittävät moniston $M$: kaikille $p\in M$ on olemassa $i\in I$, jolle $p\in U_i$. Jos koordinaattikartat ovat pareittain sileästi yhteensopivia, eli
-    \begin{equation}
+    \begin{equation*}
         \varphi_j\circ\varphi_i^{-1}:\varphi_i(U_i\cap U_j)\to\varphi_j(U_i\cap U_j)
-    \end{equation}
+    \end{equation*}
     tai $U_i\cap U_j=\emptyset$, niin $\mathcal{A}$ on \emph{sileä atlas}.
 \end{maaritelma}
 \begin{figure}
@@ -65,22 +65,23 @@ Osion loppuhuipennuksena määritellään Seifert-monisto. 3-monistojen modernia
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/torus-kuitukimppu.pdf}
-    \caption{Torus koostuu erillisistä ympyröistä: $\T^2=\bigsqcup_{p\in\S^1}\{p\}\times\S^1$.}
+    \caption{Torus koostuu erillisistä ympyröistä: $\T^2=\bigsqcup_{p\in D^2}\{p\}\times\S^1$.}
     \label{kuva:torus-kuitukimppu}
 \end{figure}
 
 
 \subsection{Tangenttiavaruus}
-Keskeinen osa sileiden monistojen motivaatiota on derivoimisen mahdollistaminen avaruuksissa, jotka ovat globaalisti kaarevia. Alunperin derivointi määriteltiin käyrille $\R^2$:ssa tangenttien avulla. Tässä tilanteessa käyrää voidaan ajatella sileänä $1$-monistona. Mitä jos käyrä ei olekaan upotettu $R^2$:een? Käyrälle ajatus voi tuntua naurettavalta, mutta moniulotteisemmissa monistoissa tilanne ei ole enää selvä. Esimerkiksi maailmankaikkeus on jonkinlainen monisto, mutta mihin avaruuteen se on upotettu?
+Keskeinen osa sileiden monistojen motivaatiota on derivoimisen mahdollistaminen avaruuksissa, jotka ovat globaalisti kaarevia. Tyypillisesti ajatellaan 1- tai 2-monistoa, käyrää tai pintaa, joka kuitenkin aina elää kolmiulotteisessa avaruudessa. Mitä jos käyrä ei olekaan upotettu $\R^3$:een? On helppo tottua ajatukseen, että monisto on upotettu isompaan avaruuteen, mutta moniulotteisemmissa monistoissa tilanne ei ole enää selvä. Esimerkiksi jos maailmankaikkeutta mallinnettaisiin monistona, mihin avaruuteen se upotettaisiin?
 
-On selvää, että tangentti ei sellaisenaan yleisty monistoille ja tarvitaan tarkempi määritelmä. Hyvän määritelmän ymmärtäisi myös moniston ``sisällä'' elävä olio. Tangenttiavaruuden määrittely alkaa derivaatan yleistyksestä derivaatiosta.
+Alunperin derivointi määriteltiin käyrille $\R^2$:ssa tangenttien avulla. Jos monistolla ei ole ympäröivää avaruutta, minne sen tangenttisuora, -taso tai -avaruus upotettaisiin? Selvästikään tangentti ei sellaisenaan yleisty monistoille ja tarvitaan tarkempi määritelmä; sellainen, jonka ymmärtäisi myös moniston ``sisällä'' elävä olio. Tangenttiavaruuden määrittely alkaa derivaatan yleistyksestä derivaatiosta.
 \begin{maaritelma}
     Olkoon $M$ sileä $n$-monisto ja $p\in M$. Olkoon $v:C^\infty(M)\to\R$ lineaarinen kuvaus. Jos se tyydyttää Leibniz-säännön
-    \begin{equation}
+    \begin{equation*}
         v(fg)=f(p)vg+g(p)vf,\quad\text{kaikille }f,g\in\C^\infty(M),
-    \end{equation}
+    \end{equation*}
     niin $v$ on \emph{derivaatio} $p$:ssä.
 \end{maaritelma}
+Yleisyydestään huolimatta derivaatiota kannattaa ajatella minä tahansa moniston pinnan suuntaisena vektorina, joka on kiinnitetty pisteeseen $p$. Luonnollisesti seuraa, että kaikki mahdolliset tällaiset vektorit, eri suuntaiset ja pituiset, muodostavat monistoa $p$:ssä sivuavan vektoriavaruuden. Tätä kutsutaan tangenttiavaruudeksi.
 \begin{maaritelma}
     Kaikkien derivaatioiden joukko $p$:ssä, merkitään $T_pM$, on $M$:n \emph{tangenttiavaruus} $p$:ssä. Jos $v\in T_pM$, niin $v$ on \emph{tangenttivektori} $p$:ssä.
 \end{maaritelma}
@@ -93,23 +94,23 @@ On selvää, että tangentti ei sellaisenaan yleisty monistoille ja tarvitaan ta
 Joissakin tapauksissa hyödyllinen on myös konsepti, joka niputtaa kaikki tangenttiavaruudet yhteen.
 \begin{maaritelma}
     Moniston $M$ \emph{tangenttikimppu} on erillinen yhdiste
-    \begin{equation}
+    \begin{equation*}
         TM=\bigsqcup_{p\in M}T_pM.
-    \end{equation}
+    \end{equation*}
 \end{maaritelma}
 
 
 \subsection{Vektoriavaruuden suunnistus}
 Toisin kuin tutuissa vektoriavaruuksissa $\R^3\cong\text{span}\{e_1,e_2,e_3\}$, yleisessä vektoriavaruudessa $V$ ei ole päivänselvää tapaa määrittää ``positiivista'' tai ``negatiivista'' suuntaa.
 \begin{esimerkki}
-    Olkoon $V$ 2-ulotteinen vektoriavaruus, jonka kanta on $\{\sin\theta,\cos\theta\}$. Kumpi suunnistetuista kannoista $(\sin\theta,\cos\theta)$ ja $(\cos\theta,\sin\theta)$ on positiivinen?
+    Olkoon $V$ 2-ulotteinen vektoriavaruus, jonka kanta on $\{\sin\theta,\cos\theta\}$. Kumpi suunnistetuista kannoista $(\sin\theta,\cos\theta)$ ja $(\cos\theta,\sin\theta)$ on positiivinen? Huomaa, että kyseessä on funktioiden, jotka voidaan esittää sinin ja kosinin lineaariyhdistelyinä, vektoriavaruus, ja $\theta$ on vain yleinen muuttuja, eikä saa mitään arvoja.
 \end{esimerkki}
 Vektoriavaruuden tai moniston oikeaoppinen suunnistus voidaan kuitenkin kääntää muodollisiksi matemaattisiksi ilmaisuiksi \emph{differentiaalimuotojen} avulla. Aloitetaan kuitenkin hyvin määritellyistä suunnistuksista.
 \begin{maaritelma}
     Olkoon $V$ reaalinen $n$-vektoriavaruus. Kaksi suunnistettua kantaa $(e_1,\dots,e_n)$ ja $(f_1,\dots,f_n)$ ovat \emph{yhtäpitävästi suunnistettuja}, jos niiden muuntomatriisille, jonka määrittää yhtälö
-    \begin{equation}
+    \begin{equation*}
         e_i=B_i^j f_j,
-    \end{equation}
+    \end{equation*}
     pätee $\det(B_i^j)>0$.
 \end{maaritelma}
 Tämä muuntomatriisi määrittää ekvivalenssirelaation, joka jakaa kannat kahteen joukkoon. 
@@ -117,7 +118,20 @@ Tämä muuntomatriisi määrittää ekvivalenssirelaation, joka jakaa kannat kah
     Vektoriavaruuden yhtäpitävä suunnistus on sen kantojen ekvivalenssirelaatio, jolla on tasan kaksi ekvivalenssiluokkaa.
 \end{lemma}
 \begin{proof}
-    ???
+    Olkoot $K_\alpha=\{\alpha_i\}_{i=1}^n$ ja $K_\beta=\{\beta_i\}_{i=1}^n$ kaksi suunnistettua kantaa. Olkoon $B$ muuntomatriisi, joka määrittää yhtälön
+    \begin{equation*}
+        \alpha_i=B_i^j\beta_j.
+    \end{equation*}
+    Merkitään $K_\alpha\sim K_\beta$, jos $\det(B)>0$. Tällöin $\sim$ on ekvivalenssirelaatio, sillä
+    \begin{itemize}
+        \item $K_\alpha\sim K_\alpha$, sillä $\det(I)=1>0$,
+        \item Jos $K_\alpha\sim K_\beta$, niin $\det(B)>0$, jolloin $\det(B^{-1})=1/\det(B)>0$, joten $K_\beta\sim K_\alpha$ ja
+        \item Jos $K_\alpha\sim K_\beta$ ja $K_\beta\sim K_\gamma$, niin $\det(B)>0$ ja $\det(C)>0$, jolloin $\det(BC)=\det(B)\det(C)>0$, joten $K_\alpha\sim K_\gamma$.
+    \end{itemize}
+    Jos $\det(B)>0$, niin $K_\alpha$ ja $K_\beta$ ovat yhtäpitävästi suunnistettuja. Jos $\det(B)<0$, niin $K_\alpha$ ja $K_\beta$ eivät ole yhtäpitävästi suunnistettuja. Tapaus $\det(B)=0$ on mahdoton, sillä silloin $K_\alpha$ tai $K_\beta$ ei olisi kanta. Siispä kaikkien suunnistettujen kantojen joukoille $\{K_\alpha\}$ pätee
+    \begin{equation*}
+        \frac{\{K_\alpha\}}{\sim}=\{1,-1\}.
+    \end{equation*}
 \end{proof}
 Matemaatikon tehtäväksi jää määritellä toinen näistä luokista ``positiiviseksi'' ja toinen ``negatiiviseksi''. Tämän jälkeen voidaan määritellä suunnistus vektoriavaruudessa.
 
@@ -126,10 +140,21 @@ Moniston $M$ suunnistus määritellään sen tangenttiavaruuden suunnistuksen ka
 \begin{maaritelma}
     Olkoon $M$ sileä $n$-monisto. $M$:n \emph{pisteittäinen suunnistus} on suunnistuksen valinta jokaiselle tangenttiavaruudelle $T_pM$, $p\in M$.
 \end{maaritelma}
-Sellaisenaan tämä ei ole järin hyödyllinen määritelmä, sillä suunnistus voi vaihdella pisteestä toiseen. Toivottavaa olisi etenkin, että moniston sileillä alimonistoilla (käyrillä), suunnistus muuttuisi sileästi alimoniston (käyrän) kaartuessa.
-\begin{maaritelma}[Local frame, paikallinen kehys]
-    ???
+Sellaisenaan tämä ei ole järin hyödyllinen määritelmä, sillä suunnistus voi vaihdella pisteestä toiseen. Toivottavaa olisi etenkin, että moniston sileillä alimonistoilla (käyrillä), suunnistus ei vaihtelisi positiivisen ja negatiivisen välillä.
+
+Moniston globaalin suunnistuksen määrittelemiseksi tarvitaan vielä pari konseptia. Intuitiivisesti moniston suunnistukseen liittyy aina jonkinlainen jatkuva ``virtaus'', joka määrittää postiivisen suunnan. Määritellään tämä virtaus vektorikenttien avulla.
+\begin{maaritelma}
+    Moniston $M$ \emph{vektorikenttä $X$} on sileä kuvaus $X: M \to TM$, jossa $TM$ on moniston $M$ tangenttikimpu, siten että
+    \begin{equation*}
+        \pi\circ X=\text{id}_M,
+    \end{equation*}
+    jossa $\pi:TM\to M$ on tangenttikimpun projektiokuvaus $\pi:T_pM\mapsto p$. Vektorikenttä $X$ on konkreettisesti kuvaus $p\mapsto X_p$, kun $X_p$ on jokin derivaatio $p$:ssä.
 \end{maaritelma}
+On hyvä huomata, ettei edellä määritetty vektorikenttä ole vielä \emph{sileä}, eikä sileyden käsitettä vektorikentille määritelty itse asiassa lainkaan. Lee \citep{Lee2012} perehdyttää kappaleessa 8 asiaan perinpohjaisesti ja tässä työssä tyydytään vain konseptuaaliseen ajatukseen sileästä ja jatkuvasta vektorikentästä.
+\begin{maaritelma}
+    Olkoon $M$ sileä $n$-monisto. Olkoon $(e_1,\dots,e_n)$ järjestetty vektorikenttien $e_i$ $n$-monikko, jossa vektorikentät $e_i$ on määritelty avoimessa joukossa $U\subset M$. Jos kaikissa pisteissä $p\in U$ rajoitteet $e_i|_p$ muodostavat $T_pM$:n kannan, niin $(e_1,\dots,e_n)$ on \emph{paikallinen kehys} $U$:ssa. Jos $U=M$, niin $(e_1,\dots,e_n)$ on \emph{globaali kehys}.
+\end{maaritelma}
+Paikallinen kehys on siis jokin moniston avoin osajoukko, johon voi määrittää vektorikentän, jonka virtaus ``täyttää'' kaikki moniston $n$ ulottuvuutta.
 \begin{maaritelma}
     Olkoon $(e_i)$ tangenttikimpun $TM$ paikallinen kehys. Tällöin $(e_i)$ on \emph{(positiivisesti) suunnistettu}, jos $(e_1|_p,\dots,e_n|p)$ on (positiivisesti) suunnattu $T_pM$:n kanta kaikilla $p\in U$.
 
@@ -137,3 +162,6 @@ Sellaisenaan tämä ei ole järin hyödyllinen määritelmä, sillä suunnistus 
 
     Moniston $M$ \emph{suunnistus} on jatkuva pisteittäinen suunnistus.
 \end{maaritelma}
+Toisin sanoen $M$ on suunnistettu, jos sillä on olemassa avoin peite $\mathcal{D}=\{U_p\}_{p\in M}$, jossa jokainen $U_p$ on sikäli erityinen, että se on paikallinen kehys. Tätä peitettä voikin ajatella avoimen peitteen asemesta erilaisena \emph{$n$-ulotteisen virtauksen peitteenä}.
+
+Selvästi jos monistolla on kaikissa pisteissä $n$-ulotteinen virtausalkio, jonka suunta ja muoto on yhdenmukainen läheisten pisteiden virtausalkioiden kanssa, on mielekästä sanoa monistolla olevan (globaali) ``suunnistus''.
