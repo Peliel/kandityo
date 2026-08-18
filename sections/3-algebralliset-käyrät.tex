@@ -16,7 +16,7 @@ Yleisesti $n$-ulotteinen algebrallinen hyperpinta on $n+1$-ulotteisen polynomin 
     \caption{Parabolinen pinta $f(x,y)-z=0$ ja algebrallinen käyrä $f(x,y)=0$.}
     \label{kuva:algebrallinen-käyrä}
 \end{figure}
-Koska $\C$ on algebrallisesti suljettu, niin algebran peruslauseen nojalla jokainen polynomi $f \in \mathbb{C}[x,y]$ voidaan jakaa lineaarisiin tekijöihin. Tämän vuoksi jokainen affiini algebrallinen käyrä kompleksitasossa voidaan käsittää lineaaristen käyrien yhdistelmänä. Määritellään vielä käyrän aste.
+Määritellään vielä käyrän aste.
 \begin{maaritelma}
     Olkoon $C$ algebrallinen käyrä, jonka määrittää polynomi $f\in\C[x,y]$. Kirjoitetaan
     \begin{equation*}
@@ -24,21 +24,24 @@ Koska $\C$ on algebrallisesti suljettu, niin algebran peruslauseen nojalla jokai
     \end{equation*}
     Tällöin $C$:n tai $f$:n aste on $\deg(C)=\deg(f)=\partial f=\max\{i+j\}$.
 \end{maaritelma}
+\begin{asetus}
+    Merkitään tästä lähtien käyrän tai polynomin astetta $\partial C$ tai $\partial f$.
+\end{asetus}
 
 
 \subsection{Singulariteetit ja säännöllisyys}
 Käyrän $C$ paikallinen muoto pisteessä $p=(a,b)\in C$ määrittyy $f$:n osittaisderivaattojen avulla. 
 \begin{maaritelma}
-    Piste $p$ on \emph{singulaarinen} (tai kriittinen), jos $f$:n osittaisderivaatat häviävät pisteessä $p$:
+    Käyrän $C$ piste $p=(a,b)\in C$ on \emph{singulaarinen}, jos $f$:n osittaisderivaatat häviävät pisteessä $p$:
     \begin{equation*}
         \frac{\partial f}{\partial x}(a,b) = 0 \quad \text{ja} \quad \frac{\partial f}{\partial y}(a,b) = 0.
     \end{equation*}
-    Tämä lienee liian yksinkertainen määritelmä, olenko oikeassa?
+    Tällöin voidaan myös sanoa, että käyrä on \emph{singulaarinen}.
 \end{maaritelma}
 \begin{maaritelma}
-    Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}.
+    Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}. Jos kaikki käyrän pisteet ovat säännöllisiä, niin käyrä on \emph{säännöllinen}.
 \end{maaritelma}
-Säännöllisessä pisteessä implisiittisten funktioiden lause takaa, että käyrä näyttää paikallisesti kompleksisen 1-ulotteiselta varistolta, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatta singulariteetissa nolla.
+Säännöllisessä pisteessä implisiittifunktiolause takaa, että käyrä näyttää paikallisesti (kompleksimielessä, $\dim_\C$) 1-ulotteiselta monistolta\footnote{Oikea termi olisi \emph{varisto}, joka tiiviyden vuoksi jätetään määrittelemättä. Työn tarpeisiin monisto riittää hyvin.}, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatan oltavat huonosti käyttäytyvässä pisteessä nolla.
 \begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/käyriä-ja-singulariteetteja.pdf}
@@ -47,9 +50,9 @@ Säännöllisessä pisteessä implisiittisten funktioiden lause takaa, että kä
 \end{figure}
 
 \subsection{Projektiivinen avaruus}
-Affiinilla avaruudella $\C$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus, joka lisää tavalliseen vektoriavaruuteen $\K^n$ matemaattisesti hyvin määritellyn ``horisontin''.
+Avaruudella $\K^n$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus, joka lisää tavalliseen vektoriavaruuteen $\K^n$ matemaattisesti hyvin määritellyn ``horisontin''.
 
-$\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ määritellään joukoksi, joka koostuu avaruuden $\K^{n+1}$ vektorisäteistä (eli niiden ekvivalenssiluokista), jotka kulkevat origon kautta. Toisin sanoen, $\P^n(\K)$ on määritelty seuraavasti:
+$\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ määritellään joukoksi, joka koostuu avaruuden $\K^{n+1}$ vektorisäteistä (eli niiden ekvivalenssiluokista), jotka kulkevat origon kautta.
 \begin{maaritelma}
     Olkoon $(Z_0,\dots,Z_n) \in \K^{n+1}-\{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
     \begin{equation*}
@@ -124,7 +127,18 @@ Projektiivisessa tasossa $\P^2$ klassinen polynomi $f(x,y)$ ei ole hyvin määri
 \begin{huomautus}
     Polynomin homogenisointi sallii luonnollisesti käyrän tarkastelun myös äärettömyyssuoralla. Projektiivinen käyrä $\mathcal{C}$ on aina suljettu ja kompakti, koska se on suljettu alijoukko projektivisessa avaruudessa $\P^2$, joka on itsessään kompakti.
 \end{huomautus}
-Algebrallisen käyrän homogenisointi sallii varsin mielenkiintoisia näkökulmia tuttujen käyrien tarkasteluun. Jos tasoon piirtää paraabelin $y=x^2$, käyrä hajaantuu kohti äärettömyyttä $y$-akselin molemmin puolin. Hajaantuminen on kuitenkin symmetristä $y$-akselin molemmin puolin (koska $x^2=(-x)^2$!). Toisin sanoen käyrä hajaantuu molemmissa haaroissaan \emph{asymptoottisesti samankaltaisesti} eli molemmissa haaroissaan paraabeli lähestyy käytökseltään kahta yhdensuuntaista suoraa. 
+Algebrallisen käyrän homogenisointi sallii varsin mielenkiintoisia näkökulmia tuttujen käyrien tarkasteluun. Jos tasoon piirtää paraabelin $y=x^2$, käyrä hajaantuu kohti äärettömyyttä $y$-akselin molemmin puolin. Hajaantuminen on kuitenkin symmetristä $y$-akselin molemmin puolin (koska $x^2=(-x)^2$!). Toisin sanoen käyrä hajaantuu molemmissa haaroissaan \emph{asymptoottisesti samankaltaisesti} eli molemmissa haaroissaan paraabeli lähestyy käytökseltään kahta yhdensuuntaista suoraa.
+\begin{esimerkki}[Projektiivinen paraabeli]
+    Paraabelin yhtälö on $f(x,y)=y-x^2=0$, jonka homogenisoitu muoto on $F(X,Y,Z)=YZ-X^2=0$. Konvention mukaan horisontti vastaa pisteitä, joilla $Z=0$. Yhtälö äärettömyydessä on siis $0Y-X^2=0$, jolloin pakosti $X=0$. Koska piste $[0:0:0]$ on kielletty, niin $Y\ne0$.
+
+    Homogeeninen paraabeli leikkaa siis äärettömyyssuoran pisteessä $[0:Y:0]\sim[0:1:0]$. Tässä pisteessä käyrän osittaisderivaatat ovat
+    \begin{equation*}
+        \frac{\partial F}{\partial X} = -2X,\quad
+        \frac{\partial F}{\partial Y} = Z,\quad
+        \frac{\partial F}{\partial Z} = Y.
+    \end{equation*}
+    Pisteessä $[0:1:0]$ osittaisderivaatat ovat $(0,0,1)$, joten käyrä on säännöllinen. Tangenttisuora pisteessä $[0:1:0]$ on siis $Z=0$, eli äärettömyyssuora. Tämä tarkoittaa sitä, että paraabelin molemmat haarat yhtyvät tangentiaalisesti äärettömyydessä.
+\end{esimerkki}
 
 Koska projektiivisessa avaruudessa pisteet ovat suorien ekvivalenssiluokkia, tarkoittaa asymptoottinen samankaltaisuus hajaantumisessa sitä, että haarat yhtyvät horisontissa. Tämä on piirretty kuvaan~\ref{kuva:projektiivinen-paraabeli}.
 \begin{figure}
@@ -143,10 +157,23 @@ Annetuista esimerkeistä hyperboli on itse asiassa kiinnostavin, sillä se palja
     \label{kuva:projektiivinen-hyperboli}
 \end{figure}
 Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäksi merkitty kaksi asymptoottisuoraa $h_1$ ja $h_2$, joita kohti hyperboli suppenee neljässä eri suunnassa.
+\begin{esimerkki}[Projektiivinen hyperboli]
+    Hyperbolin yhtälö on $f(x,y)=x^2-y^2+1=0$, jonka homogenisoitu muoto on $F(X,Y,Z)=X^2-Y^2+Z^2=0$. Horisontti vastaa pisteitä, joilla $Z=0$. Yhtälö äärettömyydessä on siis $X^2-Y^2=0$. Tällöin
+    \begin{align*}
+        X^2-Y^2 &= 0 \\
+        (X-Y)(X+Y) &= 0,
+    \end{align*}
+    jolloin $X=\pm Y$. Tämä vastaa pisteitä $[X:Y:0]\sim[1:1:0]$ ja $[X:-Y:0]\sim[1:-1:0]$. Nämä pisteet vastaavat hyperbolin kahta asymptoottisuoraa $h_1$ ja $h_2$. $F$:n osittaisderivaatat ovat
+    \begin{equation*}
+        \frac{\partial F}{\partial X} = 2X,\quad
+        \frac{\partial F}{\partial Y} = -2Y,\quad
+        \frac{\partial F}{\partial Z} = 2Z.
+    \end{equation*}
+    Tangenttisuorat pisteissä $[1:1:0]$ ja $[1:-1:0]$ ovat siis $X-Y=0$ ja $X+Y=0$. Nämä vastaavat suoria $h_2$ ja $h_1$.
+\end{esimerkki}
+Oikealla on päällekkäin kaksi reaalista projektiivista tasoa. Keskitytään ensiksi alempaan tikku-ukkoon. Kuten edellisissä kuvissa, tikku-ukko seisoo origossa ja katsoo horisonttiin. Tämä vastaa vasemmanpuoleisen kuvan ylempää puolitasoa $y>0$. Hyperboli on piirretty tasaisella viivalla ja se törmää horisonttiin kahdessa pisteessä muodostaen ellipsin. Tikku-ukon avaruuden oikealla puolella on ympyrä, joka esittää positiivisen kiertosuunnan.
 
-Oikealla on päällekkäin kaksi projektiivista tasoa. Keskittykäämme ensiksi alempaan tikku-ukkoon. Kuten edellisissä kuvissa, tikku-ukko seisoo origossa ja katsoo horisonttiin. Tämä vastaa vasemmanpuoleisen kuvan ylempää puolitasoa $y>0$. Hyperboli on piirretty tasaisella viivalla ja se törmää horisonttiin kahdessa pisteessä muodostaen ellipsin. Tikku-ukon avaruuden oikealla puolella on ympyrä, joka esittää positiivisen kiertosuunnan.
-
-Mitä tapahtuu horistontin takana, johon on piirretty katkoviivaa? Siirrytään takaisin vasemmanpuoleiseen kuvaan $\R^2$:een. Oletetaan, että tikku-ukko lähtee kävelemään paraabelia pitkin luoteeseen ja että hän saapuu äärettömyyteen. Äärettömyydessä hänen pistettään vastaa asymptoottinen suora $h_1$, mutta hän olisi voinut kulkea myös kaakkoon päästäkseen tähän pisteeseen! Toisin sanoen kävelemällä eteenpäin äärettömyyteen ja sen yli, tikku-ukko päätyykin alapuoliseen tasoon ($y<0$). Jos hän jatkaa matkaa, hän saapuu ennen pitkää takaisin origoon.
+Mitä tapahtuu horisontin takana, johon on piirretty katkoviivaa? Siirrytään takaisin vasemmanpuoleiseen kuvaan $\R^2$:een. Oletetaan, että tikku-ukko lähtee kävelemään paraabelia pitkin luoteeseen ja että hän saapuu äärettömyyteen. Äärettömyydessä hänen pistettään vastaa asymptoottinen suora $h_1$, mutta hän olisi voinut kulkea myös kaakkoon päästäkseen tähän pisteeseen! Toisin sanoen kävelemällä eteenpäin äärettömyyteen ja sen yli, tikku-ukko päätyykin alapuoliseen tasoon ($y<0$). Jos hän jatkaa matkaa, hän saapuu ennen pitkää takaisin origoon.
 
 Tikku-ukon matkalla avaruus on kuitenkin kääntynyt 180 astetta. Tätä havainnollistavat kuvan oikealla laidalla olevat kiertoympyrät, jotka kääntyvät 180 astetta avaruuden yli mentäessä. Jos origon tienoilta lähtisi armeija tikku-ukkoja ympyrämuodostelmassa kävelemään kohti äärettömyyttä, he päätyisivät ennen pitkää takaisin origoon, mutta heidän ympyränsä olisi nyt kääntynyt 180 astetta alkuperäisestä. Tämä johtuu siitä, että projektiivisessa avaruudessa luode vastaa kaakkoa ja koillinen lounasta. Tilanteen voi onneksi korjata kävelemällä uudestaan äärettömyyden yli.
 

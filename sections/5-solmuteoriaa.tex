@@ -4,7 +4,7 @@ Matematiikassa solmuja tarkastellaan ympyrännäköisinä topologisina olioina, 
 \subsection{Perusmääritelmät}
 Tässä esitellään solmuihin liittyvät perusmääritelmät. Kuvassa~\ref{kuva:perussolmuja} on esitetty yksinkertaisia solmuja.
 \begin{maaritelma}
-    Topologisen avaruuden $X$ osajoukko $\solmu\subset X$ on \emph{solmu}, jos $\solmu$ on homeomorfinen palloon $\pallo^p$, jollekin $p\in\N$. (Tai sileä, erillinen, suunnattu ja yksinkertainen\footnote{Yksinkertainen käyrä ei leikkaa itseään} käyrä.)
+    Topologisen avaruuden $X$ osajoukko $\solmu\subset X$ on \emph{solmu}, jos $\solmu$ on homeomorfinen palloon $\pallo^p$, jollekin $p\in\N$.
 \end{maaritelma}
 \begin{figure}
     \centering
@@ -62,14 +62,14 @@ Tämä summa ei sellaisenaan vielä yleisty tarpeeksi hyvin, mutta on tarpeellin
 \begin{maaritelma}
     Solmun $\solmu$ putkiympäristöä merkitään $N(\solmu)$ ja linkin $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ putkiympäristö määritellään $N(\linkki):=N(\solmu_1)\cup\cdots\cup N(\solmu_n)$.
 \end{maaritelma}
-\begin{maaritelma}[Määritelmä 1]
+\begin{maaritelma}[Määritelmä 1: pidän tätä varmuuden vuoksi, mutta ajattelin poistaa]
     Olkoot $\gamma_1,\gamma_2:\S^1\to\R^3$ eli leikkaamattomia sileitä käyriä. Tällöin käyrien \emph{linkkiluku} on
     \begin{equation*}
         \ell(\gamma_1,\gamma_2):=\frac{1}{4\pi}\int_{\S^1\times\S^1}\frac{\det(\dot{\gamma_1}(s),\dot{\gamma_2}(t),\gamma_1(s)-\gamma_2(t))}{|\gamma_1(s)-\gamma_2(t)|^3}.
     \end{equation*}
     Riittäisikö tähän vähän epämuodollisempi määrittely, joka perustuu kuviin? Toi integraali on aika tuhti.
 \end{maaritelma}
-\begin{maaritelma}[Määritelmä 2]
+\begin{maaritelma}
     Olkoot $\solmu,\solmu'$ kaksi solmua. Projisoidaan solmut johonkin tasoon. Annetaan jokaiselle solmujen leikkauskohdalle kerroin $\pm1$ kuvan~\ref{kuva:linkkiluvun-määritelmä} osoittamalla tavalla.
     \begin{figure}[h!]
         \centering
@@ -81,6 +81,7 @@ Tämä summa ei sellaisenaan vielä yleisty tarpeeksi hyvin, mutta on tarpeellin
     \begin{equation*}
         \ell(\solmu,\solmu')=\frac{1}{2}\sum\text{leikkauskohtien kertoimet}.
     \end{equation*}
+    \label{maar:linkkiluku}
 \end{maaritelma}
 
 \subsection{Torussolmut}
@@ -97,9 +98,21 @@ Nämä toruksen kiertosuunnat mahdollistavat torussolmun määrittelyn.
 \begin{maaritelma}
     Olkoon $\solmu$ käyrä, jolla on upotus $\solmu\hookrightarrow\T^2$. Jos $\solmu$ on homologinen homologiaryhmään $pP+qY$, niin $\solmu$ on \emph{$(p,q)$-torussolmu} ja sitä voidaan merkitä $\solmu(p,q)$.
 \end{maaritelma}
+Eräs pieni seikka, joka on hyvä tietää, ettei ole väliä merkitseekö torussolmun $\solmu(p,q)$ vai $\solmu(q,p)$.
+\begin{lemma}
+    Olkoon $\solmu$ $(p,q)$-torussolmu, jossa $p<q$. Tällöin $\solmu$ on myös $(q,p)$-torussolmu.
+    \label{lemma:pq-torussolmu-on-qp}
+\end{lemma}
+\begin{proof}
+    Koska $\solmu\subset\S^3$ on torussolmu, se voidaan parametrisoida jonkin toruksen $\T^2\subset\S^3$ pinnalle. Tässä parametrisaatiossa toruksen pituuspiiri kierretään $p$ kertaa ja ympäryspiiri $q$ kertaa.
+
+    Tällöin solmu kiertää toruksen $\S^3\setminus\T^2$ pituuspiirin $q$ kertaa ja ympäryspiirin $p$ kertaa ollen myös $(q,p)$-torussolmu.
+\end{proof}
 Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? torussolmuja. Torussolmu voidaan määrittää kokonaan kahdella kokonaisluvulla $p,q$, jotka kertovat monestiko silmukka kiertyy toruksen kahden eri homologia-akselin ympäri ennen palaamistaan lähtöpisteeseen. Iteroituja torussolmuja matemaatikko tekee vaihtamalla valmiin torussolmun ``langan'' ohuempaan, joka kiertää itsensä ympäri vinhemmin.
 \begin{maaritelma}
-    Olkoon $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ linkki. \emph{Kaapelointi} solmun $\solmu_i$ suhteen tarkoittaa linkin korvaamista joko linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q))$ tai linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q)-\solmu_i)$. Tässä $d\solmu_i(p,q)=\bigcup_{i=1}^d\solmu_i(p,q)$ on yksittäisten torussolmujen erillinen yhdiste $\partial N(\solmu_i)$:ssä. Tuloslinkkiä kutsutaan \emph{iteroiduksi torussolmuksi}.
+    Olkoon $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ linkki. \emph{Kaapelointi} solmun $\solmu_i$ suhteen tarkoittaa linkin korvaamista joko linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q))$ tai linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q)-\solmu_i)$. Tässä $d\solmu_i(p,q)=\bigcup_{i=1}^d\solmu_i(p,q)$ on yksittäisten torussolmujen erillinen yhdiste $\partial N(\solmu_i)$:ssä. Tuloslinkkiä kutsutaan \emph{iteroiduksi toruslinkiksi}.
+
+    Jos linkki sisältää vain yhden komponentin, niin kaapeloinnin tulos on \emph{iteroitu torussolmu}.
 \end{maaritelma}
 
 \subsection{Pujonta}
@@ -115,11 +128,11 @@ Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi
         \linkki''=(\Sigma'',(K-\solmu)\cup(K'-\solmu'))
     \end{equation*}
     on $\linkki$:n ja $\linkki'$:n \emph{pujos} ja sitä merkitään
-    \begin{figure}[h!]
+    \begin{pujoskaavio}[h!]
         \centering
         \includegraphics[width=0.15\textwidth]{figures/pujoksen-merkintätapa.pdf}
         \label{kuva:pujoksen-merkintätapa}
-    \end{figure}
+    \end{pujoskaavio}
 \end{maaritelma}
 \begin{lemma}
     $\Sigma''$ on homologinen $n$-pallo.
