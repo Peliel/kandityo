@@ -6,18 +6,59 @@ Pujoskaavioihin liittyy monta hankalaa ideaa, koska monimutkaisten linkkien esit
 Tämän kappaleen perimmäinen tarkoitus on palvella lukijaa vakuutuksena siitä, että monimutkaisten linkkien kohdalla on parempi unohtaa linkki, ja tyytyä pujoskaavioon, ja luottaa siihen, että olennaista tietoa ei menetetä.
 
 \subsection{Pujoskaavion synty}
-Kappaleessa 5 esitelty solmujen määritelmää kutsuu lukijaa ajattelemaan kuvaa, jossa solmu kietoutuu 3-ulotteisessa avaruudessa monimutkaisesti suhteessa staattisiin koordinaattiakseleihin. Avaruuden normaalit suorat suunnat ovat kuitenkin akseleiden suuntaisia, kulkevat suoraan, ja käyristynyt solmu on poikkeus.
+\label{kpl:pujoskaavion-synty}
+Kappaleen 5 pujoksen määritelmän, torussolmujen ja lauseen~\ref{lause:s3-kuidutus} samankaltaisuus on tarkoituksellista. Pujoskaavion ydinajatus on, että (torus)solmun sijasta ajatellaan avaruuden, johon solmu on upotettu, rakennetta. ``Avaruuden $X$ rakenteella'' tarkoitetaan  kuidutusta $\pi:X\to Y$, joka kertoo, millä tavoin avaruuden koordinaattiakselit ``käyristyvät''. Solmu $\solmu\hookrightarrow X$ puolestaan on jokin kuitu, jonka kuva $\pi(\solmu)=y\in Y$ on yksittäinen piste.
 
-Pujoskaaviot esittävät täysin toisenlaisen tavan lähestyä kuvaa. Solmua esittävä käyrä ei olekaan poikkeus, vaan avaruuden ``tyypillinen kuitu''. Kaikki avaruuden ``suorat viivat'' ovat samoilla tavoin käyristyneitä samaksi torussolmuksi. Tämän mahdollistaa avaruuden globaali geometria, joka on vääntynyt. Torussolmu ei ole enää erityinen käyrä, vaan mikä tahansa avaruuden tavallinen kuitu.
+Tällöin pujoskaaviossa riittää antaa informaatiota pelkästään avaruuden erityiskuiduista, sillä nämä määrittävät säännöllisten kuitujen rakenteen. Tämä konstruktio on intuitionvastaisuudestaan huolimatta erittäin kätevä. Syy on se, että monistojen teoria on vakiintunutta ja saatavilla oleva työkalupakki on laaja. Tämän ansiosta esimerkiksi torussolmun kaapeloiminen iteroiduksi torussolmuksi voidaan esittää \emph{monistojen kirurgian} avulla.
 
-Tämän lähestymistavan pohja-ajatus on epäintuitiivinen, mutta se tarjoaa merkittäviä hyötyjä monimutkaisten solmujen esittämisessä. Koska solmu on diffeomorfinen mihin tahansa avaruuden tavalliseen kuituun, voidaan solmun sijasta kuvata \emph{avaruuden rakennetta}. Tämä on kätevää, sillä avaruuden rakennetta tutkiva ala differentiaaligeometria on vakiintunut ja saatavilla oleva työkalupakki on laaja. Itse asiassa esitelty \emph{pujos}, tapa manipuloida solmua, on vain erityistapaus yleisemmästä monistojen \emph{kirurgiasta}.
+Monistojen kirurgia on kokoelma erilaisia tekniikoita, joilla äärellisulotteisen moniston voi muuttaa toiseksi $M\leadsto N$, vaikka $M$ ja $N$ eivät olisi keskenään diffeomorfisia. Yksinkertaisin esimerkki kirurgiasta on lauseen~\ref{lause:s3-kuidutus} topologisen todistuksen konstruktio $\S^2\times\S^1\leadsto\S^3$. Konstruktiossa monistosta $\S^2\times\S^1$ ``porattiin'' kaksi torusta pois, mistä jääneet aukot ``täytettiin'' vääntyneillä toruksilla.
 
-Muotoillaan ajatus täsmälliseksi. Lähestytään tavallisten ja erityisten kuitujen käsitteitä toruksen avulla. Esimerkki~\ref{esim:torussolmut-kuituina}
+Määritellään pujoskaavio mahdollisimman yksinkertaisen esimerkin kautta.
+\begin{esimerkki}
+    Kuvassa~\ref{kuva:torussolmuja-eri-tavoin} on esitetty torussolmut $(2,3)$ ja $(2,7)$ kolmella eri tavalla. Vasemmalta oikealle nämä ovat tavallinen solmuesitys, homologia-akseleittain ja pujoskaaviolla.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{figures/torussolmuja-homologia-akseleita-ja-pujoskaavioita.pdf}
+        \caption{Kaksi torussolmua eri tavoin esitettyinä.}
+        \label{kuva:torussolmuja-eri-tavoin}
+    \end{figure}
+    Pujoskaaviossa on kolmenlaisia komponentteja, jotka on piirretty alle.
+    \begin{center}
+        \begin{tikzpicture}
+            % --- CRÉATION DES NŒUDS ---
+            % Vous positionnez vos nœuds de base ici.
+            % On place le symbole \Gamma entre les accolades à la fin
+            % \node[rectangle node] (Gamma) at (0,0) {$\Gamma$};
+            \node[solid node] (A) at (0,0) {};
+            \node[empty node] (B) at (1.5,0) {};
+            \node[placeholder] (a) at (1,0) {};
+            \node[placeholder] (b) at (2.5,0) {};
+            \node[placeholder] (c) at (3,0) {};
+
+            % --- 2 & 5) FLÈCHES VERS LE VIDE ---
+            % LaTeX ne peut pas deviner l'espace vide absolu sans direction.
+            % La syntaxe "++(angle:distance)" est idéale : vous donnez juste un angle 
+            % (ex: 135 degrés) et une longueur (ex: 1cm), et LaTeX calcule 
+            % automatiquement la coordonnée finale dans l'espace vide.
+            \draw[->, thin] (c) -- ++(0:1cm);
+
+            % --- 3) ARÊTES AVEC VALEURS AUX DEUX EXTRÉMITÉS ---
+            % "near start" et "near end" placent les entiers automatiquement aux bouts.
+            % L'option "swap" [xxx, yyy, swap] (ou ') permet de basculer le texte de l'autre côté de la ligne.
+            \draw (A) -- node[edge value, near start] {$\alpha$}
+                        node[edge value, near end] {} (a);
+                        
+            \draw (B) -- node[edge value, near start] {$\beta$} 
+                        node[edge value, near end] {} (b);
+
+        \end{tikzpicture}
+    \end{center}
+    Merkitään näitä tekstin seassa $\bullet,\circ,\rightarrow$.
+\end{esimerkki}
 
 \begin{huomautus}
     On hyvä huomata, että esimerkin~\ref{esim:torussolmut-kuituina} $(k,l)$-torussolmussa pätee $k>l$ aina, mutta lemman~\ref{lemma:pq-torussolmu-on-qp} nojalla se ei ole merkittävää.
 \end{huomautus}
-
 
 
 \subsection{Pujoskaavioiden ominaisuuksia}
@@ -45,9 +86,3 @@ Tässä kappaleessa käsitellään muodollisesti pujoskaavioiden ominaisuuksia j
 
 \subsection{Monimutkainen esimerkki}
 Tässä kappaleessa tutustutaan monimutkaiseen solmuun ja sen pujoskaavion rakentamiseen sekä mielellään myös toisin päin.
-\begin{figure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/torussolmuja-homologia-akseleita-ja-pujoskaavioita.pdf}
-    \caption{Kaksi torussolmua eri tavoin esitettyinä.}
-    \label{kuva:torussolmuja-eri-tavoin}
-\end{figure}

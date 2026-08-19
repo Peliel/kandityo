@@ -229,7 +229,7 @@ Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonk
     \begin{equation*}
         \partial \left(X\times Y\right)=\left(\partial X\times\bar Y\right)\cup\left(\bar X\times\partial Y\right).
     \end{equation*}
-    Huomataan lisäksi, että topologisesti $\D^4\approx \D^2\times \D^2$ (samoin kuin $\D^2\approx \D^1\times \D^1$). Tällöin koska $\S^3=\partial\D^4$,
+    Huomataan lisäksi, että $\D^4=\D^2\times \D^2$ (samoin kuin $\D^2=\D^1\times \D^1$). Tällöin koska $\S^3\approx\partial\D^4$,
     \begin{align*}
         \S^3&\approx\partial\left(\D^2\times \D^2\right) \\
         &=\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right) \\
@@ -263,14 +263,14 @@ Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskei
 
     Joukko $\D^2\times[0,1]/\sim$ on \emph{vääntynyt torus}. Toruksen kaikki kuidut (määrittele) ovat vääntyneitä, lukuun ottamatta keskimmäistä kuitua, joka palaa joka kierroksella lähtöpisteeseensä. Keskikuidun tyyppistä kuitua kutsutaan \emph{erityiskuiduksi}. Muita kuituja kutsutaan \emph{tavallisiksi}.
 
-    Jos $\alpha=l/k$, $\syt(l,k)=1$, toruksen ympäri täytyy kiertää $k$ kertaa, jotta pääsee alkupisteeseen. Tällöin toruksen pienempi akseli kierretään $l$ kertaa. Toisin sanoen tavallinen kuitu on sama kuin $(k,l)$-torussolmu! Erityiskuidusta sanotaan, että sen moninkerta on $k$. Tämä johtuu juuri siitä, että kun tavallinen kuitu kierretään kokonaan ympäri, on matkalla $k$ verran 1 toruksen mittaista erityiskuitua.
+    Jos $\alpha=l/k$, $\syt(l,k)=1$, toruksen ympäri täytyy kiertää $k$ kertaa, jotta pääsee alkupisteeseen. Tällöin toruksen pienempi akseli kierretään $l$ kertaa. Toisin sanoen tavallinen kuitu on sama kuin $(k,l)$-torussolmu\footnote{Ks. määritelmä~\ref{maar:torussolmu}.}! Erityiskuidusta sanotaan, että sen moninkerta on $k$. Tämä johtuu juuri siitä, että kun tavallinen kuitu kierretään kokonaan ympäri, on matkalla $k$ verran 1 toruksen mittaista erityiskuitua.
     \label{esim:torussolmut-kuituina}
 \end{esimerkki}
 Tällainen keskiakselinsa ympäri vääntynyt torus osoittautuu algebrallisten solmujen kannalta keskeiseksi konstruktioksi, joten sille on hyvä antaa nimi.
 \begin{maaritelma}
     Esimerkin~\ref{esim:torussolmut-kuituina} mukainen joukko on \emph{epätriviaalisti kuidutettu torus}.
 \end{maaritelma}
-Edellä on jo esitetty, että $\S^3=\T^2\sqcup\T^2$, kun $\T^2$ ovat triviaaleja toruksia, mutta on mahdollista rakentaa $\S^3$ myös vääntyneistä toruksista, minkä esittelemiseen loppu tästä osiosta käytetään. Yleisempi tapaus epätriviaalisti kuiduttuneesta avaruudesta on Seifert-monisto.
+Edellä on jo esitetty, että $\S^3=\TT^2\sqcup\TT^2$, kun $\TT^2$ ovat triviaaleja toruksia, mutta on mahdollista rakentaa $\S^3$ myös vääntyneistä toruksista, minkä esittelemiseen loppu tästä osiosta käytetään. Yleisempi tapaus epätriviaalisti kuiduttuneesta avaruudesta on Seifert-kuidutus.
 \begin{maaritelma}
     \emph{Seifert-kuidutus} on 3-monisto $\Sigma$, jolla on jatkuva kuvaus $\pi:\Sigma\to B$ siten, että kaikille $x\in B$ on olemassa ympäristö $U_x\subset B$ siten, että $\pi^{-1}(U_x)$ on isomorfinen jonkin epätriviaalisti kuidutetun toruksen sisukseen.
 \end{maaritelma}
@@ -278,7 +278,7 @@ Seifert-kuidutuksella voi olla erityiskuituja, jotka vastaavat asiayhteyden epä
 
 Työn kannalta erityisen tärkeä Seifert-kuidutuksen erityistapaus on $\S^3$:n kuidutus $\S^1$-kuiduilla.
 \begin{lause}
-    Olkoot $k_1,k_2\geq2$ kokonaislukuja siten, että $\syt(k_1,k_2)=1$. On olemassa projektio $\pi_{k_1,k_2}:\S^3\to\S^2$, jolla on täsmälleen kaksi erityiskuitua kertoimilla $k_1,k_2$. Tämä projektio tunnetaan myös \emph{Hopf-kuidutuksena}.
+    Olkoot $k_1,k_2\geq2$ kokonaislukuja siten, että $\syt(k_1,k_2)=1$. On olemassa kuidutus $\pi_{k_1,k_2}:\S^3\to\S^2$, jolla on täsmälleen kaksi erityiskuitua kertoimilla $k_1,k_2$.
     \label{lause:s3-kuidutus}
 \end{lause}
 Todistuksessa käytetään yleisiä ryhmäteorian konsepteja ryhmätoimintoa, kiertorataa ja vakauttajaa.
@@ -325,33 +325,17 @@ Todistuksessa käytetään yleisiä ryhmäteorian konsepteja ryhmätoimintoa, ki
 \end{proof}
 Annetaan lisäksi topologinen todistus tuomaan lisäperspektiiviä avaruuden rakenteeseen.
 \begin{proof}[Lauseen~\ref{lause:s3-kuidutus} topologinen todistus]
-    Olkoon $B=\S^2\setminus\left(U_1\cup U_2\right)$ 2-pallo, josta on poistettu kaksi erillistä aluetta $U_i$. Olkoon lisäksi $E=\S^1\times B$. Määritellään, että $\pi:E\to B$ on $B$:n triviaali $\S^1$-kimppu.
-
-    $B$ on topologisesti muodoltaan sylinteri ja sen reuna koostuu kahdesta erillisestä renkaasta $\partial B=\S_1^1\sqcup\S_2^1$, jotka ympäröivät joukkoja $U_1,U_2$. Topologisen tulon reunan kaavan nojalla $\partial(X\times Y)=(\partial X\times\bar Y)\cup(\bar X\times\partial Y)$ $E$:n reuna koostuu kahdesta toruksesta:
-    \begin{align*}
-        \partial E&=\partial\left(\S^1\times B\right) \\
-        &=\left(\partial\S^1\times\bar B\right)\cup\left(\bar\S^1\times\partial B\right) \\
-        &=\left(\varnothing\times B\right)\cup\left(\S^1\times\left(\S_1^1\sqcup\S_2^1\right)\right) \\
-        &=\T_1^2\cup\T_2^2.
-    \end{align*}
-    Liimataan $E$:n kumpaankin reunaan täytetty torus $\TT_i^2=\S^1\times\D^2$ siten, että $E$:n reunapiste osuu $\D^2$:n reunapisteeseen. Tällä prosessilla kokonaisavaruus $E$ on täydennetty sisältämään poistetut joukot $U_i$ (levyt $\D^2$) sekä niiden pisteitä vastaavat kuidut (ympyrät $\S^1$).
-
-    Kokonaisavaruus $E$ ei vielä ole 3-pallo, vaan 2-pallo, jonka jokaisella pisteellä
-
-    Valitaan jokin sektio $\sigma:B\to E$. Käsitellään aluksi torusta $\T_1^2$.
-\end{proof}
-\begin{proof}[Lauseen~\ref{lause:s3-kuidutus} topologinen todistus]
-    Olkoon $\tilde{\pi}:E\to\S^2$, $E=\S^2\times\S^1$, $\S^2$:n triviaali $\S^1$-kuidutus. Toisin sanoen, jos $x\in\S^2$, niin $\tilde{\pi}^{-1}(x)\approx\S^1$ on kokonainen ympyrä. 
+    Olkoon $\tilde{\pi}:E\to\S^2$, $E=\S^2\times\S^1$, $\S^2$:n triviaali $\S^1$-kuidutus. Toisin sanoen, jos $x\in\S^2$, niin $\tilde{\pi}^{-1}(x)\approx\S^1$ on kokonainen ympyrä.
     
     Jos $\D^2\subset\S^2$, niin $\tilde{\pi}^{-1}[\D^2]\approx\TT\subset E$, missä $\TT$ on täytetty torus. On hyvä huomata, että toruksen poikkilevy on $\D^2$ ja torus kulkee kohtisuorasti $\S^2$:n pinnan läpi.
 
-    Olkoon $\S^1=\partial\D^2$ edellisen levyn reuna. Tällöin $\tilde{\pi}^{-1}[\S^1]\approx\T\subset E$. Toruksen $\T$ poikkilevy on minkä tahansa $x\in\S^1$ kuitu $\tilde{\pi}^{-1}(x)$; siis $\T$:n ympäryspiiri on $\TT$:n pituuspiiri ja toisin päin! Toisaalta silti $\T_i=\partial\TT_i$, mutta koska pituus- ja ympäryspiirit ovat vastakkain, $\T_i$:n ``sisus'' on $\TT_i$:n ulkopuoli.
+    Olkoon $\S^1=\partial\D^2$ edellisen levyn reuna. Tällöin $\tilde{\pi}^{-1}[\S^1]\approx\T\subset E$. Toruksen $\T$ poikkilevy on minkä tahansa $x\in\S^1$ kuitu $\tilde{\pi}^{-1}(x)$; siis $\T$:n ympäryspiiri on $\TT$:n pituuspiiri ja toisin päin! Toisaalta silti $\T=\partial\TT$, mutta koska pituus- ja ympäryspiirit ovat vastakkain, $\T$:n ``sisus'' on $\TT$:n ulkopuoli.
 
     Tavoitteena on päästä kuvaukseen $\pi:\S^3\to\S^2$. Jos on olemassa jokin hyvä konstruktio $E\leadsto\S^3$, tätä voi käyttää $\tilde{\pi}$:n muuntamiseen $\pi$:ksi. Lemman~\ref{lemma:s3-torushajotus} nojalla $\S^3$ on kahden toruksen yhdiste, joten yritetään liimata kaksi torusta yhteen sopivalla tavalla.
     
     Olkoot $\D_i^2\subset\S^2$, $i=1,2$, kaksi erillistä levyä ($\D_1\cap\D_2=\varnothing$) ja $\TT_i$ niitä vastaavat torukset. Olkoot $\S_i=\partial\D_i$ levyjen reunat ja $\T_i\subset E$ niitä vastaavat torukset.
 
-    Jos $x_i\in\S_i^1$, niin määritellään $Y_i=\tilde{\pi}^{-1}(x_i)$. Tällöin $\S_i^1$ ja $Y_i$ muodostavat homologiaryhmän $H_1(\T_i)$ kannan, sillä $\S_i^1$ vastaa toruksen $\T_i$ pituuspiiriä ja $Y_i$ ympäryspiiriä.
+    Jos $x_i\in\S_i^1$, niin määritellään $Y_i=\tilde{\pi}^{-1}(x_i)$. Tällöin $P_i:=\S_i^1$ ja $Y_i$ muodostavat homologiaryhmän $H_1(\T_i)$ kannan, sillä $P_i$ vastaa toruksen $\T_i$ pituuspiiriä ja $Y_i$ ympäryspiiriä.
 
     Koska $\syt(k_1,k_2)=1$, on Bézout'n lemman nojalla olemassa kokonaisluvut $n_1,n_2$ siten, että
     \begin{equation*}
@@ -363,10 +347,55 @@ Annetaan lisäksi topologinen todistus tuomaan lisäperspektiiviä avaruuden rak
         &\Rightarrow\quad d\ |\ 1 \\
         &\Rightarrow\quad d=1.
     \end{align*}
-    
-    Olkoon $C=k_iY_i+n_i\S_i^1\subset\T_i$ käyrä. Liimataan $\T_i$ täytetyn toruksen $\TT_i$ reunaan siten, että
+    Olkoon $C_i=k_iY_i+n_iP_i\subset\T_i$ käyrä. Koska $\syt(k_i,n_i)=1$ pätee, $C_i$ kiertää molemmat toruksen homologia-akselit, jotka kummatkin estävät $C_i$:n typistämisen pisteeksi. $C_i$:n $H_1$-homologialuokka on
+    \begin{align*}
+        [C_i]&=[k_iY_i+n_iP_i] \\
+        &=k_i[Y_i]+n_i[P_i]
+    \end{align*}
+    Jos pätisi $[C_i]=0$, niin tällöin $C_i$ eläisi hyvin mahdollisesti $\S^3$:ssa, sillä $\S^3$ on yhdesti yhtenäinen avaruus, jossa ei ole reikiä. Siispä strategiamme on liimata $\T_i$ täytetyn toruksen $\TT_i$ reunaan vääntämällä torusta $\TT_i$ siten, että
     \begin{equation*}
-        [k_iY_i+n_i\S_i^1]=[0],
+        [k_iY_i+n_iP_i]=[0].
     \end{equation*}
-    eli käyrän $[k_iY_i+n_i\S_i^1]\subset\T_i\cap\TT_i$ homologialuokka on nolla.
+    Jos $\T_i$ ja $\TT_i$ liimataan yhteen pintojaan pitkin \emph{ilman vääntöä}, osuu pituuspiiri $P_i\subset\T_i$ jo valmiiksi ympäryspiirin $\mathbf{Y}_i\subset\TT_i$ päälle. Kuitenkin tämä triviaali liimaus jättää ympäryspiirin $Y_i\subset\T_i$ osumaan pituuspiirin $\mathbf{P}_i\subset\TT_i$ päälle ja $[\mathbf{P}_i]\ne[0]$. Tällöin $H_1$-homologialuokka olisi
+    \begin{align*}
+        [C_i]&=k_i[Y_i]+n_i[P_i] \\
+        &=k_i[\mathbf{P}_i]+n_i[\mathbf{Y}_i] \\
+        &=k_i\Z+n_i[0] \\
+        &=k_i\Z\ne[0]
+    \end{align*}
+    Määritellään tämän liimauksen sijasta diffeomorfismi $f:\TT_i\to\T_i$ siten, että $f(\mathbf{Y}_i)=C_i$. Tärkeää on, että $f$ tekee liimauksen molemmille toruspareille $i=1,2$ samanaikaisesti. Koska tämä vaikeasti visualisoitava diffeomorfismi identifioi $C_i$:n ja ympäryspiirin $\mathbf{Y}_i$ toisikseen, tulosavaruudessa $C_i$-käyrän $H_1$-homologialuokka on
+    \begin{align*}
+        [C_i]&=[k_iY_i+n_iP_i] \\
+        &=[\mathbf{Y}_i]=[0].
+    \end{align*}
+    Nyt kun käsitys oikeaoppisesta liimauksesta on selvillä, on aika liimata torukset yhteen. $\TT_i$ pitää ensin kovertaa avaruudesta, jotta sen vääntäminen ei väännä muuta avaruutta pieleen. Olkoon 
+    \begin{align*}
+        E\degree&=E\setminus\text{int}\left(\TT_1\cup\TT_2\right)
+    \end{align*}
+    kyseinen ``koverrettu'' avaruus. Seuraavaksi $E\degree$ täytetään toruksilla $\TT_i$, mutta siten, että toruksia väännetään oikein ja ne liimataan edellä määritellyn funktion $f$ osoittamalla tavalla toruksiin $\T_i$. Määritellään täksi avaruudeksi
+    \begin{align*}
+        X=(E\degree\sqcup\TT_1\sqcup\TT_2)/\sim,
+    \end{align*}
+    missä $x\sim y$, jos $f(x)=y$ ($x,y\in E$). Liimausoperaatio on tällöin kuvaus
+    \begin{align*}
+        L:E\degree\sqcup\TT_1\sqcup\TT_2\to X.
+    \end{align*}
+    Määritellään nyt kuvaus $\pi:X\to\S^2$ siten, että
+    \begin{itemize}
+        \item kaikille $x\in E\degree$ pätee $\pi\circ L(x)=\tilde{\pi}(x)$ ja
+        \item kaikille $x\in\T_i$ pätee $\pi\circ g(x)=P(x)$, missä $P$ on projektio
+        \begin{align*}
+            P:\D_i^2\times\S^1&\to\D_i^2 \\
+            (d,s)&\mapsto(d).
+        \end{align*}
+    \end{itemize}
+    Todistetaan lopuksi, että $X=\S^3$. Edellä jo todistettiin, että käyrän $C_i$ homologialuokka on $X$:ssä triviaali.
+
+    \textcolor{red}{Tässä on looginen hyppy. Miten pääsen $C_i$:n homologialuokan triviaaliudesta eteenpäin? Mikä on tämä puuttuva palanen? Alla oleva tieto on kielimallilta, koska en osannut netistä hakea sopivaa tietoa asiaan.}
+    
+    Tämän työn sisällön kannalta kohtuullisilla esitietovaatimuksilla ei ole mahdollista perustella, että $X$:n homologiaryhmän $H_1$ triviaalius on lisäksi \emph{riittävä} ehto siihen, että liimauksen jälkeinen avaruus olisi $\S^3$. On kuitenkin olemassa tuloksia, joiden mukaan avaruutta $Z\ne\S^3$, joka on homologinen 3-palloon, ei ole mahdollista konstruoida vain kahdesta niinkin yksinkertaisesta kappaleesta kuin toruksesta. Siispä todellakin $X=\S^3$.
+
+    \textcolor{red}{Jos $n_i$ oltaisiin valittu toisin, olisiko $X'$ ollut sitten erilainen? Vai millainen diffeomorfismi $X=X'$ olisi olemassa?}
+
+    Voidaan siis todeta, että $\pi$ on kaivattu kuvaus $\pi_{k_1,k_2}$ ja erityiskuidut, joiden moninkerrat ovat $k_i$, ovat torusten $\TT_i$ keskiakselit.
 \end{proof}

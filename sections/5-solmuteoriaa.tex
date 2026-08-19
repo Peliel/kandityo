@@ -30,7 +30,7 @@ Tässä esitellään solmuihin liittyvät perusmääritelmät. Kuvassa~\ref{kuva
 \end{figure}
 Solmuja voi myös lomittaa yhteen, jolloin tulosta kutsutaan linkiksi. Kuvassa~\ref{kuva:esimerkkilinkkejä} on kaksi esimerkkilinkkiä.
 \begin{maaritelma}
-    \emph{Linkki} $\linkki=(\Sigma,\solmu_1,\cup\cdots\cup\solmu_n)$ on pari, jossa $\Sigma$ on suunnattu homologinen $n$-pallo ja $\solmu_i$ solmuja. Joskus merkitään lyhemmin $\solmu_1\cup\cdots\cup\solmu_n=K$.
+    \emph{Linkki} $\linkki=(\Sigma,\solmu_1,\cup\cdots\cup\solmu_n)$ on pari, jossa $\Sigma=\S^3$ (tai yleisemmin suunnattu homologinen $n$-pallo) ja $\solmu_i$ solmuja. Joskus merkitään lyhemmin $\solmu_1\cup\cdots\cup\solmu_n=K$.
 \end{maaritelma}
 \begin{figure}
     \centering
@@ -97,8 +97,11 @@ Nyt kun solmujen ja linkkien perussanasto on saatu määriteltyä, voidaan esite
 Nämä toruksen kiertosuunnat mahdollistavat torussolmun määrittelyn.
 \begin{maaritelma}
     Olkoon $\solmu$ käyrä, jolla on upotus $\solmu\hookrightarrow\T^2$. Jos $\solmu$ on homologinen homologiaryhmään $pP+qY$, niin $\solmu$ on \emph{$(p,q)$-torussolmu} ja sitä voidaan merkitä $\solmu(p,q)$.
+    \label{maar:torussolmu}
 \end{maaritelma}
-Eräs pieni seikka, joka on hyvä tietää, ettei ole väliä merkitseekö torussolmun $\solmu(p,q)$ vai $\solmu(q,p)$.
+Tarkkasilmäinen lukija saattaa pistää merkille, että konstruktioltaan torussolmu muistuttaa hyvin paljon lauseen~\ref{lause:s3-kuidutus} topologisessa todistuksessa käytettyä liimausmenetelmää. Tämä ei tietenkään ole sattumaa ja tätä käytetään myöhemmin hyväksi solmuoperaatioiden määrittelyssä.
+
+Todistetaan ennen toruslinkkien esittelyä vielä eräs pienehkö torussolmuja koskeva seikka.
 \begin{lemma}
     Olkoon $\solmu$ $(p,q)$-torussolmu, jossa $p<q$. Tällöin $\solmu$ on myös $(q,p)$-torussolmu.
     \label{lemma:pq-torussolmu-on-qp}
@@ -108,7 +111,7 @@ Eräs pieni seikka, joka on hyvä tietää, ettei ole väliä merkitseekö torus
 
     Tällöin solmu kiertää toruksen $\S^3\setminus\T^2$ pituuspiirin $q$ kertaa ja ympäryspiirin $p$ kertaa ollen myös $(q,p)$-torussolmu.
 \end{proof}
-Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? torussolmuja. Torussolmu voidaan määrittää kokonaan kahdella kokonaisluvulla $p,q$, jotka kertovat monestiko silmukka kiertyy toruksen kahden eri homologia-akselin ympäri ennen palaamistaan lähtöpisteeseen. Iteroituja torussolmuja matemaatikko tekee vaihtamalla valmiin torussolmun ``langan'' ohuempaan, joka kiertää itsensä ympäri vinhemmin.
+Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? torussolmuja. Torussolmu voidaan määrittää kokonaan kahdella kokonaisluvulla $p,q$, jotka kertovat monestiko silmukka kiertyy toruksen kahden eri homologia-akselin ympäri ennen palaamistaan lähtöpisteeseen. Torussolmuja voi ``iteroida'' vaihtamalla valmiin torussolmun $\solmu(p_1,q_1)$ ``langan'' ohuempaan, joka kiertää itsensä ympäri kuin torussolmu $\solmu(p_2,q_2)$.
 \begin{maaritelma}
     Olkoon $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ linkki. \emph{Kaapelointi} solmun $\solmu_i$ suhteen tarkoittaa linkin korvaamista joko linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q))$ tai linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q)-\solmu_i)$. Tässä $d\solmu_i(p,q)=\bigcup_{i=1}^d\solmu_i(p,q)$ on yksittäisten torussolmujen erillinen yhdiste $\partial N(\solmu_i)$:ssä. Tuloslinkkiä kutsutaan \emph{iteroiduksi toruslinkiksi}.
 
@@ -116,7 +119,7 @@ Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? 
 \end{maaritelma}
 
 \subsection{Pujonta}
-Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi, joka muistuttaa laajemmassa kirjallisessa kontekstissa käsiteltävää kirurgiaa ja kahvoja 3-monistoilla.
+Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi, joka muistuttaa laajemmassa kirjallisessa kontekstissa käsiteltävää kirurgiaa ja kahvoja 3-monistoilla. Tätä käsitellään tarkemmin kappaleessa~\ref{kpl:pujoskaavion-synty}.
 \begin{maaritelma}[Linkkien pujos]
     \label{maar:pujos}
     Olkoot $\linkki=(\Sigma,K)$ ja $\linkki'=(\Sigma',K')$ linkkejä. Valitaan komponentit $\solmu\subset K,\solmu'\subset K'$. Olkoot $Y,P\subset N(\solmu_i)$ ja $Y',P'\subset N(\solmu_j)$ tyypilliset ympärys- ja pituuspiirit. Määritellään
@@ -128,15 +131,21 @@ Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi
         \linkki''=(\Sigma'',(K-\solmu)\cup(K'-\solmu'))
     \end{equation*}
     on $\linkki$:n ja $\linkki'$:n \emph{pujos} ja sitä merkitään
-    \begin{pujoskaavio}[h!]
-        \centering
-        \includegraphics[width=0.15\textwidth]{figures/pujoksen-merkintätapa.pdf}
-        \label{kuva:pujoksen-merkintätapa}
-    \end{pujoskaavio}
+    \begin{center}
+        \begin{tikzpicture}
+            \node[rectangle node] (L1) at (0,0) {$\linkki$};
+            \node[rectangle node] (L2) at (2,0) {$\linkki'$};
+
+            \draw (L1) -- node[edge value, near start, swap] {$\solmu$}
+                          node[edge value, near end, swap] {$\solmu'$} (L2);
+        \end{tikzpicture}
+    \end{center}
+    Jos solmut $\solmu,\solmu'$, joita pitkin pujos tehdään, ovat kontekstista selvät, on tyypillistä jättää ne merkitsemättä.
 \end{maaritelma}
+Määritelmä on johdonmukainen, sillä $\Sigma''=\S^3$, jos $\Sigma,\Sigma'=\S^3$ ja homologinen $n$-pallo muutoin.
 \begin{lemma}
     $\Sigma''$ on homologinen $n$-pallo.
 \end{lemma}
 \begin{proof}
-    Mayer-Vietoris-jono (en tiedä miten).
+    Lemman voi todistaa Mayer-Vietoris-jonoon pohjautuvalla argumentilla, joka kuitenkin tuo työn varsinaiseen sisältöön vain vähän lisäarvoa. Lisäksi lauseen~\ref{lause:s3-kuidutus} topologinen todistus sisältää ainesosia tämän ymmärtämiseen työlle relevantissa 3-pallojen tapauksessa, joten todistus sivuutetaan.
 \end{proof}

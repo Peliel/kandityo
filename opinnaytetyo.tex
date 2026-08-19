@@ -140,8 +140,32 @@
 
 %% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein
 \usepackage{amsfonts, amssymb, amsbsy, amsmath, mathrsfs, amsthm}
+\usepackage{gensymb}
 \usepackage{bbm}
 \usepackage{enumerate}
+
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\tikzset{
+    % 1) Nœud plein (cercle noir)
+    solid node/.style={circle, draw=black, fill=black, inner sep=2pt},
+    % 2) Nœud vide (cercle blanc)
+    empty node/.style={circle, draw=black, fill=white, inner sep=2pt},
+    % 3) Nœud invisible
+    placeholder/.style={circle, draw=white, fill=white, inner sep=2pt},
+    % 4) Nœud rectangulaire pouvant contenir un symbole
+    rectangle node/.style={
+        rectangle, 
+        draw=black, 
+        fill=white, 
+        inner sep=4pt,       % Marge interne autour du texte
+        minimum size=15pt,   % Taille minimale pour garder une uniformité
+        align=center         % Centrage du texte
+    },
+    % Style pour les valeurs sur les arêtes (texte petit)
+    edge value/.style={font=\scriptsize, auto}
+}
 
 \DeclareCaptionType{pujoskaavio}[Pujoskaavio][List of Pujoskaaviot]
 
