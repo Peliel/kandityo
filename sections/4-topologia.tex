@@ -222,20 +222,24 @@ Ok ilmeisesti kuidutetut torukset on aika tärkee juttu ja kuidutetut Seifert-mo
 Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonka mukaan $\S^3=\TT^2\cup\TT^2$. Tulos on kätevä, sillä toruksia on helppo kuiduttaa, kuten kuvassa~\ref{kuva:torus-kuitukimppu}, ja kaksi epätriviaalisti kuidutettua torusta yhdistämällä voi saada epätriviaalisti kuidutetun 3-pallon.
 \begin{lemma}
     Jos $\TT^2=\S^1\times \D^2$, niin $\S^3=\TT^2\cup\TT^2$.
+    \label{lemma:s3-torushajotus}
 \end{lemma}
 \begin{proof}
     Helpoin todistus saadaan käyttämällä yleisesti tunnettua kaavaa
     \begin{equation*}
         \partial \left(X\times Y\right)=\left(\partial X\times\bar Y\right)\cup\left(\bar X\times\partial Y\right).
     \end{equation*}
-    Huomataan lisäksi, että topologisesti $\D^4\approx \D^2\times \D^2$ (samoin kuin $\D^2\approx \D^1\times \D^1$). Tällöin koska $\S^3=\D^4$,
+    Huomataan lisäksi, että topologisesti $\D^4\approx \D^2\times \D^2$ (samoin kuin $\D^2\approx \D^1\times \D^1$). Tällöin koska $\S^3=\partial\D^4$,
     \begin{align*}
-        \partial\S^3&\approx\partial\left(\D^2\times \D^2\right) \\
-        &=\left(\S^1\times \D^2\right)\cup(\D^2\times\S^1) \\
+        \S^3&\approx\partial\left(\D^2\times \D^2\right) \\
+        &=\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right) \\
         &=\TT^2\cup\TT^2,
     \end{align*}
     mikä oli haluttu tulos.
 \end{proof}
+\begin{huomautus}
+    Todistuksessa nähdään, että $\S^3=\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right)$. On hyvä huomata, että kahdessa tulossa ympyrän $\S^1$ ja levyn $\D^2$ paikka vaihtuu. Geometrisesti tämä tarkoittaa sitä, että kaksi torusta $\TT_1^2,\TT_2^2$ liimataan yhteen pintojaan myöten siten, että $\TT_1^2$:n ympäryspiiri osuu $\TT_2^2$:n pituuspiiriin ja toisin päin.
+\end{huomautus}
 Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskeinen ominaisuus on hajotelma 1-ulotteisiin kuituihin.
 \begin{maaritelma}[Seifert-kuidutettu avaruus ja Seifert-monisto]
     \emph{Seifert-kuidutettu avaruus} on avaruus, joka voidaan esittää erillisten ympyröiden $\S^1$ yhdisteenä.
@@ -254,8 +258,6 @@ Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskei
     \caption{Torus koostuu erillisistä ympyröistä: $\T^2=\bigsqcup_{p\in \D^2}\{p\}\times\S^1$.}
     \label{kuva:torus-kuitukimppu}
 \end{figure}
-
-
 \begin{esimerkki}
     Olkoon $\D^2\times[0,1]$ sylinteri. Varustetaan sylinteri relaatiolla $(x,1)\sim(\rho_\alpha x,0)$, jossa $x\in \D^2$ on jokin levyn piste ja $\rho_\alpha$ on kulman $2\pi\alpha$, $\alpha\in\Q\cap[0,1)$ suuruinen käännös keskipisteen $0\in \D^2$ ympäri.
 
@@ -266,17 +268,17 @@ Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskei
 \end{esimerkki}
 Tällainen keskiakselinsa ympäri vääntynyt torus osoittautuu algebrallisten solmujen kannalta keskeiseksi konstruktioksi, joten sille on hyvä antaa nimi.
 \begin{maaritelma}
-    Esimerkin~\ref{esim:torussolmut-kuituina} mukainen joukko on \emph{tavanomaisesti kuidutettu torus}.
+    Esimerkin~\ref{esim:torussolmut-kuituina} mukainen joukko on \emph{epätriviaalisti kuidutettu torus}.
 \end{maaritelma}
 Edellä on jo esitetty, että $\S^3=\T^2\sqcup\T^2$, kun $\T^2$ ovat triviaaleja toruksia, mutta on mahdollista rakentaa $\S^3$ myös vääntyneistä toruksista, minkä esittelemiseen loppu tästä osiosta käytetään. Yleisempi tapaus epätriviaalisti kuiduttuneesta avaruudesta on Seifert-monisto.
 \begin{maaritelma}
-    \emph{Seifert-kuidutus} on 3-monisto $\Sigma$, jolla on jatkuva kuvaus $\pi:\Sigma\to B$ siten, että kaikille $x\in B$ on olemassa ympäristö $U_x\subset B$ siten, että $\pi^{-1}(U_x)$ on isomorfinen jonkin tavanomaisesti kuidutetun toruksen sisukseen.
+    \emph{Seifert-kuidutus} on 3-monisto $\Sigma$, jolla on jatkuva kuvaus $\pi:\Sigma\to B$ siten, että kaikille $x\in B$ on olemassa ympäristö $U_x\subset B$ siten, että $\pi^{-1}(U_x)$ on isomorfinen jonkin epätriviaalisti kuidutetun toruksen sisukseen.
 \end{maaritelma}
-Seifert-kuidutuksella voi olla erityiskuituja, jotka vastaavat asiayhteyden tavanomaisesti kuidutetun toruksen moninkertojen $k_i\geq2$ erityiskuituja.
+Seifert-kuidutuksella voi olla erityiskuituja, jotka vastaavat asiayhteyden epätriviaalisti kuidutetun toruksen moninkertojen $k_i\geq2$ erityiskuituja.
 
 Työn kannalta erityisen tärkeä Seifert-kuidutuksen erityistapaus on $\S^3$:n kuidutus $\S^1$-kuiduilla.
 \begin{lause}
-    Olkoot $m,n\geq2$ kokonaislukuja siten, että $\syt(m,n)=1$. On olemassa projektio $\pi_{m,n}:\S^3\to\S^2$, jolla on täsmälleen kaksi erityiskuitua kertoimilla $m,n$.
+    Olkoot $k_1,k_2\geq2$ kokonaislukuja siten, että $\syt(k_1,k_2)=1$. On olemassa projektio $\pi_{k_1,k_2}:\S^3\to\S^2$, jolla on täsmälleen kaksi erityiskuitua kertoimilla $k_1,k_2$. Tämä projektio tunnetaan myös \emph{Hopf-kuidutuksena}.
     \label{lause:s3-kuidutus}
 \end{lause}
 Todistuksessa käytetään yleisiä ryhmäteorian konsepteja ryhmätoimintoa, kiertorataa ja vakauttajaa.
@@ -286,7 +288,7 @@ Todistuksessa käytetään yleisiä ryhmäteorian konsepteja ryhmätoimintoa, ki
         \item $\alpha_e(x)=x$ ja
         \item $\alpha_g\circ\alpha_h(x)=\alpha_{gh}(x)$.
     \end{itemize}
-    Usein merkitään $\alpha_g(x)$ asemesta vain $g\wedge x$. Jos $s\in S$ niin $G\wedge s=\{g\wedge s:g\in G\}$ on \emph{kiertorata} $s$:n yli. Huomaa, että $g\wedge s\in S$. Ryhmätoiminnon \emph{vakauttaja} on $G_s=\{g\in G:g\wedge s=s\}$.
+    Usein merkitään $\alpha_g(x)$ asemesta vain $g\wedge x$. Jos $s\in S$ niin $G\wedge s=\{g\wedge s:g\in G\}$ on \emph{kiertorata} $s$:n yli. Huomaa, että $g\wedge s\in S$. Alkion $s\in S$ \emph{vakauttaja} on $G_s=\{g\in G:g\wedge s=s\}$.
 \end{maaritelma}
 \begin{proof}[Lauseen~\ref{lause:s3-kuidutus} analyyttinen todistus]
     Olkoon $\S^3\subset\C^2$ tavallinen yksikköpallo:
@@ -295,44 +297,76 @@ Todistuksessa käytetään yleisiä ryhmäteorian konsepteja ryhmätoimintoa, ki
     \end{equation*}
     Olkoon $\S^1$:llä ryhmärakenne, jonka antaa parametrisointi $e^{i\theta}\in\S^1$. Määritellään ryhmätoiminto $\S^1$:llä $\S^3$:n yli:
     \begin{equation*}
-        \alpha_t:\S^3\to\S^3:\alpha_t(z,w)=(t^n z,t^m w),\quad t\in\S^1.
+        \alpha_t:\S^3\to\S^3:\alpha_t(z,w)=(t^{k_2} z,t^{k_1} w),\quad t\in\S^1.
     \end{equation*}
-    Tämä ryhmätoiminto antaa $\S^3$:lle $\S^1$-kuidutuksen. Pistettä $(z,w)\in\S^3$ vastaava kuitu on kiertorata $\S^1\wedge(z,w)$. Kuidun moninkerta voidaan laskea pisteen vakauttajasta $\S^1_{(z,w)}$.
+    Tämä ryhmätoiminto antaa $\S^3$:lle $\S^1$-kuidutuksen. Pistettä $(z,w)\in\S^3$ vastaava kuitu on kiertorata $\S^1\wedge(z,w)$. Kuidun moninkerta voidaan laskea pisteen vakauttajasta $\S^1_{(z,w)}=\{t\in\S^1:t\wedge (z,w)=(z,w)\}$.
     \begin{itemize}
-        \item Jos $z=0$, niin $|w|=1$. Vakauttajan yhtälö on yksinkertaisesti $t\wedge(0,w)=(0,w)$ eli $(0,t^m w)=(0,w)$, mikä implikoi $t^m=1$. Ratkaisut vastaavat asteen $m$ yksikköjuuria, joita on $m$ kappaletta, joten $\S^1_{(0,w)}\cong\Z_m$. Tämä tarkoittaa, että kiertorata kulkee $m$ kertaa ympäri, joten se vastaa moninkerran $m$ erityiskuitua.
-        \item Jos $w=0$ niin identtisellä päättelyllä kiertorata vastaa moninkerran $n$ erityiskuitua.
-        \item Jos $z\ne0\ne w$, niin vakauttajan alkiot tyydyttävät molemmat yhtälöt $t^m=1$ ja $t^n=1$; siis $t$ on polynomien $x^m-1$ ja $x^n-1$ ratkaisu. Koska $\syt(m,n)=1$, on olemassa kokonaisluvut $u,v$ siten, että $mu+nv=1$. Kirjoitetaan
+        \item Jos $z=0$, niin $|w|=1$. Vakauttajan yhtälö on yksinkertaisesti $t\wedge(0,w)=(0,w)$ eli $(0,t^{k_1} w)=(0,w)$, mikä implikoi $t^{k_1}=1$. Ratkaisut vastaavat asteen $k_1$ yksikköjuuria, joita on $k_1$ kappaletta, joten $\S^1_{(0,w)}\cong\Z_{k_1}$. Tämä tarkoittaa, että kiertorata kulkee $k_1$ kertaa ympäri, joten se vastaa moninkerran $k_1$ erityiskuitua.
+        \item Jos $w=0$ niin identtisellä päättelyllä kiertorata vastaa moninkerran $k_2$ erityiskuitua.
+        \item Jos $z\ne0\ne w$, niin vakauttajan alkiot tyydyttävät molemmat yhtälöt $t^{k_1}=1$ ja $t^{k_2}=1$. Koska $\syt(k_1,k_2)=1$, on olemassa kokonaisluvut $n_1,n_2$ siten, että $k_1n_2+k_2n_1=1$. Kirjoitetaan
         \begin{equation*}
-            t=t^1=t^{mu+nv}=(t^m)^u(t^n)^v=1^u\cdot1^v=1.
+            t=t^1=t^{k_1n_2+k_2n_1}=(t^{k_1})^{n_2}(t^{k_2})^{n_1}=1^{n_2}\cdot1^{n_1}=1.
         \end{equation*}
         Koska $t=1$ on ainoa ratkaisu, kuitujen moninkerrat ovat tässä tapauksessa 1, eli ne ovat säännöllisiä kuituja.
     \end{itemize}
     Siispä tässä $\S^1$-kuidutuksessa erityiskuidut ovat tismalleen tasojen $z=0$ ja $w=0$ suuntaiset kuidut. Määritellään kuvaus
     \begin{align*}
-        \pi_{m,n}:\S^3&\to\P^1 \\
-        (z,w)&\mapsto[z^m:w^n].
+        \pi_{k_1,k_2}:\S^3&\to\P^1 \\
+        (z,w)&\mapsto[z^{k_1}:w^{k_2}].
     \end{align*}
     Kuvaus on hyvin määritelty, sillä kaikille $t\in\S^1$ (mistä seuraa $t\ne0$)
     \begin{align*}
-        \pi_{m,n}(t\wedge(z,w))&=[(t^n z)^m:(t^m w)^n] \\
-        &=[t^{mn}z^m:t^{mn}w^n] \\
-        &=[z^m:w^n] \\
-        &=\pi_{m,n}(z,w).
+        \pi_{k_1,k_2}(t\wedge(z,w))&=[(t^{k_2} z)^{k_1}:(t^{k_1} w)^{k_2}] \\
+        &=[t^{k_1k_2}z^{k_2}:t^{k_1k_2}w^{k_2}] \\
+        &=[z^{k_1}:w^{k_2}] \\
+        &=\pi_{k_1,k_2}(z,w).
     \end{align*}
-    Koska $\P^1\cong\S^2$, on kyseessä kaivattu kuvaus $\pi_{m,n}:\S^3\to\S^2$.
+    Koska $\P^1\cong\S^2$, on kyseessä kaivattu kuvaus $\pi_{k_1,k_2}:\S^3\to\S^2$.
 \end{proof}
 Annetaan lisäksi topologinen todistus tuomaan lisäperspektiiviä avaruuden rakenteeseen.
 \begin{proof}[Lauseen~\ref{lause:s3-kuidutus} topologinen todistus]
-    Olkoon $B=\S^2\setminus\left(U_1\cup U_2\right)$ 2-pallo, josta on poistettu kaksi erillistä aluetta $U_i$. Olkoon $E=\S^1\times B\to B$ $B$:n triviaali $\S^1$-kimppu.
+    Olkoon $B=\S^2\setminus\left(U_1\cup U_2\right)$ 2-pallo, josta on poistettu kaksi erillistä aluetta $U_i$. Olkoon lisäksi $E=\S^1\times B$. Määritellään, että $\pi:E\to B$ on $B$:n triviaali $\S^1$-kimppu.
 
-    $B$ on topologisesti muodoltaan sylinteri ja sen reuna koostuu kahdesta erillisestä renkaasta $\partial B=\S_1^1\sqcup\S_2^1$, jotka ympäröivät joukkoja $U_1,U_2$. On yleisesti tunnettua, että $\partial(X\times Y)=(\partial X\times\bar Y)\cup(\bar X\times\partial Y)$. Täten $E$:n reuna koostuu kahdesta toruksesta:
+    $B$ on topologisesti muodoltaan sylinteri ja sen reuna koostuu kahdesta erillisestä renkaasta $\partial B=\S_1^1\sqcup\S_2^1$, jotka ympäröivät joukkoja $U_1,U_2$. Topologisen tulon reunan kaavan nojalla $\partial(X\times Y)=(\partial X\times\bar Y)\cup(\bar X\times\partial Y)$ $E$:n reuna koostuu kahdesta toruksesta:
     \begin{align*}
         \partial E&=\partial\left(\S^1\times B\right) \\
         &=\left(\partial\S^1\times\bar B\right)\cup\left(\bar\S^1\times\partial B\right) \\
         &=\left(\varnothing\times B\right)\cup\left(\S^1\times\left(\S_1^1\sqcup\S_2^1\right)\right) \\
-        &=\T_1^2\sqcup\T_2^2.
+        &=\T_1^2\cup\T_2^2.
     \end{align*}
-    Lisätään $E$:n reunalle täytetyt torukset $\D^2\times\S^1$ samoihin kohtiin kuin torukset $\T_i^2$. Liimataan uudet torukset $\TT_i^2$ yhteen reunoja pitkin, siten että $\TT_1^2$:n ympäryspiiri liimataan $\TT_2^2$:n pituuspiiriin ja toisin päin.
+    Liimataan $E$:n kumpaankin reunaan täytetty torus $\TT_i^2=\S^1\times\D^2$ siten, että $E$:n reunapiste osuu $\D^2$:n reunapisteeseen. Tällä prosessilla kokonaisavaruus $E$ on täydennetty sisältämään poistetut joukot $U_i$ (levyt $\D^2$) sekä niiden pisteitä vastaavat kuidut (ympyrät $\S^1$).
 
-    Valitaan jokin sektio $\sigma:B\to E$, kuidut $H_i\subset\T_i^2\subset E$ ja $Q_i=\T_i^2\cap\sigma(B)$.
+    Kokonaisavaruus $E$ ei vielä ole 3-pallo, vaan 2-pallo, jonka jokaisella pisteellä
+
+    Valitaan jokin sektio $\sigma:B\to E$. Käsitellään aluksi torusta $\T_1^2$.
+\end{proof}
+\begin{proof}[Lauseen~\ref{lause:s3-kuidutus} topologinen todistus]
+    Olkoon $\tilde{\pi}:E\to\S^2$, $E=\S^2\times\S^1$, $\S^2$:n triviaali $\S^1$-kuidutus. Toisin sanoen, jos $x\in\S^2$, niin $\tilde{\pi}^{-1}(x)\approx\S^1$ on kokonainen ympyrä. 
+    
+    Jos $\D^2\subset\S^2$, niin $\tilde{\pi}^{-1}[\D^2]\approx\TT\subset E$, missä $\TT$ on täytetty torus. On hyvä huomata, että toruksen poikkilevy on $\D^2$ ja torus kulkee kohtisuorasti $\S^2$:n pinnan läpi.
+
+    Olkoon $\S^1=\partial\D^2$ edellisen levyn reuna. Tällöin $\tilde{\pi}^{-1}[\S^1]\approx\T\subset E$. Toruksen $\T$ poikkilevy on minkä tahansa $x\in\S^1$ kuitu $\tilde{\pi}^{-1}(x)$; siis $\T$:n ympäryspiiri on $\TT$:n pituuspiiri ja toisin päin! Toisaalta silti $\T_i=\partial\TT_i$, mutta koska pituus- ja ympäryspiirit ovat vastakkain, $\T_i$:n ``sisus'' on $\TT_i$:n ulkopuoli.
+
+    Tavoitteena on päästä kuvaukseen $\pi:\S^3\to\S^2$. Jos on olemassa jokin hyvä konstruktio $E\leadsto\S^3$, tätä voi käyttää $\tilde{\pi}$:n muuntamiseen $\pi$:ksi. Lemman~\ref{lemma:s3-torushajotus} nojalla $\S^3$ on kahden toruksen yhdiste, joten yritetään liimata kaksi torusta yhteen sopivalla tavalla.
+    
+    Olkoot $\D_i^2\subset\S^2$, $i=1,2$, kaksi erillistä levyä ($\D_1\cap\D_2=\varnothing$) ja $\TT_i$ niitä vastaavat torukset. Olkoot $\S_i=\partial\D_i$ levyjen reunat ja $\T_i\subset E$ niitä vastaavat torukset.
+
+    Jos $x_i\in\S_i^1$, niin määritellään $Y_i=\tilde{\pi}^{-1}(x_i)$. Tällöin $\S_i^1$ ja $Y_i$ muodostavat homologiaryhmän $H_1(\T_i)$ kannan, sillä $\S_i^1$ vastaa toruksen $\T_i$ pituuspiiriä ja $Y_i$ ympäryspiiriä.
+
+    Koska $\syt(k_1,k_2)=1$, on Bézout'n lemman nojalla olemassa kokonaisluvut $n_1,n_2$ siten, että
+    \begin{equation*}
+        k_1n_2+k_2n_1=1.
+    \end{equation*}
+    Tällöin pätee myös $\syt(k_i,n_i)=1$:
+    \begin{align*}
+        \syt(k_i,n_i)=d\quad&\Rightarrow\quad d\ |\ k_1n_2+k_2n_1 \\
+        &\Rightarrow\quad d\ |\ 1 \\
+        &\Rightarrow\quad d=1.
+    \end{align*}
+    
+    Olkoon $C=k_iY_i+n_i\S_i^1\subset\T_i$ käyrä. Liimataan $\T_i$ täytetyn toruksen $\TT_i$ reunaan siten, että
+    \begin{equation*}
+        [k_iY_i+n_i\S_i^1]=[0],
+    \end{equation*}
+    eli käyrän $[k_iY_i+n_i\S_i^1]\subset\T_i\cap\TT_i$ homologialuokka on nolla.
 \end{proof}
