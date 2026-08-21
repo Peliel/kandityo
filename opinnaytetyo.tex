@@ -137,6 +137,7 @@
 \usepackage{ifthen}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{stfloats}
 
 %% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein
 \usepackage{amsfonts, amssymb, amsbsy, amsmath, mathrsfs, amsthm}
@@ -163,6 +164,15 @@
         minimum size=15pt,   % Taille minimale pour garder une uniformité
         align=center         % Centrage du texte
     },
+    % 5) Nœud rectangulair text boxe
+    text box/.style={
+        rectangle,
+        draw=white,
+        fill=white,
+        inner sep=4pt,
+        minimum size=15 pt,
+        align=center
+    },
     % Style pour les valeurs sur les arêtes (texte petit)
     edge value/.style={font=\scriptsize, auto}
 }
@@ -175,6 +185,7 @@
 \newtheorem{maaritelma}[definition]{Määritelmä}
 \newtheorem{example}[definition]{Example}
 \newtheorem{esimerkki}[definition]{Esimerkki}
+\newtheorem{konstruktio}[definition]{Konstruktio}
 \newtheorem{oivallus}{Oivallus}[section]
 \newtheorem*{asetus}{Asetus}
 \newtheorem*{ajatus}{Ajatus}

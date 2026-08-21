@@ -6,7 +6,7 @@ Tässä esitellään solmuihin liittyvät perusmääritelmät. Kuvassa~\ref{kuva
 \begin{maaritelma}
     Topologisen avaruuden $X$ osajoukko $\solmu\subset X$ on \emph{solmu}, jos $\solmu$ on homeomorfinen palloon $\pallo^p$, jollekin $p\in\N$.
 \end{maaritelma}
-\begin{figure}
+\begin{figure*}
     \centering
     \begin{subfigure}{0.3\textwidth}
         \centering
@@ -27,17 +27,17 @@ Tässä esitellään solmuihin liittyvät perusmääritelmät. Kuvassa~\ref{kuva
     \end{subfigure}
     \caption{Kolme yksinkertaisinta solmua. Ovatko kolmilehdet samoja?}
     \label{kuva:perussolmuja}
-\end{figure}
+\end{figure*}
 Solmuja voi myös lomittaa yhteen, jolloin tulosta kutsutaan linkiksi. Kuvassa~\ref{kuva:esimerkkilinkkejä} on kaksi esimerkkilinkkiä.
 \begin{maaritelma}
     \emph{Linkki} $\linkki=(\Sigma,\solmu_1,\cup\cdots\cup\solmu_n)$ on pari, jossa $\Sigma=\S^3$ (tai yleisemmin suunnattu homologinen $n$-pallo) ja $\solmu_i$ solmuja. Joskus merkitään lyhemmin $\solmu_1\cup\cdots\cup\solmu_n=K$.
 \end{maaritelma}
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/esimerkkilinkkejä.pdf}
     \caption{Kaksi linkkiä, joiden linkkiluvut ovat $-2$ ja 3.}
     \label{kuva:esimerkkilinkkejä}
-\end{figure}
+\end{figure*}
 Työssä tärkeää on monimutkaisten solmujen hajottaminen yksinkertaisemmiksi, mutta sitä varten tarvitaan ensin menetelmä yksinkertaisempien solmujen yhdistämiseksi. Kuvassa~\ref{kuva:kolmilehtien-yhtenäinen-summa} on esitetty alemman määritelmän mukainen yhtenäinen summa.
 \begin{maaritelma}
     Linkkien $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ ja $\linkki'=(\Sigma',\solmu_1'\cup\cdots\cup\solmu_m')$ \emph{erillinen summa} on
@@ -52,12 +52,12 @@ Työssä tärkeää on monimutkaisten solmujen hajottaminen yksinkertaisemmiksi,
     \end{equation*}
     jossa $\Sigma$:n ja $\Sigma'$:n yhtenäinen summa otetaan kautta levyjen, jotka leikkaavat linkkejä väleissä $I\subset\solmu_1$ ja $I'\subset\solmu_1'$.
 \end{maaritelma}
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/kolmilehtien-yhtenäinen-summa.pdf}
     \caption{Kahden linkin yhtenäinen summa tummalla merkittyä intervallia pitkin.}
     \label{kuva:kolmilehtien-yhtenäinen-summa}
-\end{figure}
+\end{figure*}
 Tämä summa ei sellaisenaan vielä yleisty tarpeeksi hyvin, mutta on tarpeellinen yleisemmän pujonnan määrittelyssä myöhemmin. Annetaan vielä pari määritelmää.
 \begin{maaritelma}
     Solmun $\solmu$ putkiympäristöä merkitään $N(\solmu)$ ja linkin $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ putkiympäristö määritellään $N(\linkki):=N(\solmu_1)\cup\cdots\cup N(\solmu_n)$.
@@ -71,12 +71,12 @@ Tämä summa ei sellaisenaan vielä yleisty tarpeeksi hyvin, mutta on tarpeellin
 \end{maaritelma}
 \begin{maaritelma}
     Olkoot $\solmu,\solmu'$ kaksi solmua. Projisoidaan solmut johonkin tasoon. Annetaan jokaiselle solmujen leikkauskohdalle kerroin $\pm1$ kuvan~\ref{kuva:linkkiluvun-määritelmä} osoittamalla tavalla.
-    \begin{figure}[h!]
+    \begin{figure*}[h!]
         \centering
         \includegraphics[width=0.5\textwidth]{figures/linkkiluvun-määritelmä.pdf}
         \caption{Kaksi positiivista ylitystä ja kaksi negatiivista ylitystä.}
         \label{kuva:linkkiluvun-määritelmä}
-    \end{figure}
+    \end{figure*}
     Ylitysdata projektioon saadaan tarkastelemalla projektion alkukuvassa leikkauspisteen kuitua. Linkkiluku määritellään
     \begin{equation*}
         \ell(\solmu,\solmu')=\frac{1}{2}\sum\text{leikkauskohtien kertoimet}.
@@ -99,6 +99,8 @@ Nämä toruksen kiertosuunnat mahdollistavat torussolmun määrittelyn.
     Olkoon $\solmu$ käyrä, jolla on upotus $\solmu\hookrightarrow\T^2$. Jos $\solmu$ on homologinen homologiaryhmään $pP+qY$, niin $\solmu$ on \emph{$(p,q)$-torussolmu} ja sitä voidaan merkitä $\solmu(p,q)$.
     \label{maar:torussolmu}
 \end{maaritelma}
+Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? torussolmuja. Torussolmu voidaan määrittää kokonaan kahdella kokonaisluvulla $p,q$, jotka kertovat monestiko silmukka kiertyy toruksen kahden eri homologia-akselin ympäri ennen palaamistaan lähtöpisteeseen.
+
 Tarkkasilmäinen lukija saattaa pistää merkille, että konstruktioltaan torussolmu muistuttaa hyvin paljon lauseen~\ref{lause:s3-kuidutus} topologisessa todistuksessa käytettyä liimausmenetelmää. Tämä ei tietenkään ole sattumaa ja tätä käytetään myöhemmin hyväksi solmuoperaatioiden määrittelyssä.
 
 Todistetaan ennen toruslinkkien esittelyä vielä eräs pienehkö torussolmuja koskeva seikka.
@@ -111,12 +113,15 @@ Todistetaan ennen toruslinkkien esittelyä vielä eräs pienehkö torussolmuja k
 
     Tällöin solmu kiertää toruksen $\S^3\setminus\T^2$ pituuspiirin $q$ kertaa ja ympäryspiirin $p$ kertaa ollen myös $(q,p)$-torussolmu.
 \end{proof}
-Torussolmu on siis solmu, joka voidaan piirtää toruksen pinnalle. Kuvassa ??? torussolmuja. Torussolmu voidaan määrittää kokonaan kahdella kokonaisluvulla $p,q$, jotka kertovat monestiko silmukka kiertyy toruksen kahden eri homologia-akselin ympäri ennen palaamistaan lähtöpisteeseen. Torussolmuja voi ``iteroida'' vaihtamalla valmiin torussolmun $\solmu(p_1,q_1)$ ``langan'' ohuempaan, joka kiertää itsensä ympäri kuin torussolmu $\solmu(p_2,q_2)$.
+Torussolmuja voi ``iteroida'' vaihtamalla valmiin torussolmun $\solmu(p_1,q_1)$ ``langan'' ohuempaan, joka kiertää itsensä ympäri kuin torussolmu $\solmu(p_2,q_2)$.
 \begin{maaritelma}
     Olkoon $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n)$ linkki. \emph{Kaapelointi} solmun $\solmu_i$ suhteen tarkoittaa linkin korvaamista joko linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q))$ tai linkillä $\linkki=(\Sigma,\solmu_1\cup\cdots\cup\solmu_n\cup d\solmu_i(p,q)-\solmu_i)$. Tässä $d\solmu_i(p,q)=\bigcup_{i=1}^d\solmu_i(p,q)$ on yksittäisten torussolmujen erillinen yhdiste $\partial N(\solmu_i)$:ssä. Tuloslinkkiä kutsutaan \emph{iteroiduksi toruslinkiksi}.
 
     Jos linkki sisältää vain yhden komponentin, niin kaapeloinnin tulos on \emph{iteroitu torussolmu}.
 \end{maaritelma}
+Esitellään konkreettinen tapa rakentaa iteroitu torussolmu. Olkoon $\solmu=\solmu(p_1,q_1)$ torussolmu ja $\T$ torus, jonka pinnalle se voidaan piirtää. Tällöin $\solmu$ kulkee $p_1$ kertaa pituuspiirin ympäri ja $q_1$ kertaa ympäryspiirin ympäri. 
+
+Olkoon $N=N(\solmu)$ torussolmun putkiympäristö. Piirretään putkiympäristön pinnalle suljettu ja suunnattu käyrä, joka kulkee putkiympäristön pituuspiirin ympäri $p_2$ kertaa ja ympäryspiirin ympäri $q_2$ kertaa. Tämä käyrä on iteroitu torussolmu, jonka tunnusluvut ovat $\{(p_1,q_1),(p_2,q_2)\}$. Se kulkee pituuspiirinsä ympäri $p_1p_2$ kertaa ja ympäryspiirinsä $q_1q_2$ kertaa.
 
 \subsection{Pujonta}
 Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi, joka muistuttaa laajemmassa kirjallisessa kontekstissa käsiteltävää kirurgiaa ja kahvoja 3-monistoilla. Tätä käsitellään tarkemmin kappaleessa~\ref{kpl:pujoskaavion-synty}.

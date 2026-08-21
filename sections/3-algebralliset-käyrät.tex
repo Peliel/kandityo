@@ -10,12 +10,12 @@ Affiini algebrallinen käyrä kompleksitasossa on määritelty polynomin nollako
     \end{equation*}
 \end{maaritelma}
 Yleisesti $n$-ulotteinen algebrallinen hyperpinta on $n+1$-ulotteisen polynomin nollakohtajoukko. Kuvassa~\ref{kuva:algebrallinen-käyrä} havainnollistetaan tätä 2-pinnalla ja sen $xy$-tasoon jättämällä ellipsillä.
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.5\textwidth]{figures/algebrallinen-käyrä.pdf}
     \caption{Parabolinen pinta $f(x,y)-z=0$ ja algebrallinen käyrä $f(x,y)=0$.}
     \label{kuva:algebrallinen-käyrä}
-\end{figure}
+\end{figure*}
 Määritellään vielä käyrän aste.
 \begin{maaritelma}
     Olkoon $C$ algebrallinen käyrä, jonka määrittää polynomi $f\in\C[x,y]$. Kirjoitetaan
@@ -42,12 +42,12 @@ Käyrän $C$ paikallinen muoto pisteessä $p=(a,b)\in C$ määrittyy $f$:n ositt
     Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}. Jos kaikki käyrän pisteet ovat säännöllisiä, niin käyrä on \emph{säännöllinen}.
 \end{maaritelma}
 Säännöllisessä pisteessä implisiittifunktiolause takaa, että käyrä näyttää paikallisesti (kompleksimielessä, $\dim_\C$) 1-ulotteiselta monistolta\footnote{Oikea termi olisi \emph{varisto}, joka tiiviyden vuoksi jätetään määrittelemättä. Työn tarpeisiin monisto riittää hyvin.}, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatan oltavat huonosti käyttäytyvässä pisteessä nolla.
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/käyriä-ja-singulariteetteja.pdf}
     \caption{Yksi epäsingulaarinen käyrä ja kaksi singulaarista. Vasemmalta oikealle käyriä määrittävät yhtälöt ovat $y^2-x^3-x^2-1=0$, $y^2-x^3-x^2=0$ ja $y^2-x^3=0$.}
     \label{kuva:käyriä-ja-singulariteetteja}
-\end{figure}
+\end{figure*}
 
 \subsection{Projektiivinen avaruus}
 Avaruudella $\K^n$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus, joka lisää tavalliseen vektoriavaruuteen $\K^n$ matemaattisesti hyvin määritellyn ``horisontin''.
@@ -70,12 +70,12 @@ $\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ määritellä�
     Poikkeus tehdään havainnollistavien kuvien kohdalla, jotka piirretään reaaliseen tasoon. Kompleksitasossa on liikaa ulottuvuuksia.
 \end{asetus}
 Projektiivisen avaruuden idea on tuoda tavalliseen avaruuteen $\K^n$ myös ``horisontti'', joka ajaa äärettömyyden virkaa. Kuvassa~\ref{kuva:projektiivinen-suora} on piirretty kaksi yhdensuuntaista suoraa tavalliseen $\R$-tasoon sekä projektiiviseen tasoon $\P^2(\R)$. Äärettömyys ei ole yksi piste, vaan kokonainen ``horisonttiviiva'' ja suorat leikkaavat suoraan katsojan edessä.
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/projektiivinen-suora.pdf}
     \caption{Projektiivisessa tasossa kaksi yhdensuuntaista suoraa leikkaavat äärettömyydessä.}
     \label{kuva:projektiivinen-suora}
-\end{figure}
+\end{figure*}
 Havaintoa siitä, että projektiivisessa tasossa äärettömyys on tasoa ympäröivä horisontti, tarkastellaan täsmällisemmin seuraavassa esimerkissä ja lemmassa.
 \begin{esimerkki}
     \label{esim:proj-taso-ja-suora}
@@ -141,21 +141,21 @@ Algebrallisen käyrän homogenisointi sallii varsin mielenkiintoisia näkökulmi
 \end{esimerkki}
 
 Koska projektiivisessa avaruudessa pisteet ovat suorien ekvivalenssiluokkia, tarkoittaa asymptoottinen samankaltaisuus hajaantumisessa sitä, että haarat yhtyvät horisontissa. Tämä on piirretty kuvaan~\ref{kuva:projektiivinen-paraabeli}.
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.8\textwidth]{figures/projektiivinen-paraabeli.pdf}
     \caption{Paraabeli $\R^2$:ssa ja $\P^2(\R)$:ssa, jossa se muistuttaa ellipsiä.}
     \label{kuva:projektiivinen-paraabeli}
-\end{figure}
+\end{figure*}
 Sulkeutuuko algebrallinen käyrä aina äärettömyydessä? Ei välttämättä. Kartioleikkauksista hyperboli antaa vastaesimerkin.
 
 Annetuista esimerkeistä hyperboli on itse asiassa kiinnostavin, sillä se paljastaa jotakin oleellista projektiivisen avaruuden rakenteesta, nimittäin sen, että avaruutta ympäröivä horisontti ei ole yksinkertaisesti vain ympyrä. Tilannetta havainnollistetaan jokseenkin monimutkaisessa kuvassa~\ref{kuva:projektiivinen-hyperboli}.
-\begin{figure}
+\begin{figure*}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/projektiivinen-hyperboli.pdf}
     \caption{Hyperboli $\R^2$:ssa ja $\P^2(\R)$:ssa.}
     \label{kuva:projektiivinen-hyperboli}
-\end{figure}
+\end{figure*}
 Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäksi merkitty kaksi asymptoottisuoraa $h_1$ ja $h_2$, joita kohti hyperboli suppenee neljässä eri suunnassa.
 \begin{esimerkki}[Projektiivinen hyperboli]
     Hyperbolin yhtälö on $f(x,y)=x^2-y^2+1=0$, jonka homogenisoitu muoto on $F(X,Y,Z)=X^2-Y^2+Z^2=0$. Horisontti vastaa pisteitä, joilla $Z=0$. Yhtälö äärettömyydessä on siis $X^2-Y^2=0$. Tällöin
