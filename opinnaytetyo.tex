@@ -147,7 +147,7 @@
 
 
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta}
+\usetikzlibrary{positioning, arrows.meta, decorations.pathreplacing}
 \tikzset{
     % 1) Nœud plein (cercle noir)
     solid node/.style={circle, draw=black, fill=black, inner sep=2pt},
@@ -173,8 +173,16 @@
         minimum size=15 pt,
         align=center
     },
-    % Style pour les valeurs sur les arêtes (texte petit)
-    edge value/.style={font=\scriptsize, auto}
+    % Style pour les valeurs sur les arêtes
+    edge value/.style={font=\scriptsize, auto},
+    % Nœud textuel circulaire (ajouté selon vos instructions)
+    text node/.style={
+        circle, 
+        draw=black, 
+        fill=white, 
+        inner sep=2pt, 
+        align=center
+    }
 }
 
 \DeclareCaptionType{pujoskaavio}[Pujoskaavio][List of Pujoskaaviot]

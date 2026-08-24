@@ -214,7 +214,7 @@ Lauseen~\ref{lause:s3-kuidutus} topologisessa todistuksessa tehtiin liimausopera
                          node[edge value, near end] {} (k);
         \end{tikzpicture}
     \end{center}
-    Kaapeli on kahden solmun linkki. Avaruudella $\S_2^3$, jossa kaapeli elää on, kuidutus $\pi_{p_2,q_2}:\S^3-\S^2$. Solmut avaruudessa ovat säännöllinen kuitu on kertaluvulla 1 (torussolmu $\solmu'=\solmu'(p_2,q_2)$) ja erityiskuitu kertaluvulla $q_2$ (epäsolmu). Jos erityiskuitu eli epäsolmu pujotaan torussolmuun $\solmu(p_1,q_1)$, liimatessa $\S_2^3\setminus\solmu'$ avaruuteen $\S_1^3\setminus\solmu$ täytyy ensimmäistä vääntää niin rajusti, että $\solmu'(p_2,q_2)$ muuttuu iteroiduksi.
+    Kaapeli on kahden solmun linkki. Avaruudella $\S_2^3$, jossa kaapeli elää on, kuidutus $\pi_{p_2,q_2}:\S^3\to\S^2$. Solmut avaruudessa ovat säännöllinen kuitu kertaluvulla 1 (torussolmu $\solmu'=\solmu'(p_2,q_2)$) ja erityiskuitu kertaluvulla $q_2$ (epäsolmu). Jos erityiskuitu eli epäsolmu pujotaan torussolmuun $\solmu(p_1,q_1)$, liimatessa $\S_2^3\setminus\solmu'$ avaruuteen $\S_1^3\setminus\solmu$ täytyy ensimmäistä vääntää niin rajusti, että $\solmu'(p_2,q_2)$ muuttuu iteroiduksi.
     \begin{center}
         \begin{tikzpicture}
             % torussolmu
@@ -274,9 +274,231 @@ Lauseen~\ref{lause:s3-kuidutus} topologisessa todistuksessa tehtiin liimausopera
         \end{tikzpicture}
     \end{center}
 \end{esimerkki}
+Työn tavoitteena on määritellä yhteys algebrallisten käyrien ja solmujen välille. Polynomin nollakohdalla voi olla jokin moninkerta, ja on myöhempien tulosten kannalta määritellä solmun silmuille moninkerta.
+\begin{maaritelma}
+    Määritelmä: solmun moninkerta
+\end{maaritelma}
+\begin{asetus}
+    Jatkossa \emph{moninkerralla} tai \emph{kertaluvulla} viitataan solmun tai silmun moninkertaan. Erityiskuidun moninkerta tai kertaluku täsmennetään erikseen erityiskuidun ominaisuudeksi.
+\end{asetus}
 
 \subsection{Pujoskaavioiden ominaisuuksia}
-Tässä kappaleessa käsitellään muodollisesti pujoskaavioiden ominaisuuksia ja todistetaan joitakin hyödyllisiä tuloksia.
+Tässä kappaleessa käsitellään muodollisesti pujoskaavioiden ominaisuuksia ja todistetaan joitakin hyödyllisiä tuloksia. Pujoskaavioita määritellessä huomattiin esimerkiksi, että
+\begin{tikzpicture}[baseline=-0.5ex]
+    \node[empty node] (A) at (0,0) {};
+    \node[empty node] (B) at (1,0) {};
+    \node[text box] at (1.5,0) {$=$};
+    \node[empty node] (C) at (2,0) {};
+
+    \draw (A) -- node[edge value, near start] {}
+                 node[edge value, near end] {} (B);
+\end{tikzpicture},
+mikä osoittaa, että yhdellä solmulla voi olla erilaisia pujoskaavioita. Tämä herättää kysymyksen mahdollisesta minimaalisesta pujoskaaviosta, tai vähintään siitä, millä tavoin pujoskaaviota voi muokata ilman, että sen esittämä solmu muuttuu. 
+
+Edelliskappaleessa ei pujoskaaviota määriteltäessä otettu kantaa avaruuden tai solmujen suunnistukseen. Seuraava lause osoittaa, että pujoskaavioille mahdollisten manipulointioperaatioiden ansiosta avaruuden suunnistuksen voi aina olettaa positiiviseksi. Merkitään avaruuden suunnistusta $\delta,\varepsilon=\pm1$ kirjoittamalla $\varepsilon$ tai $\delta$ avaruutta vastaavan pallon $\circ$ sisään.
+\begin{lause}[\citep{EN1985}, lause 8.1]
+    \label{lause:pujoskaaviopläjäys}
+    Olkoot $\Gamma(\underline{m})$ ja $\Gamma_i(\underline{m_i})$, $i\in\N_0$ pujoskaavioita.
+    \vspace{0.3cm}
+    % 1
+    \par\begin{tikzpicture}
+        \node at (-2,0) {1.};
+        \node[text box] at (0.1,0) {$\Gamma(\underline{m})=\Gamma(-\underline{m})$.};
+    \end{tikzpicture}
+    \vspace{0.3cm}
+    % 2
+    \par\begin{tikzpicture}
+        \node at (-2, 1) {2.};
+        
+        % vasen
+        \node[rectangle node] (g1_1) at (-0.5, 1) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (gr_1) at (-0.5, -1) {$\Gamma_r(\underline{m}_r)$};
+        \node[text node] (e1) at (1.5, 0) {$\ \varepsilon\ $};
+        \node[rectangle node] (g0_1) at (3.5, 0) {$\Gamma_0(\underline{m}_0)$};
+        \node at (0.5, 0) {$\vdots$};
+        
+        \draw (g1_1) -- node[above, edge value] {$\alpha_1$} (e1);
+        \draw (gr_1) -- node[below, edge value, swap] {$\alpha_r$} (e1);
+        \draw (e1) -- node[above, edge value] {$\alpha_0$} (g0_1);
+
+        % =
+        \node at (4.5, 0) {$=$};
+
+        % oikea
+        \node[rectangle node] (g1_2) at (6, 1) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (gr_2) at (6, -1) {$\Gamma_r(\underline{m}_r)$};
+        \node[text node] (e2) at (8, 0) {$-\varepsilon$};
+        \node[rectangle node] (g0_2) at (10, 0) {$\Gamma_0(-\underline{m}_0)$};
+        \node at (7, 0) {$\vdots$};
+        
+        \draw (g1_2) -- node[above, edge value] {$\alpha_1$} (e2);
+        \draw (gr_2) -- node[below, edge value, swap] {$\alpha_r$} (e2);
+        \draw (e2) -- node[above, edge value] {$-\alpha_0$} (g0_2);
+    \end{tikzpicture}
+    \vspace{0.3cm}
+    % 3
+    \par\begin{tikzpicture}
+        \node at (-2, -2.2) {3.};
+        
+        % vasen
+        \node[rectangle node] (g1_3) at (-0.5, -3) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (gr_3) at (-0.5, -5) {$\Gamma_r(\underline{m}_r)$};
+        \node[text node] (e3) at (1.5, -4) {$\ \varepsilon\ $};
+        \node[empty node] (s3) at (3, -4) {};
+        \node at (0.5, -4) {$\vdots$};
+        
+        \draw (g1_3) -- node[above, edge value] {$\alpha_1$} (e3);
+        \draw (gr_3) -- node[below, edge value, swap] {$\alpha_r$} (e3);
+        \draw (e3) -- node[above, edge value] {$1$} (s3);
+
+        % ={
+        \node at (3.5, -4) {$=$};
+        \draw[decorate,decoration={brace,amplitude=6pt}, thick] (4.1, -6) -- (4.1, -2);
+
+        % oikea: r > 2
+        \node[rectangle node] (g1_4) at (5, -2.5) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (gr_4) at (5, -4) {$\Gamma_r(\underline{m}_r)$};
+        \node[text node] (e4) at (7, -3.25) {$\ \varepsilon\ $};
+        \node at (6, -3.25) {$\vdots$};
+        \node at (9.5, -3.25) {$r > 2$};
+        
+        \draw (g1_4) -- node[above, edge value] {$\alpha_1$} (e4);
+        \draw (gr_4) -- node[below, edge value, swap] {$\alpha_r$} (e4);
+
+        % oikea: r = 2
+        \node[rectangle node] (g1_5) at (5, -5.5) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (g2_5) at (8, -5.5) {$\Gamma_2(\varepsilon\underline{m}_2)$};
+        \node at (9.5, -5.5) {$r = 2$};
+        
+        \draw (g1_5) -- (g2_5);
+    \end{tikzpicture}
+    \vspace{0.3cm}
+    % 4
+    \par\begin{tikzpicture}
+        \node at (-2, -6.8) {4.};
+        
+        % vasen
+        \node[rectangle node] (g1_6) at (-0.5, -7.5) {$\Gamma_1(\underline{m}_1)$};
+        \node[rectangle node] (gr_6) at (-0.5, -9.5) {$\Gamma_r(\underline{m}_r)$};
+        \node[text node] (e5) at (1.5, -8.5) {$\ \varepsilon\ $};
+        \node[empty node] (s6) at (3, -8.5) {};
+        \node at (0.5, -8.5) {$\vdots$};
+        
+        \draw (g1_6) -- node[above, edge value] {$1$} (e5);
+        \draw (gr_6) -- node[below, edge value, swap] {$1$} (e5);
+        \draw (e5) -- node[above, edge value] {$0$} (s6);
+
+        % =
+        \node at (3.8, -8.5) {$=$};
+
+        % oikea
+        \node[rectangle node] (g1_7) at (6, -7) {$\Gamma_1(\underline{m}_1)$};
+        \node[empty node] (s7) at (8, -7) {};
+        \draw (g1_7) -- (s7);
+        
+        \node at (6.5, -7.7) {$+$};
+        \node at (6.5, -8.3) {$\vdots$};
+        \node at (6.5, -9) {$+$};
+        
+        \node[rectangle node] (gr_7) at (6, -9.8) {$\Gamma_r(\underline{m}_r)$};
+        \node[empty node] (s8) at (8, -9.8) {};
+        \draw (gr_7) -- (s8);
+
+        \node at (10, -8.5) {(erillinen yhdiste)};
+    \end{tikzpicture}
+    \vspace{0.3cm}
+    % 5
+    \par\begin{tikzpicture}
+        \node at (-2, 0) {5.};
+        
+        \node[rectangle node] (g_m_left) at (-0.5, 0) {$\Gamma(\underline{m})$};
+        \node at (0.75, 0) {$+$};
+        
+        \node[empty node] (s1) at (1.5, 0) {};
+        \node[empty node] (s2) at (3, 0) {};
+        \draw (s1) -- (s2);
+        
+        \node[text box] at (2.25, -0.6) {(erillinen yhdiste)};
+        
+        \node at (4, 0) {$=$};
+        
+        \node[rectangle node] (g_m_right) at (5.5, 0) {$\Gamma(\underline{m})$};
+    \end{tikzpicture}
+    \vspace{0.3cm}
+    % 6
+    \par\begin{tikzpicture}
+        \node at (-2, 3.5) {6.};
+        \node[text box, anchor=west] at (-1.5, 3.5) {Jos $\alpha_0 \alpha_0' = \varepsilon \varepsilon' \alpha_1 \cdots \alpha_r \cdots \alpha_1' \cdots \alpha_s'$ niin};
+    \end{tikzpicture}
+    \begin{center}
+        \begin{tikzpicture}
+        % --- vasen kaavio ---
+        \node[rectangle node, minimum width=3cm] (g0) at (1.5, 1.5) {$\Gamma_0(\underline{m}_0)$}; 
+        \node[text node, minimum width=0.6cm] (eps) at (1.5, -0.5) {$\varepsilon$};
+        \node[text node, minimum width=0.6cm] (eps_prime) at (1.5, -2.5) {$\varepsilon'$};
+        \node[rectangle node, minimum width=3cm] (g1) at (1.5, -4.5) {$\Gamma'_1(\underline{m}_1)$};
+
+        % vasemman yläkaaret
+        \draw (g0.210) -- node[left, edge value, swap] {$\alpha_1$} (eps.135);
+        \draw (g0.330) -- node[right, edge value] {$\alpha_r$} (eps.45);
+        \node at (1.5, 0.5) {$\dots$};
+
+        % vasen keski
+        \draw (eps) -- node[left, edge value, pos=0.3] {$\alpha_0$} node[right, edge value, pos=0.7] {$\alpha'_0$} (eps_prime);
+
+        % vasemman alakaaret
+        \draw (eps_prime.225) -- node[left, edge value, swap] {$\alpha'_1$} (g1.150);
+        \draw (eps_prime.315) -- node[right, edge value] {$\alpha'_s$} (g1.30);
+        \node at (1.5, -3.5) {$\dots$};
+
+        % =
+        \node at (4.5, -1.5) {$=$};
+
+        % --- oikea kaavio ---
+        \node[rectangle node, minimum width=3cm] (g0_r) at (7.5, 1.5) {$\Gamma_0(\underline{m}_0)$};
+        \node[text node, minimum width=0.6cm] (delta) at (7.5, -1.5) {$\delta$};
+        \node[rectangle node, minimum width=3cm] (g1_r) at (7.5, -4.5) {$\Gamma'_1(\delta\varepsilon\varepsilon'\underline{m}_1)$};
+
+        % oikean yläkaaret
+        \draw (g0_r.210) -- node[left, edge value, swap] {$\alpha_1$} (delta.135);
+        \draw (g0_r.330) -- node[right, edge value] {$\alpha_r$} (delta.45);
+        \node at (7.5, 0) {$\dots$};
+
+        % oikean alakaaret
+        \draw (delta.225) -- node[left, edge value, swap] {$\alpha'_1$} (g1_r.150);
+        \draw (delta.315) -- node[right, edge value] {$\alpha'_s$} (g1_r.30);
+        \node at (7.5, -3) {$\dots$};
+        \end{tikzpicture}
+    \end{center}
+    \par\begin{tikzpicture}
+        \node[placeholder] (ankkuri) at (-2,-6.5) {};
+        % lopputekstit :D
+        \node[text box, anchor=west] at (-1.5, -6.5) {missä $\delta = \pm 1$ siten, että};
+        \node[text box, anchor=west] at (2.5, -7.5) {$\alpha_0 = \delta\varepsilon\alpha'_1\cdots\alpha'_s\ ,$};
+        \node[text box, anchor=west] at (2.5, -8.5) {$\alpha'_0 = \delta\varepsilon'\alpha_1\cdots\alpha_r\ .$};
+    \end{tikzpicture}
+    \vspace{0.4cm}
+    \par\begin{tikzpicture}
+        \node[placeholder] (ankkuri) at (-2,-10) {};
+        \node[text box, anchor=west] at (-1.5, -10) {Huomio: $\delta$ on olemassa, sillä $\syt(\alpha_0,\alpha_1\cdots\alpha_r)=\syt(\alpha_0',\alpha_1'\cdots\alpha_s')=1$.};
+    \end{tikzpicture}
+\end{lause}
+\begin{proof}[Todistuksen hahmotelma]
+    Todistuksen ovat täydessä täsmällisessä muodossaan muotoilleet Eisenbud ja Neumann kirjassaan~\citep{EN1985} lauseeseen 8.1. Käydään tässä läpi vain todistuksen ideat.
+    \begin{enumerate}
+        \item Olkoon $\Gamma(\underline{m})$ linkin $\linkki(\underline{m})$ pujoskaavio. Linkillä $\linkki$ on ``sisä-'' ja ``ulkopuoli'', jotka ovat identtiset. Ajatus on sama, kuin lemmassa~\ref{lemma:pq-torussolmu-on-qp}, jossa torussolmulla on ``sisäpuolinen'' ja ``ulkopuolinen'' torus. Linkin tapauksessa ei ole torusta, vaan jokin Seifert-pinta $F\subset\S^3$, joka määritellään sellaiseksi, että linkki sattuu olemaan sen reuna: $\partial F=\linkki$. 
+        
+        Analogia toimii siten, että Seifert-pinnan voi piirtää kulkemaan linkin ``sisäpuolella'' lyhyintä reittiä linkin komponenttien välillä tai linkin ``ulkopuolella'' kaukaisinta reittiä komponenttien välillä. Nämä ovat ``vastakkaiset'' Seifert-pinnat ja niitä voidaan merkitä $F$ ja $-F$. Koska vastakkaisten Seifert-pintojen reuna on sama linkki, on $\linkki(\underline{m})=\linkki(-\underline{m})$, mistä seuraa $\Gamma(\underline{m})=\Gamma(-\underline{m})$.
+        
+        Kaikilla linkeillä ei ole Seifert-pintaa, mutta Seifert-linkit ovat määritelmän mukaan linkkejä, joilla on. Tässä työssä käsitellyt linkit ovat kaikki Seifert-linkkejä (ks. propositio 7.3 osa 1 kirjassa~\citep{EN1985}).
+        \item Avaruuden $\S^3$ suunnistus voidaan vaihtaa kääntämällä yhden erityiskuidun ($\alpha_0$) suunnistus toisin päin.
+        \item Pujoskaaviossa lehdillä merkitään kuitua, jolla ei ole komponenttia solmussa. Tässä mielessä lehti on ``virtuaalikuitu''. Linkkiin kuulumattoman säännöllisen kuidun olemassaolon merkitseminen ei tuo lisäarvoa, vain erityiskuidun merkitseminen tuo.
+        \item \citep{EN1985} lause 6.3 + lause 1.1 osa 3. En tajua lausetta 6.3.
+        \item Selkeä.
+        \item Kohtaa 2 käyttämällä voidaan olettaa, että $\varepsilon=\varepsilon'=1$.
+    \end{enumerate}
+\end{proof}
+
 \begin{propositio}
     Linkki $\linkki=(\Sigma,K)$ on kompleksitason käyrän singulariteetin linkki jos ja vain jos sillä on yhtenäinen pujoskaavio, jonka kaikki painot ja kaarideterminantit ovat positiivisia. Tällöin sillä on minimaalinen pujoskaavio näillä ominaisuuksilla.
 \end{propositio}

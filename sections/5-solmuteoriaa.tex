@@ -125,6 +125,8 @@ Olkoon $N=N(\solmu)$ torussolmun putkiympäristö. Piirretään putkiympäristö
 
 \subsection{Pujonta}
 Erilaiset solmujen manipulointioperaatiot voidaan yleistää pujontaoperaatioksi, joka muistuttaa laajemmassa kirjallisessa kontekstissa käsiteltävää kirurgiaa ja kahvoja 3-monistoilla. Tätä käsitellään tarkemmin kappaleessa~\ref{kpl:pujoskaavion-synty}.
+
+Pujonnassa molempia solmuja ``paksunnetaan hieman''. Tämä vastaa putkiympäristöjen valitsemista solmuille. Paksuntamisen jälkeen tavoitteena on kietoa paksunnetut solmut toisiinsa siten, että pituuspiirit liimataan ympäryspiireihin. Varsinainen tekninen toteutus etenee niin, että molemmat solmut poistetaan omista avaruuksistaan ja solmujen komplementit liimataan yhteen.
 \begin{maaritelma}[Linkkien pujos]
     \label{maar:pujos}
     Olkoot $\linkki=(\Sigma,K)$ ja $\linkki'=(\Sigma',K')$ linkkejä. Valitaan komponentit $\solmu\subset K,\solmu'\subset K'$. Olkoot $Y,P\subset N(\solmu_i)$ ja $Y',P'\subset N(\solmu_j)$ tyypilliset ympärys- ja pituuspiirit. Määritellään
