@@ -30,39 +30,6 @@ Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjas
     \end{equation*}
     jolle $f(x,y(x))=0$ kaikilla $x\in\C$.
 \end{lause}
-\begin{proof}
-    \textbf{Osa I: Newtonin monikulmio.} Olkoon $M$ polynomin $f$ Newtonin monikulmio. Jos pääkaari on vaakasuora eli yhtälön $j=n$ antama, niin jokaisessa termissä esiintyy $y^m$, missä $m\geq n$. Tällöin $y^n$ jakaa $f$:n ja $y=0$ on ratkaisu.
-
-    Jos pääkaari ei ole vaakasuora, niin pääkaaren laajennus leikkaa $x$-akselin pisteessä $nu/v$, missä $u/v\in\Q_+$ on supistettu murtoluku. Pääkaari on osa suoraa, joka kulkee kautta pisteiden $(0,n)$ ja $(nu/v,0)$. Siispä suoran yhtälö on
-    \begin{equation*}
-        j=-\frac{v}{u}i+n \quad \text{eli} \quad \frac{v}{u}i+j=n.
-    \end{equation*}
-    \textbf{Osa II: koordinaattimuunnoksen konsepti.} Tuotetaan koordinaattimuunnoksella uusi polynomi, jonka pääkaari on ``loivempi'' eli lähempänä vaakasuoraa asentoa. Tavoitteena on siis polynomi $f_1(x_1,y_1)$ pääkärjellä $(0,n_1)$ ja kulmakertoimella $-q_1/p_1$ siten, että joko
-    \begin{itemize}
-        \item $n_1<n$ tai
-        \item $n_1=n$ ja $q_1/p_1<v/u$.
-    \end{itemize}
-    Koordinaattimuunnoksen ansiosta olisi mahdollista kirjoittaa yhtälölle $f(x,y)=0$ Puiseux-sarja yhtälön $f_1(x_1,y_1)=0$ avulla. Toistetaan sopivien koordinaattimuunnosten tekemistä. Tapaus $n_i<n$ voi tapahtua korkeintaan $n$ kertaa, sillä $n_i\in\N$, eikä sitä näin ollen voi pienentää kuin korkeintaan $n$ kertaa. Ennen pitkää siis jälkimmäinen tapaus toteutuu jokaisella koordinaattimuunnoksella. Lopuksi voitaisiin ratkaista $f$:lle Puiseux-sarja äärettömästä jonosta koordinaattimuunnoksia $\{f_i\}_{i=1}^{\infty}$.
-
-    \textbf{Osa III: tarkka koordinaattimuunnos.} Käydään seuraavaksi hieman tarkemmin läpi koordinaattimuunnos sekä nämä kaksi tapausta. Tapausten erottamiseksi tarkastellaan vain niitä $f$:n termejä, jotka ovat pääkaarella:
-    \begin{equation*}
-        \widehat f(x,y):=\sum_{(v/u)i+j=n}a_{ij}x^iy^j.
-    \end{equation*}
-    Jos $a_{ij}x^iy^j\ne0$ (eli on $f$:n termi), niin määritelmän mukaan $(v/u)i+j\geq n$. Siispä $\widehat f$:n termit, joilla $a_{ij}\ne0$, ovat $f$:n ``matalimpia''. Lisäksi $\widehat f$:ää voidaan kutsua homogeeniseksi, jos määritellään astefunktio uudelleen $\deg x:=v/u$ ($\deg y=1$ pysyy ennallaan). Tällöin $\widehat f$ on asteen $n$ homogeeninen polynomi.
-    
-    Tarkastellaan yhtälön $(v/u)i+j=n$ mahdollisia kokonaislukuratkaisuja. 
-    \begin{align*}
-        \frac{v}{u}i+j&=n \\
-        vi+uj&=nu \\
-        vi&=u(n-j) \\
-        v|vi&\Rightarrow v|u(n-j)
-    \end{align*}
-    Koska $u/v$ on supistettu murtoluku, niin $v|n-j$. Siispä $n-j=vk$ eli $j=n-vk$ jollakin $k\in\N$. Sijoituksella $x=1$ (helpottaa laskuja) polynomille $\widehat f$ saadaan muoto
-    \begin{equation*}
-        f(1,y)=\sum_{0\leq k\leq n/v}a_ky^{n-kv},\quad a_k:=a_{(n-vk)/u,n-vk},
-    \end{equation*}
-
-\end{proof}
 Todistus seuraa läheisesti Brieskornin ja Knörrerin todistusta.
 \begin{proof}
     Mielekästä olisi, että sarja suppenisi mahdollisimman nopeasti. Koska $f$:ää approksimoidaan origon $(0,0)$ ympäristössä $f(0,0)=0$, ja sarja on muotoa $y=\sum_{k=1}^{\infty}c_kx^{k/N}$, niin sarja suppenee nopeiten, kun eksponentit $k/N$ ovat mahdollisimman pieniä. Todistuksen strategia on laskea approksimaatio $y\approx\alpha x^q+p$, missä $\alpha$ on jokin vakio, $q$ on mahdollisimman pieni ja $p$ sisältää termejä, joiden eksponentit ovat suurempia kuin $q$. Tämän jälkeen lasketaan uusi approksimaatio $p$:lle, iteroiden samaa prosessia, jolla alunperin approksimoitiin $y$:tä. Koko Puiseux-sarja voidaan johtaa induktiivisesti tästä prosessista.
@@ -158,19 +125,57 @@ Todistus seuraa läheisesti Brieskornin ja Knörrerin todistusta.
     \end{align*}
     Toistetaan koko prosessi seuraavaksi iteratiivisesti polynomille $f_1$. Olkoon $-q_2/p_2$ sille piirretyn viivoitinsuoran kulmakerroin, jolloin $y_1=\alpha_2 x_1^{p_2/q_2}$ on approksimatiivinen ratkaisu. Tehdään muuttujanvaihto $x_2:=x_1^{1/q_2}$ ja parempi alkuarvaus $y_1=x_2^{p_2}(\alpha_2+y_2)$. Sijoittamalla $y_1$ polynomiin $f_1$ ja eristämällä suurin $x_2$:n potenssi saadaan
     \begin{align*}
-        f_1(x_2^{q_2},x_2^{p_2}(\alpha_2+y_2))=x_2^{n_1 p_1}f_2(x_2,y_2).
+        f_1(x_2^{q_2},x_2^{p_2}(\alpha_2+y_2))=x_2^{n_1 p_2}f_2(x_2,y_2).
     \end{align*}
-    \begin{huomautus}
-        !!! Seurasin tässä Brieskornin ja Knörrerin kirjaa Plane Algebraic Curves. Sivulla 383 käsitellään tätä. Siinä on aikamoista sekaannusta, että saako polynomeista yhteiseksi tekijäksi $x_1^{\nu q_0}$ (tämä vielä sivun 382 puolella lopussa) vai $x_1^{\nu p_0}$. Laskujeni mukaan jälkimmäinen on oikein. Tämän jälkeen prosessi iteroidaan funktiolle $f_1$ ja taas tekijät väittävät, että eristetyksi saadaan termi $x_2^{\nu_1 q_1}$, mutta eikö tässä pitäisi olla $x_2^{\nu_1 p_1}$?
-    \end{huomautus}
     Polynomin $f_2$ aste on $n_2\leq n_1$. Kaiken kaikkiaan prosessia iteroimalla saavutaan polynomisarjaan $(f_i(x_i,y_i))_{i=0}^\infty$, jossa $x_{i+1}=x_i^{1/q_{i+1}}$ ja $n_{i+1}\leq n_i$. Tapaus $i=0$ vastaa muuttujia $x,y$ ja polynomia $f$. Tällöin saadaan siis ratkaisu
     \begin{align*}
         y&=x^{p_1/q_1}(\alpha_1+y_1),\quad y_1=x_1^{p_2/q_2}(\alpha_2+y_2),\quad y_2=x_2^{p_3/q_3}(\alpha_3+y_3),\dots \\
         y&=x^{p_1/q_1}(\alpha_1+x_1^{p_2/q_2}(\alpha_2+x_2^{p_3/q_3}(\alpha_3+\dots))) \\
-        &=x^{p_1/q_1}(\alpha_1+x^{p_2/q_1q_2}(\alpha_2+x^{p_3/q_1q_2q_3}(\alpha_3+\dots))).
+        &=x^{p_1/q_1}(\alpha_1+x^{p_2/q_1q_2}(\alpha_2+x^{p_3/q_1q_2q_3}(\alpha_3+\dots))) \\
+        &=\alpha_1x^{p_1/q_1}+\alpha_2x^{p_1/q_1+p_2/q_1q_2}+\alpha_3x^{p_1/q_1+p_2/q_1q_2+p_3/q_1q_2q_3}+\dots
     \end{align*}
-\end{proof}
+    Todistetaan vielä, että eksponenttien jono $p_i/q_1\cdots q_i$ ei lähesty nollaa. Tähän tarvitaan tietoa siitä, että $p_i/q_i\in\Q_+$ vain jos $n_i>n_{i+1}$; muussa tapauksessa $p_i/q_i\in\N$.
+    \begin{vaite}
+        Jos $n_i=n_{i+1}$, niin $p_i/q_i\in\N$.
+    \end{vaite}
+    \begin{proof}[Syy.]
+        Koska Puiseux-sarja määriteltiin induktiivisesti, voidaan yleisyydestä tinkimättä olettaa, että $i=0$ ($n_0=n$, $x_0=x$,$y_0=y$ ja $f_0=f$). Tällöin, kuten aiemmin pääteltiin,
+        \begin{align*}
+            x_1^{n p_1}f_1(x_1,y_1)&=f(x_1^{q_1},x_1^{p_1}(\alpha_1+y_1)) \\
+            &=x_1^{n p_1}\left[\sum_{(q_1/p_1)i+j=n}a_{ij}(\alpha_1+y_1)^j+x_1(\dots)\right].
+        \end{align*}
+        Sijoitetaan $x_1=0$ $f_1$:een.
+        \begin{align*}
+            f_1(0,y_1)&=\sum_{(q_1/p_1)i+j=n}a_{ij}(\alpha_1+y_1)^j \\
+            &=g(\alpha_1+y_1).
+        \end{align*}
+        Tässä $\alpha_1\ne0$ oli $g$:n nollakohta ja $\deg g=n$. Luku $n_1$ on vain termin $x^0y^{n_1}$ aste eli nollakohdan $y_1=0$ aste polynomissa $f_1(0,y_1)$. Tällöin se on myös $\alpha_1$:n aste $g$:ssä.
 
+        Jos oletetaan $n_1=n$, niin $g(\alpha)=c(\alpha-\alpha_1)^n$, $c\in\C^\times$. Tällöin termin $t^{n-1}$ kertoimelle polynomissa
+        \begin{align*}
+            g(\alpha)=\sum_{(q_1/p_1)i+j=n)}a_{ij}\alpha^j
+        \end{align*}
+        pätee $a_{i,(m-1)}\ne0$ (jollekin $i\in\N$ joka toteuttaa yhtälön $(q_1/p_1)i+n-1=n$). Pyörittelemällä yhtälöä saadaan
+        \begin{align*}
+            \frac{q_1}{p_1}i+n-1&=n \\
+            \Leftrightarrow\frac{q_1}{p_1}i-1&=0 \\
+            \Leftrightarrow\N\ni i&=\frac{p_1}{q_1}.
+        \end{align*}
+    \end{proof}
+    Olkoon $k$ ensimmäinen indeksi, jolla $p_k/q_k\in\N$. Voidaan olettaa, että $q_k=1$, jolloin $x_{i+1}=x_i$ kaikille $i\geq k$. Koska eksponenttien jakajat ovat muotoa $q_1\cdots q_i$, niin kaikille termeille $i\geq k$ jakaja on vain
+    \begin{align*}
+        n&:=q_1\cdots q_k\cdots q_i \\
+        &\ =q_1\cdots q_k\cdot1^{i-k} \\
+        &\ =q_1\cdots q_k.
+    \end{align*}
+    Siispä $n$ (uudelleenmääritelty) on eksponenttien yhteinen jakaja; toisin sanoen eksponentit eivät pienene mielivaltaisesti.
+
+    Täten induktiivisesti määritelty jonolle $y(x)=\dots$ pätee, että $f(x,y(x))$ lähestyy nollaa mielivaltaiselle tarkkuudelle. Siis 
+    \begin{align*}
+        y(x)=\sum_{i}a_ix^{i/n}
+    \end{align*}
+    on haluttu sarja.
+\end{proof}
 
 Tämä Puiseux-sarja on vain muodollinen, eikä ole tietoa sen suppenemisesta. Tosin koska se approksimoi polynomia tai suppenevaa potenssisarjaa, niin on jokin pieni ympäristö, jossa Puiseux-sarja suppenee. Sitten vielä Kollárin kpl 1.2 jotta suppeneminen olisi hallittua (jos ehtii).
 \begin{lause}
