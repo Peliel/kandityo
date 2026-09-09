@@ -17,7 +17,12 @@ Ensimmäisenä polynomien approksimoimista tutki Newton, jonka kehittämä menet
 jossa $k_0\in\Z$, $n\in\N$ ja $c_k\in\C$. 
 
 \subsection{Newtonin todistus}
-Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjasta.
+Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjasta. Aloitetaan aputyökalu Newtonin monikulmion määrittelystä.
+\begin{maaritelma}
+    Olkoon $f=\sum_{i,j}a_{ij}x^iy^j$ polynomi. \emph{Newtonin monikulmio} $M$ on pistejoukon $\{(i,j)\in\Z^2\mid a_{ij}\neq0\}$ konveksi alareuna.
+
+    Jos polynomi $f$ sisältää termin $a_{0n}y^n$, niin Newtonin monikulmiolla on reunapiste $(0,n)$. Tätä kutsutaan monikulmion \emph{pääkärjeksi}. Vastaavaa kaarta kutsutaan \emph{pääkaareksi}.
+\end{maaritelma}
 \begin{lause}[\citep{Kollar2007}]
     Olkoon $f\in\C[x,y]$ tai $f\in\C[[x,y]]$. Oletetaan, että $f(0,0)=0$ ja, että $y^n$ esiintyy $f$:ssä jollekin $n\in\N$. Tällöin yhtälöllä $f(x,y)=0$ on Puiseux-sarja
     \begin{equation*}
@@ -25,14 +30,148 @@ Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjas
     \end{equation*}
     jolle $f(x,y(x))=0$ kaikilla $x\in\C$.
 \end{lause}
-\begin{maaritelma}
-    Newtonin monikulmio
-\end{maaritelma}
 \begin{proof}
-    \textbf{Osa I.} Olkoon $M$ polynomin $f$ Newtonin monikulmio. Jos pääkaari on horisontaalinen tai kasvava, pienin $y$:n eksponentti on $n$, joten $y=0$ on triviaali alimman asteen approksimaatio. Jos\dots
+    \textbf{Osa I: Newtonin monikulmio.} Olkoon $M$ polynomin $f$ Newtonin monikulmio. Jos pääkaari on vaakasuora eli yhtälön $j=n$ antama, niin jokaisessa termissä esiintyy $y^m$, missä $m\geq n$. Tällöin $y^n$ jakaa $f$:n ja $y=0$ on ratkaisu.
 
-    Ok tämä on käytännössä hallussa kiitos Kollárin. Pitää vain kirjoittaa loppuun.
+    Jos pääkaari ei ole vaakasuora, niin pääkaaren laajennus leikkaa $x$-akselin pisteessä $nu/v$, missä $u/v\in\Q_+$ on supistettu murtoluku. Pääkaari on osa suoraa, joka kulkee kautta pisteiden $(0,n)$ ja $(nu/v,0)$. Siispä suoran yhtälö on
+    \begin{equation*}
+        j=-\frac{v}{u}i+n \quad \text{eli} \quad \frac{v}{u}i+j=n.
+    \end{equation*}
+    \textbf{Osa II: koordinaattimuunnoksen konsepti.} Tuotetaan koordinaattimuunnoksella uusi polynomi, jonka pääkaari on ``loivempi'' eli lähempänä vaakasuoraa asentoa. Tavoitteena on siis polynomi $f_1(x_1,y_1)$ pääkärjellä $(0,n_1)$ ja kulmakertoimella $-q_1/p_1$ siten, että joko
+    \begin{itemize}
+        \item $n_1<n$ tai
+        \item $n_1=n$ ja $q_1/p_1<v/u$.
+    \end{itemize}
+    Koordinaattimuunnoksen ansiosta olisi mahdollista kirjoittaa yhtälölle $f(x,y)=0$ Puiseux-sarja yhtälön $f_1(x_1,y_1)=0$ avulla. Toistetaan sopivien koordinaattimuunnosten tekemistä. Tapaus $n_i<n$ voi tapahtua korkeintaan $n$ kertaa, sillä $n_i\in\N$, eikä sitä näin ollen voi pienentää kuin korkeintaan $n$ kertaa. Ennen pitkää siis jälkimmäinen tapaus toteutuu jokaisella koordinaattimuunnoksella. Lopuksi voitaisiin ratkaista $f$:lle Puiseux-sarja äärettömästä jonosta koordinaattimuunnoksia $\{f_i\}_{i=1}^{\infty}$.
+
+    \textbf{Osa III: tarkka koordinaattimuunnos.} Käydään seuraavaksi hieman tarkemmin läpi koordinaattimuunnos sekä nämä kaksi tapausta. Tapausten erottamiseksi tarkastellaan vain niitä $f$:n termejä, jotka ovat pääkaarella:
+    \begin{equation*}
+        \widehat f(x,y):=\sum_{(v/u)i+j=n}a_{ij}x^iy^j.
+    \end{equation*}
+    Jos $a_{ij}x^iy^j\ne0$ (eli on $f$:n termi), niin määritelmän mukaan $(v/u)i+j\geq n$. Siispä $\widehat f$:n termit, joilla $a_{ij}\ne0$, ovat $f$:n ``matalimpia''. Lisäksi $\widehat f$:ää voidaan kutsua homogeeniseksi, jos määritellään astefunktio uudelleen $\deg x:=v/u$ ($\deg y=1$ pysyy ennallaan). Tällöin $\widehat f$ on asteen $n$ homogeeninen polynomi.
+    
+    Tarkastellaan yhtälön $(v/u)i+j=n$ mahdollisia kokonaislukuratkaisuja. 
+    \begin{align*}
+        \frac{v}{u}i+j&=n \\
+        vi+uj&=nu \\
+        vi&=u(n-j) \\
+        v|vi&\Rightarrow v|u(n-j)
+    \end{align*}
+    Koska $u/v$ on supistettu murtoluku, niin $v|n-j$. Siispä $n-j=vk$ eli $j=n-vk$ jollakin $k\in\N$. Sijoituksella $x=1$ (helpottaa laskuja) polynomille $\widehat f$ saadaan muoto
+    \begin{equation*}
+        f(1,y)=\sum_{0\leq k\leq n/v}a_ky^{n-kv},\quad a_k:=a_{(n-vk)/u,n-vk},
+    \end{equation*}
+
 \end{proof}
+Todistus seuraa läheisesti Brieskornin ja Knörrerin todistusta.
+\begin{proof}
+    Mielekästä olisi, että sarja suppenisi mahdollisimman nopeasti. Koska $f$:ää approksimoidaan origon $(0,0)$ ympäristössä $f(0,0)=0$, ja sarja on muotoa $y=\sum_{k=1}^{\infty}c_kx^{k/N}$, niin sarja suppenee nopeiten, kun eksponentit $k/N$ ovat mahdollisimman pieniä. Todistuksen strategia on laskea approksimaatio $y\approx\alpha x^q+p$, missä $\alpha$ on jokin vakio, $q$ on mahdollisimman pieni ja $p$ sisältää termejä, joiden eksponentit ovat suurempia kuin $q$. Tämän jälkeen lasketaan uusi approksimaatio $p$:lle, iteroiden samaa prosessia, jolla alunperin approksimoitiin $y$:tä. Koko Puiseux-sarja voidaan johtaa induktiivisesti tästä prosessista.
+
+    Olkoon $f(x,y)=\sum_{i,j}a_{ij}x^iy^j$ approksimoitava polynomi. Eristetään ensimmäiseksi $f$:n ``matalimmat'' termit, joista voidaan laskea Puiseux-sarjan ensimmäinen approksimaatio. Merkitään pisteet $(i,j)$, joilla $a_{ij}\ne0$, $(i,j)$-koordinaatistoon. Asetetaan $j$-akselin suuntainen suora $L$ kulkemaan pisteen $(0,n)$ kautta, jolla $a_{0n}\ne0$ on pienin mahdollinen ja pyöritetään suoraa $L$ vastapäivään, kunnes se koskettaa jotakin pistettä $(i,j)$, jolla $a_{ij}\ne0$.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \node[text box] at (9,4) {Pyörivä viivoitin polynomille};
+            \node[text box] at (9,3.1) {$y^6-5xy^5+x^3y^4-7x^2y^2+6x^3+x^4$};
+
+            % Grille de fond
+            \draw[help lines, color=gray!40, dashed] (-1,-1) grid (5,7);
+
+            % Axes i et j
+            \draw[->, thick] (-1,0) -- (5.5,0) node[right] {$i$ (termi $x^i$)};
+            \draw[->, thick] (0,-1) -- (0,7.5) node[above] {$j$ (termi $y^j$)};
+
+            % Règle de Newton (Enveloppe convexe inférieure)
+            % Équation : 2i + j = 6
+            \draw[blue, very thick, dashed] (-0.5, 7) -- (3.5, -1) node[text box, pos=0.75, right] {$L:2i+j=6$};
+
+            % Points du support
+            \foreach \Point in {(0,6), (1,5), (3,4), (2,2), (3,0), (4,0)}
+                \fill[black] \Point circle (2.5pt);
+
+            % Étiquettes des points
+            \node[left] at (0,6) {$(0,6)$};
+            \node[above right] at (1,5) {$(1,5)$};
+            \node[above right] at (3,4) {$(3,4)$};
+            \node[above right] at (2,2) {$(2,2)$};
+            \node[below left] at (3,0) {$(3,0)$};
+            \node[below right] at (4,0) {$(4,0)$};
+        \end{tikzpicture}
+    \end{center}
+    Jos $L$ on horisontaalinen tai kasvava, niin suoran $j=n$ alapuolella ei ole merkittyjä pisteitä, joten $y^n$ jakaa $f$:n ja $y=0$ on ratkaisu.
+
+    Muussa tapauksessa suora $L$ leikkaa $x$-akselin pisteessä $(np_1/q_1,0)$, missä $p_1/q_1\in\Q_+$ on supistettu murtoluku. Suoran yhtälö on
+    \begin{equation*}
+        j=-\frac{q_1}{p_1}i+n \quad \text{eli} \quad \frac{q_1}{p_1}i+j=n.
+    \end{equation*}
+    Yllä olevan kaavion tapauksessa suora leikkaa $i$-akselin pisteessä $(7/2,0)$, jolloin $p_1=1$ ja $q_1=2$. $L$ on jyrkin mahdollinen suora, joka kulkee joidenkin polynomin pisteiden kautta; se sivuaa polynomin $f$ pistejoukon $(i,j)$ alareunaa. Suoralla olevat termit ovat $f$:n ``matala-asteisimpia''. Eristetään ne polynomiin
+    \begin{equation*}
+        \widehat f(x,y):=\sum_{(q_1/p_1)i+j=n}a_{ij}x^iy^j.
+    \end{equation*}
+    Jos $a_{ij}x^iy^j$ on mielivaltainen $f$:n termi, niin $(q_1/p_1)i+j\geq n$, joten $\widehat f$:n termit tosiaan ovat täsmälleen ``matalimmat''. Tehdään käsitteestä täsmällinen määrittelemällä uudelleen $\deg x:=q_1/p_1$ ($\deg y=1$ pysyy ennallaan). Tällöin $\widehat f$ on asteen $n$ homogeeninen polynomi.
+    \begin{huomautus}
+        Suoran $L$ olisi voinut piirtää myös vaakasuoraksi, ja sitten kääntämällä myötäpäivään, kunnes se koskee polynomin pistejoukon alareunaa. Tämä konstruktio ei kuitenkaan minimoi muuttujan $x$ eksponentteja, vaan muuttujan $y$. Muodostettava sarja on muotoa $y(x)=\dots$, joten on olennaista minimoida $x$:n eksponentit suppenemisen nopeuttamiseksi.
+    \end{huomautus}
+    Kirjoitetaan nyt
+    \begin{equation*}
+        f(x,y) = \widehat f(x,y) + \overbrace{\sum_{(q_1/p_1)i+j>n}a_{ij}x^iy^j}^{=:h(x,y)}.
+    \end{equation*}
+    Ratkaistaan ensimmäisen asteen approksimaatio $f$:lle yhtälöstä $\widehat f=0$. Sijoitetaan yrite $y=\alpha x^{p_1/q_1}$, jolloin saadaan
+    \begin{align*}
+        \widehat f(x,\alpha x^{p_1/q_1})&=\sum_{(q_1/p_1)i+j=n}a_{ij}x^i(\alpha x^{p_1/q_1})^j \\
+        &=\sum_{(q_1/p_1)i+j=n}a_{ij}\alpha^jx^{i+(p_1/q_1)j} \qquad \|\ (q_1/p_1)i+j=n \\
+        &=\sum_{(q_1/p_1)i+j=n}a_{ij}\alpha^jx^{np_1/q_1} \\
+        &=x^{np_1/q_1}\sum_{(q_1/p_1)i+j=n}a_{ij}\alpha^j \\
+        &=x^{np_1/q_1}g(\alpha).
+    \end{align*}
+    Ainakin termi $a_{0n}\alpha^n$ on polynomissa $g(\alpha)$ nollasta poikkeava. Tämä on ainoa nollasta poikkeava termi vain jos $L$ on horisontaalinen, mikä tapaus käsiteltiin edellä. Siispä $g$:llä on ainakin kaksi nollasta poikkeavaa termiä, joten $g$:llä on nollakohta $\alpha_1\ne0$.
+    \begin{huomautus}
+        Itse asiassa $g$:llä on algebran peruslauseen nojalla $\deg g$ nollakohtaa, joten prosessi haarautuu tässä. Onko sillä väliä?
+    \end{huomautus}
+    Sijoitus $y=\alpha_1x^{p_1/q_1}$ ratkaisee melkein yhtälön $f=0$:
+    \begin{align*}
+        f(x,\alpha_1x^{p_1/q_1})&=\widehat f(x,\alpha_1x^{p_1/q_1})+h(x,\alpha_1x^{p_1/q_1}) \\
+        &=x^{np_1/q_1}g(\alpha_1)+h(x,\alpha_1x^{p_1/q_1}) \\
+        &=0+h(x,\alpha_1x^{p_1/q_1})\approx0.
+    \end{align*}
+    Tehdään muuttujanvaihto $x_1:=x^{1/q_1}$, jolloin ensimmäisen asteen approksimatiivinen ratkaisu on $y_1=\alpha_1x^{p_1/q_1}=\alpha_1x_1^{p_1}$. Lisätään tuntematon termi $y_1$ parantamaan approksimaatiota muotoon
+    \begin{equation*}
+        y\approx x_1^{p_1}(\alpha_1+y_1)
+    \end{equation*}
+    ja sijoitetaan tämä yhtälöön $f=0$:
+    \begin{align*}
+        f(x,y)&=f(x_1^{q_1},x_1^{p_1}(\alpha_1+y_1))=0.
+    \end{align*}
+    Erityisesti on huomattava, että aiemmin $\widehat f=x^{np_1/q_1}g$, joten yllä olevan sijoituksen pitäisi olla jaollinen termillä $x^{np_1/q_1}=(x^{1/q_1})^{np_1}=x_1^{np_1}$. Tämän voi varmistaa lausekkeen $f=\sum_{i,j}a_{ij}x^iy^j$ algebrallisella manipulaatiolla:
+    \begin{align*}
+        f(x_1^{q_1},&\ x_1^{p_1}(\alpha_1+y_1))
+        =\sum_{i,j}a_{ij}(x_1^{q_1})^i(x_1^{p_1}(\alpha_1+y_1))^j \\
+        &=\sum_{i,j}a_{ij}x_1^{q_1i+p_1j}(\alpha_1+y_1)^j \\
+        &= \sum_{(q_1/p_1)i+j=n}a_{ij}x_1^{np_1}(\alpha_1+y_1)^j 
+        + \sum_{(q_1/p_1)i+j>n}a_{ij}x_1^{q_1i+p_1j}(\alpha_1+y_1)^j \\
+        &=x_1^{np_1}\left[\sum_{(q_1/p_1)i+j=n}a_{ij}(\alpha_1+y_1)^j 
+        + \sum_{(q_1/p_1)i+j>n}a_{ij}x_1^{q_1i+p_1j-np_1}(\alpha_1+y_1)^j\right] \\
+        &=x_1^{np_1}f_1(x_1,y_1).
+    \end{align*}
+    Polynomin $f$ aste oli $n$, joten polynomin $f_1$ aste on $n_1\leq n$. Näin ollen on saatu ensimmäisen asteen approksimaatio $y(x)=x^{p_1/q_1}(\alpha_1+y_1)$ siten, että
+    \begin{align*}
+        f(0,y(0))=0^{np_1/q_1}f_1(0^{1/q_1},y_1)=0.
+    \end{align*}
+    Toistetaan koko prosessi seuraavaksi iteratiivisesti polynomille $f_1$. Olkoon $-q_2/p_2$ sille piirretyn viivoitinsuoran kulmakerroin, jolloin $y_1=\alpha_2 x_1^{p_2/q_2}$ on approksimatiivinen ratkaisu. Tehdään muuttujanvaihto $x_2:=x_1^{1/q_2}$ ja parempi alkuarvaus $y_1=x_2^{p_2}(\alpha_2+y_2)$. Sijoittamalla $y_1$ polynomiin $f_1$ ja eristämällä suurin $x_2$:n potenssi saadaan
+    \begin{align*}
+        f_1(x_2^{q_2},x_2^{p_2}(\alpha_2+y_2))=x_2^{n_1 p_1}f_2(x_2,y_2).
+    \end{align*}
+    \begin{huomautus}
+        !!! Seurasin tässä Brieskornin ja Knörrerin kirjaa Plane Algebraic Curves. Sivulla 383 käsitellään tätä. Siinä on aikamoista sekaannusta, että saako polynomeista yhteiseksi tekijäksi $x_1^{\nu q_0}$ (tämä vielä sivun 382 puolella lopussa) vai $x_1^{\nu p_0}$. Laskujeni mukaan jälkimmäinen on oikein. Tämän jälkeen prosessi iteroidaan funktiolle $f_1$ ja taas tekijät väittävät, että eristetyksi saadaan termi $x_2^{\nu_1 q_1}$, mutta eikö tässä pitäisi olla $x_2^{\nu_1 p_1}$?
+    \end{huomautus}
+    Polynomin $f_2$ aste on $n_2\leq n_1$. Kaiken kaikkiaan prosessia iteroimalla saavutaan polynomisarjaan $(f_i(x_i,y_i))_{i=0}^\infty$, jossa $x_{i+1}=x_i^{1/q_{i+1}}$ ja $n_{i+1}\leq n_i$. Tapaus $i=0$ vastaa muuttujia $x,y$ ja polynomia $f$. Tällöin saadaan siis ratkaisu
+    \begin{align*}
+        y&=x^{p_1/q_1}(\alpha_1+y_1),\quad y_1=x_1^{p_2/q_2}(\alpha_2+y_2),\quad y_2=x_2^{p_3/q_3}(\alpha_3+y_3),\dots \\
+        y&=x^{p_1/q_1}(\alpha_1+x_1^{p_2/q_2}(\alpha_2+x_2^{p_3/q_3}(\alpha_3+\dots))) \\
+        &=x^{p_1/q_1}(\alpha_1+x^{p_2/q_1q_2}(\alpha_2+x^{p_3/q_1q_2q_3}(\alpha_3+\dots))).
+    \end{align*}
+\end{proof}
+
+
 Tämä Puiseux-sarja on vain muodollinen, eikä ole tietoa sen suppenemisesta. Tosin koska se approksimoi polynomia tai suppenevaa potenssisarjaa, niin on jokin pieni ympäristö, jossa Puiseux-sarja suppenee. Sitten vielä Kollárin kpl 1.2 jotta suppeneminen olisi hallittua (jos ehtii).
 \begin{lause}
     Olkoon $f\in\C[x,y]$ pelkistymätön ja $C:=\{f(x,y)=0\}\subset\C^2$ vastaava algebrallinen käyrä. On olemassa kompleksinen 1-monisto $\bar C$ ja $\sigma:\bar C\to C$ \emph{kelpo}\footnote{Jos $K\subset C$ on kompakti niin myös $\sigma^{-1}(K)\subset\bar C$.} kuvaus, joka on holomorfinen molempiin suuntiin (eli $\sigma^{-1}$ myös) kaikilla $(x,y)\subset\C^2-S$, missä $S$ on äärellinen pistejoukko.
