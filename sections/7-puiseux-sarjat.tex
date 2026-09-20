@@ -387,17 +387,15 @@ Koska linkkiä voidaan $\S_\varepsilon^3$:n sijasta tutkia toruksen pinnalla, on
 \begin{proof}
     \citep{EN1985}, propositio 1A.1.
 \end{proof}
-Lemman~\ref{lemma:k-puiseux-appr-kertoimet-ak} jälkeen tunnetaan varsin hyvin algebrallisen käyrän pisteessä $p\in V(f)$ kutakin haaraa vastaavat solmukomponentit. Tarkastellaan vielä koko linkin kasaamista yksittäisistä komponenteista, minkä jälkeen ymmärrys pistettä vastaavasta algebrallisesta linkistä on kattavaa. Olkoon $(\S^3,\solmu_1\cup\solmu_2)$ algebrallinen linkki, joka vastaa Puiseux-kehitelmiä
+Lemman~\ref{lemma:k-puiseux-appr-kertoimet-ak} jälkeen tunnetaan varsin hyvin algebrallisen käyrän pisteessä $p\in V(f)$ kutakin haaraa vastaavat solmukomponentit. Tarkastellaan vielä koko linkin kasaamista yksittäisistä komponenteista, minkä jälkeen ymmärrys pistettä vastaavasta algebrallisesta linkistä on kattavaa. Olkoon $(\S^3,\solmu^1\cup\solmu^2)$ algebrallinen linkki, joka vastaa Puiseux-kehitelmiä
 \begin{align*}
-    \solmu_1&:y=x^{q_{1,1}/p_{1,1}}(\alpha_{1,1}+\cdots((\alpha_{1,k-1}+\alpha_{1,k}x^{q_{1,k}/p_{1,1}\cdots p_{1,k}}))\cdots) \\
-    \solmu_2&:y=x^{q_{2,1}/p_{2,1}}(\alpha_{2,1}+\cdots((\alpha_{2,s-1}+\alpha_{2,s}x^{q_{2,k}/p_{2,1}\cdots p_{2,s}}))\cdots) \\
+    \solmu^1&:y=x^{q_{1,1}/p_{1,1}}(\alpha_{1,1}+\cdots((\alpha_{1,k-1}+\alpha_{1,k}x^{q_{1,k}/p_{1,1}\cdots p_{1,k}}))\cdots) \\
+    \solmu^2&:y=x^{q_{2,1}/p_{2,1}}(\alpha_{2,1}+\cdots((\alpha_{2,s-1}+\alpha_{2,s}x^{q_{2,k}/p_{2,1}\cdots p_{2,s}}))\cdots) \\
 \end{align*}
-Oletetaan, että korkeintaan $n<\min\{k,s\}$ termiä ovat samoja, eli $(p_{1,i},q_{1,i})=(p_{2,i},q_{2,i})$ ja $\alpha_{1,i}=\alpha_{2,i}$ kaikille $1\leq i\leq n$, mutta kaikille $i>n$ vähintään toinen näistä yhtälöistä ei päde.
+Oletetaan, että korkeintaan $n<\min\{k,s\}$ termiä ovat samoja, eli $(p_{1,i},q_{1,i})=(p_{2,i},q_{2,i})$ ja $\alpha_{1,i}=\alpha_{2,i}$ kaikille $1\leq i\leq n$, mutta kun $i=n+1$ vähintään toinen näistä yhtälöistä ei päde. Tarkastellaan linkkiä tapauksittain.
+\begin{itemize}[align=left]
+    \item[\underline{$s=n$}] Tällöin $\solmu^2$ on vain $\solmu^1$:n $n$ asteen approksimaatio. Lauseen~\ref{lause:k-puiseux-approksimaatio} notaatiota käyttäen $\solmu^2=\solmu_k^1$ ja linkin pujoskaavio on\dots
+    \item[\underline{$s=n$}] Identtinen tapaukseen $r=n$.
+    \item[\underline{1. yhtälö ei päde}] moi 
+\end{itemize}
 
-Tapaukset
-\begin{enumerate}[i.]
-    \item $k=n$
-    \item $s=n$
-    \item 1. yhtälö ei päde
-    \item 2. yhtälö ei päde
-\end{enumerate}
