@@ -16,23 +16,91 @@ Yleisesti $n$-ulotteinen algebrallinen hyperpinta on $n+1$-ulotteisen polynomin 
     \caption{Parabolinen pinta $f(x,y)-z=0$ ja algebrallinen käyrä $f(x,y)=0$.}
     \label{kuva:algebrallinen-käyrä}
 \end{figure*}
-Määritellään vielä käyrän aste.
 \begin{maaritelma}
-    Olkoon $C$ algebrallinen käyrä, jonka määrittää polynomi $f\in\C[x,y]$. Kirjoitetaan
+    Olkoon $S\subset\K[x_1,\dots,x_n]$ joukko polynomeja. $S$:n \emph{(affiini) varisto} on
+    \begin{align*}
+        V(S):=\{x\in\K^n:f(x)=0\text{ kaikille }f\in S\}.
+    \end{align*}
+    Vastaavasti jos $X\subset\K^n$ on mikä tahansa joukko, 
+    \begin{align*}
+        I(X):=\{f\in\K[x_1,\dots,x_n]:f(x)=0\text{ kaikille }x\in X\}
+    \end{align*}
+    on $X$:n \emph{ideaali}.
+\end{maaritelma}
+Tästä lähtien polynomia $f$ vastaavaa käyrää voidaan merkitä vain $V(f)$.
+\begin{maaritelma}
+    Olkoon $V(f)$, $f\in\C[x,y]$ algebrallinen käyrä. Kirjoitetaan
     \begin{equation*}
         f(x,y)=\sum_{i,j=0}^{N}a_{ij}x^iy^j,\quad N\in\N,a_{ij}\in\C.
     \end{equation*}
-    Tällöin $C$:n tai $f$:n aste on $\deg(C)=\deg(f)=\partial f=\max\{i+j\}$.
+    Tällöin $V(f)$:n tai $f$:n aste on $\deg(V(f))=\deg(f)=\max\{i+j\}$.
 \end{maaritelma}
-\begin{asetus}
-    Merkitään tästä lähtien käyrän tai polynomin astetta $\partial C$ tai $\partial f$.
-\end{asetus}
+Varistot ja ideaalit tarjoavat tärkeän yhteyden käyrien tai pintojen geometrian ja abstraktin algebran välillä. Eräs tärkeä huomio koskee variston käyttäytymistä yhdisteiden suhteen. Olkoot $S,T\subset\K[x_1,\dots,x_n]$ kaksi kokoelmaa polynomeja. Tällöin $x\in V(S)\cup V(T)$ kuuluu molempien polynomijoukkojen piirtämään hyperpintaan täsmälleen silloin, kun $x$ on $S$:n ja $T$:n polynomien nollakohta. Toisin sanoen
+\begin{align*}
+    V(S)\cup V(T)=V(S\cap T).
+\end{align*}
+Jos $S=\{f\}$ ja $T=\{g\}$, niin ehto muuntuu muotoon
+\begin{align*}
+    V(f)\cup V(g)=V(\{f\}\cap\{g\})=V(fg),
+\end{align*}
+missä $fg$ on vain polynomien tulo. Erityisen hyödyllistä tämä voi olla polynomin pelkistymättömyyden hahmottamisessa.
+\begin{maaritelma}
+    Olkoon $f\in\K[x_1,\dots,x_n]$. Polynomi $f$ on pelkistymätön, jos kaikille $g,h\in\K[x_1,\dots,x_n]$ siten, että $f=gh$ pätee $g\in\K$ tai $h\in\K$.
+\end{maaritelma}
+Polynomi on siis pelkistymätön jos sitä ei voi kirjoittaa kahden epävakion polynomin tulona, tai jos sen varistoa ei voi kirjoittaa kahden variston yhdisteenä!
+
+Eräs myöhemmin hyödyllinen erityistapaus on $n$-pallo $\S^n$.
+\begin{align*}
+    \S^n&=\{(x_1,\dots,x_n)\in\K^n:x_1^2+\cdots+x_n^2=1\} \\
+    &=V(x_1^2+\cdots+x_n^2-1)
+\end{align*}
+Intuitiivisesti lienee selvää, että tapauksessa $n=0$ pallo $\S^0$ pelkistyy, mutta tapauksissa $n=1,2$ pallon ei pitäisi pelkistyä, koska ympyrää tai pallopintaa ei voi hajoittaa pienempiin osiin. Tämä on mahdollista todistaa kaikille $n>0$.
+\begin{lemma}
+    \label{lemma:pallo-on-pelkistymätön}
+    Olkoon $n>0$ kokonaisluku. Tällöin $n$-pallon $\S^n$ määrittelevä polynomi
+    \begin{align*}
+        s_n(x)=x_1^2+\cdots+x_n^2-1
+    \end{align*}
+    on pelkistymätön.
+\end{lemma}
+\begin{proof}
+    Polynomin $s_n$ aste on $\deg s_n=2$. Oletetaan, että $s_n$ on pelkistyvä. Tällöin on olemassa kaksi polynomia $f,g\in\K[x_1,\dots,x_n]$ siten, että $s_n=fg$ ja $f,g$ eivät kumpikaan ole vakioita.
+
+    Tutkimalla asteita huomataan, että 
+    \begin{align*}
+        \deg s_n&=\deg f+\deg g \\
+        2&=\deg f+\deg g.
+    \end{align*}
+    Koska $\deg f,\deg g>0$ niin $\deg f=\deg g=1$. Siis $f$ ja $g$ ovat hypertasoja, muotoa $c_0+c_1x_1+\cdots+c_nx_n=0$. Tällöin
+    \begin{align*}
+        \S^n=V(s_n)=V(f)\cup V(g)
+    \end{align*}
+    on kahden hypertason yhdiste. Intuitiivisesti ottaen tämä on mahdotonta, sillä $n$-pallolla on $n$-ulotteista kaarevuutta jokaisessa pisteessä, mutta hypertaso on $n$-ulotteisesti litteä jokaisessa pisteessä. 
+
+    Täsmällisesti tämä voidaan muotoilla normaalivektorin avulla. Litteän pinnan normaalivektori on pisteestä riippumatta saman suuntainen, kun taas kaarevan pinnan normaalivektori riippuu pisteestä. Normaali voidaan laskea gradientin avulla. Kirjoitetaan
+    \begin{align*}
+        f(x_1,\dots,x_n)=\sum_{i=0}^{n}a_ix_i^2,\qquad
+        g(x_1,\dots,x_n)=\sum_{i=0}^{n}b_ix_i^2.
+    \end{align*}
+    Tällöin normaalit ovat
+    \begin{align*}
+        \vec n_{s_n}&:\nabla s_n=\left[2x_1,\dots,2x_n\right]^T \\
+        \vec n_f&:\nabla f=\left[a_1,\dots,a_n\right]^T \\
+        \vec n_g&:\nabla g=\left[b_1,\dots,b_n\right]^T.
+    \end{align*}
+    ja selvästi on olemassa $(x_1,\dots,x_n)\in\K^n$ siten, että 
+    \begin{align*}
+        \vec n_{s_n}(x_1,\dots,x_n)&\ne\vec f(x_1,\dots,x_n),\quad\text{ja} \\
+        \vec n_{s_n}(x_1,\dots,x_n)&\ne\vec g(x_1,\dots,x_n).
+    \end{align*}
+    Siispä $s_n=fg$ on ristiriita, joten $s_n$ on pelkistymätön.
+\end{proof}
 
 
 \subsection{Singulariteetit ja säännöllisyys}
-Käyrän $C$ paikallinen muoto pisteessä $p=(a,b)\in C$ määrittyy $f$:n osittaisderivaattojen avulla. 
+Käyrän $V(f)$ paikallinen muoto pisteessä $p=(a,b)\in V(f)$ määrittyy $f$:n osittaisderivaattojen avulla. 
 \begin{maaritelma}
-    Käyrän $C$ piste $p=(a,b)\in C$ on \emph{singulaarinen}, jos $f$:n osittaisderivaatat häviävät pisteessä $p$:
+    Käyrän $V(f)$ piste $p=(a,b)\in V(f)$ on \emph{singulaarinen}, jos $f$:n osittaisderivaatat häviävät pisteessä $p$:
     \begin{equation*}
         \frac{\partial f}{\partial x}(a,b) = 0 \quad \text{ja} \quad \frac{\partial f}{\partial y}(a,b) = 0.
     \end{equation*}

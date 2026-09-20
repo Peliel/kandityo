@@ -1,5 +1,8 @@
-\section{Puiseux-sarjat}
-Keskeinen osa algebrallista geometriaa on aina ollut polynomiyhtälöiden ratkaiseminen. 1800-luvun alussa nuori matemaatikko Évariste Galois kuitenkin tunnetusti todisti, että polynomilla $f\in\K[x]$, jolla $\partial f\geq5$ ei ole yleistä ratkaisukaavaa. Polynomien nollakohtia ei voi siis esittää rationaalilukujen ja juurifunktioiden avulla, mikä houkuttelee tarkan esitysmuodon asemesta approksimoimaan oikeaa ratkaisua.
+\section{Algebralliset käyrät ovat solmuja}
+Tässä kappaleessa osoitetaan, että algebralliset käyrät käyttäytyvät tietyissä tapauksissa iteroitujen torussolmujen tavoin.
+
+\subsection{Käyrän Puiseux-sarja}
+Keskeinen osa algebrallista geometriaa on aina ollut polynomiyhtälöiden ratkaiseminen. 1800-luvun alussa nuori matemaatikko Évariste Galois kuitenkin tunnetusti todisti, että polynomilla $f\in\K[x]$, jolla $\deg f\geq5$ ei ole yleistä ratkaisukaavaa. Polynomien nollakohtia ei voi siis esittää rationaalilukujen ja juurifunktioiden avulla, mikä houkuttelee tarkan esitysmuodon asemesta approksimoimaan oikeaa ratkaisua.
 
 Kahden muuttujan tapauksessa tilanne on monimutkaisempi: ratkaisujoukko muodostaa tyypillisesti tasokäyrän eli on kooltaan ääretön. Olkoon $f\in\K[x,y]$ jokin polynomi. Voidaan aina olettaa, että $f(0,0)=0$.
 \begin{propositio}
@@ -16,14 +19,9 @@ Ensimmäisenä polynomien approksimoimista tutki Newton, jonka kehittämä menet
 \end{equation*}
 jossa $k_0\in\Z$, $n\in\N$ ja $c_k\in\C$. 
 
-\subsection{Newtonin todistus}
-Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjasta. Aloitetaan aputyökalu Newtonin monikulmion määrittelystä.
-\begin{maaritelma}
-    Olkoon $f=\sum_{i,j}a_{ij}x^iy^j$ polynomi. \emph{Newtonin monikulmio} $M$ on pistejoukon $\{(i,j)\in\Z^2\mid a_{ij}\neq0\}$ konveksi alareuna.
-
-    Jos polynomi $f$ sisältää termin $a_{0n}y^n$, niin Newtonin monikulmiolla on reunapiste $(0,n)$. Tätä kutsutaan monikulmion \emph{pääkärjeksi}. Vastaavaa kaarta kutsutaan \emph{pääkaareksi}.
-\end{maaritelma}
-\begin{lause}[\citep{Kollar2007}]
+Muotoillaan ja todistetaan nyt täsmällinen versio edellä hahmotellusta sarjasta.
+\begin{lause}[\citep{BK1986}, kappale 8.3]
+    \label{lause:puiseux-sarja}
     Olkoon $f\in\C[x,y]$ tai $f\in\C[[x,y]]$. Oletetaan, että $f(0,0)=0$ ja, että $y^n$ esiintyy $f$:ssä jollekin $n\in\N$. Tällöin yhtälöllä $f(x,y)=0$ on Puiseux-sarja
     \begin{equation*}
         y(x)=\sum_{k=1}^{\infty}c_kx^{k/N},\quad N\in\N,
@@ -170,22 +168,236 @@ Todistus seuraa läheisesti Brieskornin ja Knörrerin todistusta.
     \end{align*}
     Siispä $n$ (uudelleenmääritelty) on eksponenttien yhteinen jakaja; toisin sanoen eksponentit eivät pienene mielivaltaisesti.
 
-    Täten induktiivisesti määritelty jonolle $y(x)=\dots$ pätee, että $f(x,y(x))$ lähestyy nollaa mielivaltaiselle tarkkuudelle. Siis 
+    Täten induktiivisesti määritelty jonolle $y(x)=\dots$ pätee, että $f(x,y(x))$ lähestyy nollaa mielivaltaisella tarkkuudella. Siis 
     \begin{align*}
         y(x)=\sum_{i}a_ix^{i/n}
     \end{align*}
     on haluttu sarja.
 \end{proof}
+Todistuksessa huomattiin, että Puiseux-sarjan lopullinen muoto riippuu siitä, miten nollakohdat $\alpha_i$ valitaan jokaisen iteraatioaskeleen kohdalla. Jos käyrä $V(f)$ on singulaarinen origossa ja kulkee origon kautta $k$ kertaa,  Puiseux-sarjallakin on $k$ haaraa, jotka vastaavat yksi yhteen käyrän haaroja.
 
-Tämä Puiseux-sarja on vain muodollinen, eikä ole tietoa sen suppenemisesta. Tosin koska se approksimoi polynomia tai suppenevaa potenssisarjaa, niin on jokin pieni ympäristö, jossa Puiseux-sarja suppenee. Sitten vielä Kollárin kpl 1.2 jotta suppeneminen olisi hallittua (jos ehtii).
+Toistaiseksi Puiseux-sarja on vain muodollinen, eikä todistus tarjoa varmuutta sen suppenemisesta koko avaruudessa tai edes pienessä joukossa. Todistetaan suppeneminen ja määritellään ensin sopiva pieni joukko.
+\begin{maaritelma}
+    Olkoon $f(x,y)$ polynomi tai potenssisarja, joka täyttää lauseen~\ref{lause:puiseux-sarja} ehdot. Tällöin $f$:n \emph{elliptinen naapurusto} on 
+    \begin{align*}
+        U_{\varepsilon,\delta}:=\{(x,y)\in\C^2:|y|<\varepsilon,|x|<\delta\}
+    \end{align*}
+    ja \emph{elliptinen nollajoukko} on
+    \begin{align*}
+        V=V(U_{\varepsilon,\delta}):=\{(x,y)\in U_{\varepsilon,\delta}:f(x,y)=0\}.
+    \end{align*}
+\end{maaritelma}
+\begin{lause}[\citep{BK1986}, kappale 8, lause 1]
+    \label{lause:puiseux-suppenee}
+    Olkoon $f(x,y)$ polynomi tai potenssisarja, joka täyttää lauseen~\ref{lause:puiseux-sarja} ehdot ja $m$ pienin kokonaisluku, jolla $a_0my^m\ne0$. On olemassa $\varepsilon_0>0$ siten, että kaikille $0<\varepsilon<\varepsilon_0$ on olemassa $\delta>0$, jolle seuraava pätee.
+
+    Jos $V=V(U_{\varepsilon,\delta})$ on $f$:n elliptinen nollajoukko, on olemassa suppeneva potenssisarja $y(z)\in\C[[z]]$, jolle kuvaus 
+    \begin{align*}
+        \pi:B&\to\C^2,\quad B:=\{z\in\C:|z|<\delta^{1/m}\} \\
+        z&\mapsto(z^m,y(z))
+    \end{align*}
+    on holomorfinen ja surjektiivinen $V$:ssä. Lisäksi rajoitus $\pi^\times:B\setminus\{0\}\to V\setminus\{0\}$ on biholomorfinen\footnote{Holomorfinen siten, että käänteiskuvauskin on holomorfinen.} ja $(\pi^\times)^{-1}(0)=\{0\}$.
+\end{lause}
+Muuttujanvaihtoa $t=z^m$ lauseeseen~\ref{lause:puiseux-suppenee} soveltaen voidaan nähdä, että yhtälön $f(t,y(t^{1/m}))=0$ toteuttava sarja $y(t^{1/m})$ suppenee. Määritelmän mukaan tällaiset sarjat ovat tismalleen Puiseux-sarjoja, joten Puiseux-sarjat suppenevat jossakin ympäristössä.
+
+
+\subsection{Solmujen ja polynomien yhteys}
+Tässä osiossa kehitetään yhteys algebrallisten käyrien ja solmujen välille. Algebrallisia käyriä on mahdollista tutkia paikallisesti pisteessä $p\in C$ tutkimalla käyrää $\S^3(p)\cap C$, joka osoittautuu linkiksi. Näitä linkkejä kutsutaan algebrallisiksi. Lisäksi tutkitaan kysymystä siitä, milloin mielivaltainen pujoskaavio esittää algebrallista linkkiä ja annetaan välttämättömät sekä tarpeelliset kriteerit tähän. Näitä havaintoja voidaan käyttää singulariteetin $p\in C$ epäsuoraan tutkimiseen sitä vastaavan pujoskaavion avulla. Olkoon $f\in\C[x,y]$ siten, että $f(0,0)=0$.
+\begin{lemma}
+    Tarpeeksi pienelle $\varepsilon>0$ 3-pallo
+    \begin{align*}
+        \S_\varepsilon^3=\{(x,y)\in\C^2:|(x,y)|=\varepsilon\}
+    \end{align*}
+    leikkaa $V(f)$:n transversaalisesti.\footnote{Leikkauspisteessä $S_\varepsilon^2$:n ja $V(f)$:n tangentit eivät ole yhdensuuntaiset, vaan ne virittävät koko avaruuden $\C^2$ kannan.}
+\end{lemma}
+\begin{proof}
+    Bézout'n lauseen mukaan leikkauspisteitä on vain äärellinen määrä, jos polynomeilla ei ole yhteisiä tekijöitä.
+
+    Valitaan $\varepsilon>0$. Olkoon $s_\varepsilon$ pallon $\S_\varepsilon^3$ määrittävä polynomi
+    \begin{align*}
+        \S_\varepsilon^3=V(s_\varepsilon)=V(x_1^2+x_2^2+x_3^2+x_4^2-\varepsilon^2).
+    \end{align*}
+    Lemman~\ref{lemma:pallo-on-pelkistymätön} nojalla $s_\varepsilon$ on pelkistymätön, joten $s_\varepsilon$:lla ja $V(f)$:llä on yhteisiä tekijöitä jos ja vain jos $V(f)$ on jaollinen $s_\varepsilon$:lla. Jos näin on, voidaan $\varepsilon$:ia perturboida hieman. Koska $V(f)$:llä on äärellisesti tekijöitä, on olemassa $0<\delta\ll\varepsilon$ ja $\varepsilon_1\in[\varepsilon-\delta,\varepsilon+\delta]$ siten, että jaollisuus ei toteudu.
+
+    Koska leikkauksia on äärellinen määrä, on mahdollista tarkistaa transversaalius jokaisessa leikkauksessa erikseen. Jos jokin leikkauksista on transversaalinen, voidaan toteuttaa uusi perturbaatio $0<\delta_1\ll\delta$. 
+    
+    Määritellään uudelleen $\varepsilon:= \varepsilon_1 \pm \delta_1$. Seuraa, että leikkaus $\S_{\varepsilon}^3\cap V(f)$ on transversaalinen.
+\end{proof}
+\begin{seuraus}
+    Leikkaus $S_\varepsilon^3\cap V(f)$ on linkki
+    \begin{align*}
+        \linkki=(\S^3,\solmu_1\cup\cdots\cup\solmu_n),
+    \end{align*}
+    joka perii suunnistuksensa käyrältä $V(f)$.
+\end{seuraus}
+\begin{proof}
+    Jos $p=(z_1,z_2)=(x_1,y_1,x_2,y_2)\in\S_\varepsilon^3\cap V(f)$, niin $X$ toteuttaa yhtälöryhmän
+    \begin{align*}
+        \begin{cases}
+            x_1^2+y_1^2+x_2^2+y_2^2=\varepsilon^2, \quad p\in\S_\varepsilon^3 \\
+            \Re[f(x_1,y_1,x_2,y_2)]=0,\quad p\in V(f) \\
+            \Im[f(x_1,y_1,x_2,y_2)]=0,\quad p\in V(f) \\
+        \end{cases}.
+    \end{align*}
+    Yleisesti pisteellä $p$ on vähintään $1=4-1-1-1$ vapausaste ja enintään kolme, jos kaikki kolme yhtälöä virittävät pisteessä $p$ saman tangenttiavaruuden. Näin ei kuitenkaan koskaan käy, sillä $\S_\varepsilon^3$ ja $V(f)$ leikkaavat transversaalisesti, joten $X$:llä on toisaalta korkeintaan yksi vapausaste. Tällöin $\S_\varepsilon^3\cap V(f)$ on 1-ulotteisten käyrien, joita on $n>0$ kappaletta, erillinen yhdiste.
+
+    Lopuksi $\S_\varepsilon^3\cap V(f)$ perii suunnistuksen $V(f)$:ltä ollen $V(f)$:n alimonisto. Tämä tekee kyseisestä käyrästä linkin.
+\end{proof}
+\begin{maaritelma}
+    Olkoon $C$ on algebrallinen käyrä. $\linkki=(\S^3,\solmu_1\cup\dots\cup\solmu_n)$ on \emph{algebrallinen linkki}, jos tarpeeksi pienelle $\varepsilon>0$ pätee $\linkki=\S_\varepsilon^3\cap C$.
+\end{maaritelma}
+Käyrän $V(f)$ origon kautta kulkevat pätkät vastaavat yksi yhteen Puiseux-sarjan haaroja. Toisaalta nämä pätkät vastaavat yksi yhteen myös algebrallisen linkin $\linkki$ komponentteja, koska tarpeeksi pienellä $\varepsilon>0$ komponentit eivät leikkaa toisiaan. Tämän johdosta Puiseux-sarjasta voidaan päätellä, millainen komponentti on kyseessä; epäsolmu, torussolmu vai iteroitu torussolmu. Esitellään seuraavaksi menetelmä, jolla komponenttia $(\S^3,\solmu)$ voidaan halutaan tutkia Puiseux-sarjan avulla.
+
+$\S_\varepsilon^3$ voidaan kirjoittaa muodossa
+\begin{align*}
+    \S_\varepsilon^3&=\{(x,y)\in\C^2:|x|^2+|y|^2=\varepsilon^2\}.
+\end{align*}
+Kun $|x|=\varepsilon$, on $|y|=0$. Siispä joukot $\{|x|=\varepsilon\}$ ja $\{|y|=\varepsilon\}$ ovat $\S_\varepsilon^3$:n erityiskuidut, jotka antavat hajotuksen kahdeksi torukseksi $\S_\varepsilon^3=\TT_1\cup\TT_2$. Täytetyt torukset ovat muotoa
+\begin{align*}
+    \TT_1&=\{0\leq|y|\ll|x|\leq\varepsilon\} \\
+    \TT_2&=\{0\leq|x|\ll|y|\leq\varepsilon\}.
+\end{align*}
+\begin{lemma}
+    \label{lemma:3-pallo-linkki-isotooppinen-torussolmulinkkiin}
+    Olkoon $\TT_1$ kuten yllä ja merkitään $\T=\partial\TT_1$. Linkki $\T\cap V(f)$ on isotooppinen linkkiin $\S_\varepsilon^3\cap V(f)$.
+\end{lemma}
+\begin{proof}
+    Hmm... apuja? En ole määritellyt isotopiaakaan =(
+
+    Ilman muuta ymmärrän miksi tämä on totta. Olen tarkoituksella vältellyt isotopian määrittelyä, koska sen voi määritellä 1) käsiä heilutellen helposti 2) täsmällisesti suurella työllä. En oikein osaa arvioida, miten tasapainoilla näiden välillä esimerkiksi tässä.
+\end{proof}
+Koska linkkiä voidaan $\S_\varepsilon^3$:n sijasta tutkia toruksen pinnalla, on mahdollista osoittaa, että $V(f)$ on (iteroitu) torussolmu. 
+\begin{esimerkki}[Ensimmäisen asteen approksimaatio]
+    \label{esim:1-aste-puiseux-solmu}
+    Käyrän $V(f)$ solmun $\solmu$ ensimmäisen asteen Puiseux-approksimaatio $\T$:ssä $y=\alpha_1x^{q_1/p_1}$ on $(p_1,q_1)$-torussolmu. Kirjoitetaan $\T=\{|x|\gg|y|:|x|=\varepsilon,|y|\leq\varepsilon\}$. Muuttuja $x$ vastaa toruksen pituuspiiriä ja $y$ ympäryspiiriä. Parametrisoidaan $t=e^{i\theta}$, $\theta\in[0,2\pi]$ ja asetetaan $x(t)=\varepsilon t^{p_1}$, mistä seuraa
+    \begin{align*}
+        y(t)&=\alpha_1(\varepsilon t^{p_1})^{q_1/p_1} \\
+        &=\alpha_1\varepsilon^{q_1/p_1}t^{q_1}
+    \end{align*}
+    eli $y$ on vakio kertaa $t^{q_1}$. Kun $t$ kulkee kerran yksikköympyrän $\S^1\subset\C$ ympäri, kulkee piste $(x,y)$ parametrin $x$ suuntaan $p_1$ ympyränmatkaa ja $y$ suuntaan $q_1$ ympyränmatkaa. Lemman~\ref{lemma:pq-torussolmu-on-qp} nojalla $\solmu(p_1,q_1)=\solmu(q_1,p_1)$, joten piste $(x(t),y(t))$ parametrisoi $(p_1,q_1)$-torussolmun. Merkitään tätä approksimaatiota $\solmu_1$ ja piirretään sille pujoskaavio
+    \begin{center}
+        \begin{tikzpicture}
+            \node[empty node] (O) at (0,0) {};
+            \node[empty node] (p1) at (0,-1) {};
+            \node[empty node] (q1) at (-1,0) {};
+            \node[placeholder] (arrow) at (1,0) {};
+
+            \draw[->] (O) -- ++(0:1cm);
+
+            \draw (O) -- node[edge value, near start] {$p_1$}
+                        node[edge value, near end] {} (p1);
+            \draw (O) -- node[edge value, near start, swap] {$q_1$}
+                        node[edge value, near end] {} (q1);
+            \path (O) -- node[edge value, near start] {$1$}
+                        node[edge value, near end] {} (arrow);
+        \end{tikzpicture}
+    \end{center}
+\end{esimerkki}
+\begin{esimerkki}[Toisen asteen approksimaatio]
+    \label{esim:2-aste-puiseux-solmu}
+    Toisen asteen approksimaatio $\solmu_2$ on muotoa $y=x^{q_1/p_1}(\alpha_1+\alpha_2x^{q_2/p_1p_2})$.
+    Parametrisoidaan tällä kertaa $x=\varepsilon t^{p_1p_2}$, $t\in\S^1$ ja lasketaan $y$:
+    \begin{align*}
+        y&=(\varepsilon t^{p_1p_2})^{q_1/p_1}(\alpha_1+\alpha_2(\varepsilon t^{p_1p_2})^{q_2/p_1p_2}) \\
+        &=\varepsilon^{q_1/p_1}t^{q_1/p_2}(\alpha_1+\alpha_2\varepsilon^{q_2/p_1p_2}t^{q_2}) \\
+        &=\alpha_1\varepsilon^{q_1/p_1}t^{q_1/p_2}+\alpha_2\varepsilon^{q_1/p_1+q_2/p_1p_2}t^{q_1/p_2+q_2}.
+    \end{align*}
+    Koska $\varepsilon$ on pieni, $0<\varepsilon<1$, on jälkimmäisen termin kerroin huomattavasti ensimmäistä pienempi $\varepsilon^{q_1/p_1}\gg\varepsilon^{q_1/p_1+q_2/p_1p_2}$. Tällöin $\solmu_2$ muistuttaa pientä perturbaatiota lukuun ottamatta solmua $\solmu_1$. Kulkekoon $t$ yksikköympyrän ympäri, jonka aikana $\solmu_1$ kiertää pituuspiirinsä $p_1$ kertaa ja $\solmu_2$ kiertää $p_1p_2$ kertaa. Siis kun $\solmu_1$ kiertää pituuspiirinsä kerran, kiertää $\solmu_2$ tämän $p_2$ kertaa. On olemassa jokin kokonaisluku $a_2$, jolla $\solmu_2$ on $(p_2,a_2)$-torussolmu ja sillä on pujoskaavio
+    \begin{center}
+        \begin{tikzpicture}
+            \node[empty node] (start) at (0,0) {};
+            \node[empty node] (plus1) at (1,0) {};
+            \node[empty node] (bottom1) at (1,-1) {};
+            \node[empty node] (plus2) at (3,0) {};
+            \node[empty node] (bottom2) at (3,-1) {};
+            \node[placeholder] (arrow) at (4,0) {};
+
+            \draw[->] (plus2) -- (arrow);
+
+            \draw (start) -- node[edge value, near end, above] {$q_1$} (plus1);
+            
+            \draw (bottom1) -- node[edge value, near end, right] {$p_1$} (plus1);
+            
+            \draw (plus1) -- node[edge value, near start, above] {$1$}
+                            node[edge value, near end, above] {$a_2$} (plus2);
+                            
+            \draw (bottom2) -- node[edge value, near end, right] {$p_2$} (plus2);
+
+            \path (plus2) -- node[edge value, near start, above] {$1$} (arrow);
+        \end{tikzpicture}
+    \end{center}
+\end{esimerkki}
 \begin{lause}
-    Olkoon $f\in\C[x,y]$ pelkistymätön ja $C:=\{f(x,y)=0\}\subset\C^2$ vastaava algebrallinen käyrä. On olemassa kompleksinen 1-monisto $\bar C$ ja $\sigma:\bar C\to C$ \emph{kelpo}\footnote{Jos $K\subset C$ on kompakti niin myös $\sigma^{-1}(K)\subset\bar C$.} kuvaus, joka on holomorfinen molempiin suuntiin (eli $\sigma^{-1}$ myös) kaikilla $(x,y)\subset\C^2-S$, missä $S$ on äärellinen pistejoukko.
+    \label{lause:k-puiseux-approksimaatio}
+    Olkoon $\S_\varepsilon^3\cap V(f)$ algebrallinen linkki ja $y_k(x)$ polynomin $f$ $k$-Puiseux-approksimaatio ($k$ ensimmäistä termiä). Tällöin $k$-Puiseux-approksimaatio on algebrallinen linkki $(\S^3,\solmu_k)$, joka koostuu yhdestä $k$ kertaa iteroidusta torussolmusta. Torussolmu saadaan kaapelijonolla $(p_1,a_1),\dots,(p_k,a_k)$, jossa $(p_i,a_i)$ on kaapeli yli $(p_{i-1},a_{i-1})$:n ja $(p_1,a_1)$ on torussolmu. $\solmu_k$:lla on pujoskaavio
+    \begin{center}
+        \begin{tikzpicture}
+            \node[empty node] (start) at (0,0) {};
+            \node[empty node] (plus1) at (1,0) {};
+            \node[empty node] (bottom1) at (1,-1) {};
+            
+            \node[text box] (dots) at (2.5,0) {$\cdots$};
+            
+            \node[empty node] (plus_prev) at (4,0) {};
+            \node[empty node] (bottom_prev) at (4,-1) {};
+            
+            \node[empty node] (plus_s) at (5.5,0) {};
+            \node[empty node] (bottom_s) at (5.5,-1) {};
+            
+            \node[placeholder] (arrow) at (6.5,0) {};
+
+            \draw[->] (plus_s) -- (arrow);
+
+            \draw (start) -- node[edge value, near end, above] {$q_1$} (plus1);
+            \draw (bottom1) -- node[edge value, near end, right] {$p_1$} (plus1);
+            
+            \draw (plus1) -- node[edge value, near start, above] {$1$} (dots);
+            \draw (dots) -- node[edge value, near end, above] {$a_{s-1}$} (plus_prev);
+            
+            \draw (bottom_prev) -- node[edge value, near end, right] {$p_{s-1}$} (plus_prev);
+            
+            \draw (plus_prev) -- node[edge value, near start, above] {$1$}
+                                node[edge value, near end, above] {$a_s$} (plus_s);
+                                
+            \draw (bottom_s) -- node[edge value, near end, right] {$p_s$} (plus_s);
+            
+            \path (plus_s) -- node[edge value, near start, above] {$1$} (arrow);
+        \end{tikzpicture}
+    \end{center}
 \end{lause}
 \begin{proof}
-    \dots tarvitaan implisiittisten funktioiden lause.
+    Todistetaan lause induktiolla. Tapaus $n=1$ on jo osoitettu esimerkissä~\ref{esim:1-aste-puiseux-solmu}. Tehdään induktio-olettama, että väitteet pätevät, kun $n=k$. Olkoon tapauksessa $n=k+1$ käyrän parametrisointi $x=\varepsilon t^{p_1\cdots p_{k+1}}$, jolloin
+    \begin{align*}
+        y_{k+1}&=(\varepsilon t^{p_1\cdots p_k})^{q_1/p_1}(\alpha_1+\dots(\alpha_{k}+\alpha_{k+1}(\varepsilon t^{p_1\cdots p_{k+1}})^{q_{k+1}/p_1\cdots p_{k+1}})\dots).
+    \end{align*}
+    Jos tulon avaa auki, on kerrointa $\alpha_{k+1}$ vastaavan $\varepsilon$-termin eksponentti suurempi kuin kertoimen $\alpha_k$ $\varepsilon$-eksponentti. Esimerkki~\ref{esim:2-aste-puiseux-solmu} on vain yksinkertaisempi versio tästä. Koska $\varepsilon<1$, niin termi $k+1$ lisää vain hieman perturbaatiota termien $1,\dots,k$ iteroituun torussolmuun.
 
-    Huom: suunnitelmanmuutos! Tätä lausetta ei todisteta, vaan ohjataan tutustumaan Kollárin todistukseen.
+    Kun parametri $t\in\S^1$ kulkee kerran yksikköympyrän ympäri, kulkee $k$:s kaapeli $(p_k,a_k)$ induktio-oletuksen nojalla pituuspiirinsä ympäri $p_1\cdots p_k$ kertaa. Toisaalta tällöin parametrisaatio $x=\varepsilon t^{p_1\cdots p_{k+1}}$ kulkee saman pituuspiirin yli $p_1\cdots p_kp_{k+1}$ kertaa, joten se kulkee kaapelin $(p_k,a_k)$ ympäri $p_{k+1}$ kertaa. Tällöin on olemassa kokonaisluku $a_{k+1}$, jolla $(p_{k+1},a_{k+1})$ on kaapeli yli kaapelin $(p_k,a_k)$. 
+    
+    Siis induktion nojalla $k$-Puiseux-approksimaatio on $k$-iteroitu torussolmu. Tällöin myös pujoskaavio on luonnollinen, sillä se on täsmälleen painoilla $(p_i,a_i)$, $i=1,\dots,k$ iteroidun torussolmun pujoskaavio.
 \end{proof}
+\begin{lemma}
+    \label{lemma:k-puiseux-appr-kertoimet-ak}
+    Lauseen~\ref{lause:k-puiseux-approksimaatio} kertoimet $a_i$ saadaan polynomin $f$ Puiseux-pareista $(p_i,q_i)$ rekursiivisilla kaavoilla
+    \begin{align*}
+        a_1&=q_1 \\
+        a_{i+1}&=q_{i+1}+p_ip_{i+1}a_i,\quad i\geq1.
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    \citep{EN1985}, propositio 1A.1.
+\end{proof}
+Lemman~\ref{lemma:k-puiseux-appr-kertoimet-ak} jälkeen tunnetaan varsin hyvin algebrallisen käyrän pisteessä $p\in V(f)$ kutakin haaraa vastaavat solmukomponentit. Tarkastellaan vielä koko linkin kasaamista yksittäisistä komponenteista, minkä jälkeen ymmärrys pistettä vastaavasta algebrallisesta linkistä on kattavaa. Olkoon $(\S^3,\solmu_1\cup\solmu_2)$ algebrallinen linkki, joka vastaa Puiseux-kehitelmiä
+\begin{align*}
+    \solmu_1&:y=x^{q_{1,1}/p_{1,1}}(\alpha_{1,1}+\cdots((\alpha_{1,k-1}+\alpha_{1,k}x^{q_{1,k}/p_{1,1}\cdots p_{1,k}}))\cdots) \\
+    \solmu_2&:y=x^{q_{2,1}/p_{2,1}}(\alpha_{2,1}+\cdots((\alpha_{2,s-1}+\alpha_{2,s}x^{q_{2,k}/p_{2,1}\cdots p_{2,s}}))\cdots) \\
+\end{align*}
+Oletetaan, että korkeintaan $n<\min\{k,s\}$ termiä ovat samoja, eli $(p_{1,i},q_{1,i})=(p_{2,i},q_{2,i})$ ja $\alpha_{1,i}=\alpha_{2,i}$ kaikille $1\leq i\leq n$, mutta kaikille $i>n$ vähintään toinen näistä yhtälöistä ei päde.
 
-\subsection{Puiseux-sarjat ja Newton-parit}
-Tähän tulee Eisenbudin ja Neumannin Prop 1A.1.
+Tapaukset
+\begin{enumerate}[i.]
+    \item $k=n$
+    \item $s=n$
+    \item 1. yhtälö ei päde
+    \item 2. yhtälö ei päde
+\end{enumerate}
