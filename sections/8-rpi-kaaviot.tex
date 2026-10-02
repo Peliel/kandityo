@@ -1,13 +1,39 @@
 \section{RPI-kaaviot äärettömyydessä}
 Tässä osiossa rakennetaan edellisten avulla ensin RPI-kaaviot ja sitten päätulos.
 
-\subsection{Algebrallisen käyrän pujoskaavio}
-Määritellään ensin juurretut kaaviot. Usein hyödyttää käsitellä juurrettuja pujoskaavioita, joilla on jokin juurisilmu. Tässä työssä käsitellyn teorian kontekstissa ei ole matemaattisesti oikeaa tapaa määrittää, minkä silmuista pitäisi olla kaavion juuri. Juuren valinta on siis epämatemaattinen ja perustuu johonkin intuitivistiseen syyhyn (joka yleensä on kontekstista selvä). Juurretun kaavion etu on se, että juuri antaa kaaviolle ``relativistisen koordinaatiston''.
-\begin{maaritelma}
-    Olkoon $\Omega$ pujoskaavio. $\Omega$ on \emph{juurrettu}, jos jokin sen silmuista, joka ei ole lehti, valitaan kaavion juureksi.
+\subsection{Säännölliset ja kiitettävät käyrät}
+Mielenkiintoisten polynomeja ja solmuja yhdistelevien tuloksien saavuttamiseksi on luonnollisestikin hyödyllistä rajoittaa tarkasteltavia polynomeja. Olkoon $f:\C^2\to\C$ polynomi.
+\begin{maaritelma}[Säännöllinen kuitu]
+    Kuitu $f^{-1}(c)$ on \emph{säännöllinen}, jos jollekin pisteen $c\in\C$ avoimelle ympäristölle $U$ kuvaus
+    \begin{equation*}
+        f\vert_{f^{-1}[U]}:f^{-1}[U]\to U
+    \end{equation*}
+    on paikallisesti triviaali $C^\infty$-kuidutus, eli kuidutukseen liittyvät topologiset avaruudet ovat sileitä monistoja ja kuvaukset sileitä.
 \end{maaritelma}
-Millä tavalla juurretty kaavio sitten antaa relativistisen koordinaatiston? Määritellään jokaiselle pujoskaavion kaarelle lähi- ja kaukopää.
+\begin{maaritelma}[Säännöllisyys äärettömyydessä]
+    Kuitu $f^{-1}(c)$ on \emph{säännöllinen äärettömyydessä}, jos on pisteen $c\in\C$ avoin ympäristö $U$ ja jokin kompakti joukko $K\subset\C^2$ siten, että $f\vert_{f^{-1}[U]\setminus K}$ on paikallisesti triviaali kuidutus.
+\end{maaritelma}
+Intuitiivisesti ajatellen säännöllinen kuitu on kuitu, jonka lähiympäristössä muut kuidut näyttävät samanlaisilta.
+\begin{esimerkki}
+    Olkoon $\S^3$ 3-pallo kuidutuksella $\pi_{k_1,k_2}:\S^3\to\S^2$. Oletetaan tyypillinen stereografinen projektio $\S^2=\P^1$. Tällöin erityiskuidut vastaavat kuituja $\pi_{k_1,k_2}^{-1}(0)$ ja $\pi_{k_1,k_2}^{-1}(\infty)$ ja ne ovat epäsäännöllisiä, jos niiden kertoimet ovat epätriviaaleja: $k_1\ne1,k_2\ne1$. Tyypilliset kuidut ovat puolestaan säännöllisiä.
+\end{esimerkki}
+Polynomilla $f$ on vain äärellinen määrä äärettömyydessä epäsäännöllisiä kuituja johtuen siitä, että polynomi voi hajaantua äärettömyyteen asymptoottisesti vain äärellisen monella tavalla. Toisaalta säännölliset kuidut ovat aina isotooppisia keskenään ja määrittelevät siten saman linkin.
+\begin{maaritelma}[Säännöllinen äärettömyyslinkki]
+    Polynomin $f$ äärettömyydessä säännöllisen kuidun linkki on $\linkki(f,\infty)$ ja sitä kutsutaan \emph{säännölliseksi äärettömyyslinkiksi}.
+\end{maaritelma}
+\begin{maaritelma}[Kiitettävät polynomit]
+    Jos kaikki $f$:n kuidut ovat säännöllisiä äärettömyydessä, $f$ on \emph{kiitettävä}.
+\end{maaritelma}
+\begin{maaritelma}[Säännöllinen käyrä]
+    Polynomia $f$ vastaava algebrallinen käyrä $V(f)=f^{-1}(0)$ on säännöllinen, jos se on säännöllinen kuitu.
+\end{maaritelma}
+
+\subsection{Algebrallisen käyrän pujoskaavio}
+Määritellään ensin juurretut kaaviot. Usein hyödyttää käsitellä juurrettuja pujoskaavioita, joilla on jokin juurisilmu. Tässä työssä käsitellyn teorian kontekstissa ei ole matemaattisesti oikeaa tapaa määrittää, minkä silmuista pitäisi olla kaavion juuri. Juuren valinta on siis epämatemaattinen ja perustuu johonkin intuitivistiseen syyhyn (joka yleensä on kontekstista selvä).
 \begin{maaritelma}
+    Olkoon $\Omega$ pujoskaavio. $\Omega$ on \emph{juurrettu}, jos jokin sen silmuista, joka ei ole lehti, valitaan kaavion juureksi. Tätä silmua merkitään $\bullet$ erotuksena muista silmuista $\circ$.
+\end{maaritelma}
+\begin{maaritelma}[Lähi- ja kaukopää]
     Olkoon $\Omega$ juurrettu pujoskaavio. Olkoon $v$ jokin kaari ja $l,k$ kaaren silmut. Kuljettakoon kummastakin silmusta lyhyin reitti (matkalla olevien silmujen määrässä mitattuna) kaavion juuren luo, ja olkoon $\gamma(\cdot)\in\N$ matkalla olevien silmujen määrä alkupiste $l$ tai $k$ poislukien. Jos
     \begin{equation*}
         \gamma(l)<\gamma(k),
@@ -19,45 +45,121 @@ Millä tavalla juurretty kaavio sitten antaa relativistisen koordinaatiston? Mä
 \end{huomautus}
 Rajoittamalla tutkimus sopivan hyvin käyttäytyviin kaavioihin löytyy yksinkertainen vastaavuus algebrallisten painojen ja pujoskaavioiden välillä. Tällainen kaavio on RPI-pujoskaavio.
 \begin{maaritelma}
-    Olkoon $\Omega$ juurrettu pujoskaavio. $\Omega$ on \emph{RPI-pujoskaavio} (englannista \emph{Reverse Puiseux Inequalities}, käänteiset Puiseux-epäyhtälöt), jos
-    \begin{enumerate}
-        \item jokaisella silmulla on korkeintaan yksi lähipaino, joka ei ole 1,
+    Olkoon $\Omega$ juurrettu pujoskaavio. $\Omega$ on \emph{RPI-pujoskaavio} (englannista \emph{Reverse Puiseux Inequalities}, käänteiset Puiseux-epäyhtälöt), jos 
+    \begin{enumerate}[i.]
+        \item jokaisen kärjen lähipainoista korkeintaan yhden arvo ei ole yksi,
         \item kaikki lähipainot ovat positiivisia ja
-        \item kaikki kaarideterminantit ovat negatiivisia, mukaanlukien juurisilmun kaaret tapauksessa $n=1$ ja muutoin.
+        \item kaikki kaarideterminantit ovat negatiivisia.
     \end{enumerate}
 \end{maaritelma}
-
-Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käyttäytyy äärettömyydessä. On mahdollista määritellä mielekkäällä tavalla käyrän linkki äärettömyydessä, käyttäen samoja ideoita kuin määritellessä käyrän linkkiä sen singulariteetissa. Toistetaan vielä työssä todistettava päätulos.
-
+En ole ihan varma tajusinko tämän oikein (\citep{Neumann1989} sivun 449 loppu, 450 alku, ennen lausetta 2). RPI-pujoskaavion $\Omega$ jokaiseen silmuun ja lehteen, joilla ei ole omaa komponenttia, voidaan assosioida virtuaalikomponentti. Koska $\Omega$ esittää pujoslinkkiä, kyseinen linkki voidaan koostaa triviaaleista epäsolmuista yksinkertaisilla pujosoperaatioilla.
+\begin{maaritelma}[Virtuaalikomponentti]
+    Puretaan RPI-pujoskaavio $\Omega$ osiin ja konstruoidaan se epätriviaaleista epäsolmuista yksinkertaisilla pujosoperaatioilla. Liitetään jokaisessa operaatiossa operoitavaan silmuun $v$ epäsolmu $\solmu_v$, jota ei myöhemmin missään vaiheessa operoida. Tällöin $\solmu_v$ on \emph{virtuaalikomponentti} silmulle $v$ ja $\ell_v=\ell(S_v,\linkki(\Omega))$ on sen linkkiluku pujoslinkin kanssa.
+\end{maaritelma}
+\begin{maaritelma}[Säännöllinen RPI-pujoskaavio]
+    RPI-pujoskaavio $\Omega$ on \emph{säännöllinen}, jos $l_v>0$ kaikillevirtuaalikomponenteille.
+\end{maaritelma}
+Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käyttäytyy äärettömyydessä. On mahdollista määritellä mielekkäällä tavalla käyrän linkki äärettömyydessä, käyttäen samoja ideoita kuin määritellessä käyrän linkkiä sen singulariteetissa.
+\begin{maaritelma}
+    Olkoon $f:\C^2\to\C$ polynomi upotuksella $\C^2\hookrightarrow\P^2$. Olkoon $N(\P^1)$ äärettömyyshorisontin putkiympäristö. Tällöin $\partial N(\P^1)\cap V(f)$ on $f$:n \emph{äärettömyyslinkki}.
+\end{maaritelma}
 \par\vspace{\topsep}
 \noindent
-\textbf{Lause \ref{lause:päätulos}.} \emph{(i) Pelkistetty algebrallinen käyrä $V\subset\C^2$ jollakin upotuksella $\C^2\subset\P^2$ määrittää RPI-pujoskaavion $\Omega$ $V$:n äärettömyyslinkille. Äärettömyyspisteiden lukumäärälle pätee $n_\infty(V)=n$, missä $n$ on kaavion juurisilmun valenssi. Lisäksi $\deg(V)=\ell_\text{root}$, jossa $\ell_\text{root}$ on juuren (virtuaalisen) komponentin linkkiluku äärettömyyslinkin kanssa. Jos $V$ on säännöllinen käyrä, $\Omega$ on säännöllinen (määritelmä???) pujoskaavio.}
+\textbf{Lause \ref{lause:päätulos}.} \emph{(i) Pelkistetty algebrallinen käyrä $V\subset\C^2$ jollakin upotuksella $\C^2\subset\P^2$ määrittää RPI-pujoskaavion $\Omega$ $V$:n äärettömyyslinkille. Äärettömyyspisteiden lukumäärälle pätee $n_\infty(V)=n$, missä $n$ on kaavion juurisilmun valenssi. Lisäksi $\deg(V)=\ell_\text{juuri}$, jossa $\ell_\text{juuri}$ on juuren (virtuaalisen) komponentin linkkiluku äärettömyyslinkin kanssa. Jos $V$ on säännöllinen käyrä, $\Omega$ on säännöllinen (määritelmä???) pujoskaavio.}
 
 \emph{(ii) Linkki on jonkin äärettömyyslinkin (joka voidaan valita säännölliseksi (määritelmä???), jopa hyväksi (määritelmä???)) osalinkki jos ja vain jos sillä on RPI-pujoskaavio.}
-\begin{ajatus}
-    Lause on sangen tiukasti muotoiltu, mutta sen ydinajatus on seuraava.
-    \begin{enumerate}
-        \item Minkälainen solmu tai pujoskaavio algebrallisella käyrällä on?
-        \item Millä ehdoilla algebralliset käyrät vastaavat linkkejä ja pujoskaavioita yksi yhteen?
-    \end{enumerate}
-\end{ajatus}
-\begin{proof}[Lausen \ref{lause:päätulos}(i) todistus]
-    Tarkastelun kohteena ovat käyrät $V$, joilla on upotus $V\hookrightarrow\C^2$, missä kompleksiavaruudella on jokin sopiva upotus projektiiviseen tasoon $\C^2\hookrightarrow\P^2$. $V$:llä on olemassa jokin projektiivinen laajennus $C$, joka myös saattaa saada erisuuria arvoja äärettömyydessä riippuen $V$:n haarojen asymptotiikasta.
+\begin{proof}[Lauseen \ref{lause:päätulos}(i) todistus]
+    Tarkastelun kohteena ovat käyrät $V$, joilla on upotus $V\hookrightarrow\C^2$, missä kompleksiavaruudella on jokin sopiva upotus projektiiviseen tasoon $\C^2\hookrightarrow\P^2$. $V$:llä on olemassa jokin projektiivinen laajennus $C$, joka myös saattaa saada erisuuria arvoja äärettömyydessä riippuen $V$:n haarojen asymptotiikasta. Koska $C$ on $\C^2$-käyrän projektiivinen laajennus, voidaan olettaa, että äärettömyyshorisontti $\P^1$ ei ole $C$:n komponentti. Siispä $C$ leikkaa $\P^1$:n pisteissä $y_1,\dots,y_n$.
 
-    Tarkemmin sanottuna $V=C-(C\cap\P^1)\subset\P^2-\P^1=\C^2$, missä $C$ on jokin pelkistetty\footnote{Ei toistuvia pelkistymättömiä komponentteja} projektiivinen käyrä. Jos oletetaan, että $\P^1$ ei ole käyrän $C$ komponentti, niin
+    Olkoon $D\subset\P^1$ kiekko siten, että $y_1,\dots,y_n\in D$ ja $\bar D$ 4-kiekko siten, että $\bar D\cap \P^1=D$ ja $S=\partial\bar D$ leikkaa $C$:n ja $\P^1$:n transversaalisesti. Tällöin $\linkki=(S,(\P^1\cup C)\cap S)$ on käyrän $C$ algebrallinen linkki ja sitä vastaa pujoskaavio $\Gamma(\linkki)$:
+    \begin{center}
+        \begin{tikzpicture}% Solmut
+            \node (gamma0) at (-2,0) {$\Gamma(\linkki) = K_0$};
+            \node[solid node] (center) at (0,0) {};
+            \node[draw, rectangle] (gamma1) at (1,1) {$\Gamma_1$};
+            \node[draw, rectangle] (gamman) at (1,-1) {$\Gamma_n$};
+
+            % Pisteet
+            \node[text box] (dots_inner) at (0.4,0.1) {$\vdots$};
+            
+            % Viivat ja nuolet
+            \draw[-latex] (center) -- node[edge value, near start, above] {$0$} (gamma0);
+            \draw (center) -- node[edge value, near start, above] {$1$} (gamma1);
+            \draw (center) -- node[edge value, near start, below] {$1$} (gamman);
+        \end{tikzpicture}
+    \end{center}
+    Pujoskaaviossa $K_0=\P^1\cap S$ ja 
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \draw[->] (G) -- ++(180:0.7cm);
+    \end{tikzpicture} 
+    on pujoskaavio, joka vastaa äärettömyyspisteen $y_i$ linkkiä $\linkki_i=(\S^3(y_i),\S^3(y_i)\cap C)$. (Merkinnällä $\S^3(y_i)$ tarkoitetaan $y_i$-keskistä 3-palloa.) Koska
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \draw[->] (G) -- ++(180:0.7cm);
+    \end{tikzpicture} 
+    on singulariteetin linkki, sen painot ja kaarideterminantit ovat positiivisia (lemma~\ref{lemma:singulariteettilinkin-ehdot}). Kappaleen~\ref{kpl:solmujen-ja-polynomien-yhteys} nojalla
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \draw[->] (G) -- ++(180:0.7cm);
+    \end{tikzpicture} 
+    on (iteroitu) toruslinkki ja lisäksi $K_0$ on epäsolmu (isotooppinen ympyrään $\S^1$). \textbf{Suora lainaus:} Tämän johdosta korkeintaan yksi lähipaino kussakin silmussa ei ole yksi (tätä en ymmärtänyt?).
+
+    Olkoon $N(\P^1)$ äärettömyyshorisontin putkiympäristö. Tällöin $S^3=\partial N(\P^1)$ on pallo äärettömyydessä, jolloin $\linkki_\infty=(S^3,S^3\cap C)$ on äärettömyyslinkki. $N(\P^1)$ voidaan konstruoida $\bar D$:stä lisäämällä 2-kahva komponenttiin $K_0\subset S$ \textcolor{red}{??? kahvoja en ole käsitellyt yhtään, onko ongelma?}, joten $\linkki_\infty$ saadaan linkistä $\linkki$ $(+1)$-Dehn-kirurgialla suhteen komponentin $K_0$. Proposition 3.4 \citep{Neumann1989} nojalla $\linkki_\infty$:llä on pujoskaavio
+    \begin{center}
+        \begin{tikzpicture}% Solmut
+            \node (gamma0) at (-2,0) {$\Gamma(\linkki_\infty)=$};
+            \node[solid node] (center) at (0,0) {};
+            \node[draw, rectangle] (gamma1) at (1,1) {$\Gamma_1'$};
+            \node[draw, rectangle] (gamman) at (1,-1) {$\Gamma_n'$};
+            \node[empty node] (a) at (-1,0) {};
+
+            % Pisteet
+            \node[text box] (dots_inner) at (0.4,0.1) {$\vdots$};
+            
+            % Viivat ja nuolet
+            \draw (center) -- node[edge value, near start, above] {$-1$} (a);
+            \draw (center) -- node[edge value, near start, above] {$1$} (gamma1);
+            \draw (center) -- node[edge value, near start, below] {$1$} (gamman);
+        \end{tikzpicture}
+    \end{center}
+    jossa $\Gamma_i'$ eroaa $\Gamma_i$:stä vain siten, että kaukopainoja on muutettu lauseen~\ref{lause:pujoskaaviopläjäys} mukaisesti kaarideterminanttien pitämiseksi samana kuin $\Gamma(\linkki)$:ssa. Samaa lausetta soveltaen ja avaruuden suunnistusta kääntäen saadaan minimaalisempi kaavio (joskaan ei vieläkään välttämättä minimaalisin)
+    \begin{center}
+        \begin{tikzpicture}% Solmut
+            \node (gamma0) at (-2,0) {$\Omega=$};
+            \node[solid node] (center) at (0,0) {};
+            \node[draw, rectangle] (gamma1) at (1,1) {$\Omega_1$};
+            \node[draw, rectangle] (gamman) at (1,-1) {$\Omega_n$};
+            \node[empty node] (a) at (-1,0) {};
+
+            % Pisteet
+            \node[text box] (dots_inner) at (0.4,0.1) {$\vdots$};
+            
+            % Viivat ja nuolet
+            \draw (center) -- node[edge value, near start, above] {$1$} (a);
+            \draw (center) -- node[edge value, near start, above] {$1$} (gamma1);
+            \draw (center) -- node[edge value, near start, below] {$1$} (gamman);
+
+            \node[placeholder] (eq) at (2,0) {$=$};
+            \node[solid node] (center2) at (3,0) {};
+            \node[draw, rectangle] (gamma1b) at (4,1) {$\Omega_1$};
+            \node[draw, rectangle] (gammanb) at (4,-1) {$\Omega_n$};
+            \node[text box] (dots_inner2) at (3.4,0.1) {$\vdots$};
+
+            \draw (center2) -- node[edge value, near start, above] {$1$} (gamma1b);
+            \draw (center2) -- node[edge value, near start, below] {$1$} (gammanb);
+        \end{tikzpicture}
+    \end{center}
+    Kaavion $\Omega$ lähipainot ovat konstruktion nojalla positiivisia. Lisäksi $\Gamma(\linkki_\infty)$:ssa kaarideterminantit olivat positiivisia, mutta $\Omega$:ssa avaruuden suunnistus on käännetty, joten kaarideterminantit ovat negatiivisia. Siis $\Omega$ on RPI-pujoskaavio.
+
+    $\Omega$:n konstruktion nojalla juurisilmun valenssi $n_\infty(V)$ on äärettömyyspisteiden lukumäärä $n$, kun jokainen $\Omega_i$ vastaa äärettömyyspistettä $y_i$. Bézout'n lauseen nojalla
     \begin{equation*}
-        C\cap\P^1=\{P_1,\dots,P_n\},\quad n<\infty,
+        \deg V=\deg V\deg P=\#\{p_i\in V\cap P\},
     \end{equation*}
-    sillä myös $\P^1$ voidaan nähdä algebrallisena käyränä $\P^2$:ssa. Olkoon $D'\hookrightarrow\P^1$ siten, että $C\cap\P^1\subset D'$ leikkauspisteet sisältävä levy. Olkoon $D$ $\P^2$:ssa säännöllinen (määritelmä???) 4-levy-ympäristö $D'$:lle, siten että reuna $R=\partial D$ leikkaa $C$:n ja $\P^1$:n transversaalisesti (määritelmä???).
-
-    Tällöin $\linkki_0=(R,(\P^1\cup C)\cap R)$ on linkki, jota voidaan esittää pujoskaaviolla~\ref{kuva:pujoskaavio-todistukseen}.
-    \begin{pujoskaavio}[h!]
-        \centering
-        \includegraphics[width=0.25\textwidth]{figures/pujoskaavio-todistuksessa.pdf}
-        \caption{}
-        \label{kuva:pujoskaavio-todistukseen}
-    \end{pujoskaavio}
-
-    
+    missä $P\subset\C^2$ on mikä tahansa suora. On olemassa säde $R>0$, jota suuremmilla etäisyyksillä origosta käyrien $V$ ja $P$ käytös ei olennaisesti muutu, joten leikkauspisteet voidaan laskea tämän kokoisessa kiekossa $D_R^4\subset\C^2$. \textcolor{red}{But the intersection number of two relative 2-cycles in a disk is the linking number of their boundaries in $\partial D_R^4$}. Yleisen suoran $P$ äärettömyyslinkkiä voidaan ajatella äärettömyyshorisontin $\P^1$ virtuaalisena komponenttina $\solmu_\text{juuri}$. Siis $\deg V=\ell_\text{juuri}$, missä 
+    \begin{equation*}
+        \ell_\text{juuri}=\ell(\Omega,\solmu_\text{juuri}).
+    \end{equation*}
+    Jos käyrä $V(f)=f^{-1}(0)$ on säännöllinen, niin $f^{-1}(0)$ on säännöllinen kuitu.
 \end{proof}
 

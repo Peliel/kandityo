@@ -202,6 +202,7 @@ Muuttujanvaihtoa $t=z^m$ lauseeseen~\ref{lause:puiseux-suppenee} soveltaen voida
 
 
 \subsection{Solmujen ja polynomien yhteys}
+\label{kpl:solmujen-ja-polynomien-yhteys}
 Tässä osiossa kehitetään yhteys algebrallisten käyrien ja solmujen välille. Algebrallisia käyriä on mahdollista tutkia paikallisesti pisteessä $p\in C$ tutkimalla käyrää $\S^3(p)\cap C$, joka osoittautuu linkiksi. Näitä linkkejä kutsutaan algebrallisiksi. Lisäksi tutkitaan kysymystä siitä, milloin mielivaltainen pujoskaavio esittää algebrallista linkkiä ja annetaan välttämättömät sekä tarpeelliset kriteerit tähän. Näitä havaintoja voidaan käyttää singulariteetin $p\in C$ epäsuoraan tutkimiseen sitä vastaavan pujoskaavion avulla. Olkoon $f\in\C[x,y]$ siten, että $f(0,0)=0$.
 \begin{lemma}
     Tarpeeksi pienelle $\varepsilon>0$ 3-pallo
@@ -392,10 +393,43 @@ Lemman~\ref{lemma:k-puiseux-appr-kertoimet-ak} jälkeen tunnetaan varsin hyvin a
     \solmu^1&:y=x^{q_{1,1}/p_{1,1}}(\alpha_{1,1}+\cdots((\alpha_{1,k-1}+\alpha_{1,k}x^{q_{1,k}/p_{1,1}\cdots p_{1,k}}))\cdots) \\
     \solmu^2&:y=x^{q_{2,1}/p_{2,1}}(\alpha_{2,1}+\cdots((\alpha_{2,s-1}+\alpha_{2,s}x^{q_{2,k}/p_{2,1}\cdots p_{2,s}}))\cdots) \\
 \end{align*}
-Oletetaan, että korkeintaan $n<\min\{k,s\}$ termiä ovat samoja, eli $(p_{1,i},q_{1,i})=(p_{2,i},q_{2,i})$ ja $\alpha_{1,i}=\alpha_{2,i}$ kaikille $1\leq i\leq n$, mutta kun $i=n+1$ vähintään toinen näistä yhtälöistä ei päde. Tarkastellaan linkkiä tapauksittain.
-\begin{itemize}[align=left]
-    \item[\underline{$s=n$}] Tällöin $\solmu^2$ on vain $\solmu^1$:n $n$ asteen approksimaatio. Lauseen~\ref{lause:k-puiseux-approksimaatio} notaatiota käyttäen $\solmu^2=\solmu_k^1$ ja linkin pujoskaavio on\dots
-    \item[\underline{$s=n$}] Identtinen tapaukseen $r=n$.
-    \item[\underline{1. yhtälö ei päde}] moi 
-\end{itemize}
+Oletetaan, että korkeintaan $n<\min\{k,s\}$ termiä ovat samoja, eli $(p_{1,i},q_{1,i})=(p_{2,i},q_{2,i})$ ja $\alpha_{1,i}=\alpha_{2,i}$ kaikille $1\leq i\leq n$, mutta kun $i=n+1$ vähintään toinen näistä yhtälöistä ei päde. Jos $s=n$ (tapaus $r=n$ on identtinen), $\solmu^2$ on vain $\solmu^1$:n $n$ asteen approksimaatio $\solmu^2=\solmu_n^1$ ja pujoskaavio on sama kuin lauseessa~\ref{lause:k-puiseux-approksimaatio} sillä muutoksella, että paino $p_n$, $1\leq n\leq s$ on lehden sijasta nuolella.
 
+Jos puolestaan kertoimet ovat indeksiin $i=n$ asti samoja, haarautuu pujoskaavio indeksissä $i=n+1$ siten, että kumpikin haara vastaa solmujen $\solmu^1,\solmu^2$ omia pujoskaavioita kertoimilla $i>n+1$.
+
+Näistä kahden solmun muodostaman linkin ja pujoskaavion perustapauksista voi induktiivisesti päätellä useamman solmun pujoskaavion.
+
+Kokonaisen linkin pujoskaavion tuntemuksen myötä tunnetaan nyt hyvin, miten algebralliselle käyrälle voidaan määrittää ensin linkki ja sitten pujoskaavio. Tutkitaan vielä lopuksi, millä ehdoilla pujoskaaviolla on linkki, joka on jonkin algebrallisen käyrän linkki.
+\begin{maaritelma}[Kaarideterminantti]
+    Olkoon $\linkki$ ja $\Gamma(\linkki)$ vastaava pujoskaavio.
+    \begin{center}
+        \begin{tikzpicture}
+            \node[empty node] (a) at (-1,0) {};
+            \node[text box, rotate=-45] (a_up) at (-2,1) {$\dots$};
+            \node[text box, rotate=45] (a_do) at (-2,-1) {$\dots$};
+            \node[text box] (a_dd) at (-1.4,0.1) {$\vdots$};
+            \node[empty node] (b) at (1,0) {};
+            \node[text box, rotate=45] (b_up) at (2,1) {$\dots$};
+            \node[text box, rotate=-45] (b_do) at (2,-1) {$\dots$};
+            \node[text box] (b_dd) at (1.4,0.1) {$\vdots$};
+
+            \draw (a) -- node[edge value, near start, swap] {$a_2$} (a_up);
+            \draw (a) -- node[edge value, near start] {$a_n$} (a_do);
+            \draw (a) -- node[edge value, near start] {$a_0$} 
+                         node[edge value, near end] {$a_1$} (b);
+            \draw (b) -- node[edge value, near start, swap] {$a_{n+1}$} (b_do);
+            \draw (b) -- node[edge value, near start] {$a_m$} (b_up);
+        \end{tikzpicture}
+    \end{center}
+    Olkoon $E$ kuvassa näkyvä painoja $a_0,a_1$ vastaava kaari. Tällöin kaarideterminantti on
+    \begin{equation*}
+        \det E=a_0a_1-a_2\cdots a_na_{n+1}\cdots a_m.
+    \end{equation*}
+\end{maaritelma}
+\begin{lemma}
+    \label{lemma:singulariteettilinkin-ehdot}
+    Linkki $\linkki=(\Sigma,K)$ on kompleksitason käyrän singulariteetin linkki jos ja vain jos sillä on yhtenäinen pujoskaavio, jonka kaikki painot ja kaarideterminantit ovat positiivisia. Tällöin sillä on minimaalinen pujoskaavio näillä ominaisuuksilla.
+\end{lemma}
+\begin{proof}
+    Lause 9.4,~\citep{EN1985}.
+\end{proof}

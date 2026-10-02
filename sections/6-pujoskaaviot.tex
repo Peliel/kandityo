@@ -101,6 +101,9 @@ Määritellään pujoskaavio konstruktion kautta, jonka jälkeen annetaan yksink
     \end{center}
     ja linkeille $\linkki,\linkki'$ voi muodostaa induktiivisesti samoja periaatteita noudattaen omat kaavionsa. Tällaista kaaviota kutsutaan \emph{pujoskaavioksi.}
 \end{konstruktio}
+\begin{huomautus}
+    Annetussa pujoskaavion konstruktiossa ainoa keino välittää informaatiota avaruuksien tai käyrien suunnistuksesta on kuituja kuvaavien kokonaislukujen positiivisuus tai negatiivisuus. Täyden tarkkuuden saavuttamiseksi kaavion pitäisi välittää tietoa myös pohja-avaruuden suunnistuksesta. Lauseessa~\ref{lause:pujoskaaviopläjäys} kuitenkin osoitetaan, että käytännössä avaruuksien voi aina olettaa olevan positiivisesti suunnistettuja.
+\end{huomautus}
 \begin{maaritelma}[Pujoskaavio]
     Kutsutaan konstruktiossa~\ref{konstruktio:pujoskaavio} esiteltyjä puuverkkoja \emph{pujoskaavioiksi} ja puuverkkojen erilaisia komponentteja \emph{lehdiksi}, \emph{silmuiksi}, \emph{nuoliksi}, \emph{kaariksi} ja \emph{juuriksi} siten kuin konstruktiossa on kyseisiä sanoja konstruktiossa käytetty.
 
@@ -108,9 +111,17 @@ Määritellään pujoskaavio konstruktion kautta, jonka jälkeen annetaan yksink
 
     Vastaavasti jos $\Gamma$ on pujoskaavio, olkoon $\linkki(\Gamma)$ kaaviota vastaava linkki.
 \end{maaritelma}
-\begin{huomautus}
-    Annetussa pujoskaavion konstruktiossa ainoa keino välittää informaatiota avaruuksien tai käyrien suunnistuksesta on kuituja kuvaavien kokonaislukujen positiivisuus tai negatiivisuus. Täyden tarkkuuden saavuttamiseksi kaavion pitäisi välittää tietoa myös pohja-avaruuden suunnistuksesta. Lauseessa~\ref{lause:pujoskaaviopläjäys} kuitenkin osoitetaan, että käytännössä avaruuksien voi aina olettaa olevan positiivisesti suunnistettuja.
-\end{huomautus}
+Kaikilla linkeillä ei välttämättä ole pujoskaaviota, sillä pujoskaavio jo konstruktionsa puolesta olettaa linkiltä paljon. \emph{Pujoslinkillä} tarkoitetaan linkkiä, jolle on mahdollista määrittää pujoskaavio.
+\begin{lemma}
+    \label{lemma:pujoslinkki-on-ratkeava}
+    Jos $\linkki=(\S^3,\solmu_1\cup\cdots\cup\solmu_n)$ on pujoslinkki, se on myös ratkeava linkki, eli se voidaan koostaa rekursiivisesti epäsolmuista $\S^3$:ssa pelkästään kaapelointi- ja summaoperaatioilla.
+\end{lemma}
+\begin{proof}
+    Täsmällinen todistus löytyy lähteestä~\citep{EN1985}, lauseesta 9.2.
+
+    Todistuksen ideana on tarkastella tapauksittain, minkälaisia silmuja pujoskaaviossa voi esiintyä, ja osoittaa, että nämä voidaan muodostaa yksinkertaisempien linkkien pujoksina. Induktiota soveltaen huomataan, että linkki purkautuu epäsolmuiksi.
+\end{proof}
+
 Kun pujoskaaviot on nyt esitelty, tutkitaan joitakin esimerkkejä.
 
 % Epäsolmujen erillinen solmu
@@ -498,20 +509,22 @@ Edelliskappaleessa ei pujoskaaviota määriteltäessä otettu kantaa avaruuden t
         \item Kohtaa 2 käyttämällä voidaan olettaa, että $\varepsilon=\varepsilon'=1$.
     \end{enumerate}
 \end{proof}
-
-\begin{propositio}
-    Linkki $\linkki=(\Sigma,K)$ on kompleksitason käyrän singulariteetin linkki jos ja vain jos sillä on yhtenäinen pujoskaavio, jonka kaikki painot ja kaarideterminantit ovat positiivisia. Tällöin sillä on minimaalinen pujoskaavio näillä ominaisuuksilla.
-\end{propositio}
-\begin{proof}
-    En tiedä.
-\end{proof}
+Koska pujoskaavio luonnostaan kuvaa linkin kuitujen kiertymistä toistensa ympäri, on siitä luettavissa linkin linkkiluku.
 \begin{lemma}
-    Kahden linkin osasen (virtuaalisen tai todellisen) linkkiluku $\Sigma$:ssa saadaan laskemalla pujoskaaviossa osasten välillä olevan polun viereisten painojen tulo.
+    \label{lemma:linkkiluvut-ja-painot}
+    Olkoon $\linkki=(\S^3,\solmu_1\cup\cdots\cup\solmu_n)$ linkki, jolla on yhtenäinen pujoskaavio. Valitaan linkistä kaksi komponenttia $\solmu_i,\solmu_j\subset\linkki$. Linkin pujoskaaviossa $\Gamma(\linkki)$ kulkee yksikäsitteinen polku komponentteja vastaavien nuolten välillä. Komponenttien luku on kaikkien kertoimien $a_i$, jotka ovat kyseisen polun vierellä, mutta eivät suoraan varrella, tulo.
 \end{lemma}
 \begin{proof}
-    En tiedä.
+    Pujoskaavio ei voi sisältää silmukoita, joten kahden pisteen välinen polku on aina yksikäsitteinen.
+
+    Esitellään seuraavaksi todistuksen lopun idea. Tarkempi todistus on lähteessä~\citep{EN1985} lauseen 10.1 ohessa, ja muutenkin kappaleessa 10 tarkastellaan asiaa.
+
+    Oletetaan, että $\solmu_i$ ja $\solmu_j$ ovat vierekkäiset linkit, eli silmuja, joihin solmuja vastaavat nuolet ovat kiinnittyneet, yhdistää yksi kaari. Tällöin $\linkki$ on saatu pujomalla yhteen kaksi linkkiä solmuja $\solmu_i,\solmu_j$ myöten. Pujontaoperaatiossa solmuja vastaavat toruspinnat liimataan yhteen siten, että pituus- ja ympäryspiirit osuvat toisiinsa, joten on luonnollista, että linkkiluku on vastaavien lehtien painojen tulo.
 \end{proof}
-
-
-\subsection{Monimutkainen esimerkki}
-Tässä kappaleessa tutustutaan monimutkaiseen solmuun ja sen pujoskaavion rakentamiseen sekä mielellään myös toisin päin.
+\begin{seuraus}
+    \label{seuraus:painot-määrittyvät-linkkiluvuista}
+    Linkin $\linkki$ pujoskaavion $\Gamma$ painot määrittyvät kokonaan komponenttien $\solmu_i$ parittaisista linkkiluvuista.
+\end{seuraus}
+\begin{proof}
+    Kaavion lehtiä voi ajatella ``virtuaalisina'' komponentteina. Jos lehdet vaihdetaan nuoliksi eli virtuaaliset komponentit muutetaan konkreettisiksi, ei linkin rakenne olennaisesti muutu lainkaan. Lemmaa~\ref{lemma:linkkiluvut-ja-painot} induktiivisesti soveltaen voidaan tällöin laskea painot linkin linkkiluvuista. Lopuksi virtuaalisista komponenteista konkreettisiksi muutetut nuolet voidaan muuttaa takaisin lehdiksi.
+\end{proof}
