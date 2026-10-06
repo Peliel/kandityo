@@ -161,5 +161,48 @@ Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käy
         \ell_\text{juuri}=\ell(\Omega,\solmu_\text{juuri}).
     \end{equation*}
     Jos käyrä $V(f)=f^{-1}(0)$ on säännöllinen, niin $f^{-1}(0)$ on säännöllinen kuitu.
-\end{proof}
 
+    Osoitetaan vielä, että jos $\linkki_\infty$ on säännöllisen käyrän $V=C-(C\cap\P^1)\subset\P^2-\P^1$ linkki, sitä vastaava RPI-pujoskaavio on säännöllinen. Merkitköön $\linkki_i$ kaavion 
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \node[empty node] (s) at (-0.7,0) {};
+        \draw (s) -- node[edge value, near start, above] {} (G);
+    \end{tikzpicture} 
+    esittämää linkkiä eli käyrän linkkiä singulariteetissa $y_i\in\P^1$. Olkoon $K_i$ tämän kaavion vasemmanpuoleisen lehden virtuaalikomponentti. Olkoon $F_0$ Seifert-pinta, eli pinta jonka reuna on $\linkki_\infty$: $\partial F_0=\linkki_\infty$. Olkoon $F_i$ linkin $\linkki_i$ kuitu. 
+\end{proof}
+\begin{proof}[Lauseen \ref{lause:päätulos}(ii) todistus]
+    Osan (i) todistus pätee sellaisenaan osoittamaan, että äärettömyyslinkin osalinkillä on RPI-pujoskaavio.
+
+    Osoitetaan seuraavaksi, että jos linkillä on RPI-pujoskaavio, se on äärettömyyslinkin osalinkki. Osan (i) todistuksessa käytetty konstruktio $\Gamma(\linkki_\infty)\leadsto\Omega$ voidaan kääntää. Tarkastellaan mahdollisia RPI-pujoskaavioita $\Omega$ ja niistä takaperin konstruoitavia pujoslinkkejä.
+
+    Aloitetaan yksinkertaisimmasta tapauksesta
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[text box] (omega) at (-1.3,0) {$\Omega=$};
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Omega_1$};
+        \node[solid node] (s) at (-0.7,0) {};
+        \draw (s) -- node[edge value, near start, above] {} (G);
+    \end{tikzpicture}.
+    Sitä vastaa pujoskaavio
+    \begin{center}
+        \begin{tikzpicture}
+            \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Omega_1$};
+            \node[empty node] (s) at (-1,0) {};
+            \node[placeholder] (arr) at (-2,0) {};
+            \draw (s) -- node[edge value, near start, above] {$1$} (G);
+            \draw[->] (s) -- ++(180:0.8cm);
+            \path (s) -- node[edge value, near start, above] {$0$} (arr);
+            \node[text box] (omega) at (-2.3,0) {$\Gamma=$};
+        \end{tikzpicture},
+    \end{center}
+    jonka lähipainot ja kaarideterminantit ovat positiivisia. Induktiolla, aloittaen kaavion vasemmasta laidasta, voidaan osoittaa, että kaavion 
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_1$};
+        \draw[->] (G) -- ++(180:0.7cm);
+    \end{tikzpicture} 
+    kaukopainotkin ovat positiivisia. Siispä se on singulariteettilinkin pujoskaavio ja se voidaan esittää käyrän $C_1\cup\P^1$ singulariteettina pisteessä $y_1\in\P^1$ (miksi?). Jos $\Omega$ ja $\Gamma$ ovatkin $n$:stä komponentista $\Omega_i,\Gamma_i$ koostuvia, induktiolla voidaan osoittaa kaavion
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \draw[->] (G) -- ++(180:0.7cm);
+    \end{tikzpicture} 
+    esittävän käyrän $C_i\cup\P^1$ linkkiä singulariteetissa $y_i\in\P^1$. Merkitään $C=\bigcup_{i=1}^n C_i$. Tällöin $\Omega$ on käyrän $V=C\cap(\P^2-\P^1)$ äärettömyyslinkin osalinkki.
+\end{proof}
