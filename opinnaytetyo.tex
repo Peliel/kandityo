@@ -138,6 +138,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{stfloats}
+\usepackage[normalem]{ulem}
 
 %% Matematiikan fontteja, symboleja ja muotoiluja lisää, näitä tarvitaan usein
 \usepackage{amsfonts, amssymb, amsbsy, amsmath, mathrsfs, amsthm}
@@ -286,7 +287,7 @@
 %% hakasuluissa. Näin tehdään, koska otsikko on osaa pdf/a-tiedostossa olevaa
 %% metadataa, ja metadatassa ei saa olla rivinvaihtomerkkiä.
 %%
-\thesistitle{Opinnäytteen otsikko}
+\thesistitle{Kompleksitason algebrallisten käyrien luokittelu äärettömyyslinkin avulla}
 %\thesistitle[Opinnäytteen otsikko]{Opinnäyteen\\ otsikko}
 %%
 
@@ -325,21 +326,14 @@
 %% Huom! Avainsanat erotetaan tässä toisistaan \spc -makrolla jotta 
 %% ne ovat metadatassa mukavassa muodossa
 %% 
-\keywords{Avainsanoiksi valitaan kirjoituksen\spc sisältöä keskeisesti\spc
-	kuvaavia\spc käsitteitä}
+\keywords{kompleksinen algebrallinen tasokäyrä, singulariteetti, solmuteoria, 3-monistot, kuidutus, Dehnin kirurgia, Puiseux-laajennus}
 %%
 
 %% Tiivistelmän tekstiosa. Tämä teksti sisältyy pdf-tiedoston metadataan ja tulee
 %% myös tiivistelmälomakkeeseen. Kirjoita tämä tiivistelmä työn kielellä.
 %%
 \thesisabstract{
-Tiivistelmässä on lyhyt selvitys kirjoituksen tärkeimmästä sisällöstä: mitä ja
-miten on tutkittu, sekä mitä tuloksia on saatu. Tämän opinnäytteen 
-tiivistelmäteksti kirjoitetaan opinnäytteen luettavan osan
-lomakkeen lisäksi myös pdf-tiedoston metadataan. Kirjoita tähän metadataan
-kirjoitettava teksti. Metadatatekstissa ei saa olla erikoismerkkejä,
-rivinvaihto- tai kappaleenjakomerkkiä, joten näitä merkkeja ei saa käyttää tässä.
-Metadatatiivistelmätekstin on muuten oltava sama kuin lomakkeessa oleva teksti.
+Työ on lyhyt selvitys solmuteorian soveltamisesta polynomien f singulariteettien tutkimuksessa. Työssä esitellään klassisen algebrallisen geometrian tulos, joka yhdistää algebrallisen käyrän V(f) pujoskaavioon Gamma, eräänlaiseen kokonaisluvuin koristeltuun puuverkkoon, konstruoimalla äärettömyyslinkin käyrälle. Päätuloksen pohjustamiseksi esitellään lyhyesti perustietoja monistoista ja algebrallisista käyristä. Hieman tarkempaa tarkastelua annetaan algebrallisen topologian perusmääritelmille; etenkin kappaleen 4 viimeisessä luvussa annetaan ensimmäinen merkittävä tulos, joka muotoilee Dehnin kirurgian ja kuidutetut avaruudet. Keskeinen kuidutuksen ansio on solmujen esittäminen epätriviaalisti kuidutettujen 3-monistojen tyypillisinä kuituina, mikä sallii 3-monistojen teorian ja varsinkin kirurgian soveltamisen solmujen manipulointiin. Kuidutetut 3-monistot voidaan usein esittää tiettyjen kuidutusta kuvaavien kokonaislukujen avulla, mikä sallii tietynlaisten solmujen esittämisen pujoskaavioiden avulla. Varsinainen polynomien esitystapa solmuina todistetaan laskemalla polynomille Puiseux-data, josta myös voidaan laskea kokonaislukukertoimet polynomin pujoskaavioon. Näin konstruoitu pujoskaavio toteuttaa kaksi kokonaislukukertoimiaan koskevaa epäyhtälöin muotoiltua ehtoa. Lisäksi päätuloksessa osoitetaan, että samat ehdot täyttävällä pujoskaaviolla on polynomivastine.
 }
 %%
 
@@ -419,20 +413,11 @@ All other rights are reserved.
 %%
 %% Tiivistelmän tekstiosa
 \begin{abstractpage}
-Tiivistelmässä on lyhyt selvitys kirjoituksen tärkeimmästä sisällöstä: mitä ja
-miten on tutkittu, sekä mitä tuloksia on saatu.
+Työ on lyhyt selvitys solmuteorian soveltamisesta polynomien $f\in\C[x,y]$ singulariteettien tutkimuksessa. Työssä esitellään klassisen algebrallisen geometrian tulos, joka yhdistää algebrallisen käyrän $V(f)$ pujoskaavioon $\Gamma$, eräänlaiseen kokonaisluvuin koristeltuun puuverkkoon, konstruoimalla äärettömyyslinkin käyrälle.
 
-Tämän opinnäytteen tiivistelmäteksti kirjoitetaan opinnäytteen luettavan osan 
-lomakkeen lisäksi myös pdf-tiedoston metadataan 
-$\backslash$thesisabstract-makron avulla (katso yllä). Kirjoita tähän
-luettavaan tiivistelmälomakkeeseen menevä teksti. Tässä saa olla erikoismerkkejä
-kuten kreikkalaiset kirjaimet ja rivinvaihto- ja kappaleenjakomerkit. Tämän
-tekstin on muuten oltava sama kuin metedatatiivistelmän teksti.
+Päätuloksen pohjustamiseksi esitellään lyhyesti perustietoja monistoista ja algebrallisista käyristä. Hieman tarkempaa tarkastelua annetaan algebrallisen topologian perusmääritelmille; etenkin kappaleen 4 viimeisessä luvussa annetaan ensimmäinen merkittävä tulos, joka muotoilee Dehnin kirurgian ja kuidutetut avaruudet. Keskeinen kuidutuksen ansio on solmujen esittäminen epätriviaalisti kuidutettujen 3-monistojen tyypillisinä kuituina, mikä sallii 3-monistojen teorian ja varsinkin kirurgian soveltamisen solmujen manipulointiin. Kuidutetut 3-monistot voidaan usein esittää tiettyjen kuidutusta kuvaavien kokonaislukujen avulla, mikä sallii tietynlaisten solmujen esittämisen pujoskaavioiden avulla.
 
-Jos tiivistelmäsi ei sisällä erikoismerkkejä eikä kaipaa kappaleenjakoa, voit
-hyödyntää makroa $\backslash$abstracttext joka käyttää ylläantamaasi 
-metedata-kelpoista tiivistelmää (katso kommentti alla).
-
+Varsinainen polynomien esitystapa solmuina todistetaan laskemalla polynomille Puiseux-data, josta myös voidaan laskea kokonaislukukertoimet polynomin pujoskaavioon. Näin konstruoitu pujoskaavio toteuttaa kaksi kokonaislukukertoimiaan koskevaa epäyhtälöin muotoiltua ehtoa. Lisäksi päätuloksessa osoitetaan, että samat ehdot täyttävällä pujoskaaviolla on polynomivastine.
 \end{abstractpage}
 
 %% \thesisabstract -makrossa kirjoitettu teksti on tallennettu makroon
@@ -463,11 +448,14 @@ metedata-kelpoista tiivistelmää (katso kommentti alla).
 \degreeprogram{Teknistieteellinen kandidaattiohjelma}
 \major{Matematiikka ja systeemitieteet}
 %% Avainsanoja ei tarvitse tässä erottaa \spc -makrolla.
-\keywords{Resistor, resistance, temperature}
+\keywords{complex algebraic plane curve, singularity, knot theory, 3-manifolds, fibration, Dehn surgery, Puiseux expansion}
 %% Tiivistelmän tekstiosa
 \begin{abstractpage}[english] % finnish/swedish/english tarpeen mukaan
-Your abstract in English. Keep the abstract short. The abstract explains your
-research topic, the methods you have used, and the results you obtained.
+This work is a concise survey on applications of knot theory to understanding singularities of polynomials $f\in\C[x,y]$. A result of classical algebraic geometry is presented, establishing a connection between an algebraic curve $V(f)$ and a splice diagram $\Gamma$, a certain tree graph decorated with integers, by constructing a link at infinity for the curve in question.
+
+Basic definitions of manifolds and algebraic geometry are laid out to set the language for the work. A more elaborate effort is spent with algebraic topology; in particular, in the last chapter of section 4, Dehn surgery and fibered spaces are formulated in the first important result of this work. The notion of a fibration makes it possible to represent knots as trivial fibers of untrivially fibered 3-manifolds, enabling the use of tools of 3-manifold theory in knot theory. Most importantly, the operations of connecting and splicing knots are framed as special cases manifold surgery. A specific 3-manifold can often be represented by a set of key integers describing its fibration. Later, this is used in representing knots with splice diagrams.
+
+The precise connection between polynomials and knots is established with the calculation of the Puiseux data of the polynomial. The set of integer coefficients given by the Puiseux data can be used to calculate the fibration integers of the polynomial, and then to construct the splice diagram for the polynomial. This splice diagram satisfies two conditions, which can be articulated into two inequalities concerning the integer data in the diagram. Moreover, an arbitrary splice diagram satisfying these conditions corresponds to a link at infinity of a polynomial, which is proved in the main result.
 \end{abstractpage}
 
 %% Esipuhe 
@@ -565,9 +553,9 @@ research topic, the methods you have used, and the results you obtained.
 
 %% Liitteet
 %% Poista a.o. \clearpage-, \thesisappendix- ja input -makrot, jos liiteitä ei ole.
-\clearpage
-\thesisappendix
+%\clearpage
+%\thesisappendix
 
-\input{sections/A-liitteet}
+%\input{sections/A-liitteet}
 
 \end{document}

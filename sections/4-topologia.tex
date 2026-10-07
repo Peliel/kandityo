@@ -1,12 +1,12 @@
 \section{Algebrotopologiset määritelmät}
 
-Tässä työssä solmujen ominaisuuksien tutkimiseen tarvitaan topologisia työkaluja. Tämän osion päätarkoituksena on määritellä harvinaisia, solmuteorialle tyypillisiä konstruktioita ja peruskäsitteistö oletetaan lukijan hallitsemaksi.\footnote{Topologian peruskäsitteistöä tuntematonta lukijaa suositetaan perehtymään esimerkiksi tiiviiseen luentomuistiinpanoon \citep{koski2024topology} tai syvällisempään johdantoon \citep{Munkres2000}.} Algebrallisen topologian käsitteistössä seuraillaan Hatcherin \citep{Hatcher2002} kirjaa.
+Tässä työssä solmujen ominaisuuksien tutkimiseen tarvitaan topologisia työkaluja. Tämän osion päätarkoituksena on määritellä solmuteorialle hyödyllisiä konstruktioita ja peruskäsitteistö oletetaan lukijan hallitsemaksi.\footnote{Topologian peruskäsitteistöä tuntematonta lukijaa suositetaan perehtymään esimerkiksi tiiviiseen luentomuistiinpanoon \citep{koski2024topology} tai syvällisempään johdantoon \citep{Munkres2000}.} Algebrallisen topologian käsitteistössä seuraillaan Hatcherin \citep{Hatcher2002} kirjaa.
 
-Tämä osio palvelee kahta tarkoitusta: putkiympäristön käsitteen kehittämistä sekä teknisempää todistusta siitä, että kahden homologisen $n$-pallon yhteen pujominen\footnote{Pujominen määritellään solmuja koskevassa kappaleessa ???} tuottaa homologisen $n$-pallon. Käyrän putkiympäristöä voi ajatella pienenä käyrää seurailevana täytettynä putkena. Homologisia palloja koskeva lause varmistaa, että kun kaksi eri avaruuksissa elävää solmua pujotaan yhteen, elää tulossolmu myös ``hyvänlaatuisessa'' avaruudessa.
+Tämä osio palvelee kolmea tarkoitusta. Ensimmäiseksi annetaan muodollinen muotoilu käyrän putkiympäristölle. Käyrän putkiympäristöä voi ajatella pienenä käyrää seurailevana täytettynä putkena. Toiseksi osoitetaan, että $3$-palloissa elävien suljettujen käyrien yhteen pujominen (määritelmä~\ref{maar:pujos}) tuottaa 3-pallossa elävän suljetun käyrän. Kolmantena esitellään osion tärkein aihe, kuidutetut avaruudet.
 
-Formaaleista muotoiluista kiinnostunut lukija voi tutustua osakappaleisiin tarkemmin, mutta niiden sivuuttaminen ei estä lainkaan myöhempiin kappaleisiin perehtymistä.
 
 \subsection{Kimput}
+\label{kpl:kimput}
 Kuitukimppua voidaan pitää topologisten avaruuksien tulon $X\times Y$ yleistyksenä sikäli, että se sallii ``vääntyneen'' tulon. Vektorikimppu on kuitukimpun erityistapaus.
 \begin{maaritelma}[Kuitukimppu]
     \emph{Kuitukimppu} on nelikko $(E,B,\pi,F)$, missä $E,B$ ja $F$ ovat topologisia avaruuksia ja $\pi:E\to B$ jatkuva surjektio, joka tyydyttää paikallisen triviaaliuden ehdon (alla). Sivu 386 alg. top. kirjasta.
@@ -39,7 +39,7 @@ Pallo ja tangenttikimppu ovat esimerkkejä globaalisti triviaalista vektorikimpu
 
 
 \subsection{Kuidut}
-Siinä missä kuitukimppu yleistää topologisen tulon, kuidutus yleistää kuitukimpun. Kuidutuskonstruktio on hankala käsittää ja se esitetään tässä pääosin vain myöhempää konstruktiota, putkiympäristöä, varten.
+Siinä missä kuitukimppu yleistää topologisen tulon, kuidutus yleistää kuitukimpun. Kuidutuskonstruktio on hankala käsittää, mutta pujoskaavioiden (osio~\ref{kpl:pujoskaavio}) kannalta tärkeä.
 \begin{maaritelma}[Homotopinen nosto-ominaisuus]
     Kuvaus $\pi:E\to B$ tyydyttää \emph{homotopisen nosto-ominaisuuden} avaruudelle $X$, jos
     \begin{itemize}
@@ -67,6 +67,7 @@ Siinä missä kuitukimppu yleistää topologisen tulon, kuidutus yleistää kuit
     Jos $E$ on pohja-avaruuden $B$ kuitukimppu $\pi:E\to B$, niin \emph{kuitukimpun sektio} on jatkuva kuvaus $\sigma:B\to E$ siten, että $\pi\circ\sigma=\text{id}_B$.
 \end{maaritelma}
 
+
 \subsection{Putket}
 \begin{maaritelma}
     Olkoot $S,M$: $S\subset M$ sileitä monistoja. $S$:n \emph{putkiympäristö} $M$:ssä on pari $(\pi, J)$, jossa $\pi: E\to S$ on vektorikimppu ja $J:E\to M$ on sileä kuvaus, siten että
@@ -86,21 +87,9 @@ Yksinkertainen esimerkki saadaan käyrästä $\R^3$:ssa. Sen putkiympäristö on
     Jokaisella sileän moniston upotetulla sileällä alimonistolla on putkiympäristö.
 \end{lause}
 \begin{proof}
-    Todistus on vaikea ja löytyy lähteestä ???.
+    \citep[lause 6.24]{Lee2012}.
 \end{proof}
-\begin{maaritelma}
-    Olkoon $f:\C^2\to\C$ polynomikuvaus. Sen kuitua $f^{-1}(c),c\in\C$ kutsutaan \emph{säännölliseksi}, mikäli jollekin $c$:n ympärisölle $D$ kuvaus $f|_{f^{-1}(D)}:f^{-1}(D)\to D$ on paikallisesti triviaali $C^\infty$-kuidutus.
 
-    Kuitu $f^{-1}(c)$ on \emph{säännöllinen äärettömyydessä}, jos jollekin $c$:n ympäristölle $E$ ja kompaktille osajoukolle $K\subset\C^2$ kuvaus $f|_{f^{-1}(D)-K}$ on paikallisesti triviaali kuidutus. 
-
-    Jos kaikki $f$:n kuidut ovat säännöllisiä äärettömyydessä niin $f$ on \emph{hyvä}.
-\end{maaritelma}
-\begin{huomautus}
-    ``Säännöllinen'' ja ``säännöllinen äärettömyydessä ja epäsingulaarinen'' ovat yhtäpitäviä.
-\end{huomautus}
-\begin{ajatus}
-    Säännöllisyys on matemaattinen muotoilu idealle, että läheiset kuidut ``näyttävät samalta'' kuin $f^{-1}(c)$. Säännöllisyys äärettömyydessä muotoilee tämän samalta näyttämisen äärettömyyden ``lähellä''.
-\end{ajatus}
 
 \subsection{Homologiaa pintapuolisesti}
 Homologia on sisällöltään runsas ja tekninen matematiikan osa-alue, jonka tarkoituksena on tutkia topologisten avaruuksien rakennetta ja reikiä. Homologian ehtisi tässä työssä esitellä vain lyhyesti, mikä ei tee aihepiirille oikeutta syvyytensä vuoksi; siispä aiheen esittely ohitetaan tässä työssä, mutta kiinnostunutta lukijaa ohjataan tutustumaan erinomaiseen Hatcherin materiaaliin \citep{Hatcher2002}. Tässä tarkastellaan vain soluhomologiaa, hieman yksinkertaistettua homologian teoriaa.
@@ -112,9 +101,7 @@ Tässä aliosiossa esitetään kuitenkin lyhyt motivaatio homologialle sekä mä
 \begin{esimerkki}
     Ympyrä $\S^1$ ja kahdeksikko eivät ole homologisia. Ympyrä sulkee sisäänsä yhden reiän, kahdeksikko kaksi reikää.
 \end{esimerkki}
-Ympyrän sulkema reikä on olemassa, koska ympyrä muodostaa silmukan. On tärkeää huomata, että silmukka on yksiulotteinen. Korkeamman asteen reiän sulkee sisäänsä $\S^2$, joka on kaksiulotteinen. Tämäkin on tosiaan reikä; siihen ei voi päästä kolmiulotteisessa avaruudessa käsiksi kulkematta $\S^2$:n pinnan läpi, mutta neljättä ulottuvuutta pitkin reiän läpi voi kulkea koskematta $\S^2$:een.
-
-Käytännössä homologiassa lasketaan homologiaryhmiä $H_n(X)$, missä $X$ on topologinen avaruus. Alaindeksi $n\in\Z$ kertoo, että kyseessä on $n$:s homologiaryhmä, joka tavallaan mittaa avaruuden $n$-ulotteisia reikiä. Muitakin kuin kokonaislukukertoimia voisi käyttää, mutta tässä työssä rajoitutaan selkeyden vuoksi kokonaislukukertoimiin.
+Yksiulotteisen ympyrän sisäänsä sulkema alue on yksiulotteinen reikä. $\S^2$ puolestaan sulkee sisäänsä kaksiulotteisen reiän. Tämäkin on tosiaan reikä; siihen ei voi päästä kolmiulotteisessa avaruudessa käsiksi kulkematta $\S^2$:n pinnan läpi, mutta neljättä ulottuvuutta pitkin reiän läpi voi kulkea koskematta $\S^2$:een. Homologiassa pyritään yleistämään reikäisyys täsmällisiksi $n$-ulotteisten reikien käsitteiksi. Käytännössä homologiassa lasketaan homologiaryhmiä $H_n(X)$, missä $X$ on topologinen avaruus. Alaindeksi $n\in\Z$ kertoo, että kyseessä on $n$:s homologiaryhmä, joka tavallaan mittaa avaruuden $n$-ulotteisia reikiä. Muitakin kuin kokonaislukukertoimia voisi käyttää, mutta tässä työssä rajoitutaan selkeyden vuoksi kokonaislukukertoimiin.
 \begin{esimerkki}
     Ympyrälle $\S^1$ homologiaryhmät ovat
     \begin{equation*}
@@ -124,11 +111,7 @@ Käytännössä homologiassa lasketaan homologiaryhmiä $H_n(X)$, missä $X$ on 
             0, & i>1
         \end{cases}.
     \end{equation*}
-    Nollas homologiaryhmä $H_0$ mittaa avaruuden yhtenäisten komponenttien määrää. $H_0(\S^1)=\Z$ tarkoittaa, että ympyröitä voisi olla $k$ kappaletta liimattuna päällekkäin, $k\in\Z$ tai nolla, jos $k=0$.
-
-    $H_1$ mittaa 1-ulotteisten silmukoiden muodostamien reikien määrää.
-
-    $H_n$ mittaa $n$-ulotteisten ``silmukoiden'' jättämien reikien määrää, mutta $\S^1$:llä ei ole $n$-ulotteisia silmukoita.
+    Nollas homologiaryhmä $H_0$ mittaa avaruuden yhtenäisten komponenttien määrää. $H_0(\S^1)=\Z$ tarkoittaa, että ympyröitä voisi olla $k$ kappaletta liimattuna päällekkäin, $k\in\Z$ tai nolla, jos $k=0$. $H_1$ mittaa 1-ulotteisten silmukoiden muodostamien reikien määrää ja $H_n$ mittaa $n$-ulotteisten ``silmukoiden'' jättämien reikien määrää. Koska $\S^1$:llä ei ole $n$-ulotteisia silmukoita, kun $n>1$, niin $H_n(\S^1)=0$.
 \end{esimerkki}
 \begin{esimerkki}
     Pallon $\S^2$ tapauksessa $H_2(\S^2)=\Z$, mutta $H_1(\S^2)=0$, koska pallon pinnalle piirretyn ympyrän voi aina kiristää pisteeksi, mutta pinnan sisäänsä sulkevaa huppua ei voi.
@@ -173,55 +156,30 @@ Jos $\solmu\subset\T^2$ on toruksen pinnalla kulkeva suljettu, itseään leikkaa
     \end{align*}
     missä $\sim$ on isotopiarelaatio (MÄÄRITELMÄ???) ja $\ell(\cdot,\cdot)$ on käyrien linkkiluku (määritelmä~\ref{maar:linkkiluku}).
 \end{maaritelma}
-
-
-\subsection{Homologia (aksiomaattinen yritys)}
-Tämä on vähän epätoivoinen yritys sisällyttää homologia työhön. Poistetaan tämä ja laitetaan ylempään homologiaosioon pari määritelmää ja lausetta.
-
-Tämän aliosion tarkoitus on kiinnittää työssä käytettävä homologian sanasto. Työn tiivis esitys ei tee oikeutta homologialle ja homologiaa tuntematonta lukijaa suositellaankin sivuuttamaan osio, tai tutustumaan homologiaan Hatcherin kirjan avulla \citep{Hatcher2002}. Aliosio on pikemminkin suunnattu homologiaa tuntevalle lukijalle, joka haluaa varmistaa termistön, tai palata työn myöhemmistä osioista tarkistamaan määritelmiä. Sanastossa noudatetaan kuitenkin yleisiä tapoja, joten myös homologiaa tunteva lukija voi sivuuttaa aliosion.
+Määritellään lopuksi vielä isotopia. Tyypilliset topologian samankaltaisuuden käsitteet, homologia ja varsinkin homeomorfia, ovat varsin lepsuja. Näiden työkalujen puutteet tulevat ilmeisiksi varsinkin solmuja tarkasteltaessa; kaksi yksiulotteista solmua ovat aina homologisia ja homeomorfisia $\S^1$:een. Isotopia on tiukempi tyyppiluokittelu, joka kykenee erottamaan eri solmut toisistaan.
 \begin{maaritelma}
-    \emph{CW-kompleksi} on topologinen avaruus $X$, joka muodostetaan algoritmisesti:
-    \begin{enumerate}
-        \item Valitaan diskreetti joukko $X^0$, jonka alkioita kutsutaan $X$:n \emph{$0$-soluiksi}.
-        \item Muodostetaan induktiivisesti \emph{$n$-luuranko $X^n$} $X^{n-1}$:stä liittämällä $n$-soluja $e_\alpha^n$ kuvauksilla $\varphi_\alpha:\pallo^{n-1}\to X^{n-1}$. $X^n$ on tekijä-avaruus
-        \begin{equation}
-            X^n=\frac{X^{n-1}\sqcup_\alpha D_\alpha^n}{\sim},
-        \end{equation}
-        missä $\sim$ on relaatio $x\sim\varphi_\alpha(x)$, kun $x\in\partial D_\alpha^n$. Joukon $D_\alpha^n-\partial D_\alpha^n$ kuva tekijäkuvauksen suhteen ja solu $e_\alpha^n$ ja ovat homeomorfisia.
-        \item Jatkamalla prosessia saadaan $X=\cup_n X^n$ ja se voidaan varustaa heikolla topologialla: $A\subset X$ on avoin (suljettu) jos ja vain jos $A\cap X^n$ on avoin (suljettu) $X^n$:ssä kaikille $n\in\N$. 
-    \end{enumerate}
+    Olkoot $N,M$ monistoja ja $g,h$ upotuksia $N\xhookrightarrow[]{g,h}M$. Olkoon
+    \begin{equation*}
+        F:M\times[0,1]\to M
+    \end{equation*}
+    jatkuva. $F$ on ympäristöisotopia $g$:stä $h$:hon, jos kaikille $t\in[0,1]$ $F_t:M\to M$, ($F_t(\cdot)=F(\cdot,t)$) on homeomorfismi $M\to M$, $F_0=\text{id}_M$ ja $F_1\circ g=h$. Jos $g$:lle ja $h$:lle on olemassa ympäristöisotopia, alimonistot $g(N)$ ja $h(N)$ ovat isotooppisia.
 \end{maaritelma}
-\begin{aksiooma}[Homologia-aksioomat]
-    \begin{enumerate}
-        \item Jos $f\cong g:X\to Y$ niin $f_\bullet=g_\bullet:\tilde h_n(X)\to\tilde h_n(Y)$.
-        \item On olemassa reunahomomorfismit $\partial:\tilde h_n(X/A)\to\tilde h_{n-1}(A)$ määritelty kaikille CW-pareille $(X,A)$, siten että jono
-        \begin{equation}
-            \cdots\xrightarrow{\partial}\tilde h_n(A)\xrightarrow{i_\bullet}\xrightarrow{q_\bullet}\tilde h_n(X/A)\xrightarrow{\partial}\tilde h_n(A)\xrightarrow{i_\bullet}\cdots
-        \end{equation}
-        on tarkka. Jonossa $i$ on inkluusio ja $q$ tekijäkuvaus.
-    \end{enumerate}
-\end{aksiooma}
-\begin{maaritelma}
-    Pelkistetty homologiateoria antaa epätyhjille CW-komplekseille $X$ jonon
-    \begin{itemize}
-        \item abelisia ryhmiä $\tilde h_n(X)$ ja
-        \item homomorfismeja $f_\bullet:\tilde h_n(X)\to\tilde h_n(Y)$ jokaista CW-kompleksien välistä kuvausta $f:X\to Y$ kohden, siten että
-        \begin{itemize}
-            \item $(fg)_\bullet=f_\bullet g_\bullet$
-            \item $\mathbbm{1}_\bullet=\mathbbm{1}$,
-        \end{itemize}
-    \end{itemize}
-    siten, että homologia-aksioomat pitävät.
-\end{maaritelma}
+\begin{esimerkki}
+    Olkoon $N=\S^1$ ja $M=\S^3\subset\C^2$. Parametrisoidaan $\S^1$ kompleksiluvuilla $e^{i\theta}$. Olkoon
+    \begin{align*}
+        g&:\S^1\to\S^3,e^{i\theta}\mapsto (e^{i\theta},e^{i\theta}), \\
+        h&:\S^1\to\S^3,e^{t\theta}\mapsto \frac{1}{\sqrt{2}}(e^{2i\theta},e^{3i\theta}).
+    \end{align*}
+    Tällöin $g(\S^1)$ on $\S^1$, mutta $h(\S^1)$ on kolmilehti (kuva~\ref{kuva:perussolmuja}b). Kuvaukset $g$ ja $h$ eivät ole isotooppisia.
+\end{esimerkki}
+
 
 \subsection{Kuidutetut avaruudet}
-Ok ilmeisesti kuidutetut torukset on aika tärkee juttu ja kuidutetut Seifert-monistot (avaruudet?) myös. Tähän tulis selitystä niistä.
+Kuidutetut avaruudet ovat olennainen osa nykyaikaista tapaa käsitellä solmuja. Kun avaruutta siirrytään tarkastelemaan rakenteellisen pistejoukon asemesta kuitukimppuna, on mahdollista myös esittää solmuja parametrisointien sijaan avaruuden kuituina. Käy ilmi, että kuidutetun avaruuden kuiturakenne määräytyy vain muutamasta \emph{erityiskuidusta}, joiden erityisyys ilmaistaan kokonaislukukertoimen avulla.
 
-\href{https://ncatlab.org/nlab/files/JankinsNeumann-SeifertManifolds.pdf}{https://ncatlab.org/nlab/files/JankinsNeumann-SeifertManifolds.pdf}
-
-Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonka mukaan $\S^3=\TT^2\cup\TT^2$. Tulos on kätevä, sillä toruksia on helppo kuiduttaa, kuten kuvassa~\ref{kuva:torus-kuitukimppu}, ja kaksi epätriviaalisti kuidutettua torusta yhdistämällä voi saada epätriviaalisti kuidutetun 3-pallon.
+Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonka mukaan $\S^3=\TT^2\cup\TT^2$. Tulos on kätevä, sillä toruksia on helppo kuiduttaa, kuten kuvassa~\ref{kuva:torus-kuitukimppu}. Myöhemmin tätä tulosta käyttämällä  näytetään, kuinka kaksi epätriviaalisti kuidutettua torusta yhdistämällä voi saada epätriviaalisti kuidutetun 3-pallon.
 \begin{lemma}
-    Jos $\TT^2=\S^1\times \D^2$, niin $\S^3=\TT^2\cup\TT^2$.
+    Jos $\TT^2=\S^1\times \D^2$, niin $\S^3\approx\TT^2\cup\TT^2$.
     \label{lemma:s3-torushajotus}
 \end{lemma}
 \begin{proof}
@@ -229,7 +187,7 @@ Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonk
     \begin{equation*}
         \partial \left(X\times Y\right)=\left(\partial X\times\bar Y\right)\cup\left(\bar X\times\partial Y\right).
     \end{equation*}
-    Huomataan lisäksi, että $\D^4=\D^2\times \D^2$ (samoin kuin $\D^2=\D^1\times \D^1$). Tällöin koska $\S^3\approx\partial\D^4$,
+    Huomataan lisäksi, että $\D^4\approx\D^2\times \D^2$ (samoin kuin $\D^2\approx\D^1\times \D^1$). Tällöin koska $\S^3\approx\partial\D^4$,
     \begin{align*}
         \S^3&\approx\partial\left(\D^2\times \D^2\right) \\
         &=\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right) \\
@@ -238,19 +196,18 @@ Aloitetaan kuidutettujen avaruuksien käsittely monistojen perustuloksesta, jonk
     mikä oli haluttu tulos.
 \end{proof}
 \begin{huomautus}
-    Todistuksessa nähdään, että $\S^3=\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right)$. On hyvä huomata, että kahdessa tulossa ympyrän $\S^1$ ja levyn $\D^2$ paikka vaihtuu. Geometrisesti tämä tarkoittaa sitä, että kaksi torusta $\TT_1^2,\TT_2^2$ liimataan yhteen pintojaan myöten siten, että $\TT_1^2$:n ympäryspiiri osuu $\TT_2^2$:n pituuspiiriin ja toisin päin.
+    Todistuksessa nähdään, että $\S^3\approx\left(\S^1\times \D^2\right)\cup\left(\D^2\times\S^1\right)$. On hyvä huomata, että kahdessa tulossa ympyrän $\S^1$ ja levyn $\D^2$ paikka vaihtuu. Geometrisesti tämä tarkoittaa sitä, että kaksi torusta $\TT_1^2,\TT_2^2$ liimataan yhteen pintojaan myöten siten, että $\TT_1^2$:n ympäryspiiri osuu $\TT_2^2$:n pituuspiiriin ja toisin päin.
 \end{huomautus}
 Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskeinen ominaisuus on hajotelma 1-ulotteisiin kuituihin.
 \begin{maaritelma}[Seifert-kuidutettu avaruus ja Seifert-monisto]
-    \emph{Seifert-kuidutettu avaruus} on avaruus, joka voidaan esittää erillisten ympyröiden $\S^1$ yhdisteenä.
-
-    \emph{Seifert-monisto} on 3-monisto, jonka voi pujontaoperaatiolla (määritelmä~\ref{maar:pujos}) rakentaa Seifert-kuidutetuista avaruuksista.
+    \emph{Seifert-kuidutettu avaruus} on avaruus, joka voidaan esittää erillisten ympyröiden $\S^1$ yhdisteenä. \emph{Seifert-monisto} on 3-monisto, jonka voi pujontaoperaatiolla (määritelmä~\ref{maar:pujos}) rakentaa Seifert-kuidutetuista avaruuksista.
 \end{maaritelma}
+Tästä lähtien tarkastellaan yksinomaan Seifert-kuidutettuja avaruuksia ja Seifert-monistoja.
 \begin{esimerkki}
     Sekä ontto että täytetty torus $\S^1\times\S^1$, $\S^1\times \D^2$ (kuva~\ref{kuva:torus-kuitukimppu}) ovat Seifert-kuidutettuja avaruuksia.
 \end{esimerkki}
 \begin{esimerkki}
-    $\S^3$ on Seifert-monisto, koska $\S^3=\T^2\sqcup\T^2$. Tarkalleen ottaen $\S^3$ saadaan pujomalla yhteen kaksi triviaalia solmua $(\S^3,\S^1)$. Siis $\S^3$ voidaan hajottaa kahteen joukkoon $\S^3-\S^1$, joille pätee $\S^3-\S^1\approx\interior\T^2$.
+    $\S^3$ on Seifert-monisto, koska $\S^3\approx\TT^2\cup\TT^2$. Tarkalleen ottaen $\S^3$ saadaan pujomalla yhteen kaksi triviaalia solmua $(\S^3,\S^1)$. Siis $\S^3$ voidaan hajottaa kahteen joukkoon $\S^3\setminus\S^1$, joille pätee $\S^3\setminus\S^1\approx\interior\T^2$.
 \end{esimerkki}
 \begin{figure*}
     \centering
@@ -261,9 +218,11 @@ Työn kannalta olennainen 3-monistojen luokka on Seifert-monistot, joiden keskei
 \begin{esimerkki}
     Olkoon $\D^2\times[0,1]$ sylinteri. Varustetaan sylinteri relaatiolla $(x,1)\sim(\rho_\alpha x,0)$, jossa $x\in \D^2$ on jokin levyn piste ja $\rho_\alpha$ on kulman $2\pi\alpha$, $\alpha\in\Q\cap[0,1)$ suuruinen käännös keskipisteen $0\in \D^2$ ympäri.
 
-    Joukko $\D^2\times[0,1]/\sim$ on \emph{vääntynyt torus}. Toruksen kaikki kuidut (määrittele) ovat vääntyneitä, lukuun ottamatta keskimmäistä kuitua, joka palaa joka kierroksella lähtöpisteeseensä. Keskikuidun tyyppistä kuitua kutsutaan \emph{erityiskuiduksi}. Muita kuituja kutsutaan \emph{tavallisiksi}.
+    Joukko $\D^2\times[0,1]/\sim$ on \emph{vääntynyt torus}. Varustetaan vääntynyt torus projektiolla $\pi:\D^2\times[0,1]/\sim\to\D^2,(x,t)\mapsto(x,0)$, missä $x\in\D^2$ ja $t\in[0,1)$. Tällöin yksittäinen vääntyneen toruksen kuitu on $\pi^{-1}(x)$, missä $x\in\D^2$.
+    
+    Vääntyneen Toruksen kaikki kuidut (määrittele) ovat vääntyneitä, lukuun ottamatta keskimmäistä kuitua, joka palaa joka kierroksella lähtöpisteeseensä. Keskikuidun tyyppistä kuitua kutsutaan \emph{erityiskuiduksi}. Muita kuituja kutsutaan \emph{tavallisiksi}.
 
-    Jos $\alpha=l/k$, $\syt(l,k)=1$, toruksen ympäri täytyy kiertää $k$ kertaa, jotta pääsee alkupisteeseen. Tällöin toruksen pienempi akseli kierretään $l$ kertaa. Toisin sanoen tavallinen kuitu on sama kuin $(k,l)$-torussolmu\footnote{Ks. määritelmä~\ref{maar:torussolmu}.}! Erityiskuidusta sanotaan, että sen moninkerta on $k$. Tämä johtuu juuri siitä, että kun tavallinen kuitu kierretään kokonaan ympäri, on matkalla $k$ verran 1 toruksen mittaista erityiskuitua.
+    Jos $\alpha=l/k$, $\syt(l,k)=1$, toruksen ympäri täytyy kiertää $k$ kertaa, jotta pääsee alkupisteeseen. Tällöin toruksen pienempi akseli kierretään $l$ kertaa. Toisin sanoen tavallinen kuitu on sama kuin $(k,l)$-torussolmu (ks. määritelmä~\ref{maar:torussolmu})! Erityiskuidusta sanotaan, että sen moninkerta on $k$. Tämä johtuu juuri siitä, että kun tavallinen kuitu kierretään kokonaan ympäri, on matkalla $k$ verran 1 toruksen mittaista erityiskuitua.
     \label{esim:torussolmut-kuituina}
 \end{esimerkki}
 Tällainen keskiakselinsa ympäri vääntynyt torus osoittautuu algebrallisten solmujen kannalta keskeiseksi konstruktioksi, joten sille on hyvä antaa nimi.
@@ -274,9 +233,10 @@ Edellä on jo esitetty, että $\S^3=\TT^2\sqcup\TT^2$, kun $\TT^2$ ovat triviaal
 \begin{maaritelma}
     \emph{Seifert-kuidutus} on 3-monisto $\Sigma$, jolla on jatkuva kuvaus $\pi:\Sigma\to B$ siten, että kaikille $x\in B$ on olemassa ympäristö $U_x\subset B$ siten, että $\pi^{-1}(U_x)$ on isomorfinen jonkin epätriviaalisti kuidutetun toruksen sisukseen.
 \end{maaritelma}
-Seifert-kuidutuksella voi olla erityiskuituja, jotka vastaavat asiayhteyden epätriviaalisti kuidutetun toruksen moninkertojen $k_i\geq2$ erityiskuituja.
-
-Työn kannalta erityisen tärkeä Seifert-kuidutuksen erityistapaus on $\S^3$:n kuidutus $\S^1$-kuiduilla.
+\begin{maaritelma}
+    Seifert-kuidutuksen $\pi:\Sigma\to B$ kuitu $\pi^{-1}(b)$ on \emph{säännöllinen} tai \emph{tyypillinen kuitu}, jos viereiset kuidut ``näyttävät samalta''. Siis, jos $\pi\vert_{\pi^{-1}[U]}:\pi^{-1}[U]\to U$ on paikallisesti triviaali sileä kuidutus jollekin ympäristölle $U$, $b\in U\subset B$, niin $\pi^{-1}(b)$ on säännöllinen tai tyypillinen kuitu. Jos sopivaa ympäristöä $U$ ei ole, $\pi^{-1}(b)$ on \emph{erityiskuitu}.
+\end{maaritelma}
+Työn kannalta erityisen tärkeä Seifert-kuidutuksen erityistapaus on $\S^3$:n kuidutus $\S^1$-kuiduilla. Tämä muotoillaan seuraavassa lauseessa, jonka todistuksen keskeiset elementit ammentavat lähteestä \citep{Saveliev2002}, pääosin osiosta 1.1.
 \begin{lause}
     Olkoot $k_1,k_2\geq2$ kokonaislukuja siten, että $\syt(k_1,k_2)=1$. On olemassa kuidutus $\pi_{k_1,k_2}:\S^3\to\S^2$, jolla on täsmälleen kaksi erityiskuitua kertoimilla $k_1,k_2$.
     \label{lause:s3-kuidutus}
@@ -391,11 +351,7 @@ Annetaan lisäksi topologinen todistus tuomaan lisäperspektiiviä avaruuden rak
     \end{itemize}
     Todistetaan lopuksi, että $X=\S^3$. Edellä jo todistettiin, että käyrän $C_i$ homologialuokka on $X$:ssä triviaali.
 
-    \textcolor{red}{Tässä on looginen hyppy. Miten pääsen $C_i$:n homologialuokan triviaaliudesta eteenpäin? Mikä on tämä puuttuva palanen? Alla oleva tieto on kielimallilta, koska en osannut netistä hakea sopivaa tietoa asiaan.}
-    
-    Tämän työn sisällön kannalta kohtuullisilla esitietovaatimuksilla ei ole mahdollista perustella, että $X$:n homologiaryhmän $H_1$ triviaalius on lisäksi \emph{riittävä} ehto siihen, että liimauksen jälkeinen avaruus olisi $\S^3$. On kuitenkin olemassa tuloksia, joiden mukaan avaruutta $Z\ne\S^3$, joka on homologinen 3-palloon, ei ole mahdollista konstruoida vain kahdesta niinkin yksinkertaisesta kappaleesta kuin toruksesta. Siispä todellakin $X=\S^3$.
-
-    \textcolor{red}{Jos $n_i$ oltaisiin valittu toisin, olisiko $X'$ ollut sitten erilainen? Vai millainen diffeomorfismi $X=X'$ olisi olemassa?}
+    Tämän työn sisällön kannalta kohtuullisilla esitietovaatimuksilla ei ole mahdollista perustella, että $X$:n homologiaryhmän $H_1$ triviaalius on lisäksi \emph{riittävä} ehto siihen, että liimauksen jälkeinen avaruus olisi $\S^3$. Edistyneempien 3-monistojen teorian tulosten mukaan mielivaltainen 3-monisto voidaan hajottaa osiin, jotka kuuluvat käytännössä kahdeksaan 3-monistojen luokkaan. Näiden tulosten mukaan homologista 3-palloa $Z\ne\S^3$ ei ole mahdollista konstruoida vain kahdesta niinkin yksinkertaisesta kappaleesta kuin toruksesta. Siispä todellakin $X=\S^3$.
 
     Voidaan siis todeta, että $\pi$ on kaivattu kuvaus $\pi_{k_1,k_2}$ ja erityiskuidut, joiden moninkerrat ovat $k_i$, ovat torusten $\TT_i$ keskiakselit.
 \end{proof}

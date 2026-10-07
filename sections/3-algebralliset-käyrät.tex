@@ -79,8 +79,8 @@ Intuitiivisesti lienee selvää, että tapauksessa $n=0$ pallo $\S^0$ pelkistyy,
 
     Täsmällisesti tämä voidaan muotoilla normaalivektorin avulla. Litteän pinnan normaalivektori on pisteestä riippumatta saman suuntainen, kun taas kaarevan pinnan normaalivektori riippuu pisteestä. Normaali voidaan laskea gradientin avulla. Kirjoitetaan
     \begin{align*}
-        f(x_1,\dots,x_n)=\sum_{i=0}^{n}a_ix_i^2,\qquad
-        g(x_1,\dots,x_n)=\sum_{i=0}^{n}b_ix_i^2.
+        f(x_1,\dots,x_n)=a_0+\sum_{i=1}^{n}a_ix_i,\qquad
+        g(x_1,\dots,x_n)=b_0+\sum_{i=1}^{n}b_ix_i.
     \end{align*}
     Tällöin normaalit ovat
     \begin{align*}
@@ -107,9 +107,9 @@ Käyrän $V(f)$ paikallinen muoto pisteessä $p=(a,b)\in V(f)$ määrittyy $f$:n
     Tällöin voidaan myös sanoa, että käyrä on \emph{singulaarinen}.
 \end{maaritelma}
 \begin{maaritelma}
-    Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{säännöllinen}. Jos kaikki käyrän pisteet ovat säännöllisiä, niin käyrä on \emph{säännöllinen}.
+    Jos vähintään yksi osittaisderivaatoista ei ole nolla $p$:ssä, niin piste on \emph{epäsingulaarinen}. Jos kaikki käyrän pisteet ovat säännöllisiä, niin käyrä on \emph{epäsingulaarinen}.
 \end{maaritelma}
-Säännöllisessä pisteessä implisiittifunktiolause takaa, että käyrä näyttää paikallisesti (kompleksimielessä, $\dim_\C$) 1-ulotteiselta monistolta\footnote{Oikea termi olisi \emph{varisto}, joka tiiviyden vuoksi jätetään määrittelemättä. Työn tarpeisiin monisto riittää hyvin.}, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatan oltavat huonosti käyttäytyvässä pisteessä nolla.
+Säännöllisessä pisteessä implisiittifunktiolause takaa, että käyrä näyttää paikallisesti (kompleksimielessä, $\dim_\C$) 1-ulotteiselta monistolta\footnote{Algebrallisessa geometriassa sanotaan \emph{varisto}, joka tiiviyden vuoksi jätetään määrittelemättä.}, ja on mahdollista määritellä yksikäsitteinen tangenttisuora. Kuvassa~\ref{kuva:käyriä-ja-singulariteetteja} on havainnollistettu singulaarisuutta. Singulaarinen käyrä voi leikata itseään tai muodostaa kärjen. Koska polynomit ovat kaikissa pisteissään derivoituvia, on singulaarisen käyrän kokonaisderivaatan oltavat huonosti käyttäytyvässä pisteessä nolla.
 \begin{figure*}
     \centering
     \includegraphics[width=0.7\textwidth]{figures/käyriä-ja-singulariteetteja.pdf}
@@ -121,22 +121,20 @@ Säännöllisessä pisteessä implisiittifunktiolause takaa, että käyrä näyt
 \label{kpl:projektiivinen-avaruus}
 Avaruudella $\K^n$ on geometrinen rajoitus: kaksi erillistä suoraa leikkaavat yleensä yhdessä pisteessä, paitsi jos ne ovat yhdensuuntaisia. Käsitteiden yhtenäistämiseksi käyttöön otetaan projektiivinen avaruus, joka lisää tavalliseen vektoriavaruuteen $\K^n$ matemaattisesti hyvin määritellyn ``horisontin''.
 
-$\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ määritellään joukoksi, joka koostuu avaruuden $\K^{n+1}$ vektorisäteistä (eli niiden ekvivalenssiluokista), jotka kulkevat origon kautta.
+$\K$-rakenteinen $n$-ulotteinen projektiivinen avaruus $\P^n(\K)$ tai $\K\P^n$ määritellään joukoksi, joka koostuu avaruuden $\K^{n+1}$ vektorisäteistä (eli suorien ekvivalenssiluokista), jotka kulkevat origon kautta.
 \begin{maaritelma}
-    Olkoon $(Z_0,\dots,Z_n) \in \K^{n+1}-\{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
+    Olkoon $(Z_0,\dots,Z_n) \in \K^{n+1}\setminus\{0\}$. Määritellään ekvivalenssirelaatio $\sim$ seuraavasti:
     \begin{equation*}
         (Z_0,\dots,Z_n) \sim (\lambda Z_0, \dots, \lambda Z_n) \quad \text{kaikille } \lambda \in \K^*.
     \end{equation*}
     Tällöin
     \begin{equation*}
-        \P^n(\K):=\frac{\K^{n+1}-\{0\}}{\sim}.
+        \P^n(\K):=\frac{\K^{n+1}\setminus\{0\}}{\sim}.
     \end{equation*}
     Ekvivalenssiluokan edustaja merkitään homogeenisilla koordinaateilla $[Z_0:\dots:Z_n]$.
 \end{maaritelma}
 \begin{asetus}
-    Jatkossa tarkastellaan yksinomaan kompleksista projektiivista avaruutta $\P^n(\C)$. Lisäksi merkitään $\P^n$ pidemmän $\P^n(\C)$ sijasta.
-
-    Poikkeus tehdään havainnollistavien kuvien kohdalla, jotka piirretään reaaliseen tasoon. Kompleksitasossa on liikaa ulottuvuuksia.
+    Jatkossa tarkastellaan yksinomaan kompleksista projektiivista avaruutta $\P^n(\C)$. Lisäksi merkitään $\P^n$ pidemmän $\P^n(\C)$ sijasta. Poikkeus tehdään havainnollistavien kuvien kohdalla, jotka piirretään reaaliseen tasoon. Kompleksitasossa on liikaa ulottuvuuksia.
 \end{asetus}
 Projektiivisen avaruuden idea on tuoda tavalliseen avaruuteen $\K^n$ myös ``horisontti'', joka ajaa äärettömyyden virkaa. Kuvassa~\ref{kuva:projektiivinen-suora} on piirretty kaksi yhdensuuntaista suoraa tavalliseen $\R$-tasoon sekä projektiiviseen tasoon $\P^2(\R)$. Äärettömyys ei ole yksi piste, vaan kokonainen ``horisonttiviiva'' ja suorat leikkaavat suoraan katsojan edessä.
 \begin{figure*}
@@ -151,9 +149,8 @@ Havaintoa siitä, että projektiivisessa tasossa äärettömyys on tasoa ympär�
     Tapauksissa $n=1$ ja $n=2$
     \begin{itemize}
         \item $\P^1\cong\C\cup\{\infty\}$ (Riemann-pallo)
-        \item $\P^2\cong\C^2\cup\P^1$. $\P^2$:n koordinaatit ovat $[X:Y:Z]$, ja $\P^1$ on joukko pisteitä, joilla $Z=0$.
+        \item $\P^2\cong\C^2\cup\P^1$. $\P^2$:n koordinaatit ovat $[X/Z:Y/Z:1]\sim[X:Y:1]$, ja $\P^1$ on joukko pisteitä, joilla $Z=0$.
     \end{itemize}
-    Jos tarkastellaan projektiivisten avaruuksien ulottuvuuksia reaalimielessä ($\dim_\R(\C)=2$), niin $\dim_\R(\P^1)=2$ ja $\dim_\R(\P^2)=6$ (vai 4?).
 \end{esimerkki}
 Esimerkin~\ref{esim:proj-taso-ja-suora} kaava yleistyy itse asiassa kaikille $n\in\N$.
 \begin{lemma}
@@ -167,8 +164,6 @@ Esimerkin~\ref{esim:proj-taso-ja-suora} kaava yleistyy itse asiassa kaikille $n\
     \end{equation*}
     Jos taas $Z_n=0$, niin piste kuuluu $\P^{n-1}$:een. Tällöin saadaan jako $\P^{n}=\C^n\sqcup\P^{n-1}$.
 \end{proof}
-Yleisen projektiivisen avaruuden $\P^n$ ``sisus'' on $\C^n$ ja ``kuori äärettömyydessä'' $\P^{n-1}$, joka induktiivisesti kuortaan lukuunottamatta muistuttaa $\C^{n-1}$:tä. Tämä antaa mielekkään upotuksen $\C^n\hookrightarrow\P^n$, jossa $\C^n$ upotetaan bijektiivisesti pelkästään $\P^n$:n ``sisukseen''.
-
 Työlle relevantissa 2-ulotteisessa tapauksessa avaruus $\C^2$ voidaan nähdä paikallisena karttana (tai tiheänä avoimena joukkona) projektiivisessa tasossa $\P^2(\C)$. Tyypillinen upotus määritellään seuraavasti:
 \begin{align*}
     \iota : \C^2 &\hookrightarrow \P^2(\C) \\
@@ -176,10 +171,10 @@ Työlle relevantissa 2-ulotteisessa tapauksessa avaruus $\C^2$ voidaan nähdä p
 \end{align*}
 Pisteet $\P^2$:ssa, jotka eivät kuulu tämän upotuksen kuvaan, ovat muotoa $[X:Y:0]$. Näiden pisteiden joukko muodostaa projektiivisen suoran $\P^1$, jota kutsutaan \emph{suoraksi äärettömyydessä} tai \emph{äärettömyyssuoraksi}. Lemman \ref{lemma:projektiivisen-avaruuden-jako} hengessä $\P^2=\C^2\sqcup\P^1$.
 
-Edellinen upotus ei ole kaikissa tilanteissa optimaalinen tai toimiva, mutta pääidea on, että upottaminen on erittäin helppoa.
+Edellinen upotus ei ole aina välttämättä optimaalinen tai toimiva, mutta pääidea on, että upottaminen on erittäin helppoa.
 
 \subsection{Projektiiviset käyrät}
-Projektiivisessa tasossa $\P^2$ klassinen polynomi $f(x,y)$ ei ole hyvin määritelty, koska homogeeniset koordinaatit ovat ekvivalentteja skalaarikertoimen suhteen. Tämän vuoksi on käytettävä \emph{homogeenistä} polynomia $F(X,Y,Z)$, eli polynomia, jossa kaikilla monomeilla on sama aste $d$. Yhtälö $F(\lambda X, \lambda Y, \lambda Z) = \lambda^d F(X,Y,Z) = 0$ on tällöin riippumaton valitusta edustajasta.
+Projektiivisessa tasossa $\P^2$ klassinen polynomi $f(x,y)$ ei ole hyvin määritelty, koska homogeeniset koordinaatit ovat ekvivalentteja skalaarikertoimen suhteen. Tämän vuoksi on käytettävä \emph{homogeenistä} polynomia $F(X,Y,Z)$, eli polynomia, jossa kaikilla monomeilla on sama aste $d$. Yhtälö $F(\lambda X, \lambda Y, \lambda Z) = \lambda^d F(X,Y,Z) = 0$ on tällöin riippumaton valitusta ekvivalenssiluokan $[X:Y:Z]$ edustajasta.
 \begin{maaritelma}[Homogenisointi]
     Polynomi $f(x,y) \in \C[x,y]$ voidaan \emph{homogenisoida} määrittelemällä
     \begin{equation*}
@@ -216,16 +211,7 @@ Koska projektiivisessa avaruudessa pisteet ovat suorien ekvivalenssiluokkia, tar
     \caption{Paraabeli $\R^2$:ssa ja $\P^2(\R)$:ssa, jossa se muistuttaa ellipsiä.}
     \label{kuva:projektiivinen-paraabeli}
 \end{figure*}
-Sulkeutuuko algebrallinen käyrä aina äärettömyydessä? Ei välttämättä. Kartioleikkauksista hyperboli antaa vastaesimerkin.
-
-Annetuista esimerkeistä hyperboli on itse asiassa kiinnostavin, sillä se paljastaa jotakin oleellista projektiivisen avaruuden rakenteesta, nimittäin sen, että avaruutta ympäröivä horisontti ei ole yksinkertaisesti vain ympyrä. Tilannetta havainnollistetaan jokseenkin monimutkaisessa kuvassa~\ref{kuva:projektiivinen-hyperboli}.
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/projektiivinen-hyperboli.pdf}
-    \caption{Hyperboli $\R^2$:ssa ja $\P^2(\R)$:ssa.}
-    \label{kuva:projektiivinen-hyperboli}
-\end{figure*}
-Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäksi merkitty kaksi asymptoottisuoraa $h_1$ ja $h_2$, joita kohti hyperboli suppenee neljässä eri suunnassa.
+Siinä missä projektiivinen paraabeli hipoo äärettömyyssuoraa tangentiaalisesti, voi projektiivinen käyrä törmätä äärettömyyssuoraan transversaalisestikin. Kartioleikkauksista hyperboli antaa vastaesimerkin. Hyperbolin tapaus paljastaa myös, ettei avaruutta ympäröivä horisontti ole yksinkertainen ympyrä. Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäksi merkitty kaksi asymptoottisuoraa $h_1$ ja $h_2$, joita kohti hyperboli suppenee neljässä eri suunnassa.
 \begin{esimerkki}[Projektiivinen hyperboli]
     Hyperbolin yhtälö on $f(x,y)=x^2-y^2+1=0$, jonka homogenisoitu muoto on $F(X,Y,Z)=X^2-Y^2+Z^2=0$. Horisontti vastaa pisteitä, joilla $Z=0$. Yhtälö äärettömyydessä on siis $X^2-Y^2=0$. Tällöin
     \begin{align*}
@@ -240,10 +226,10 @@ Kuvassa vasemmalla on esitetty hyperboli tutussa reaalitasossa. Kuvaan on lisäk
     \end{equation*}
     Tangenttisuorat pisteissä $[1:1:0]$ ja $[1:-1:0]$ ovat siis $X-Y=0$ ja $X+Y=0$. Nämä vastaavat suoria $h_2$ ja $h_1$.
 \end{esimerkki}
-Oikealla on päällekkäin kaksi reaalista projektiivista tasoa. Keskitytään ensiksi alempaan tikku-ukkoon. Kuten edellisissä kuvissa, tikku-ukko seisoo origossa ja katsoo horisonttiin. Tämä vastaa vasemmanpuoleisen kuvan ylempää puolitasoa $y>0$. Hyperboli on piirretty tasaisella viivalla ja se törmää horisonttiin kahdessa pisteessä muodostaen ellipsin. Tikku-ukon avaruuden oikealla puolella on ympyrä, joka esittää positiivisen kiertosuunnan.
-
-Mitä tapahtuu horisontin takana, johon on piirretty katkoviivaa? Siirrytään takaisin vasemmanpuoleiseen kuvaan $\R^2$:een. Oletetaan, että tikku-ukko lähtee kävelemään paraabelia pitkin luoteeseen ja että hän saapuu äärettömyyteen. Äärettömyydessä hänen pistettään vastaa asymptoottinen suora $h_1$, mutta hän olisi voinut kulkea myös kaakkoon päästäkseen tähän pisteeseen! Toisin sanoen kävelemällä eteenpäin äärettömyyteen ja sen yli, tikku-ukko päätyykin alapuoliseen tasoon ($y<0$). Jos hän jatkaa matkaa, hän saapuu ennen pitkää takaisin origoon.
-
-Tikku-ukon matkalla avaruus on kuitenkin kääntynyt 180 astetta. Tätä havainnollistavat kuvan oikealla laidalla olevat kiertoympyrät, jotka kääntyvät 180 astetta avaruuden yli mentäessä. Jos origon tienoilta lähtisi armeija tikku-ukkoja ympyrämuodostelmassa kävelemään kohti äärettömyyttä, he päätyisivät ennen pitkää takaisin origoon, mutta heidän ympyränsä olisi nyt kääntynyt 180 astetta alkuperäisestä. Tämä johtuu siitä, että projektiivisessa avaruudessa luode vastaa kaakkoa ja koillinen lounasta. Tilanteen voi onneksi korjata kävelemällä uudestaan äärettömyyden yli.
-
-Projektiivista tasoa ei siis ympäröikään ympyrä, vaan ympyrä jossa kaksi vastakkaista pistettä ovatkin sama piste. Kyseessä on siis puoliympyrä, mutta miten puoliympyrä voi ympyröidä avaruutta, jossa on kuitenkin ympyrän verran liikkumasuuntia? Jätämme tämän lukijan pohdittavaksi.
+Hyperboli lähestyy äärettömyyttä neljässä eri suunnassa, mutta vain kahdella asymptoottisella erilaisella tavalla. Näitä kahta asymptotiikkaa edustavat suorat $h_1$ ja $h_2$. Kulkemalla suoraa $h_1$ päädytään samaan äärettömyyshorisontin pisteeseen riippumatta siitä, kumpaan suuntaan suoraa kuljetaan. Äärettömyyshorisontti on ympyrä, jonka (origon suhteen) vastakkaiset pisteet on liimatty yhteen. Se siis ei ole $\R^2$:ta reunustava ympyrä, eikä $\P^2(\R)$ ole ``kiekko''.
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/projektiivinen-hyperboli.pdf}
+    \caption{Hyperboli $\R^2$:ssa ja $\P^2(\R)$:ssa.}
+    \label{kuva:projektiivinen-hyperboli}
+\end{figure*}

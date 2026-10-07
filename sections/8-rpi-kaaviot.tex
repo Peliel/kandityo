@@ -65,9 +65,9 @@ Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käy
 \end{maaritelma}
 \par\vspace{\topsep}
 \noindent
-\textbf{Lause \ref{lause:päätulos}.} \emph{(i) Pelkistetty algebrallinen käyrä $V\subset\C^2$ jollakin upotuksella $\C^2\subset\P^2$ määrittää RPI-pujoskaavion $\Omega$ $V$:n äärettömyyslinkille. Äärettömyyspisteiden lukumäärälle pätee $n_\infty(V)=n$, missä $n$ on kaavion juurisilmun valenssi. Lisäksi $\deg(V)=\ell_\text{juuri}$, jossa $\ell_\text{juuri}$ on juuren (virtuaalisen) komponentin linkkiluku äärettömyyslinkin kanssa. Jos $V$ on säännöllinen käyrä, $\Omega$ on säännöllinen (määritelmä???) pujoskaavio.}
+\textbf{Lause \ref{lause:päätulos}.} \emph{(i) Pelkistetty algebrallinen käyrä $V\subset\C^2$ jollakin upotuksella $\C^2\subset\P^2$ määrittää RPI-pujoskaavion $\Omega$ $V$:n äärettömyyslinkille. Äärettömyyspisteiden lukumäärälle pätee $n_\infty(V)=n$, missä $n$ on kaavion juurisilmun valenssi. Lisäksi $\deg(V)=\ell_\text{juuri}$, jossa $\ell_\text{juuri}$ on juuren (virtuaalisen) komponentin linkkiluku äärettömyyslinkin kanssa. \sout{Jos $V$ on säännöllinen käyrä, $\Omega$ on säännöllinen pujoskaavio.}}
 
-\emph{(ii) Linkki on jonkin äärettömyyslinkin (joka voidaan valita säännölliseksi (määritelmä???), jopa hyväksi (määritelmä???)) osalinkki jos ja vain jos sillä on RPI-pujoskaavio.}
+\emph{(ii) Linkki on jonkin äärettömyyslinkin osalinkki jos ja vain jos sillä on RPI-pujoskaavio.}
 \begin{proof}[Lauseen \ref{lause:päätulos}(i) todistus]
     Tarkastelun kohteena ovat käyrät $V$, joilla on upotus $V\hookrightarrow\C^2$, missä kompleksiavaruudella on jokin sopiva upotus projektiiviseen tasoon $\C^2\hookrightarrow\P^2$. $V$:llä on olemassa jokin projektiivinen laajennus $C$, joka myös saattaa saada erisuuria arvoja äärettömyydessä riippuen $V$:n haarojen asymptotiikasta. Koska $C$ on $\C^2$-käyrän projektiivinen laajennus, voidaan olettaa, että äärettömyyshorisontti $\P^1$ ei ole $C$:n komponentti. Siispä $C$ leikkaa $\P^1$:n pisteissä $y_1,\dots,y_n$.
 
@@ -105,7 +105,7 @@ Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käy
     \end{tikzpicture} 
     on (iteroitu) toruslinkki ja lisäksi $K_0$ on epäsolmu (isotooppinen ympyrään $\S^1$). \textbf{Suora lainaus:} Tämän johdosta korkeintaan yksi lähipaino kussakin silmussa ei ole yksi (tätä en ymmärtänyt?).
 
-    Olkoon $N(\P^1)$ äärettömyyshorisontin putkiympäristö. Tällöin $S^3=\partial N(\P^1)$ on pallo äärettömyydessä, jolloin $\linkki_\infty=(S^3,S^3\cap C)$ on äärettömyyslinkki. $N(\P^1)$ voidaan konstruoida $\bar D$:stä lisäämällä 2-kahva komponenttiin $K_0\subset S$ \textcolor{red}{??? kahvoja en ole käsitellyt yhtään, onko ongelma?}, joten $\linkki_\infty$ saadaan linkistä $\linkki$ $(+1)$-Dehn-kirurgialla suhteen komponentin $K_0$. Proposition 3.4 \citep{Neumann1989} nojalla $\linkki_\infty$:llä on pujoskaavio
+    Olkoon $N(\P^1)$ äärettömyyshorisontin putkiympäristö. Tällöin $S^3=\partial N(\P^1)$ on pallo äärettömyydessä, jolloin $\linkki_\infty=(S^3,S^3\cap C)$ on äärettömyyslinkki. $N(\P^1)$ voidaan konstruoida $\bar D$:stä lisäämällä 2-kahva komponenttiin $K_0\subset S$, joten $\linkki_\infty$ saadaan linkistä $\linkki$ $(+1)$-Dehn-kirurgialla suhteen komponentin $K_0$. Proposition 3.4 \citep{Neumann1989} nojalla $\linkki_\infty$:llä on pujoskaavio
     \begin{center}
         \begin{tikzpicture}% Solmut
             \node (gamma0) at (-2,0) {$\Gamma(\linkki_\infty)=$};
@@ -160,15 +160,6 @@ Algebrallisten käyrien kannalta kiinnostavaa on ymmärtää, miten käyrä käy
     \begin{equation*}
         \ell_\text{juuri}=\ell(\Omega,\solmu_\text{juuri}).
     \end{equation*}
-    Jos käyrä $V(f)=f^{-1}(0)$ on säännöllinen, niin $f^{-1}(0)$ on säännöllinen kuitu.
-
-    Osoitetaan vielä, että jos $\linkki_\infty$ on säännöllisen käyrän $V=C-(C\cap\P^1)\subset\P^2-\P^1$ linkki, sitä vastaava RPI-pujoskaavio on säännöllinen. Merkitköön $\linkki_i$ kaavion 
-    \begin{tikzpicture}[baseline=(G.base)]
-        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
-        \node[empty node] (s) at (-0.7,0) {};
-        \draw (s) -- node[edge value, near start, above] {} (G);
-    \end{tikzpicture} 
-    esittämää linkkiä eli käyrän linkkiä singulariteetissa $y_i\in\P^1$. Olkoon $K_i$ tämän kaavion vasemmanpuoleisen lehden virtuaalikomponentti. Olkoon $F_0$ Seifert-pinta, eli pinta jonka reuna on $\linkki_\infty$: $\partial F_0=\linkki_\infty$. Olkoon $F_i$ linkin $\linkki_i$ kuitu. 
 \end{proof}
 \begin{proof}[Lauseen \ref{lause:päätulos}(ii) todistus]
     Osan (i) todistus pätee sellaisenaan osoittamaan, että äärettömyyslinkin osalinkillä on RPI-pujoskaavio.

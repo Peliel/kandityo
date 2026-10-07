@@ -87,9 +87,9 @@ Joissakin tapauksissa hyödyllinen on myös konsepti, joka niputtaa kaikki tange
 \subsection{Vektoriavaruuden suunnistus}
 Toisin kuin tutuissa vektoriavaruuksissa $\R^3\cong\text{span}\{e_1,e_2,e_3\}$, yleisessä vektoriavaruudessa $V$ ei ole päivänselvää tapaa määrittää ``positiivista'' tai ``negatiivista'' suuntaa.
 \begin{esimerkki}
-    Olkoon $V$ 2-ulotteinen vektoriavaruus, jonka kanta on $\{\sin\theta,\cos\theta\}$. Kumpi suunnistetuista kannoista $(\sin\theta,\cos\theta)$ ja $(\cos\theta,\sin\theta)$ on positiivinen? Huomaa, että kyseessä on funktioiden, jotka voidaan esittää sinin ja kosinin lineaariyhdistelyinä, vektoriavaruus, ja $\theta$ on vain yleinen muuttuja, eikä saa mitään arvoja.
+    Olkoon $V$ funktioiden, jotka voidaan esittää sinin ja kosinin lineaariyhdistelyinä, vektoriavaruus. Tällöin se on 2-ulotteinen ja sen kanta on $\{\sin\theta,\cos\theta\}$, missä $\theta$ on vain yleinen muuttuja ilman määriteltyä arvoa. Kumpi suunnistetuista kannoista $(\sin\theta,\cos\theta)$ ja $(\cos\theta,\sin\theta)$ on positiivinen?
 \end{esimerkki}
-Vektoriavaruuden tai moniston oikeaoppinen suunnistus voidaan kuitenkin kääntää muodollisiksi matemaattisiksi ilmaisuiksi \emph{differentiaalimuotojen} avulla. Aloitetaan kuitenkin hyvin määritellyistä suunnistuksista.
+Vektoriavaruuden tai moniston oikeaoppinen suunnistus voidaan kuitenkin kääntää muodollisiksi matemaattisiksi ilmaisuiksi. Aloitetaan hyvin määritellyistä suunnistuksista.
 \begin{maaritelma}
     Olkoon $V$ reaalinen $n$-vektoriavaruus. Kaksi suunnistettua kantaa $(e_1,\dots,e_n)$ ja $(f_1,\dots,f_n)$ ovat \emph{yhtäpitävästi suunnistettuja}, jos niiden muuntomatriisille, jonka määrittää yhtälö
     \begin{equation*}
@@ -128,7 +128,7 @@ Sellaisenaan tämä ei ole järin hyödyllinen määritelmä, sillä suunnistus 
 
 Moniston globaalin suunnistuksen määrittelemiseksi tarvitaan vielä pari konseptia. Intuitiivisesti moniston suunnistukseen liittyy aina jonkinlainen jatkuva ``virtaus'', joka määrittää postiivisen suunnan. Määritellään tämä virtaus vektorikenttien avulla.
 \begin{maaritelma}
-    Moniston $M$ \emph{vektorikenttä $X$} on sileä kuvaus $X: M \to TM$, jossa $TM$ on moniston $M$ tangenttikimpu, siten että
+    Moniston $M$ \emph{vektorikenttä $X$} on sileä kuvaus $X: M \to TM$, jossa $TM$ on moniston $M$ tangenttikimpu (ks. kappale~\ref{kpl:kimput}), siten että
     \begin{equation*}
         \pi\circ X=\text{id}_M,
     \end{equation*}
@@ -146,6 +146,4 @@ Paikallinen kehys on siis jokin moniston avoin osajoukko, johon voi määrittä�
 
     Moniston $M$ \emph{suunnistus} on jatkuva pisteittäinen suunnistus.
 \end{maaritelma}
-Toisin sanoen $M$ on suunnistettu, jos sillä on olemassa avoin peite $\mathcal{D}=\{U_p\}_{p\in M}$, jossa jokainen $U_p$ on sikäli erityinen, että se on paikallinen kehys. Tätä peitettä voikin ajatella avoimen peitteen asemesta erilaisena \emph{$n$-ulotteisen virtauksen peitteenä}.
-
-Selvästi jos monistolla on kaikissa pisteissä $n$-ulotteinen virtausalkio, jonka suunta ja muoto on yhdenmukainen läheisten pisteiden virtausalkioiden kanssa, on mielekästä sanoa monistolla olevan (globaali) ``suunnistus''.
+Toisin sanoen $M$ on suunnistettu, jos sillä on olemassa avoin peite $\mathcal{D}=\{U_p\}_{p\in M}$, jossa jokainen $U_p$ on sikäli erityinen, että se on paikallinen kehys. Tätä peitettä voikin ajatella avoimen peitteen asemesta erilaisena \emph{$n$-ulotteisen virtauksen peitteenä}. Selvästi jos monistolla on kaikissa pisteissä $n$-ulotteinen virtausalkio, jonka suunta ja muoto on yhdenmukainen läheisten pisteiden virtausalkioiden kanssa, on mielekästä sanoa monistolla olevan (globaali) ``suunnistus''.

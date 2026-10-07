@@ -1,0 +1,16 @@
+
+    Jos käyrä $V(f)=f^{-1}(0)$ on säännöllinen, niin $f^{-1}(0)$ on säännöllinen kuitu.
+
+    Osoitetaan vielä, että jos $\linkki_\infty$ on säännöllisen käyrän $V=C-(C\cap\P^1)\subset\P^2-\P^1$ linkki, sitä vastaava RPI-pujoskaavio on säännöllinen. Merkitköön $\linkki_i$ kaavion 
+    \begin{tikzpicture}[baseline=(G.base)]
+        \node[rectangle node, inner sep=2pt] (G) at (0,0) {$\Gamma_i$};
+        \node[empty node] (s) at (-0.7,0) {};
+        \draw (s) -- node[edge value, near start, above] {} (G);
+    \end{tikzpicture} 
+    esittämää linkkiä eli käyrän linkkiä singulariteetissa $y_i\in\P^1$. Olkoon $K_i$ tämän kaavion vasemmanpuoleisen lehden virtuaalikomponentti. Olkoon $F_0$ Seifert-pinta, eli pinta jonka reuna on $\linkki_\infty$: $\partial F_0=\linkki_\infty$. Olkoon $F_i$ linkin $\linkki_i$ kuitu. Tällöin $\bar C=\bigcup_{i=0}^n F_i$ on käyrän $C$ epäsingulaarinen muunnos. Muunnoksen euler-karakteristiikka on
+    \begin{equation*}
+        \chi(\bar C)=\sum_{i=0}^{n}\chi(F_i).
+    \end{equation*}
+    Olkoon $P_i$ käyrän $C$ ja horisontin $\P^1$ paikallinen leikkausluku pisteessä $y_i$. Täten kokonaisleikkausluku on $P=\sum_{i=1}^{n}P_i$. Edellisten tulosten perusteella käyrällä $\bar C$ on aste $P$, joten (minkä tuloksen perusteella?) $\chi(\bar C)=3P-P^2$. $P_i$ voidaan tulkita myös linkkilukuna $P_i=\ell(K_i,\linkki_i)$ ja $P=\ell(K_0,\linkki_\infty)$.
+
+    Esitellään hieman uutta notaatiota. Olkoon silmun kaavion $\Gamma$ silmun $v$ kaukopaino $\beta_v$, joten silmun $v$ kaukopaino $\Omega$:ssa on \citep[Prop 3.4]{Neumann1989} nojalla $\beta_v''=\lambda_v^2\alpha_v-\beta_v$.
